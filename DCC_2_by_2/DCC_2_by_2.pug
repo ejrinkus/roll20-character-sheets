@@ -1,0 +1,33 @@
+- const aligns = [["lawful", "Lawful"], ["neutral", "Neutral"], ["chaotic", "Chaotic"]]
+div.root
+  each row in [["1", "2"], ["3", "4"]]
+    div.charrow
+      each c in row
+        div.character
+          div.3colrow
+            div.col
+              label Name
+              input(type="text", name=`attr_name_${c}`)
+            div.col
+              label Occupation
+              input(type="text", name=`attr_occupation_${c}`)
+            div.col
+              label Alignment
+              div.radios 
+                input(type="hidden", name=`attr_alignment_${c}`, value="").radio
+                each pair in aligns
+                  button(class=`radio radio-${pair[0]}`, type="action", name=`act_alignment_${pair[0]}_${c}`)
+                    span.checked
+                  |  #{pair[1]}
+          div.row
+            div.col
+              each att in ["STR", "AGI", "STA", "PER", "INT", "LUC"]
+                div.row
+                    div.col
+                      label #{att}
+                    div.col
+                      input(type="number", name=`attr_name_${att}_val`)
+                    div.col
+                      input(type="number", name=`attr_name_${att}_mod`)
+script(type="text/worker")
+  include js/alignment.js
