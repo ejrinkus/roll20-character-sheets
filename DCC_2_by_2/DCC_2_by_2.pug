@@ -23,11 +23,11 @@ div.root
             div.col
               each att in ["STR", "AGI", "STA", "PER", "INT", "LUC"]
                 div.row
-                    div.col
+                    div.col.att
                       label #{att}
-                    div.col
+                    div.col.att
                       input(type="number", name=`attr_name_${att}_val`)
-                    div.col
+                    div.col.att
                       input(type="number", name=`attr_name_${att}_mod`)
 script(type="text/worker")
   include js/alignment.js

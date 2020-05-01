@@ -1,36 +1,38 @@
 /* Configure the root div containing all elements. */
 .sheet-root {
-  width: 1575px;
+  width: 1605px;
   background-color: gray;
 }
 
 /* Configure parent divs for each of the character sheets. */
 .sheet-charrow {
   display: block;
-  padding: 10px;
+  padding: 20px;
 }
 .sheet-charrow ~ div.sheet-charrow {
+  /* Remove the top padding of the second row, so that the padding isn't doubled. */
   padding-top: 0px;
 }
 
 div.sheet-character {
   display: inline-block;
-  padding: 10px;
+  padding: 20px;
   background-color: white;
-  width: 750px;
-  box-shadow: 5px 5px;
+  width: 730px;
+  box-shadow: 10px 10px 5px;
 }
 div.sheet-character ~ div.sheet-character {
-  margin-left: 10px;
+  /* The margins for the charrow handles all the spacing except between sheets horizontally. 
+     Add left margin to the sheets on the right to handle that.*/
+  margin-left: 20px;
 }
 
-/* Configure a container for the radio buttons. */
+/* Configure a container for the alignment radio buttons. */
 .sheet-radios {
-  /* display: flex; */
   align-items: center;
 }
 
-/* Configure the button styling. This example makes it look like a radio. */
+/* Configure the button styling for the alignment radio buttons. */
 button.sheet-radio {
   padding: 0;
   border: solid 1px #a8a8a8;
@@ -43,7 +45,6 @@ button.sheet-radio {
   justify-content: center;
   align-items: center;
 }
-
 button.sheet-radio > span.sheet-checked {
   width: 6px;
   height: 6px;
@@ -52,11 +53,25 @@ button.sheet-radio > span.sheet-checked {
   display: inline-flex;
 }
 
-/* Hide the "checked" section of the radio if the attribute value does not match the radio */
+/* Hide the "checked" section of the radio if the attribute value does not match the radio. */
 input.sheet-radio:not([value=lawful]) ~ button.sheet-radio-lawful > span.sheet-checked,
 input.sheet-radio:not([value=neutral]) ~ button.sheet-radio-neutral > span.sheet-checked,
 input.sheet-radio:not([value=chaotic]) ~ button.sheet-radio-chaotic > span.sheet-checked {
   display: none;
+}
+
+/* Format the attribute columns. */
+div.sheet-col.sheet-att {
+  width: 40px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: center;
+}
+div.sheet-col.sheet-att label {
+  display: inline-flex;
+  margin: 0px;
+  padding: 0px;
 }
 
 /*# sourceMappingURL=DCC_2_by_2.css.map */

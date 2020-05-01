@@ -1,9 +1,10 @@
-$root-background: gray;
-$root-width: 1575px;
-
 $sheet-background: white;
-$sheet-width: 750px;
-$sheet-shadow: 5px 5px;
+$sheet-width: 730px;
+$sheet-margin: 20px;
+$sheet-shadow: 10px 10px 5px;
+
+$root-background: gray;
+$root-width: $sheet-width*2 + $sheet-margin*7 + 5;
 
 /* Configure the root div containing all elements. */
 .sheet-root {
@@ -14,30 +15,32 @@ $sheet-shadow: 5px 5px;
 /* Configure parent divs for each of the character sheets. */
 .sheet-charrow {
   display: block;
-  padding: 10px;
+  padding: $sheet-margin;
   ~ div.sheet-charrow {
+    /* Remove the top padding of the second row, so that the padding isn't doubled. */
     padding-top: 0px;
   }
 }
 
 div.sheet-character {
   display: inline-block;
-  padding: 10px;
+  padding: $sheet-margin;
   background-color: $sheet-background;
   width: $sheet-width;
   box-shadow: $sheet-shadow;
   ~ div.sheet-character {
-    margin-left: 10px;
+    /* The margins for the charrow handles all the spacing except between sheets horizontally. 
+       Add left margin to the sheets on the right to handle that.*/
+    margin-left: $sheet-margin;
   }
 }
 
-/* Configure a container for the radio buttons. */
+/* Configure a container for the alignment radio buttons. */
 .sheet-radios {
-  /* display: flex; */
   align-items: center;
 }
 
-/* Configure the button styling. This example makes it look like a radio. */
+/* Configure the button styling for the alignment radio buttons. */
 button.sheet-radio {
   padding: 0;
   border: solid 1px #a8a8a8;
@@ -50,8 +53,6 @@ button.sheet-radio {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-}
-button.sheet-radio {
   > span.sheet-checked {
     width: 6px;
     height: 6px;
@@ -61,9 +62,23 @@ button.sheet-radio {
   }
 }
 
-/* Hide the "checked" section of the radio if the attribute value does not match the radio */
+/* Hide the "checked" section of the radio if the attribute value does not match the radio. */
 input.sheet-radio:not([value="lawful"]) ~ button.sheet-radio-lawful > span.sheet-checked,
 input.sheet-radio:not([value="neutral"]) ~ button.sheet-radio-neutral > span.sheet-checked,
 input.sheet-radio:not([value="chaotic"]) ~ button.sheet-radio-chaotic > span.sheet-checked {
   display: none;
+}
+
+/* Format the attribute columns. */
+div.sheet-col.sheet-att {
+  width: 40px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: center;
+  label {
+    display: inline-flex;
+    margin: 0px;
+    padding: 0px;
+  }
 }
