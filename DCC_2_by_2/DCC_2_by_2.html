@@ -2,383 +2,646 @@
 <div class="root">
   <div class="charrow">
     <div class="character">
-      <div class="3colrow">
-        <div class="col">
+      <div class="row char-row">
+        <div class="col char-col">
           <label>Name</label>
           <input type="text" name="attr_name_1"/>
         </div>
-        <div class="col">
+        <div class="col char-col">
           <label>Occupation</label>
           <input type="text" name="attr_occupation_1"/>
         </div>
-        <div class="col">
+        <div class="col char-col">
           <label>Alignment</label>
-          <div class="radios"> 
-            <input class="radio" type="hidden" name="attr_alignment_1" value=""/>
-            <button class="radio radio-lawful" type="action" name="act_alignment_lawful_1"><span class="checked"></span></button> Lawful
-            <button class="radio radio-neutral" type="action" name="act_alignment_neutral_1"><span class="checked"></span></button> Neutral
-            <button class="radio radio-chaotic" type="action" name="act_alignment_chaotic_1"><span class="checked"></span></button> Chaotic
+          <div class="checklines"> 
+            <input class="checkline" type="hidden" name="attr_alignment_1" value=""/>
+            <button class="checkline checkline-lawful" type="action" name="act_alignment_lawful_1"><span class="checked">X</span></button><span>Lawful</span>
+            <button class="checkline checkline-neutral" type="action" name="act_alignment_neutral_1"><span class="checked">X</span></button><span>Neutral</span>
+            <button class="checkline checkline-chaotic" type="action" name="act_alignment_chaotic_1"><span class="checked">X</span></button><span>Chaotic</span>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-          <div class="row">
-            <div class="col att">
+      <div class="row char-row">
+        <div class="col char-col">
+          <div class="row att-row">
+            <div class="col att-col">
               <label>STR</label>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_STR_val"/>
+            <div class="col att-col">
+              <input type="number" name="attr_STR_cur_1"/>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_STR_mod"/>
+            <div class="col att-col">
+              <input type="number" name="attr_STR_mod_1" readonly="readonly" value="0"/>
             </div>
           </div>
-          <div class="row">
-            <div class="col att">
+          <div class="row att-row">
+            <div class="col att-col">
               <label>AGI</label>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_AGI_val"/>
+            <div class="col att-col">
+              <input type="number" name="attr_AGI_cur_1"/>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_AGI_mod"/>
+            <div class="col att-col">
+              <input type="number" name="attr_AGI_mod_1" readonly="readonly" value="0"/>
             </div>
           </div>
-          <div class="row">
-            <div class="col att">
+          <div class="row att-row">
+            <div class="col att-col">
               <label>STA</label>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_STA_val"/>
+            <div class="col att-col">
+              <input type="number" name="attr_STA_cur_1"/>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_STA_mod"/>
+            <div class="col att-col">
+              <input type="number" name="attr_STA_mod_1" readonly="readonly" value="0"/>
             </div>
           </div>
-          <div class="row">
-            <div class="col att">
+          <div class="row att-row">
+            <div class="col att-col">
               <label>PER</label>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_PER_val"/>
+            <div class="col att-col">
+              <input type="number" name="attr_PER_cur_1"/>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_PER_mod"/>
+            <div class="col att-col">
+              <input type="number" name="attr_PER_mod_1" readonly="readonly" value="0"/>
             </div>
           </div>
-          <div class="row">
-            <div class="col att">
+          <div class="row att-row">
+            <div class="col att-col">
               <label>INT</label>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_INT_val"/>
+            <div class="col att-col">
+              <input type="number" name="attr_INT_cur_1"/>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_INT_mod"/>
+            <div class="col att-col">
+              <input type="number" name="attr_INT_mod_1" readonly="readonly" value="0"/>
             </div>
           </div>
-          <div class="row">
-            <div class="col att">
+          <div class="row att-row">
+            <div class="col att-col">
               <label>LUC</label>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_LUC_val"/>
+            <div class="col att-col">
+              <input type="number" name="attr_LUC_cur_1"/>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_LUC_mod"/>
+            <div class="col att-col">
+              <input type="number" name="attr_LUC_mod_1" readonly="readonly" value="0"/>
             </div>
           </div>
         </div>
+        <div class="col char-col">
+          <div class="row att-row">
+            <div class="col att-col">
+              <label>HP</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_cur_hp_1"/>
+            </div>
+            <div class="col att-col">
+              <label style="text-align:center;font-size:24px">/</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_max_hp_1"/>
+            </div>
+          </div>
+          <div class="row att-row">
+            <div class="col att-col">
+              <label>MOV</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_MOV_1"/>
+            </div>
+          </div>
+          <div class="row att-row">
+            <div class="col att-col">
+              <label>AC</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_AC_1"/>
+            </div>
+          </div>
+          <div class="row att-row">
+            <div class="col att-col">
+              <label>REF</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_REF_1"/>
+            </div>
+          </div>
+          <div class="row att-row">
+            <div class="col att-col">
+              <label>FOR</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_FOR_1"/>
+            </div>
+          </div>
+          <div class="row att-row">
+            <div class="col att-col">
+              <label>WIL</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_WIL_1"/>
+            </div>
+          </div>
+        </div>
+        <div class="col char-col">placeholder</div>
       </div>
     </div>
     <div class="character">
-      <div class="3colrow">
-        <div class="col">
+      <div class="row char-row">
+        <div class="col char-col">
           <label>Name</label>
           <input type="text" name="attr_name_2"/>
         </div>
-        <div class="col">
+        <div class="col char-col">
           <label>Occupation</label>
           <input type="text" name="attr_occupation_2"/>
         </div>
-        <div class="col">
+        <div class="col char-col">
           <label>Alignment</label>
-          <div class="radios"> 
-            <input class="radio" type="hidden" name="attr_alignment_2" value=""/>
-            <button class="radio radio-lawful" type="action" name="act_alignment_lawful_2"><span class="checked"></span></button> Lawful
-            <button class="radio radio-neutral" type="action" name="act_alignment_neutral_2"><span class="checked"></span></button> Neutral
-            <button class="radio radio-chaotic" type="action" name="act_alignment_chaotic_2"><span class="checked"></span></button> Chaotic
+          <div class="checklines"> 
+            <input class="checkline" type="hidden" name="attr_alignment_2" value=""/>
+            <button class="checkline checkline-lawful" type="action" name="act_alignment_lawful_2"><span class="checked">X</span></button><span>Lawful</span>
+            <button class="checkline checkline-neutral" type="action" name="act_alignment_neutral_2"><span class="checked">X</span></button><span>Neutral</span>
+            <button class="checkline checkline-chaotic" type="action" name="act_alignment_chaotic_2"><span class="checked">X</span></button><span>Chaotic</span>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-          <div class="row">
-            <div class="col att">
+      <div class="row char-row">
+        <div class="col char-col">
+          <div class="row att-row">
+            <div class="col att-col">
               <label>STR</label>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_STR_val"/>
+            <div class="col att-col">
+              <input type="number" name="attr_STR_cur_2"/>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_STR_mod"/>
+            <div class="col att-col">
+              <input type="number" name="attr_STR_mod_2" readonly="readonly" value="0"/>
             </div>
           </div>
-          <div class="row">
-            <div class="col att">
+          <div class="row att-row">
+            <div class="col att-col">
               <label>AGI</label>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_AGI_val"/>
+            <div class="col att-col">
+              <input type="number" name="attr_AGI_cur_2"/>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_AGI_mod"/>
+            <div class="col att-col">
+              <input type="number" name="attr_AGI_mod_2" readonly="readonly" value="0"/>
             </div>
           </div>
-          <div class="row">
-            <div class="col att">
+          <div class="row att-row">
+            <div class="col att-col">
               <label>STA</label>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_STA_val"/>
+            <div class="col att-col">
+              <input type="number" name="attr_STA_cur_2"/>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_STA_mod"/>
+            <div class="col att-col">
+              <input type="number" name="attr_STA_mod_2" readonly="readonly" value="0"/>
             </div>
           </div>
-          <div class="row">
-            <div class="col att">
+          <div class="row att-row">
+            <div class="col att-col">
               <label>PER</label>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_PER_val"/>
+            <div class="col att-col">
+              <input type="number" name="attr_PER_cur_2"/>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_PER_mod"/>
+            <div class="col att-col">
+              <input type="number" name="attr_PER_mod_2" readonly="readonly" value="0"/>
             </div>
           </div>
-          <div class="row">
-            <div class="col att">
+          <div class="row att-row">
+            <div class="col att-col">
               <label>INT</label>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_INT_val"/>
+            <div class="col att-col">
+              <input type="number" name="attr_INT_cur_2"/>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_INT_mod"/>
+            <div class="col att-col">
+              <input type="number" name="attr_INT_mod_2" readonly="readonly" value="0"/>
             </div>
           </div>
-          <div class="row">
-            <div class="col att">
+          <div class="row att-row">
+            <div class="col att-col">
               <label>LUC</label>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_LUC_val"/>
+            <div class="col att-col">
+              <input type="number" name="attr_LUC_cur_2"/>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_LUC_mod"/>
+            <div class="col att-col">
+              <input type="number" name="attr_LUC_mod_2" readonly="readonly" value="0"/>
             </div>
           </div>
         </div>
+        <div class="col char-col">
+          <div class="row att-row">
+            <div class="col att-col">
+              <label>HP</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_cur_hp_2"/>
+            </div>
+            <div class="col att-col">
+              <label style="text-align:center;font-size:24px">/</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_max_hp_2"/>
+            </div>
+          </div>
+          <div class="row att-row">
+            <div class="col att-col">
+              <label>MOV</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_MOV_2"/>
+            </div>
+          </div>
+          <div class="row att-row">
+            <div class="col att-col">
+              <label>AC</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_AC_2"/>
+            </div>
+          </div>
+          <div class="row att-row">
+            <div class="col att-col">
+              <label>REF</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_REF_2"/>
+            </div>
+          </div>
+          <div class="row att-row">
+            <div class="col att-col">
+              <label>FOR</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_FOR_2"/>
+            </div>
+          </div>
+          <div class="row att-row">
+            <div class="col att-col">
+              <label>WIL</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_WIL_2"/>
+            </div>
+          </div>
+        </div>
+        <div class="col char-col">placeholder</div>
       </div>
     </div>
   </div>
   <div class="charrow">
     <div class="character">
-      <div class="3colrow">
-        <div class="col">
+      <div class="row char-row">
+        <div class="col char-col">
           <label>Name</label>
           <input type="text" name="attr_name_3"/>
         </div>
-        <div class="col">
+        <div class="col char-col">
           <label>Occupation</label>
           <input type="text" name="attr_occupation_3"/>
         </div>
-        <div class="col">
+        <div class="col char-col">
           <label>Alignment</label>
-          <div class="radios"> 
-            <input class="radio" type="hidden" name="attr_alignment_3" value=""/>
-            <button class="radio radio-lawful" type="action" name="act_alignment_lawful_3"><span class="checked"></span></button> Lawful
-            <button class="radio radio-neutral" type="action" name="act_alignment_neutral_3"><span class="checked"></span></button> Neutral
-            <button class="radio radio-chaotic" type="action" name="act_alignment_chaotic_3"><span class="checked"></span></button> Chaotic
+          <div class="checklines"> 
+            <input class="checkline" type="hidden" name="attr_alignment_3" value=""/>
+            <button class="checkline checkline-lawful" type="action" name="act_alignment_lawful_3"><span class="checked">X</span></button><span>Lawful</span>
+            <button class="checkline checkline-neutral" type="action" name="act_alignment_neutral_3"><span class="checked">X</span></button><span>Neutral</span>
+            <button class="checkline checkline-chaotic" type="action" name="act_alignment_chaotic_3"><span class="checked">X</span></button><span>Chaotic</span>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-          <div class="row">
-            <div class="col att">
+      <div class="row char-row">
+        <div class="col char-col">
+          <div class="row att-row">
+            <div class="col att-col">
               <label>STR</label>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_STR_val"/>
+            <div class="col att-col">
+              <input type="number" name="attr_STR_cur_3"/>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_STR_mod"/>
+            <div class="col att-col">
+              <input type="number" name="attr_STR_mod_3" readonly="readonly" value="0"/>
             </div>
           </div>
-          <div class="row">
-            <div class="col att">
+          <div class="row att-row">
+            <div class="col att-col">
               <label>AGI</label>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_AGI_val"/>
+            <div class="col att-col">
+              <input type="number" name="attr_AGI_cur_3"/>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_AGI_mod"/>
+            <div class="col att-col">
+              <input type="number" name="attr_AGI_mod_3" readonly="readonly" value="0"/>
             </div>
           </div>
-          <div class="row">
-            <div class="col att">
+          <div class="row att-row">
+            <div class="col att-col">
               <label>STA</label>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_STA_val"/>
+            <div class="col att-col">
+              <input type="number" name="attr_STA_cur_3"/>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_STA_mod"/>
+            <div class="col att-col">
+              <input type="number" name="attr_STA_mod_3" readonly="readonly" value="0"/>
             </div>
           </div>
-          <div class="row">
-            <div class="col att">
+          <div class="row att-row">
+            <div class="col att-col">
               <label>PER</label>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_PER_val"/>
+            <div class="col att-col">
+              <input type="number" name="attr_PER_cur_3"/>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_PER_mod"/>
+            <div class="col att-col">
+              <input type="number" name="attr_PER_mod_3" readonly="readonly" value="0"/>
             </div>
           </div>
-          <div class="row">
-            <div class="col att">
+          <div class="row att-row">
+            <div class="col att-col">
               <label>INT</label>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_INT_val"/>
+            <div class="col att-col">
+              <input type="number" name="attr_INT_cur_3"/>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_INT_mod"/>
+            <div class="col att-col">
+              <input type="number" name="attr_INT_mod_3" readonly="readonly" value="0"/>
             </div>
           </div>
-          <div class="row">
-            <div class="col att">
+          <div class="row att-row">
+            <div class="col att-col">
               <label>LUC</label>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_LUC_val"/>
+            <div class="col att-col">
+              <input type="number" name="attr_LUC_cur_3"/>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_LUC_mod"/>
+            <div class="col att-col">
+              <input type="number" name="attr_LUC_mod_3" readonly="readonly" value="0"/>
             </div>
           </div>
         </div>
+        <div class="col char-col">
+          <div class="row att-row">
+            <div class="col att-col">
+              <label>HP</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_cur_hp_3"/>
+            </div>
+            <div class="col att-col">
+              <label style="text-align:center;font-size:24px">/</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_max_hp_3"/>
+            </div>
+          </div>
+          <div class="row att-row">
+            <div class="col att-col">
+              <label>MOV</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_MOV_3"/>
+            </div>
+          </div>
+          <div class="row att-row">
+            <div class="col att-col">
+              <label>AC</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_AC_3"/>
+            </div>
+          </div>
+          <div class="row att-row">
+            <div class="col att-col">
+              <label>REF</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_REF_3"/>
+            </div>
+          </div>
+          <div class="row att-row">
+            <div class="col att-col">
+              <label>FOR</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_FOR_3"/>
+            </div>
+          </div>
+          <div class="row att-row">
+            <div class="col att-col">
+              <label>WIL</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_WIL_3"/>
+            </div>
+          </div>
+        </div>
+        <div class="col char-col">placeholder</div>
       </div>
     </div>
     <div class="character">
-      <div class="3colrow">
-        <div class="col">
+      <div class="row char-row">
+        <div class="col char-col">
           <label>Name</label>
           <input type="text" name="attr_name_4"/>
         </div>
-        <div class="col">
+        <div class="col char-col">
           <label>Occupation</label>
           <input type="text" name="attr_occupation_4"/>
         </div>
-        <div class="col">
+        <div class="col char-col">
           <label>Alignment</label>
-          <div class="radios"> 
-            <input class="radio" type="hidden" name="attr_alignment_4" value=""/>
-            <button class="radio radio-lawful" type="action" name="act_alignment_lawful_4"><span class="checked"></span></button> Lawful
-            <button class="radio radio-neutral" type="action" name="act_alignment_neutral_4"><span class="checked"></span></button> Neutral
-            <button class="radio radio-chaotic" type="action" name="act_alignment_chaotic_4"><span class="checked"></span></button> Chaotic
+          <div class="checklines"> 
+            <input class="checkline" type="hidden" name="attr_alignment_4" value=""/>
+            <button class="checkline checkline-lawful" type="action" name="act_alignment_lawful_4"><span class="checked">X</span></button><span>Lawful</span>
+            <button class="checkline checkline-neutral" type="action" name="act_alignment_neutral_4"><span class="checked">X</span></button><span>Neutral</span>
+            <button class="checkline checkline-chaotic" type="action" name="act_alignment_chaotic_4"><span class="checked">X</span></button><span>Chaotic</span>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-          <div class="row">
-            <div class="col att">
+      <div class="row char-row">
+        <div class="col char-col">
+          <div class="row att-row">
+            <div class="col att-col">
               <label>STR</label>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_STR_val"/>
+            <div class="col att-col">
+              <input type="number" name="attr_STR_cur_4"/>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_STR_mod"/>
+            <div class="col att-col">
+              <input type="number" name="attr_STR_mod_4" readonly="readonly" value="0"/>
             </div>
           </div>
-          <div class="row">
-            <div class="col att">
+          <div class="row att-row">
+            <div class="col att-col">
               <label>AGI</label>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_AGI_val"/>
+            <div class="col att-col">
+              <input type="number" name="attr_AGI_cur_4"/>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_AGI_mod"/>
+            <div class="col att-col">
+              <input type="number" name="attr_AGI_mod_4" readonly="readonly" value="0"/>
             </div>
           </div>
-          <div class="row">
-            <div class="col att">
+          <div class="row att-row">
+            <div class="col att-col">
               <label>STA</label>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_STA_val"/>
+            <div class="col att-col">
+              <input type="number" name="attr_STA_cur_4"/>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_STA_mod"/>
+            <div class="col att-col">
+              <input type="number" name="attr_STA_mod_4" readonly="readonly" value="0"/>
             </div>
           </div>
-          <div class="row">
-            <div class="col att">
+          <div class="row att-row">
+            <div class="col att-col">
               <label>PER</label>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_PER_val"/>
+            <div class="col att-col">
+              <input type="number" name="attr_PER_cur_4"/>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_PER_mod"/>
+            <div class="col att-col">
+              <input type="number" name="attr_PER_mod_4" readonly="readonly" value="0"/>
             </div>
           </div>
-          <div class="row">
-            <div class="col att">
+          <div class="row att-row">
+            <div class="col att-col">
               <label>INT</label>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_INT_val"/>
+            <div class="col att-col">
+              <input type="number" name="attr_INT_cur_4"/>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_INT_mod"/>
+            <div class="col att-col">
+              <input type="number" name="attr_INT_mod_4" readonly="readonly" value="0"/>
             </div>
           </div>
-          <div class="row">
-            <div class="col att">
+          <div class="row att-row">
+            <div class="col att-col">
               <label>LUC</label>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_LUC_val"/>
+            <div class="col att-col">
+              <input type="number" name="attr_LUC_cur_4"/>
             </div>
-            <div class="col att">
-              <input type="number" name="attr_name_LUC_mod"/>
+            <div class="col att-col">
+              <input type="number" name="attr_LUC_mod_4" readonly="readonly" value="0"/>
             </div>
           </div>
         </div>
+        <div class="col char-col">
+          <div class="row att-row">
+            <div class="col att-col">
+              <label>HP</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_cur_hp_4"/>
+            </div>
+            <div class="col att-col">
+              <label style="text-align:center;font-size:24px">/</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_max_hp_4"/>
+            </div>
+          </div>
+          <div class="row att-row">
+            <div class="col att-col">
+              <label>MOV</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_MOV_4"/>
+            </div>
+          </div>
+          <div class="row att-row">
+            <div class="col att-col">
+              <label>AC</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_AC_4"/>
+            </div>
+          </div>
+          <div class="row att-row">
+            <div class="col att-col">
+              <label>REF</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_REF_4"/>
+            </div>
+          </div>
+          <div class="row att-row">
+            <div class="col att-col">
+              <label>FOR</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_FOR_4"/>
+            </div>
+          </div>
+          <div class="row att-row">
+            <div class="col att-col">
+              <label>WIL</label>
+            </div>
+            <div class="col att-col">
+              <input type="number" name="attr_WIL_4"/>
+            </div>
+          </div>
+        </div>
+        <div class="col char-col">placeholder</div>
       </div>
     </div>
   </div>
 </div>
 <script type="text/worker">
+  
   const characterIndices = ["1", "2", "3", "4"];
-  const alignmentRadioValues = ["lawful","neutral","chaotic"];
+  const alignments = ["lawful","neutral","chaotic"];
+  const attributes = ["STR", "AGI", "STA", "PER", "INT", "LUC"];
+  
+  characterIndices.forEach(function(charI) {
+    alignments.forEach(function(alignment) {
+      on(`clicked:alignment_${alignment}_${charI}`, function() {
+        setAttrs({
+          [`alignment_${charI}`]: alignment
+        });
+      });
+    })
+  });
+  function getMod(val) {
+    if (val >= 18) {
+      return 3;
+    }
+    if (val >= 16) {
+      return 2;
+    }
+    if (val >= 13) {
+      return 1;
+    }
+    if (val >= 9) {
+      return 0;
+    }
+    if (val >= 6) {
+      return -1;
+    }
+    if (val >= 4) {
+      return -2;
+    }
+    return -3;
+  }
 
   characterIndices.forEach(function(charI) {
-    alignmentRadioValues.forEach(function(value) {
-      on(`clicked:alignment_${value}_${charI}`, function() {
-        setAttrs({
-          [`alignment_${charI}`]: value
-        });
+    attributes.forEach(function(attr) {
+      on(`change:${attr}_cur_${charI} sheet:opened`, function() {
+        getAttrs([`${attr}_cur_${charI}`], function(values) {
+          setAttrs({
+            [`${attr}_mod_${charI}`]: getMod(values[`${attr}_cur_${charI}`])
+          });
+        })
       });
     })
   });

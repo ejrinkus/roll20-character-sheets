@@ -4,30 +4,53 @@ div.root
     div.charrow
       each c in row
         div.character
-          div.3colrow
-            div.col
+          div.row.char-row
+            div.col.char-col
               label Name
               input(type="text", name=`attr_name_${c}`)
-            div.col
+            div.col.char-col
               label Occupation
               input(type="text", name=`attr_occupation_${c}`)
-            div.col
+            div.col.char-col
               label Alignment
-              div.radios 
-                input(type="hidden", name=`attr_alignment_${c}`, value="").radio
+              div.checklines 
+                input(type="hidden", name=`attr_alignment_${c}`, value="").checkline
                 each pair in aligns
-                  button(class=`radio radio-${pair[0]}`, type="action", name=`act_alignment_${pair[0]}_${c}`)
+                  button(class=`checkline checkline-${pair[0]}`, type="action", name=`act_alignment_${pair[0]}_${c}`)
                     span.checked
-                  |  #{pair[1]}
-          div.row
-            div.col
+                      | X
+                  span
+                    | #{pair[1]}
+          div.row.char-row
+            div.col.char-col
               each att in ["STR", "AGI", "STA", "PER", "INT", "LUC"]
-                div.row
-                    div.col.att
+                div.row.att-row
+                    div.col.att-col
                       label #{att}
-                    div.col.att
-                      input(type="number", name=`attr_name_${att}_val`)
-                    div.col.att
-                      input(type="number", name=`attr_name_${att}_mod`)
+                    div.col.att-col
+                      input(type="number", name=`attr_${att}_cur_${c}`)
+                    div.col.att-col
+                      input(type="number", name=`attr_${att}_mod_${c}`, readonly, value=0)
+            div.col.char-col
+              div.row.att-row
+                div.col.att-col
+                  label HP
+                div.col.att-col
+                  input(type="number", name=`attr_cur_hp_${c}`)
+                div.col.att-col
+                  label(style="text-align:center;font-size:24px")
+                    | /
+                div.col.att-col
+                  input(type="number", name=`attr_max_hp_${c}`)
+              each save in ["MOV", "AC", "REF", "FOR", "WIL"]
+                div.row.att-row
+                  div.col.att-col
+                    label #{save}
+                  div.col.att-col
+                    input(type="number", name=`attr_${save}_${c}`)
+            div.col.char-col
+              | placeholder
 script(type="text/worker")
+  include js/constants.js
   include js/alignment.js
+  include js/mods.js

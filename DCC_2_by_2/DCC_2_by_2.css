@@ -26,52 +26,66 @@ div.sheet-character ~ div.sheet-character {
      Add left margin to the sheets on the right to handle that.*/
   margin-left: 20px;
 }
-
-/* Configure a container for the alignment radio buttons. */
-.sheet-radios {
-  align-items: center;
+div.sheet-character > div.sheet-row.sheet-char-row {
+  margin-top: 20px;
+}
+div.sheet-character > div.sheet-row.sheet-char-row > div.sheet-col.sheet-char-col {
+  width: 240px;
 }
 
-/* Configure the button styling for the alignment radio buttons. */
-button.sheet-radio {
-  padding: 0;
-  border: solid 1px #a8a8a8;
-  cursor: pointer;
-  margin: 5px;
+/* Configure a container for the alignment checkline buttons. */
+.sheet-checklines {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: bottom;
+  height: 27px;
+  padding: 4px;
+  /* Hide the "checked" section of the checkline if the attribute value does not match the checkline. */
+}
+.sheet-checklines > button.sheet-checkline {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
   width: 14px;
   height: 14px;
-  border-radius: 50%;
   display: inline-flex;
   justify-content: center;
   align-items: center;
 }
-button.sheet-radio > span.sheet-checked {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: black;
+.sheet-checklines > button.sheet-checkline > span.sheet-checked {
+  color: black;
   display: inline-flex;
 }
-
-/* Hide the "checked" section of the radio if the attribute value does not match the radio. */
-input.sheet-radio:not([value=lawful]) ~ button.sheet-radio-lawful > span.sheet-checked,
-input.sheet-radio:not([value=neutral]) ~ button.sheet-radio-neutral > span.sheet-checked,
-input.sheet-radio:not([value=chaotic]) ~ button.sheet-radio-chaotic > span.sheet-checked {
-  display: none;
+.sheet-checklines > button.sheet-checkline ~ span {
+  margin-right: 10px;
+}
+.sheet-checklines input.sheet-checkline:not([value=lawful]) ~ button.sheet-checkline-lawful > span.sheet-checked,
+.sheet-checklines input.sheet-checkline:not([value=neutral]) ~ button.sheet-checkline-neutral > span.sheet-checked,
+.sheet-checklines input.sheet-checkline:not([value=chaotic]) ~ button.sheet-checkline-chaotic > span.sheet-checked {
+  background: transparent;
+  color: transparent;
 }
 
 /* Format the attribute columns. */
-div.sheet-col.sheet-att {
+div.sheet-row.sheet-att-row div.sheet-col.sheet-att-col {
   width: 40px;
   display: inline-flex;
   justify-content: center;
-  align-items: center;
-  vertical-align: center;
+  align-items: left;
+  vertical-align: middle;
 }
-div.sheet-col.sheet-att label {
-  display: inline-flex;
+div.sheet-row.sheet-att-row div.sheet-col.sheet-att-col label {
+  display: inline-block;
+  vertical-align: middle;
   margin: 0px;
   padding: 0px;
+}
+
+/* Make text input be a simple line. */
+input[type=text] {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
 }
 
 /*# sourceMappingURL=DCC_2_by_2.css.map */
