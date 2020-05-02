@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=IM+Fell+English+SC|Marko+One&display=swap');
+
 $sheet-background: white;
 $sheet-width: 730px;
 $sheet-margin: 20px;
@@ -5,6 +7,22 @@ $sheet-shadow: 10px 10px 5px;
 
 $root-background: gray;
 $root-width: $sheet-width*2 + $sheet-margin*7 + 5;
+
+* {
+  font-family: 'Marko One';
+}
+
+label {
+  font-family: 'IM Fell English SC';
+  font-size: 18px;
+}
+
+/* Make text input be a simple line. */
+input[type=text] {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+}
 
 /* Configure the root div containing all elements. */
 .sheet-root {
@@ -78,7 +96,7 @@ div.sheet-character {
 /* Format the attribute columns. */
 div.sheet-row.sheet-att-row {
   div.sheet-col.sheet-att-col {
-    width: 40px;
+    width: 45px;
     display: inline-flex;
     justify-content: center;
     align-items: left;
@@ -92,9 +110,24 @@ div.sheet-row.sheet-att-row {
   }
 }
 
-/* Make text input be a simple line. */
-input[type=text] {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid black;
+/* Format the gear columns. */
+div.sheet-row.sheet-gear-row {
+  div.sheet-col.sheet-gear-col:first-child {
+    width: 60px;
+  }
+  div.sheet-col.sheet-gear-col {
+    display: inline-flex;
+    justify-content: center;
+    align-items: left;
+    vertical-align: middle;
+    label {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0px;
+      padding: 0px;
+    }
+    input {
+      width: 176px;
+    }
+  }
 }

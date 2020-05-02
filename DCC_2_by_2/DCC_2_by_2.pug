@@ -37,7 +37,7 @@ div.root
                   label HP
                 div.col.att-col
                   input(type="number", name=`attr_cur_hp_${c}`)
-                div.col.att-col
+                div.col.att-col(style="width:20px")
                   label(style="text-align:center;font-size:24px")
                     | /
                 div.col.att-col
@@ -49,7 +49,29 @@ div.root
                   div.col.att-col
                     input(type="number", name=`attr_${save}_${c}`)
             div.col.char-col
-              | placeholder
+              div.row.gear-row
+                div.col.gear-col
+                  label Armor
+                div.col.gear-col
+                  input(type="text", name=`attr_armor_${c}`)
+              div.row.gear-row
+                div.col.gear-col
+                  label Weapon
+                div.col.gear-col
+                  input(type="text", name=`attr_weap1_${c}`)
+              div.row.gear-row
+                div.col.gear-col
+                  label Weapon
+                div.col.gear-col
+                  input(type="text", name=`attr_weap2_${c}`)
+              div.row.gear-row
+                div.col.gear-col
+                  label Weapon
+                div.col.gear-col
+                  input(type="text", name=`attr_weap3_${c}`)
+          div.row.char-row
+            label Notes
+            textarea(name=`attr_notes_${c}`, style="resize:none")
 script(type="text/worker")
   include js/constants.js
   include js/alignment.js
