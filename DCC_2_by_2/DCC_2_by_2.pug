@@ -1,78 +1,88 @@
 - const aligns = [["lawful", "Lawful"], ["neutral", "Neutral"], ["chaotic", "Chaotic"]]
 div.root
-  each row in [["1", "2"], ["3", "4"]]
-    div.charrow
-      each c in row
-        div.character
-          div.row.char-row
-            div.col.char-col
-              label Name
-              input(type="text", name=`attr_name_${c}`)
-            div.col.char-col
-              label Occupation
-              input(type="text", name=`attr_occupation_${c}`)
-            div.col.char-col
-              label Alignment
-              div.checklines 
-                input(type="hidden", name=`attr_alignment_${c}`, value="").checkline
-                each pair in aligns
-                  button(class=`checkline checkline-${pair[0]}`, type="action", name=`act_alignment_${pair[0]}_${c}`)
-                    span.checked
-                      | X
-                  span
-                    | #{pair[1]}
-          div.row.char-row
-            div.col.char-col
-              each att in ["STR", "AGI", "STA", "PER", "INT", "LUC"]
-                div.row.att-row
-                    div.col.att-col
-                      label #{att}
-                    div.col.att-col
-                      input(type="number", name=`attr_${att}_cur_${c}`)
-                    div.col.att-col
-                      input(type="number", name=`attr_${att}_mod_${c}`, readonly, value=0)
-            div.col.char-col
-              div.row.att-row
+  div.tabs
+    each c in ["1", "2", "3", "4"]
+      button.tab(type="action", name=`act_${c}_tab`)
+        input.tabtext(type="text", name=`attr_${c}_tab_text`, readonly)
+  input.char-control(type="hidden", name="attr_character", value="1")
+  each c in ["1", "2", "3", "4"]
+    div(class=`character char-${c}`)
+      div.row.char-row
+        div.col.char-col
+          label Name
+          input(type="text", name=`attr_name_${c}`)
+        div.col.char-col
+          label Occupation
+          input(type="text", name=`attr_occupation_${c}`)
+        div.col.char-col
+          label Alignment
+          div.checklines 
+            input(type="hidden", name=`attr_alignment_${c}`, value="").checkline
+            each pair in aligns
+              button(class=`checkline checkline-${pair[0]}`, type="action", name=`act_alignment_${pair[0]}_${c}`)
+                span.checked
+                  | X
+              span
+                | #{pair[1]}
+      div.row.char-row
+        div.col.char-col
+          each att in ["STR", "AGI", "STA", "PER", "INT", "LUC"]
+            div.row.att-row
                 div.col.att-col
-                  label HP
+                  label #{att}
                 div.col.att-col
-                  input(type="number", name=`attr_cur_hp_${c}`)
-                div.col.att-col(style="width:20px")
-                  label(style="text-align:center;font-size:24px")
-                    | /
+                  input(type="number", name=`attr_${att}_cur_${c}`)
                 div.col.att-col
-                  input(type="number", name=`attr_max_hp_${c}`)
-              each save in ["MOV", "AC", "REF", "FOR", "WIL"]
-                div.row.att-row
-                  div.col.att-col
-                    label #{save}
-                  div.col.att-col
-                    input(type="number", name=`attr_${save}_${c}`)
-            div.col.char-col
-              div.row.gear-row
-                div.col.gear-col
-                  label Armor
-                div.col.gear-col
-                  input(type="text", name=`attr_armor_${c}`)
-              div.row.gear-row
-                div.col.gear-col
-                  label Weapon
-                div.col.gear-col
-                  input(type="text", name=`attr_weap1_${c}`)
-              div.row.gear-row
-                div.col.gear-col
-                  label Weapon
-                div.col.gear-col
-                  input(type="text", name=`attr_weap2_${c}`)
-              div.row.gear-row
-                div.col.gear-col
-                  label Weapon
-                div.col.gear-col
-                  input(type="text", name=`attr_weap3_${c}`)
-          div.row.char-row
-            label Notes
-            textarea(name=`attr_notes_${c}`, style="resize:none")
+                  input(type="number", name=`attr_${att}_mod_${c}`, readonly, value=0)
+        div.col.char-col
+          div.row.att-row
+            div.col.att-col
+              label HP
+            div.col.att-col
+              input(type="number", name=`attr_cur_hp_${c}`)
+            div.col.att-col(style="width:20px")
+              label(style="text-align:center;font-size:24px")
+                | /
+            div.col.att-col
+              input(type="number", name=`attr_max_hp_${c}`)
+          each save in ["MOV", "AC", "REF", "FOR", "WIL"]
+            div.row.att-row
+              div.col.att-col
+                label #{save}
+              div.col.att-col
+                input(type="number", name=`attr_${save}_${c}`)
+        div.col.char-col
+          div.row.gear-row
+            div.col.gear-col
+              label Armor
+            div.col.gear-col
+              input(type="text", name=`attr_armor_${c}`)
+          div.row.gear-row
+            div.col.gear-col
+              label Weapon
+            div.col.gear-col
+              input(type="text", name=`attr_weap1_${c}`)
+          div.row.gear-row
+            div.col.gear-col
+              label Weapon
+            div.col.gear-col
+              input(type="text", name=`attr_weap2_${c}`)
+          div.row.gear-row
+            div.col.gear-col
+              label Weapon
+            div.col.gear-col
+              input(type="text", name=`attr_weap3_${c}`)
+      div.row.char-row
+        label Notes
+        textarea(name=`attr_notes_${c}`, style="resize:none")
 script(type="text/worker")
+  //- This file MUST be included first, as it defines constants used in the files below.
   include js/constants.js
+
+  //- These files can be included in any order, as they only depend on constants.js.
+  include js/char_tabs.js
   include js/alignment.js
   include js/mods.js
+
+  //- This file MUST be included last, as it uses code defined in the files above.
+  include js/per_character.js

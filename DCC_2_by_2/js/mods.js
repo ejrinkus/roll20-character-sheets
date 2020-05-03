@@ -21,14 +21,14 @@
     return -3;
   }
 
-  characterIndices.forEach(function(charI) {
+  function modHandlers(charI) {
     attributes.forEach(function(attr) {
       on(`change:${attr}_cur_${charI} sheet:opened`, function() {
         getAttrs([`${attr}_cur_${charI}`], function(values) {
           setAttrs({
             [`${attr}_mod_${charI}`]: getMod(values[`${attr}_cur_${charI}`])
           });
-        })
+        });
       });
     })
-  });
+  }

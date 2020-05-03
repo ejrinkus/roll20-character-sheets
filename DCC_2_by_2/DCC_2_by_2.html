@@ -1,747 +1,758 @@
 
 <div class="root">
-  <div class="charrow">
-    <div class="character">
-      <div class="row char-row">
-        <div class="col char-col">
-          <label>Name</label>
-          <input type="text" name="attr_name_1"/>
-        </div>
-        <div class="col char-col">
-          <label>Occupation</label>
-          <input type="text" name="attr_occupation_1"/>
-        </div>
-        <div class="col char-col">
-          <label>Alignment</label>
-          <div class="checklines"> 
-            <input class="checkline" type="hidden" name="attr_alignment_1" value=""/>
-            <button class="checkline checkline-lawful" type="action" name="act_alignment_lawful_1"><span class="checked">X</span></button><span>Lawful</span>
-            <button class="checkline checkline-neutral" type="action" name="act_alignment_neutral_1"><span class="checked">X</span></button><span>Neutral</span>
-            <button class="checkline checkline-chaotic" type="action" name="act_alignment_chaotic_1"><span class="checked">X</span></button><span>Chaotic</span>
-          </div>
-        </div>
+  <div class="tabs">
+    <button class="tab" type="action" name="act_1_tab">
+      <input class="tabtext" type="text" name="attr_1_tab_text" readonly="readonly"/>
+    </button>
+    <button class="tab" type="action" name="act_2_tab">
+      <input class="tabtext" type="text" name="attr_2_tab_text" readonly="readonly"/>
+    </button>
+    <button class="tab" type="action" name="act_3_tab">
+      <input class="tabtext" type="text" name="attr_3_tab_text" readonly="readonly"/>
+    </button>
+    <button class="tab" type="action" name="act_4_tab">
+      <input class="tabtext" type="text" name="attr_4_tab_text" readonly="readonly"/>
+    </button>
+  </div>
+  <input class="char-control" type="hidden" name="attr_character" value="1"/>
+  <div class="character char-1">
+    <div class="row char-row">
+      <div class="col char-col">
+        <label>Name</label>
+        <input type="text" name="attr_name_1"/>
       </div>
-      <div class="row char-row">
-        <div class="col char-col">
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>STR</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_STR_cur_1"/>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_STR_mod_1" readonly="readonly" value="0"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>AGI</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_AGI_cur_1"/>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_AGI_mod_1" readonly="readonly" value="0"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>STA</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_STA_cur_1"/>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_STA_mod_1" readonly="readonly" value="0"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>PER</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_PER_cur_1"/>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_PER_mod_1" readonly="readonly" value="0"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>INT</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_INT_cur_1"/>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_INT_mod_1" readonly="readonly" value="0"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>LUC</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_LUC_cur_1"/>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_LUC_mod_1" readonly="readonly" value="0"/>
-            </div>
-          </div>
-        </div>
-        <div class="col char-col">
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>HP</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_cur_hp_1"/>
-            </div>
-            <div class="col att-col" style="width:20px">
-              <label style="text-align:center;font-size:24px">/</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_max_hp_1"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>MOV</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_MOV_1"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>AC</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_AC_1"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>REF</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_REF_1"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>FOR</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_FOR_1"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>WIL</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_WIL_1"/>
-            </div>
-          </div>
-        </div>
-        <div class="col char-col">
-          <div class="row gear-row">
-            <div class="col gear-col">
-              <label>Armor</label>
-            </div>
-            <div class="col gear-col">
-              <input type="text" name="attr_armor_1"/>
-            </div>
-          </div>
-          <div class="row gear-row">
-            <div class="col gear-col">
-              <label>Weapon</label>
-            </div>
-            <div class="col gear-col">
-              <input type="text" name="attr_weap1_1"/>
-            </div>
-          </div>
-          <div class="row gear-row">
-            <div class="col gear-col">
-              <label>Weapon</label>
-            </div>
-            <div class="col gear-col">
-              <input type="text" name="attr_weap2_1"/>
-            </div>
-          </div>
-          <div class="row gear-row">
-            <div class="col gear-col">
-              <label>Weapon</label>
-            </div>
-            <div class="col gear-col">
-              <input type="text" name="attr_weap3_1"/>
-            </div>
-          </div>
-        </div>
+      <div class="col char-col">
+        <label>Occupation</label>
+        <input type="text" name="attr_occupation_1"/>
       </div>
-      <div class="row char-row">
-        <label>Notes</label>
-        <textarea name="attr_notes_1" style="resize:none"></textarea>
+      <div class="col char-col">
+        <label>Alignment</label>
+        <div class="checklines"> 
+          <input class="checkline" type="hidden" name="attr_alignment_1" value=""/>
+          <button class="checkline checkline-lawful" type="action" name="act_alignment_lawful_1"><span class="checked">X</span></button><span>Lawful</span>
+          <button class="checkline checkline-neutral" type="action" name="act_alignment_neutral_1"><span class="checked">X</span></button><span>Neutral</span>
+          <button class="checkline checkline-chaotic" type="action" name="act_alignment_chaotic_1"><span class="checked">X</span></button><span>Chaotic</span>
+        </div>
       </div>
     </div>
-    <div class="character">
-      <div class="row char-row">
-        <div class="col char-col">
-          <label>Name</label>
-          <input type="text" name="attr_name_2"/>
-        </div>
-        <div class="col char-col">
-          <label>Occupation</label>
-          <input type="text" name="attr_occupation_2"/>
-        </div>
-        <div class="col char-col">
-          <label>Alignment</label>
-          <div class="checklines"> 
-            <input class="checkline" type="hidden" name="attr_alignment_2" value=""/>
-            <button class="checkline checkline-lawful" type="action" name="act_alignment_lawful_2"><span class="checked">X</span></button><span>Lawful</span>
-            <button class="checkline checkline-neutral" type="action" name="act_alignment_neutral_2"><span class="checked">X</span></button><span>Neutral</span>
-            <button class="checkline checkline-chaotic" type="action" name="act_alignment_chaotic_2"><span class="checked">X</span></button><span>Chaotic</span>
+    <div class="row char-row">
+      <div class="col char-col">
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>STR</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_STR_cur_1"/>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_STR_mod_1" readonly="readonly" value="0"/>
           </div>
         </div>
-      </div>
-      <div class="row char-row">
-        <div class="col char-col">
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>STR</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_STR_cur_2"/>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_STR_mod_2" readonly="readonly" value="0"/>
-            </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>AGI</label>
           </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>AGI</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_AGI_cur_2"/>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_AGI_mod_2" readonly="readonly" value="0"/>
-            </div>
+          <div class="col att-col">
+            <input type="number" name="attr_AGI_cur_1"/>
           </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>STA</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_STA_cur_2"/>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_STA_mod_2" readonly="readonly" value="0"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>PER</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_PER_cur_2"/>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_PER_mod_2" readonly="readonly" value="0"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>INT</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_INT_cur_2"/>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_INT_mod_2" readonly="readonly" value="0"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>LUC</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_LUC_cur_2"/>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_LUC_mod_2" readonly="readonly" value="0"/>
-            </div>
+          <div class="col att-col">
+            <input type="number" name="attr_AGI_mod_1" readonly="readonly" value="0"/>
           </div>
         </div>
-        <div class="col char-col">
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>HP</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_cur_hp_2"/>
-            </div>
-            <div class="col att-col" style="width:20px">
-              <label style="text-align:center;font-size:24px">/</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_max_hp_2"/>
-            </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>STA</label>
           </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>MOV</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_MOV_2"/>
-            </div>
+          <div class="col att-col">
+            <input type="number" name="attr_STA_cur_1"/>
           </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>AC</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_AC_2"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>REF</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_REF_2"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>FOR</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_FOR_2"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>WIL</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_WIL_2"/>
-            </div>
+          <div class="col att-col">
+            <input type="number" name="attr_STA_mod_1" readonly="readonly" value="0"/>
           </div>
         </div>
-        <div class="col char-col">
-          <div class="row gear-row">
-            <div class="col gear-col">
-              <label>Armor</label>
-            </div>
-            <div class="col gear-col">
-              <input type="text" name="attr_armor_2"/>
-            </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>PER</label>
           </div>
-          <div class="row gear-row">
-            <div class="col gear-col">
-              <label>Weapon</label>
-            </div>
-            <div class="col gear-col">
-              <input type="text" name="attr_weap1_2"/>
-            </div>
+          <div class="col att-col">
+            <input type="number" name="attr_PER_cur_1"/>
           </div>
-          <div class="row gear-row">
-            <div class="col gear-col">
-              <label>Weapon</label>
-            </div>
-            <div class="col gear-col">
-              <input type="text" name="attr_weap2_2"/>
-            </div>
+          <div class="col att-col">
+            <input type="number" name="attr_PER_mod_1" readonly="readonly" value="0"/>
           </div>
-          <div class="row gear-row">
-            <div class="col gear-col">
-              <label>Weapon</label>
-            </div>
-            <div class="col gear-col">
-              <input type="text" name="attr_weap3_2"/>
-            </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>INT</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_INT_cur_1"/>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_INT_mod_1" readonly="readonly" value="0"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>LUC</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_LUC_cur_1"/>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_LUC_mod_1" readonly="readonly" value="0"/>
           </div>
         </div>
       </div>
-      <div class="row char-row">
-        <label>Notes</label>
-        <textarea name="attr_notes_2" style="resize:none"></textarea>
+      <div class="col char-col">
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>HP</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_cur_hp_1"/>
+          </div>
+          <div class="col att-col" style="width:20px">
+            <label style="text-align:center;font-size:24px">/</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_max_hp_1"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>MOV</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_MOV_1"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>AC</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_AC_1"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>REF</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_REF_1"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>FOR</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_FOR_1"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>WIL</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_WIL_1"/>
+          </div>
+        </div>
       </div>
+      <div class="col char-col">
+        <div class="row gear-row">
+          <div class="col gear-col">
+            <label>Armor</label>
+          </div>
+          <div class="col gear-col">
+            <input type="text" name="attr_armor_1"/>
+          </div>
+        </div>
+        <div class="row gear-row">
+          <div class="col gear-col">
+            <label>Weapon</label>
+          </div>
+          <div class="col gear-col">
+            <input type="text" name="attr_weap1_1"/>
+          </div>
+        </div>
+        <div class="row gear-row">
+          <div class="col gear-col">
+            <label>Weapon</label>
+          </div>
+          <div class="col gear-col">
+            <input type="text" name="attr_weap2_1"/>
+          </div>
+        </div>
+        <div class="row gear-row">
+          <div class="col gear-col">
+            <label>Weapon</label>
+          </div>
+          <div class="col gear-col">
+            <input type="text" name="attr_weap3_1"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row char-row">
+      <label>Notes</label>
+      <textarea name="attr_notes_1" style="resize:none"></textarea>
     </div>
   </div>
-  <div class="charrow">
-    <div class="character">
-      <div class="row char-row">
-        <div class="col char-col">
-          <label>Name</label>
-          <input type="text" name="attr_name_3"/>
-        </div>
-        <div class="col char-col">
-          <label>Occupation</label>
-          <input type="text" name="attr_occupation_3"/>
-        </div>
-        <div class="col char-col">
-          <label>Alignment</label>
-          <div class="checklines"> 
-            <input class="checkline" type="hidden" name="attr_alignment_3" value=""/>
-            <button class="checkline checkline-lawful" type="action" name="act_alignment_lawful_3"><span class="checked">X</span></button><span>Lawful</span>
-            <button class="checkline checkline-neutral" type="action" name="act_alignment_neutral_3"><span class="checked">X</span></button><span>Neutral</span>
-            <button class="checkline checkline-chaotic" type="action" name="act_alignment_chaotic_3"><span class="checked">X</span></button><span>Chaotic</span>
-          </div>
-        </div>
+  <div class="character char-2">
+    <div class="row char-row">
+      <div class="col char-col">
+        <label>Name</label>
+        <input type="text" name="attr_name_2"/>
       </div>
-      <div class="row char-row">
-        <div class="col char-col">
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>STR</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_STR_cur_3"/>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_STR_mod_3" readonly="readonly" value="0"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>AGI</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_AGI_cur_3"/>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_AGI_mod_3" readonly="readonly" value="0"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>STA</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_STA_cur_3"/>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_STA_mod_3" readonly="readonly" value="0"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>PER</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_PER_cur_3"/>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_PER_mod_3" readonly="readonly" value="0"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>INT</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_INT_cur_3"/>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_INT_mod_3" readonly="readonly" value="0"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>LUC</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_LUC_cur_3"/>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_LUC_mod_3" readonly="readonly" value="0"/>
-            </div>
-          </div>
-        </div>
-        <div class="col char-col">
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>HP</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_cur_hp_3"/>
-            </div>
-            <div class="col att-col" style="width:20px">
-              <label style="text-align:center;font-size:24px">/</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_max_hp_3"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>MOV</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_MOV_3"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>AC</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_AC_3"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>REF</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_REF_3"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>FOR</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_FOR_3"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>WIL</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_WIL_3"/>
-            </div>
-          </div>
-        </div>
-        <div class="col char-col">
-          <div class="row gear-row">
-            <div class="col gear-col">
-              <label>Armor</label>
-            </div>
-            <div class="col gear-col">
-              <input type="text" name="attr_armor_3"/>
-            </div>
-          </div>
-          <div class="row gear-row">
-            <div class="col gear-col">
-              <label>Weapon</label>
-            </div>
-            <div class="col gear-col">
-              <input type="text" name="attr_weap1_3"/>
-            </div>
-          </div>
-          <div class="row gear-row">
-            <div class="col gear-col">
-              <label>Weapon</label>
-            </div>
-            <div class="col gear-col">
-              <input type="text" name="attr_weap2_3"/>
-            </div>
-          </div>
-          <div class="row gear-row">
-            <div class="col gear-col">
-              <label>Weapon</label>
-            </div>
-            <div class="col gear-col">
-              <input type="text" name="attr_weap3_3"/>
-            </div>
-          </div>
-        </div>
+      <div class="col char-col">
+        <label>Occupation</label>
+        <input type="text" name="attr_occupation_2"/>
       </div>
-      <div class="row char-row">
-        <label>Notes</label>
-        <textarea name="attr_notes_3" style="resize:none"></textarea>
+      <div class="col char-col">
+        <label>Alignment</label>
+        <div class="checklines"> 
+          <input class="checkline" type="hidden" name="attr_alignment_2" value=""/>
+          <button class="checkline checkline-lawful" type="action" name="act_alignment_lawful_2"><span class="checked">X</span></button><span>Lawful</span>
+          <button class="checkline checkline-neutral" type="action" name="act_alignment_neutral_2"><span class="checked">X</span></button><span>Neutral</span>
+          <button class="checkline checkline-chaotic" type="action" name="act_alignment_chaotic_2"><span class="checked">X</span></button><span>Chaotic</span>
+        </div>
       </div>
     </div>
-    <div class="character">
-      <div class="row char-row">
-        <div class="col char-col">
-          <label>Name</label>
-          <input type="text" name="attr_name_4"/>
-        </div>
-        <div class="col char-col">
-          <label>Occupation</label>
-          <input type="text" name="attr_occupation_4"/>
-        </div>
-        <div class="col char-col">
-          <label>Alignment</label>
-          <div class="checklines"> 
-            <input class="checkline" type="hidden" name="attr_alignment_4" value=""/>
-            <button class="checkline checkline-lawful" type="action" name="act_alignment_lawful_4"><span class="checked">X</span></button><span>Lawful</span>
-            <button class="checkline checkline-neutral" type="action" name="act_alignment_neutral_4"><span class="checked">X</span></button><span>Neutral</span>
-            <button class="checkline checkline-chaotic" type="action" name="act_alignment_chaotic_4"><span class="checked">X</span></button><span>Chaotic</span>
+    <div class="row char-row">
+      <div class="col char-col">
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>STR</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_STR_cur_2"/>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_STR_mod_2" readonly="readonly" value="0"/>
           </div>
         </div>
-      </div>
-      <div class="row char-row">
-        <div class="col char-col">
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>STR</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_STR_cur_4"/>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_STR_mod_4" readonly="readonly" value="0"/>
-            </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>AGI</label>
           </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>AGI</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_AGI_cur_4"/>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_AGI_mod_4" readonly="readonly" value="0"/>
-            </div>
+          <div class="col att-col">
+            <input type="number" name="attr_AGI_cur_2"/>
           </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>STA</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_STA_cur_4"/>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_STA_mod_4" readonly="readonly" value="0"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>PER</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_PER_cur_4"/>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_PER_mod_4" readonly="readonly" value="0"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>INT</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_INT_cur_4"/>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_INT_mod_4" readonly="readonly" value="0"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>LUC</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_LUC_cur_4"/>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_LUC_mod_4" readonly="readonly" value="0"/>
-            </div>
+          <div class="col att-col">
+            <input type="number" name="attr_AGI_mod_2" readonly="readonly" value="0"/>
           </div>
         </div>
-        <div class="col char-col">
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>HP</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_cur_hp_4"/>
-            </div>
-            <div class="col att-col" style="width:20px">
-              <label style="text-align:center;font-size:24px">/</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_max_hp_4"/>
-            </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>STA</label>
           </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>MOV</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_MOV_4"/>
-            </div>
+          <div class="col att-col">
+            <input type="number" name="attr_STA_cur_2"/>
           </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>AC</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_AC_4"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>REF</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_REF_4"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>FOR</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_FOR_4"/>
-            </div>
-          </div>
-          <div class="row att-row">
-            <div class="col att-col">
-              <label>WIL</label>
-            </div>
-            <div class="col att-col">
-              <input type="number" name="attr_WIL_4"/>
-            </div>
+          <div class="col att-col">
+            <input type="number" name="attr_STA_mod_2" readonly="readonly" value="0"/>
           </div>
         </div>
-        <div class="col char-col">
-          <div class="row gear-row">
-            <div class="col gear-col">
-              <label>Armor</label>
-            </div>
-            <div class="col gear-col">
-              <input type="text" name="attr_armor_4"/>
-            </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>PER</label>
           </div>
-          <div class="row gear-row">
-            <div class="col gear-col">
-              <label>Weapon</label>
-            </div>
-            <div class="col gear-col">
-              <input type="text" name="attr_weap1_4"/>
-            </div>
+          <div class="col att-col">
+            <input type="number" name="attr_PER_cur_2"/>
           </div>
-          <div class="row gear-row">
-            <div class="col gear-col">
-              <label>Weapon</label>
-            </div>
-            <div class="col gear-col">
-              <input type="text" name="attr_weap2_4"/>
-            </div>
+          <div class="col att-col">
+            <input type="number" name="attr_PER_mod_2" readonly="readonly" value="0"/>
           </div>
-          <div class="row gear-row">
-            <div class="col gear-col">
-              <label>Weapon</label>
-            </div>
-            <div class="col gear-col">
-              <input type="text" name="attr_weap3_4"/>
-            </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>INT</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_INT_cur_2"/>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_INT_mod_2" readonly="readonly" value="0"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>LUC</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_LUC_cur_2"/>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_LUC_mod_2" readonly="readonly" value="0"/>
           </div>
         </div>
       </div>
-      <div class="row char-row">
-        <label>Notes</label>
-        <textarea name="attr_notes_4" style="resize:none"></textarea>
+      <div class="col char-col">
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>HP</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_cur_hp_2"/>
+          </div>
+          <div class="col att-col" style="width:20px">
+            <label style="text-align:center;font-size:24px">/</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_max_hp_2"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>MOV</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_MOV_2"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>AC</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_AC_2"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>REF</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_REF_2"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>FOR</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_FOR_2"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>WIL</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_WIL_2"/>
+          </div>
+        </div>
       </div>
+      <div class="col char-col">
+        <div class="row gear-row">
+          <div class="col gear-col">
+            <label>Armor</label>
+          </div>
+          <div class="col gear-col">
+            <input type="text" name="attr_armor_2"/>
+          </div>
+        </div>
+        <div class="row gear-row">
+          <div class="col gear-col">
+            <label>Weapon</label>
+          </div>
+          <div class="col gear-col">
+            <input type="text" name="attr_weap1_2"/>
+          </div>
+        </div>
+        <div class="row gear-row">
+          <div class="col gear-col">
+            <label>Weapon</label>
+          </div>
+          <div class="col gear-col">
+            <input type="text" name="attr_weap2_2"/>
+          </div>
+        </div>
+        <div class="row gear-row">
+          <div class="col gear-col">
+            <label>Weapon</label>
+          </div>
+          <div class="col gear-col">
+            <input type="text" name="attr_weap3_2"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row char-row">
+      <label>Notes</label>
+      <textarea name="attr_notes_2" style="resize:none"></textarea>
+    </div>
+  </div>
+  <div class="character char-3">
+    <div class="row char-row">
+      <div class="col char-col">
+        <label>Name</label>
+        <input type="text" name="attr_name_3"/>
+      </div>
+      <div class="col char-col">
+        <label>Occupation</label>
+        <input type="text" name="attr_occupation_3"/>
+      </div>
+      <div class="col char-col">
+        <label>Alignment</label>
+        <div class="checklines"> 
+          <input class="checkline" type="hidden" name="attr_alignment_3" value=""/>
+          <button class="checkline checkline-lawful" type="action" name="act_alignment_lawful_3"><span class="checked">X</span></button><span>Lawful</span>
+          <button class="checkline checkline-neutral" type="action" name="act_alignment_neutral_3"><span class="checked">X</span></button><span>Neutral</span>
+          <button class="checkline checkline-chaotic" type="action" name="act_alignment_chaotic_3"><span class="checked">X</span></button><span>Chaotic</span>
+        </div>
+      </div>
+    </div>
+    <div class="row char-row">
+      <div class="col char-col">
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>STR</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_STR_cur_3"/>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_STR_mod_3" readonly="readonly" value="0"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>AGI</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_AGI_cur_3"/>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_AGI_mod_3" readonly="readonly" value="0"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>STA</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_STA_cur_3"/>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_STA_mod_3" readonly="readonly" value="0"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>PER</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_PER_cur_3"/>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_PER_mod_3" readonly="readonly" value="0"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>INT</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_INT_cur_3"/>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_INT_mod_3" readonly="readonly" value="0"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>LUC</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_LUC_cur_3"/>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_LUC_mod_3" readonly="readonly" value="0"/>
+          </div>
+        </div>
+      </div>
+      <div class="col char-col">
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>HP</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_cur_hp_3"/>
+          </div>
+          <div class="col att-col" style="width:20px">
+            <label style="text-align:center;font-size:24px">/</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_max_hp_3"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>MOV</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_MOV_3"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>AC</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_AC_3"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>REF</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_REF_3"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>FOR</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_FOR_3"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>WIL</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_WIL_3"/>
+          </div>
+        </div>
+      </div>
+      <div class="col char-col">
+        <div class="row gear-row">
+          <div class="col gear-col">
+            <label>Armor</label>
+          </div>
+          <div class="col gear-col">
+            <input type="text" name="attr_armor_3"/>
+          </div>
+        </div>
+        <div class="row gear-row">
+          <div class="col gear-col">
+            <label>Weapon</label>
+          </div>
+          <div class="col gear-col">
+            <input type="text" name="attr_weap1_3"/>
+          </div>
+        </div>
+        <div class="row gear-row">
+          <div class="col gear-col">
+            <label>Weapon</label>
+          </div>
+          <div class="col gear-col">
+            <input type="text" name="attr_weap2_3"/>
+          </div>
+        </div>
+        <div class="row gear-row">
+          <div class="col gear-col">
+            <label>Weapon</label>
+          </div>
+          <div class="col gear-col">
+            <input type="text" name="attr_weap3_3"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row char-row">
+      <label>Notes</label>
+      <textarea name="attr_notes_3" style="resize:none"></textarea>
+    </div>
+  </div>
+  <div class="character char-4">
+    <div class="row char-row">
+      <div class="col char-col">
+        <label>Name</label>
+        <input type="text" name="attr_name_4"/>
+      </div>
+      <div class="col char-col">
+        <label>Occupation</label>
+        <input type="text" name="attr_occupation_4"/>
+      </div>
+      <div class="col char-col">
+        <label>Alignment</label>
+        <div class="checklines"> 
+          <input class="checkline" type="hidden" name="attr_alignment_4" value=""/>
+          <button class="checkline checkline-lawful" type="action" name="act_alignment_lawful_4"><span class="checked">X</span></button><span>Lawful</span>
+          <button class="checkline checkline-neutral" type="action" name="act_alignment_neutral_4"><span class="checked">X</span></button><span>Neutral</span>
+          <button class="checkline checkline-chaotic" type="action" name="act_alignment_chaotic_4"><span class="checked">X</span></button><span>Chaotic</span>
+        </div>
+      </div>
+    </div>
+    <div class="row char-row">
+      <div class="col char-col">
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>STR</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_STR_cur_4"/>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_STR_mod_4" readonly="readonly" value="0"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>AGI</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_AGI_cur_4"/>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_AGI_mod_4" readonly="readonly" value="0"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>STA</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_STA_cur_4"/>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_STA_mod_4" readonly="readonly" value="0"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>PER</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_PER_cur_4"/>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_PER_mod_4" readonly="readonly" value="0"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>INT</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_INT_cur_4"/>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_INT_mod_4" readonly="readonly" value="0"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>LUC</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_LUC_cur_4"/>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_LUC_mod_4" readonly="readonly" value="0"/>
+          </div>
+        </div>
+      </div>
+      <div class="col char-col">
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>HP</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_cur_hp_4"/>
+          </div>
+          <div class="col att-col" style="width:20px">
+            <label style="text-align:center;font-size:24px">/</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_max_hp_4"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>MOV</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_MOV_4"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>AC</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_AC_4"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>REF</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_REF_4"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>FOR</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_FOR_4"/>
+          </div>
+        </div>
+        <div class="row att-row">
+          <div class="col att-col">
+            <label>WIL</label>
+          </div>
+          <div class="col att-col">
+            <input type="number" name="attr_WIL_4"/>
+          </div>
+        </div>
+      </div>
+      <div class="col char-col">
+        <div class="row gear-row">
+          <div class="col gear-col">
+            <label>Armor</label>
+          </div>
+          <div class="col gear-col">
+            <input type="text" name="attr_armor_4"/>
+          </div>
+        </div>
+        <div class="row gear-row">
+          <div class="col gear-col">
+            <label>Weapon</label>
+          </div>
+          <div class="col gear-col">
+            <input type="text" name="attr_weap1_4"/>
+          </div>
+        </div>
+        <div class="row gear-row">
+          <div class="col gear-col">
+            <label>Weapon</label>
+          </div>
+          <div class="col gear-col">
+            <input type="text" name="attr_weap2_4"/>
+          </div>
+        </div>
+        <div class="row gear-row">
+          <div class="col gear-col">
+            <label>Weapon</label>
+          </div>
+          <div class="col gear-col">
+            <input type="text" name="attr_weap3_4"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row char-row">
+      <label>Notes</label>
+      <textarea name="attr_notes_4" style="resize:none"></textarea>
     </div>
   </div>
 </div>
@@ -751,7 +762,29 @@
   const alignments = ["lawful","neutral","chaotic"];
   const attributes = ["STR", "AGI", "STA", "PER", "INT", "LUC"];
   
-  characterIndices.forEach(function(charI) {
+  // Set tab text to the name of the corresponding character.
+  function tabNames(charI) {
+    on(`change:name_${charI} sheet:opened`, function() {
+      getAttrs([`name_${charI}`], function(names) {
+        console.log("got name " + names[`name_${charI}`]);
+        setAttrs({
+          [`${charI}_tab_text`]: names[`name_${charI}`]
+        });
+      });
+    });
+  }
+
+  // Display the correct sheet.
+  function tabHandlers(charI) {
+    on(`clicked:${charI}_tab`, function() {
+      getAttrs([`name_${charI}`], function(values) {
+        setAttrs({
+          ["character"]: charI
+        });
+      });
+    });
+  }
+  function alignmentHandlers(charI) {
     alignments.forEach(function(alignment) {
       on(`clicked:alignment_${alignment}_${charI}`, function() {
         setAttrs({
@@ -759,7 +792,7 @@
         });
       });
     })
-  });
+  }
   function getMod(val) {
     if (val >= 18) {
       return 3;
@@ -782,15 +815,27 @@
     return -3;
   }
 
-  characterIndices.forEach(function(charI) {
+  function modHandlers(charI) {
     attributes.forEach(function(attr) {
       on(`change:${attr}_cur_${charI} sheet:opened`, function() {
         getAttrs([`${attr}_cur_${charI}`], function(values) {
           setAttrs({
             [`${attr}_mod_${charI}`]: getMod(values[`${attr}_cur_${charI}`])
           });
-        })
+        });
       });
     })
+  }
+  // Parent loop over all character sheets.  Sets up the various handlers for each sheet.
+  characterIndices.forEach(function(charI) {
+    // Defined in char_tabs.js
+    tabNames(charI);
+    tabHandlers(charI);
+
+    // Defined in mods.js
+    modHandlers(charI);
+
+    // Defined in alignment.js
+    alignmentHandlers(charI);
   });
 </script>

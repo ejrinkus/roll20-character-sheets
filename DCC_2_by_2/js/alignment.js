@@ -1,5 +1,5 @@
 
-  characterIndices.forEach(function(charI) {
+  function alignmentHandlers(charI) {
     alignments.forEach(function(alignment) {
       on(`clicked:alignment_${alignment}_${charI}`, function() {
         setAttrs({
@@ -7,4 +7,4 @@
         });
       });
     })
-  });
+  }

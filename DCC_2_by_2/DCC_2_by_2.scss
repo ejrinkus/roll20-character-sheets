@@ -6,7 +6,7 @@ $sheet-margin: 20px;
 $sheet-shadow: 10px 10px 5px;
 
 $root-background: gray;
-$root-width: $sheet-width*2 + $sheet-margin*7 + 5;
+$root-width: $sheet-width + $sheet-margin*4 + 5;
 
 * {
   font-family: 'Marko One';
@@ -28,35 +28,50 @@ input[type=text] {
 .sheet-root {
   width: $root-width;
   background-color: $root-background;
+  padding-bottom: $sheet-margin/2;
 }
 
-/* Configure parent divs for each of the character sheets. */
-.sheet-charrow {
-  display: block;
-  padding: $sheet-margin;
-  ~ div.sheet-charrow {
-    /* Remove the top padding of the second row, so that the padding isn't doubled. */
-    padding-top: 0px;
-  }
-}
-
+/* Configure the containers for each character sheet. */
 div.sheet-character {
-  display: inline-block;
+  display: block;
+  margin: $sheet-margin;
   padding: $sheet-margin;
   background-color: $sheet-background;
   width: $sheet-width;
   box-shadow: $sheet-shadow;
-  ~ div.sheet-character {
-    /* The margins for the charrow handles all the spacing except between sheets horizontally. 
-       Add left margin to the sheets on the right to handle that.*/
-    margin-left: $sheet-margin;
-  }
   > div.sheet-row.sheet-char-row {
-    margin-top: 20px;
     > div.sheet-col.sheet-char-col {
       width: ($sheet-width - $sheet-width%3)/3 - 3;
     }
   }
+}
+
+/* Respond to character selection tabs. */
+input.sheet-char-control:not([value="1"]) {
+  ~ div.sheet-character.sheet-char-1 {
+    display: none;
+  }
+}
+input.sheet-char-control:not([value="2"]) {
+  ~ div.sheet-character.sheet-char-2 {
+    display: none;
+  }
+}
+input.sheet-char-control:not([value="3"]) {
+  ~ div.sheet-character.sheet-char-3 {
+    display: none;
+  }
+}
+input.sheet-char-control:not([value="4"]) {
+  ~ div.sheet-character.sheet-char-4 {
+    display: none;
+  }
+}
+button.sheet-tab > input.sheet-tabtext {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: $sheet-width/4;
 }
 
 /* Configure a container for the alignment checkline buttons. */

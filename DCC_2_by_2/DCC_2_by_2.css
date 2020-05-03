@@ -17,37 +17,46 @@ input[type=text] {
 
 /* Configure the root div containing all elements. */
 .sheet-root {
-  width: 1605px;
+  width: 815px;
   background-color: gray;
+  padding-bottom: 10px;
 }
 
-/* Configure parent divs for each of the character sheets. */
-.sheet-charrow {
-  display: block;
-  padding: 20px;
-}
-.sheet-charrow ~ div.sheet-charrow {
-  /* Remove the top padding of the second row, so that the padding isn't doubled. */
-  padding-top: 0px;
-}
-
+/* Configure the containers for each character sheet. */
 div.sheet-character {
-  display: inline-block;
+  display: block;
+  margin: 20px;
   padding: 20px;
   background-color: white;
   width: 730px;
   box-shadow: 10px 10px 5px;
 }
-div.sheet-character ~ div.sheet-character {
-  /* The margins for the charrow handles all the spacing except between sheets horizontally. 
-     Add left margin to the sheets on the right to handle that.*/
-  margin-left: 20px;
-}
-div.sheet-character > div.sheet-row.sheet-char-row {
-  margin-top: 20px;
-}
 div.sheet-character > div.sheet-row.sheet-char-row > div.sheet-col.sheet-char-col {
   width: 240px;
+}
+
+/* Respond to character selection tabs. */
+input.sheet-char-control:not([value="1"]) ~ div.sheet-character.sheet-char-1 {
+  display: none;
+}
+
+input.sheet-char-control:not([value="2"]) ~ div.sheet-character.sheet-char-2 {
+  display: none;
+}
+
+input.sheet-char-control:not([value="3"]) ~ div.sheet-character.sheet-char-3 {
+  display: none;
+}
+
+input.sheet-char-control:not([value="4"]) ~ div.sheet-character.sheet-char-4 {
+  display: none;
+}
+
+button.sheet-tab > input.sheet-tabtext {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 182.5px;
 }
 
 /* Configure a container for the alignment checkline buttons. */
