@@ -8,6 +8,10 @@ label {
   font-size: 18px;
 }
 
+input {
+  outline: none;
+}
+
 /* Make text input be a simple line. */
 input[type=text] {
   background: transparent;
@@ -31,8 +35,14 @@ div.sheet-character {
   width: 730px;
   box-shadow: 10px 10px 5px;
 }
+div.sheet-character > div.sheet-row.sheet-char-row {
+  margin-top: 20px;
+}
 div.sheet-character > div.sheet-row.sheet-char-row > div.sheet-col.sheet-char-col {
   width: 240px;
+}
+div.sheet-character > div.sheet-row.sheet-char-row:first-child {
+  margin-top: 0px;
 }
 
 /* Respond to character selection tabs. */
@@ -125,6 +135,25 @@ div.sheet-row.sheet-gear-row div.sheet-col.sheet-gear-col label {
 }
 div.sheet-row.sheet-gear-row div.sheet-col.sheet-gear-col input {
   width: 176px;
+}
+
+/* Format the birth augur description. */
+input.sheet-augur-desc {
+  background: transparent;
+  border: none;
+  cursor: default;
+  width: 650px;
+}
+
+div.sheet-if-healing,
+div.sheet-if-crit {
+  display: none;
+}
+
+input.sheet-augur-hidden[value="16"] ~ div.sheet-if-healing,
+input.sheet-augur-hidden[value="26"] ~ div.sheet-if-crit,
+input.sheet-augur-hidden[value="28"] ~ div.sheet-if-crit {
+  display: block;
 }
 
 /*# sourceMappingURL=DCC_2_by_2.css.map */

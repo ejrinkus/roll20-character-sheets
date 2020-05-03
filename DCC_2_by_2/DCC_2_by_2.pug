@@ -3,14 +3,14 @@ div.root
   div.tabs
     each c in ["1", "2", "3", "4"]
       button.tab(type="action", name=`act_${c}_tab`)
-        input.tabtext(type="text", name=`attr_${c}_tab_text`, readonly)
+        input.tabtext(type="text", name=`attr_name_${c}`, value=`Character ${c}`, readonly)
   input.char-control(type="hidden", name="attr_character", value="1")
   each c in ["1", "2", "3", "4"]
     div(class=`character char-${c}`)
       div.row.char-row
         div.col.char-col
           label Name
-          input(type="text", name=`attr_name_${c}`)
+          input(type="text", name=`attr_name_${c}`, value=`Character ${c}`)
         div.col.char-col
           label Occupation
           input(type="text", name=`attr_occupation_${c}`)
@@ -73,6 +73,17 @@ div.root
             div.col.gear-col
               input(type="text", name=`attr_weap3_${c}`)
       div.row.char-row
+        label Birth Augur
+        input.augur-hidden(type="hidden", name=`attr_augur_${c}`, readonly)
+        input.augur(type="number", name=`attr_start_luck_${c}`)
+        input.augur-desc(type="text", value="Luck modifier at Level 0", readonly)
+        input.augur(type="number", name=`attr_augur_${c}`)
+        input.augur-desc(type="text", name=`attr_augur_desc_${c}`, readonly)
+        div.if-healing(style="font-size:10px")
+          | *If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.
+        div.if-crit(style="font-size:10px")
+          | **Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.
+      div.row.char-row
         label Notes
         textarea(name=`attr_notes_${c}`, style="resize:none")
 script(type="text/worker")
@@ -83,6 +94,7 @@ script(type="text/worker")
   include js/char_tabs.js
   include js/alignment.js
   include js/mods.js
+  include js/birth_augurs.js
 
   //- This file MUST be included last, as it uses code defined in the files above.
   include js/per_character.js
