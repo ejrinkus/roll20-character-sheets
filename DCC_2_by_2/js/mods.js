@@ -23,10 +23,10 @@
 
   function modHandlers(charI) {
     attributes.forEach(function(attr) {
-      on(`change:${attr}_cur_${charI} sheet:opened`, function() {
-        getAttrs([`${attr}_cur_${charI}`], function(values) {
+      on(`change:${attr}_${charI} sheet:opened`, function() {
+        getAttrs([`${attr}_${charI}`], function(values) {
           setAttrs({
-            [`${attr}_mod_${charI}`]: getMod(values[`${attr}_cur_${charI}`])
+            [`${attr}_${charI}_mod`]: getMod(values[`${attr}_${charI}`])
           });
         });
       });

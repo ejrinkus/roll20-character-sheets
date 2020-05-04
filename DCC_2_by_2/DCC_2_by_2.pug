@@ -1,4 +1,3 @@
-- const aligns = [["lawful", "Lawful"], ["neutral", "Neutral"], ["chaotic", "Chaotic"]]
 div.root
   div.tabs
     each c in ["1", "2", "3", "4"]
@@ -7,60 +6,63 @@ div.root
   input.char-control(type="hidden", name="attr_character", value="1")
   each c in ["1", "2", "3", "4"]
     div(class=`character char-${c}`)
-      div.row.char-row
-        div.col.char-col
+      div.row
+        div.col
           label Name
           input(type="text", name=`attr_name_${c}`, value=`Character ${c}`)
-        div.col.char-col
+        div.col
           label Occupation
           input(type="text", name=`attr_occupation_${c}`)
-        div.col.char-col
+        div.col.double
           label Alignment
           div.checklines 
             input(type="hidden", name=`attr_alignment_${c}`, value="").checkline
-            each pair in aligns
+            each pair in [["lawful", "Lawful"], ["neutral", "Neutral"], ["chaotic", "Chaotic"]]
               button(class=`checkline checkline-${pair[0]}`, type="action", name=`act_alignment_${pair[0]}_${c}`)
                 span.checked
                   | X
               span
                 | #{pair[1]}
-      div.row.char-row
-        div.col.char-col
-          each att in ["STR", "AGI", "STA", "PER", "INT", "LUC"]
-            div.row.att-row
-                div.col.att-col
-                  label #{att}
-                div.col.att-col
-                  input(type="number", name=`attr_${att}_cur_${c}`)
-                div.col.att-col
-                  input(type="number", name=`attr_${att}_mod_${c}`, readonly, value=0)
-        div.col.char-col
-          div.row.att-row
-            div.col.att-col
-              label HP
-            div.col.att-col
-              input(type="number", name=`attr_cur_hp_${c}`)
-            div.col.att-col(style="width:20px")
-              label(style="text-align:center;font-size:24px")
-                | /
-            div.col.att-col
-              input(type="number", name=`attr_max_hp_${c}`)
-          each save in ["MOV", "AC", "REF", "FOR", "WIL"]
-            div.row.att-row
-              div.col.att-col
-                label #{save}
-              div.col.att-col
-                input(type="number", name=`attr_${save}_${c}`)
-        div.col.char-col
-          div.row.money-row
-            div.col.money-col
-              label Money
-              span.note 10,000cp -> 1,000sp -> 100gp -> 10ep -> 1pp
+      div.row
+        div.col
+          - const atts = ["STR", "AGI", "STA", "PER", "INT", "LUC"]
+          div.att-col
+            each att in atts
+              label #{att}
+          div.att-col
+            each att in atts
+              input(type="number", name=`attr_${att}_${c}`)
+          div.att-col
+            each att in atts
+              input(type="number", name=`attr_${att}_${c}_mod`, readonly, value=0)
+        div.col
+          - const saves = ["HP", "MOV", "AC", "REF", "FOR", "WIL"]
+          div.att-col
+            each save in saves
+              label #{save}
+          div.att-col
+            each save in saves
+              input(type="number", name=`attr_${save}_${c}`)
+          div.att-col(style="width:1.5em")
+            label(style="display:inline-block;font-size:2em;width:0.25em") /
+          div.att-col
+            input(type="number", name=`attr_HP_${c}_max`)
+        div.col.double
+          div.row.gear
             div.col.gear-col
+              label CP
               input(type="number")
+            div.col.gear-col
+              label SP
               input(type="number")
+            div.col.gear-col
+              label GP
               input(type="number")
+            div.col.gear-col
+              label EP
               input(type="number")
+            div.col.gear-col
+              label PP
               input(type="number")
           div.row.gear-row
             div.col.gear-col

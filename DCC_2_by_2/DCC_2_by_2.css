@@ -2,20 +2,20 @@
 /* Some global formatting. */
 * {
   font-family: "Marko One";
+  font-size: 12px;
 }
 
 label {
   font-family: "IM Fell English SC";
-  font-size: 18px;
+  font-size: 1.5em;
+  padding: 0.25em;
+  margin: 0em;
+  height: 0.8333333333em;
 }
 
 input {
   outline: none;
-  width: 200px;
-}
-
-.sheet-note {
-  font-size: 10px;
+  width: 20em;
 }
 
 input[type=text] {
@@ -24,58 +24,69 @@ input[type=text] {
   border-bottom: 1px solid black;
 }
 
+input[type=number] {
+  height: 2em;
+}
+
+.sheet-note {
+  font-size: 0.83em;
+}
+
 /* Configure the root div containing all elements. */
 .sheet-root {
-  width: 890px;
+  width: 87em;
   background-color: gray;
-  padding: 20px;
+  padding: 1em;
+  /* Configure the containers for the character sheet. */
+  /* Respond to character selection tabs. */
+  /* Configure a container for the alignment checkline buttons. */
+  /* Format the attribute columns. */
+  /* Format the gear columns. */
+  /* Format the birth augur description. */
 }
-
-/* Configure the containers for the character sheet. */
-div.sheet-character {
+.sheet-root div.sheet-character {
   display: block;
   background-color: white;
-  padding: 10px;
-  width: 870px;
-  box-shadow: 10px 10px 5px;
+  padding: 0.5em;
+  width: 85em;
+  box-shadow: 1em 1em 0.5em;
 }
-div.sheet-character > div.sheet-row.sheet-char-row > div.sheet-col.sheet-char-col:first-child {
-  margin-left: 0px;
+.sheet-root div.sheet-character > div.sheet-row {
+  display: block;
 }
-div.sheet-character > div.sheet-row.sheet-char-row > div.sheet-col.sheet-char-col {
-  width: 200px;
-  margin: 5px;
+.sheet-root div.sheet-character > div.sheet-row > div.sheet-col {
+  width: 20em;
+  margin: 0.5em !important;
 }
-div.sheet-character > div.sheet-row.sheet-char-row > div.sheet-col.sheet-char-col:last-child {
-  width: 410px;
-  margin: 10px;
+.sheet-root div.sheet-character > div.sheet-row > div.sheet-col.sheet-double {
+  width: 41em;
 }
-
-/* Respond to character selection tabs. */
-input.sheet-char-control:not([value="1"]) ~ div.sheet-character.sheet-char-1 {
+.sheet-root div.sheet-att-col {
+  display: inline-block;
+  width: 4.25em;
+  vertical-align: top;
+}
+.sheet-root div.sheet-att-col > input[type=number] {
+  width: 4em;
+}
+.sheet-root input.sheet-char-control:not([value="1"]) ~ div.sheet-character.sheet-char-1 {
   display: none;
 }
-
-input.sheet-char-control:not([value="2"]) ~ div.sheet-character.sheet-char-2 {
+.sheet-root input.sheet-char-control:not([value="2"]) ~ div.sheet-character.sheet-char-2 {
   display: none;
 }
-
-input.sheet-char-control:not([value="3"]) ~ div.sheet-character.sheet-char-3 {
+.sheet-root input.sheet-char-control:not([value="3"]) ~ div.sheet-character.sheet-char-3 {
   display: none;
 }
-
-input.sheet-char-control:not([value="4"]) ~ div.sheet-character.sheet-char-4 {
+.sheet-root input.sheet-char-control:not([value="4"]) ~ div.sheet-character.sheet-char-4 {
   display: none;
 }
-
-button.sheet-tab > input.sheet-tabtext {
+.sheet-root button.sheet-tab > input.sheet-tabtext {
   background: transparent;
   border: none;
   cursor: pointer;
 }
-
-/* Configure a container for the alignment checkline buttons. */
-.sheet-checklines {
+.sheet-root .sheet-checklines {
   display: inline-flex;
   align-items: center;
   vertical-align: bottom;
@@ -83,7 +94,7 @@ button.sheet-tab > input.sheet-tabtext {
   padding: 4px;
   /* Hide the "checked" section of the checkline if the attribute value does not match the checkline. */
 }
-.sheet-checklines > button.sheet-checkline {
+.sheet-root .sheet-checklines > button.sheet-checkline {
   background: transparent;
   border: none;
   border-bottom: 1px solid black;
@@ -93,71 +104,63 @@ button.sheet-tab > input.sheet-tabtext {
   justify-content: center;
   align-items: center;
 }
-.sheet-checklines > button.sheet-checkline > span.sheet-checked {
+.sheet-root .sheet-checklines > button.sheet-checkline > span.sheet-checked {
   color: black;
   display: inline-flex;
 }
-.sheet-checklines > button.sheet-checkline ~ span {
+.sheet-root .sheet-checklines > button.sheet-checkline ~ span {
   margin-right: 10px;
 }
-.sheet-checklines input.sheet-checkline:not([value=lawful]) ~ button.sheet-checkline-lawful > span.sheet-checked,
-.sheet-checklines input.sheet-checkline:not([value=neutral]) ~ button.sheet-checkline-neutral > span.sheet-checked,
-.sheet-checklines input.sheet-checkline:not([value=chaotic]) ~ button.sheet-checkline-chaotic > span.sheet-checked {
+.sheet-root .sheet-checklines input.sheet-checkline:not([value=lawful]) ~ button.sheet-checkline-lawful > span.sheet-checked,
+.sheet-root .sheet-checklines input.sheet-checkline:not([value=neutral]) ~ button.sheet-checkline-neutral > span.sheet-checked,
+.sheet-root .sheet-checklines input.sheet-checkline:not([value=chaotic]) ~ button.sheet-checkline-chaotic > span.sheet-checked {
   background: transparent;
   color: transparent;
 }
-
-/* Format the attribute columns. */
-div.sheet-row.sheet-att-row div.sheet-col.sheet-att-col {
+.sheet-root div.sheet-row.sheet-att-row div.sheet-col.sheet-att-col {
   width: 45px;
   display: inline-flex;
   justify-content: center;
   align-items: left;
   vertical-align: middle;
 }
-div.sheet-row.sheet-att-row div.sheet-col.sheet-att-col label {
+.sheet-root div.sheet-row.sheet-att-row div.sheet-col.sheet-att-col label {
   display: inline-block;
   vertical-align: middle;
   margin: 0px;
   padding: 0px;
 }
-
-/* Format the gear columns. */
-div.sheet-row.sheet-gear-row div.sheet-col.sheet-gear-col:first-child {
+.sheet-root div.sheet-row.sheet-gear-row div.sheet-col.sheet-gear-col:first-child {
   width: 60px;
 }
-div.sheet-row.sheet-gear-row div.sheet-col.sheet-gear-col {
+.sheet-root div.sheet-row.sheet-gear-row div.sheet-col.sheet-gear-col {
   display: inline-flex;
   justify-content: center;
   align-items: left;
   vertical-align: middle;
 }
-div.sheet-row.sheet-gear-row div.sheet-col.sheet-gear-col label {
+.sheet-root div.sheet-row.sheet-gear-row div.sheet-col.sheet-gear-col label {
   display: inline-block;
   vertical-align: middle;
   margin: 0px;
   padding: 0px;
 }
-div.sheet-row.sheet-gear-row div.sheet-col.sheet-gear-col input {
+.sheet-root div.sheet-row.sheet-gear-row div.sheet-col.sheet-gear-col input {
   width: 176px;
 }
-
-/* Format the birth augur description. */
-input.sheet-augur-desc {
+.sheet-root input.sheet-augur-desc {
   background: transparent;
   border: none;
   cursor: default;
-  width: 600px;
+  width: 60em;
 }
-
-div.sheet-if-healing,
-div.sheet-if-crit {
+.sheet-root div.sheet-if-healing,
+.sheet-root div.sheet-if-crit {
   display: none;
 }
-
-input.sheet-augur-hidden[value="16"] ~ div.sheet-if-healing,
-input.sheet-augur-hidden[value="26"] ~ div.sheet-if-crit,
-input.sheet-augur-hidden[value="28"] ~ div.sheet-if-crit {
+.sheet-root input.sheet-augur-hidden[value="16"] ~ div.sheet-if-healing,
+.sheet-root input.sheet-augur-hidden[value="26"] ~ div.sheet-if-crit,
+.sheet-root input.sheet-augur-hidden[value="28"] ~ div.sheet-if-crit {
   display: block;
 }
 

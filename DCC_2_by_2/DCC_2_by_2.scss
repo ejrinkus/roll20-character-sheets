@@ -3,33 +3,33 @@
 $sheet-background: white;
 $sheet-num-cols: 4;
 
-$sheet-col-width: 200px;
-$sheet-col-margins: 10px;
-$sheet-padding: $sheet-col-margins;
-$sheet-width: $sheet-num-cols*$sheet-col-width + ($sheet-num-cols+3)*$sheet-col-margins;
-$sheet-shadow: 10px 10px 5px;
+$sheet-col-width: 20em;
+$sheet-col-margins: 0.5em;
+$sheet-padding: 1em;
+$sheet-width: 85em;
+$sheet-shadow: 1em 1em 0.5em;
 
 $root-background: gray;
-$root-padding: $sheet-padding;
-$root-width: $sheet-width + $root-padding*2;
+$root-padding: 0.5em;
+$root-width: 87em;
 
 /* Some global formatting. */
 * {
   font-family: 'Marko One';
+  font-size: 12px;
 }
 
 label {
   font-family: 'IM Fell English SC';
-  font-size: 18px;
+  font-size: 1.5em;
+  padding: (1em)/4;
+  margin: 0em;
+  height: (5em)/6;
 }
 
 input {
   outline: none;
   width: $sheet-col-width;
-}
-
-.sheet-note {
-  font-size: 10px;
 }
 
 input[type=text] {
@@ -38,154 +38,162 @@ input[type=text] {
   border-bottom: 1px solid black;
 }
 
+input[type=number] {
+  height: 2em;
+}
+
+.sheet-note {
+  font-size: 0.83em;
+}
+
 /* Configure the root div containing all elements. */
 .sheet-root {
   width: $root-width;
   background-color: $root-background;
   padding: $root-padding*2;
-}
 
-/* Configure the containers for the character sheet. */
-div.sheet-character {
-  display: block;
-  background-color: $sheet-background;
-  padding: $sheet-col-margins;
-  width: $sheet-width;
-  box-shadow: $sheet-shadow;
-  > div.sheet-row.sheet-char-row {
-    > div.sheet-col.sheet-char-col:first-child {
-      // First column is normal, but get rid of its left margin, and use the
-      // container's padding instead.
-      margin-left: 0px;
-    }
-    > div.sheet-col.sheet-char-col {
-      // Since we're using flexbox, margins won't collapse.  So cut adjacent
-      // margins in half.
-      width: $sheet-col-width;
-      margin: $sheet-col-margins/2;
-    }
-    > div.sheet-col.sheet-char-col:last-child {
-      // Make the last column double-wide, and get rid of the right-margin
-      // (same reason we ditched the left-margin of the first column).
-      width: $sheet-col-width*2 + $sheet-col-margins;
-      margin: $sheet-col-margins;
+  /* Configure the containers for the character sheet. */
+  div.sheet-character {
+    display: block;
+    background-color: $sheet-background;
+    padding: $sheet-col-margins;
+    width: $sheet-width;
+    box-shadow: $sheet-shadow;
+    > div.sheet-row {
+      display: block;
+      > div.sheet-col {
+        width: $sheet-col-width;
+        margin: $sheet-col-margins !important;
+      }
+      > div.sheet-col.sheet-double {
+        width: ($sheet-col-width + $sheet-col-margins)*2;
+      }
     }
   }
-}
 
-/* Respond to character selection tabs. */
-input.sheet-char-control:not([value="1"]) {
-  ~ div.sheet-character.sheet-char-1 {
-    display: none;
+  div.sheet-att-col {
+    display: inline-block;
+    width: 4.25em;
+    vertical-align: top;
+    > input[type="number"] {
+      width: 4em;
+    }
   }
-}
-input.sheet-char-control:not([value="2"]) {
-  ~ div.sheet-character.sheet-char-2 {
-    display: none;
-  }
-}
-input.sheet-char-control:not([value="3"]) {
-  ~ div.sheet-character.sheet-char-3 {
-    display: none;
-  }
-}
-input.sheet-char-control:not([value="4"]) {
-  ~ div.sheet-character.sheet-char-4 {
-    display: none;
-  }
-}
-button.sheet-tab > input.sheet-tabtext {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-}
 
-/* Configure a container for the alignment checkline buttons. */
-.sheet-checklines {
-  display: inline-flex;
-  align-items: center;
-  vertical-align: bottom;
-  height: 27px;
-  padding: 4px;
-  > button.sheet-checkline {
+  /* Respond to character selection tabs. */
+  input.sheet-char-control:not([value="1"]) {
+    ~ div.sheet-character.sheet-char-1 {
+      display: none;
+    }
+  }
+  input.sheet-char-control:not([value="2"]) {
+    ~ div.sheet-character.sheet-char-2 {
+      display: none;
+    }
+  }
+  input.sheet-char-control:not([value="3"]) {
+    ~ div.sheet-character.sheet-char-3 {
+      display: none;
+    }
+  }
+  input.sheet-char-control:not([value="4"]) {
+    ~ div.sheet-character.sheet-char-4 {
+      display: none;
+    }
+  }
+  button.sheet-tab > input.sheet-tabtext {
     background: transparent;
     border: none;
-    border-bottom: 1px solid black;  
-    width: 14px;
-    height: 14px;
+    cursor: pointer;
+  }
+
+  /* Configure a container for the alignment checkline buttons. */
+  .sheet-checklines {
     display: inline-flex;
-    justify-content: center;
     align-items: center;
-    > span.sheet-checked {
-      color: black;
+    vertical-align: bottom;
+    height: 27px;
+    padding: 4px;
+    > button.sheet-checkline {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid black;  
+      width: 14px;
+      height: 14px;
       display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      > span.sheet-checked {
+        color: black;
+        display: inline-flex;
+      }
+      ~ span {
+        margin-right: 10px;
+      }
     }
-    ~ span {
-      margin-right: 10px;
+    
+    /* Hide the "checked" section of the checkline if the attribute value does not match the checkline. */
+    input.sheet-checkline:not([value="lawful"]) ~ button.sheet-checkline-lawful > span.sheet-checked,
+    input.sheet-checkline:not([value="neutral"]) ~ button.sheet-checkline-neutral > span.sheet-checked,
+    input.sheet-checkline:not([value="chaotic"]) ~ button.sheet-checkline-chaotic > span.sheet-checked {
+      background: transparent;
+      color: transparent;
     }
   }
-  
-  /* Hide the "checked" section of the checkline if the attribute value does not match the checkline. */
-  input.sheet-checkline:not([value="lawful"]) ~ button.sheet-checkline-lawful > span.sheet-checked,
-  input.sheet-checkline:not([value="neutral"]) ~ button.sheet-checkline-neutral > span.sheet-checked,
-  input.sheet-checkline:not([value="chaotic"]) ~ button.sheet-checkline-chaotic > span.sheet-checked {
+
+  /* Format the attribute columns. */
+  div.sheet-row.sheet-att-row {
+    div.sheet-col.sheet-att-col {
+      width: 45px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: left;
+      vertical-align: middle;
+      label {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0px;
+        padding: 0px;
+      }
+    }
+  }
+
+  /* Format the gear columns. */
+  div.sheet-row.sheet-gear-row {
+    div.sheet-col.sheet-gear-col:first-child {
+      width: 60px;
+    }
+    div.sheet-col.sheet-gear-col {
+      display: inline-flex;
+      justify-content: center;
+      align-items: left;
+      vertical-align: middle;
+      label {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0px;
+        padding: 0px;
+      }
+      input {
+        width: 176px;
+      }
+    }
+  }
+
+  /* Format the birth augur description. */
+  input.sheet-augur-desc {
     background: transparent;
-    color: transparent;
+    border: none;
+    cursor: default;
+    width: $sheet-col-width*3;
   }
-}
-
-/* Format the attribute columns. */
-div.sheet-row.sheet-att-row {
-  div.sheet-col.sheet-att-col {
-    width: 45px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: left;
-    vertical-align: middle;
-    label {
-      display: inline-block;
-      vertical-align: middle;
-      margin: 0px;
-      padding: 0px;
-    }
+  div.sheet-if-healing,
+  div.sheet-if-crit {
+    display: none;
   }
-}
-
-/* Format the gear columns. */
-div.sheet-row.sheet-gear-row {
-  div.sheet-col.sheet-gear-col:first-child {
-    width: 60px;
+  input.sheet-augur-hidden[value="16"] ~ div.sheet-if-healing,
+  input.sheet-augur-hidden[value="26"] ~ div.sheet-if-crit,
+  input.sheet-augur-hidden[value="28"] ~ div.sheet-if-crit {
+    display: block;
   }
-  div.sheet-col.sheet-gear-col {
-    display: inline-flex;
-    justify-content: center;
-    align-items: left;
-    vertical-align: middle;
-    label {
-      display: inline-block;
-      vertical-align: middle;
-      margin: 0px;
-      padding: 0px;
-    }
-    input {
-      width: 176px;
-    }
-  }
-}
-
-/* Format the birth augur description. */
-input.sheet-augur-desc {
-  background: transparent;
-  border: none;
-  cursor: default;
-  width: $sheet-col-width*3;
-}
-div.sheet-if-healing,
-div.sheet-if-crit {
-  display: none;
-}
-input.sheet-augur-hidden[value="16"] ~ div.sheet-if-healing,
-input.sheet-augur-hidden[value="26"] ~ div.sheet-if-crit,
-input.sheet-augur-hidden[value="28"] ~ div.sheet-if-crit {
-  display: block;
 }
