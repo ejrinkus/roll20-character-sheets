@@ -1,13 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=IM+Fell+English+SC|Marko+One&display=swap');
 
 $sheet-background: white;
-$sheet-width: 730px;
-$sheet-margin: 20px;
+$sheet-num-cols: 4;
+
+$sheet-col-width: 200px;
+$sheet-col-margins: 10px;
+$sheet-padding: $sheet-col-margins;
+$sheet-width: $sheet-num-cols*$sheet-col-width + ($sheet-num-cols+3)*$sheet-col-margins;
 $sheet-shadow: 10px 10px 5px;
 
 $root-background: gray;
-$root-width: $sheet-width + $sheet-margin*4 + 5;
+$root-padding: $sheet-padding;
+$root-width: $sheet-width + $root-padding*2;
 
+/* Some global formatting. */
 * {
   font-family: 'Marko One';
 }
@@ -19,9 +25,13 @@ label {
 
 input {
   outline: none;
+  width: $sheet-col-width;
 }
 
-/* Make text input be a simple line. */
+.sheet-note {
+  font-size: 10px;
+}
+
 input[type=text] {
   background: transparent;
   border: none;
@@ -32,25 +42,34 @@ input[type=text] {
 .sheet-root {
   width: $root-width;
   background-color: $root-background;
-  padding-bottom: $sheet-margin/2;
+  padding: $root-padding*2;
 }
 
-/* Configure the containers for each character sheet. */
+/* Configure the containers for the character sheet. */
 div.sheet-character {
   display: block;
-  margin: $sheet-margin;
-  padding: $sheet-margin;
   background-color: $sheet-background;
+  padding: $sheet-col-margins;
   width: $sheet-width;
   box-shadow: $sheet-shadow;
   > div.sheet-row.sheet-char-row {
-    margin-top: $sheet-margin;
-    > div.sheet-col.sheet-char-col {
-      width: ($sheet-width - $sheet-width%3)/3 - 3;
+    > div.sheet-col.sheet-char-col:first-child {
+      // First column is normal, but get rid of its left margin, and use the
+      // container's padding instead.
+      margin-left: 0px;
     }
-  }
-  > div.sheet-row.sheet-char-row:first-child {
-    margin-top: 0px;
+    > div.sheet-col.sheet-char-col {
+      // Since we're using flexbox, margins won't collapse.  So cut adjacent
+      // margins in half.
+      width: $sheet-col-width;
+      margin: $sheet-col-margins/2;
+    }
+    > div.sheet-col.sheet-char-col:last-child {
+      // Make the last column double-wide, and get rid of the right-margin
+      // (same reason we ditched the left-margin of the first column).
+      width: $sheet-col-width*2 + $sheet-col-margins;
+      margin: $sheet-col-margins;
+    }
   }
 }
 
@@ -79,7 +98,6 @@ button.sheet-tab > input.sheet-tabtext {
   background: transparent;
   border: none;
   cursor: pointer;
-  width: $sheet-width/4;
 }
 
 /* Configure a container for the alignment checkline buttons. */
@@ -160,7 +178,7 @@ input.sheet-augur-desc {
   background: transparent;
   border: none;
   cursor: default;
-  width: $sheet-width - $sheet-margin*4;
+  width: $sheet-col-width*3;
 }
 div.sheet-if-healing,
 div.sheet-if-crit {

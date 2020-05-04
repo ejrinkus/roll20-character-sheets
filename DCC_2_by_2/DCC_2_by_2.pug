@@ -52,6 +52,16 @@ div.root
               div.col.att-col
                 input(type="number", name=`attr_${save}_${c}`)
         div.col.char-col
+          div.row.money-row
+            div.col.money-col
+              label Money
+              span.note 10,000cp -> 1,000sp -> 100gp -> 10ep -> 1pp
+            div.col.gear-col
+              input(type="number")
+              input(type="number")
+              input(type="number")
+              input(type="number")
+              input(type="number")
           div.row.gear-row
             div.col.gear-col
               label Armor
@@ -77,15 +87,16 @@ div.root
         input.augur-hidden(type="hidden", name=`attr_augur_${c}`, readonly)
         input.augur(type="number", name=`attr_start_luck_${c}`)
         input.augur-desc(type="text", value="Luck modifier at Level 0", readonly)
+        br
         input.augur(type="number", name=`attr_augur_${c}`)
         input.augur-desc(type="text", name=`attr_augur_desc_${c}`, readonly)
-        div.if-healing(style="font-size:10px")
+        div.if-healing.note
           | *If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.
-        div.if-crit(style="font-size:10px")
+        div.if-crit.note
           | **Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.
       div.row.char-row
         label Notes
-        textarea(name=`attr_notes_${c}`, style="resize:none")
+        textarea(name=`attr_notes_${c}`, style="resize:none;margin:0px;padding:0px")
 script(type="text/worker")
   //- This file MUST be included first, as it defines constants used in the files below.
   include js/constants.js

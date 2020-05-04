@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=IM+Fell+English+SC|Marko+One&display=swap");
+/* Some global formatting. */
 * {
   font-family: "Marko One";
 }
@@ -10,9 +11,13 @@ label {
 
 input {
   outline: none;
+  width: 200px;
 }
 
-/* Make text input be a simple line. */
+.sheet-note {
+  font-size: 10px;
+}
+
 input[type=text] {
   background: transparent;
   border: none;
@@ -21,28 +26,29 @@ input[type=text] {
 
 /* Configure the root div containing all elements. */
 .sheet-root {
-  width: 815px;
+  width: 890px;
   background-color: gray;
-  padding-bottom: 10px;
+  padding: 20px;
 }
 
-/* Configure the containers for each character sheet. */
+/* Configure the containers for the character sheet. */
 div.sheet-character {
   display: block;
-  margin: 20px;
-  padding: 20px;
   background-color: white;
-  width: 730px;
+  padding: 10px;
+  width: 870px;
   box-shadow: 10px 10px 5px;
 }
-div.sheet-character > div.sheet-row.sheet-char-row {
-  margin-top: 20px;
+div.sheet-character > div.sheet-row.sheet-char-row > div.sheet-col.sheet-char-col:first-child {
+  margin-left: 0px;
 }
 div.sheet-character > div.sheet-row.sheet-char-row > div.sheet-col.sheet-char-col {
-  width: 240px;
+  width: 200px;
+  margin: 5px;
 }
-div.sheet-character > div.sheet-row.sheet-char-row:first-child {
-  margin-top: 0px;
+div.sheet-character > div.sheet-row.sheet-char-row > div.sheet-col.sheet-char-col:last-child {
+  width: 410px;
+  margin: 10px;
 }
 
 /* Respond to character selection tabs. */
@@ -66,7 +72,6 @@ button.sheet-tab > input.sheet-tabtext {
   background: transparent;
   border: none;
   cursor: pointer;
-  width: 182.5px;
 }
 
 /* Configure a container for the alignment checkline buttons. */
@@ -142,7 +147,7 @@ input.sheet-augur-desc {
   background: transparent;
   border: none;
   cursor: default;
-  width: 650px;
+  width: 600px;
 }
 
 div.sheet-if-healing,
