@@ -12,4 +12,7 @@
 
     // Defined in birth_augurs.js
     augurHandlers(charI);
+    
+    // Defined in equipment.js
+    equipHandlers(charI);
   });

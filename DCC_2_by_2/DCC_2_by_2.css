@@ -8,9 +8,6 @@
 label {
   font-family: "IM Fell English SC";
   font-size: 1.5em;
-  padding: 0.25em;
-  margin: 0em;
-  height: 0.8333333333em;
 }
 
 input {
@@ -36,15 +33,10 @@ input[type=number] {
 .sheet-root {
   width: 87em;
   background-color: gray;
-  padding: 1em;
-  /* Configure the containers for the character sheet. */
-  /* Respond to character selection tabs. */
-  /* Configure a container for the alignment checkline buttons. */
-  /* Format the attribute columns. */
-  /* Format the gear columns. */
-  /* Format the birth augur description. */
+  padding: 2em;
 }
 .sheet-root div.sheet-character {
+  /* Configure the containers for the character sheet. */
   display: block;
   background-color: white;
   padding: 0.5em;
@@ -61,24 +53,29 @@ input[type=number] {
 .sheet-root div.sheet-character > div.sheet-row > div.sheet-col.sheet-double {
   width: 41em;
 }
-.sheet-root div.sheet-att-col {
-  display: inline-block;
-  width: 4.25em;
-  vertical-align: top;
+.sheet-root div.sheet-character > div.sheet-row > div.sheet-col.sheet-triple {
+  width: 62em;
 }
-.sheet-root div.sheet-att-col > input[type=number] {
+.sheet-root div.sheet-character > div.sheet-row > div.sheet-col.sheet-full {
+  width: 83em;
+}
+.sheet-root div.sheet-col.sheet-label-inline {
+  /* Styling for labels that are inline with their fields. */
   width: 4em;
+  height: 2em;
+  position: relative;
 }
-.sheet-root input.sheet-char-control:not([value="1"]) ~ div.sheet-character.sheet-char-1 {
-  display: none;
+.sheet-root div.sheet-col.sheet-label-inline > label {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
 }
-.sheet-root input.sheet-char-control:not([value="2"]) ~ div.sheet-character.sheet-char-2 {
-  display: none;
-}
-.sheet-root input.sheet-char-control:not([value="3"]) ~ div.sheet-character.sheet-char-3 {
-  display: none;
-}
+.sheet-root input.sheet-char-control:not([value="1"]) ~ div.sheet-character.sheet-char-1,
+.sheet-root input.sheet-char-control:not([value="2"]) ~ div.sheet-character.sheet-char-2,
+.sheet-root input.sheet-char-control:not([value="3"]) ~ div.sheet-character.sheet-char-3,
 .sheet-root input.sheet-char-control:not([value="4"]) ~ div.sheet-character.sheet-char-4 {
+  /* Respond to character selection tabs. */
   display: none;
 }
 .sheet-root button.sheet-tab > input.sheet-tabtext {
@@ -87,12 +84,12 @@ input[type=number] {
   cursor: pointer;
 }
 .sheet-root .sheet-checklines {
+  /* Configure the container for the alignment checkline buttons. */
   display: inline-flex;
   align-items: center;
   vertical-align: bottom;
   height: 27px;
   padding: 4px;
-  /* Hide the "checked" section of the checkline if the attribute value does not match the checkline. */
 }
 .sheet-root .sheet-checklines > button.sheet-checkline {
   background: transparent;
@@ -114,41 +111,69 @@ input[type=number] {
 .sheet-root .sheet-checklines input.sheet-checkline:not([value=lawful]) ~ button.sheet-checkline-lawful > span.sheet-checked,
 .sheet-root .sheet-checklines input.sheet-checkline:not([value=neutral]) ~ button.sheet-checkline-neutral > span.sheet-checked,
 .sheet-root .sheet-checklines input.sheet-checkline:not([value=chaotic]) ~ button.sheet-checkline-chaotic > span.sheet-checked {
+  /* Hide the "checked" section of the checkline if the attribute value does not match the checkline. */
   background: transparent;
   color: transparent;
 }
-.sheet-root div.sheet-row.sheet-att-row div.sheet-col.sheet-att-col {
-  width: 45px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: left;
-  vertical-align: middle;
+.sheet-root div.repitem {
+  /* Format the gear section. */
 }
-.sheet-root div.sheet-row.sheet-att-row div.sheet-col.sheet-att-col label {
+.sheet-root div.repitem select.sheet-equip-type {
+  width: 10em;
+  display: block;
+  margin-bottom: 0em;
+  border-bottom: 0px solid transparent;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.sheet-root div.repitem div.sheet-equip {
+  /* Width of an equipment controls div is the width of a double-wide div. */
+  width: 41em;
   display: inline-block;
-  vertical-align: middle;
-  margin: 0px;
-  padding: 0px;
+  position: relative;
+  margin-bottom: 1em;
+  border: 1px solid #cccccc;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
-.sheet-root div.sheet-row.sheet-gear-row div.sheet-col.sheet-gear-col:first-child {
-  width: 60px;
+.sheet-root div.repitem select.sheet-equip-type ~ div.sheet-equip::before {
+  /* This will "hide" the part of the top border adjacent to the equip-type select
+  control, effectively making the components look like one object. */
+  content: "";
+  position: absolute;
+  display: block;
+  height: 3px;
+  width: 9.8em;
+  left: 1px;
+  top: -1px;
+  background: white;
 }
-.sheet-root div.sheet-row.sheet-gear-row div.sheet-col.sheet-gear-col {
-  display: inline-flex;
-  justify-content: center;
-  align-items: left;
-  vertical-align: middle;
+.sheet-root div.repitem div.sheet-equip.sheet-custom {
+  /* A piece of custom equipment just has a free text field. */
 }
-.sheet-root div.sheet-row.sheet-gear-row div.sheet-col.sheet-gear-col label {
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0px;
-  padding: 0px;
+.sheet-root div.repitem div.sheet-equip.sheet-custom input {
+  width: 41em;
 }
-.sheet-root div.sheet-row.sheet-gear-row div.sheet-col.sheet-gear-col input {
-  width: 176px;
+.sheet-root div.repitem div.sheet-equip.sheet-armor {
+  /* A piece of armor has fields for name, AC bonus, penalty, speed, and fumble. */
+}
+.sheet-root div.repitem div.sheet-equip.sheet-armor input.sheet-armor-name {
+  width: 13.6666666667em;
+}
+.sheet-root div.repitem div.sheet-equip.sheet-weapon {
+  /* A weapon has fields for name, damage, sneak damage, and range. */
+}
+.sheet-root div.repitem div.sheet-equip.sheet-weapon input.sheet-weapon-name {
+  width: 13.6666666667em;
+}
+.sheet-root div.repitem input.sheet-equip-select:not([value=Custom]) ~ div.sheet-equip.sheet-custom,
+.sheet-root div.repitem input.sheet-equip-select:not([value=Armor]) ~ div.sheet-equip.sheet-armor,
+.sheet-root div.repitem input.sheet-equip-select:not([value=Weapon]) ~ div.sheet-equip.sheet-weapon {
+  /* Equipment type selection logic. */
+  display: none !important;
 }
 .sheet-root input.sheet-augur-desc {
+  /* Format the birth augur description. */
   background: transparent;
   border: none;
   cursor: default;
@@ -162,6 +187,14 @@ input[type=number] {
 .sheet-root input.sheet-augur-hidden[value="26"] ~ div.sheet-if-crit,
 .sheet-root input.sheet-augur-hidden[value="28"] ~ div.sheet-if-crit {
   display: block;
+}
+.sheet-root textarea {
+  /* Format the notes textarea. */
+  resize: none !important;
+  margin: 0em;
+  padding: 0.25em;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 /*# sourceMappingURL=DCC_2_by_2.css.map */

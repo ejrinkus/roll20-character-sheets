@@ -10,7 +10,7 @@ $sheet-width: 85em;
 $sheet-shadow: 1em 1em 0.5em;
 
 $root-background: gray;
-$root-padding: 0.5em;
+$root-padding: 1em;
 $root-width: 87em;
 
 /* Some global formatting. */
@@ -22,9 +22,6 @@ $root-width: 87em;
 label {
   font-family: 'IM Fell English SC';
   font-size: 1.5em;
-  padding: (1em)/4;
-  margin: 0em;
-  height: (5em)/6;
 }
 
 input {
@@ -52,8 +49,8 @@ input[type=number] {
   background-color: $root-background;
   padding: $root-padding*2;
 
-  /* Configure the containers for the character sheet. */
   div.sheet-character {
+    /* Configure the containers for the character sheet. */
     display: block;
     background-color: $sheet-background;
     padding: $sheet-col-margins;
@@ -66,40 +63,36 @@ input[type=number] {
         margin: $sheet-col-margins !important;
       }
       > div.sheet-col.sheet-double {
-        width: ($sheet-col-width + $sheet-col-margins)*2;
+        width: $sheet-col-width*2 + $sheet-col-margins*2;
+      }
+      > div.sheet-col.sheet-triple {
+        width: $sheet-col-width*3 + $sheet-col-margins*4;
+      }
+      > div.sheet-col.sheet-full {
+        width: $sheet-col-width*4 + $sheet-col-margins*6;
       }
     }
   }
 
-  div.sheet-att-col {
-    display: inline-block;
-    width: 4.25em;
-    vertical-align: top;
-    > input[type="number"] {
-      width: 4em;
+  div.sheet-col.sheet-label-inline {
+    /* Styling for labels that are inline with their fields. */
+    width: 4em;
+    height: 2em;
+    position: relative;
+    > label {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
     }
   }
 
-  /* Respond to character selection tabs. */
-  input.sheet-char-control:not([value="1"]) {
-    ~ div.sheet-character.sheet-char-1 {
-      display: none;
-    }
-  }
-  input.sheet-char-control:not([value="2"]) {
-    ~ div.sheet-character.sheet-char-2 {
-      display: none;
-    }
-  }
-  input.sheet-char-control:not([value="3"]) {
-    ~ div.sheet-character.sheet-char-3 {
-      display: none;
-    }
-  }
-  input.sheet-char-control:not([value="4"]) {
-    ~ div.sheet-character.sheet-char-4 {
-      display: none;
-    }
+  input.sheet-char-control:not([value="1"]) ~ div.sheet-character.sheet-char-1,
+  input.sheet-char-control:not([value="2"]) ~ div.sheet-character.sheet-char-2,
+  input.sheet-char-control:not([value="3"]) ~ div.sheet-character.sheet-char-3,
+  input.sheet-char-control:not([value="4"]) ~ div.sheet-character.sheet-char-4 {
+    /* Respond to character selection tabs. */
+    display: none;
   }
   button.sheet-tab > input.sheet-tabtext {
     background: transparent;
@@ -107,8 +100,8 @@ input[type=number] {
     cursor: pointer;
   }
 
-  /* Configure a container for the alignment checkline buttons. */
   .sheet-checklines {
+    /* Configure the container for the alignment checkline buttons. */
     display: inline-flex;
     align-items: center;
     vertical-align: bottom;
@@ -132,56 +125,82 @@ input[type=number] {
       }
     }
     
-    /* Hide the "checked" section of the checkline if the attribute value does not match the checkline. */
     input.sheet-checkline:not([value="lawful"]) ~ button.sheet-checkline-lawful > span.sheet-checked,
     input.sheet-checkline:not([value="neutral"]) ~ button.sheet-checkline-neutral > span.sheet-checked,
     input.sheet-checkline:not([value="chaotic"]) ~ button.sheet-checkline-chaotic > span.sheet-checked {
+      /* Hide the "checked" section of the checkline if the attribute value does not match the checkline. */
       background: transparent;
       color: transparent;
     }
   }
 
-  /* Format the attribute columns. */
-  div.sheet-row.sheet-att-row {
-    div.sheet-col.sheet-att-col {
-      width: 45px;
-      display: inline-flex;
-      justify-content: center;
-      align-items: left;
-      vertical-align: middle;
-      label {
-        display: inline-block;
-        vertical-align: middle;
-        margin: 0px;
-        padding: 0px;
-      }
+  div.repitem {
+    /* Format the gear section. */
+    $select-width: 10em;
+    select.sheet-equip-type {
+      width: $select-width;
+      display: block;
+      margin-bottom: 0em;
+      border-bottom: 0px solid transparent;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
     }
-  }
 
-  /* Format the gear columns. */
-  div.sheet-row.sheet-gear-row {
-    div.sheet-col.sheet-gear-col:first-child {
-      width: 60px;
+    $equip-width: $sheet-col-width*2 + $sheet-col-margins*2;
+    div.sheet-equip {
+      /* Width of an equipment controls div is the width of a double-wide div. */
+      width: $equip-width;
+      display: inline-block;
+      position: relative;
+      margin-bottom: 1em;
+      border: 1px solid rgb(204, 204, 204);
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
     }
-    div.sheet-col.sheet-gear-col {
-      display: inline-flex;
-      justify-content: center;
-      align-items: left;
-      vertical-align: middle;
-      label {
-        display: inline-block;
-        vertical-align: middle;
-        margin: 0px;
-        padding: 0px;
-      }
+    select.sheet-equip-type ~ div.sheet-equip::before {
+      /* This will "hide" the part of the top border adjacent to the equip-type select
+      control, effectively making the components look like one object. */
+      content: "";
+      position: absolute;
+      display: block;
+      height: 3px;
+      width: $select-width - 0.2em;
+      left: 1px;
+      top: -1px;
+      background: white;
+    }
+    
+    div.sheet-equip.sheet-custom {
+      /* A piece of custom equipment just has a free text field. */
       input {
-        width: 176px;
+        width: $equip-width;
       }
+    }
+    
+    div.sheet-equip.sheet-armor {
+      /* A piece of armor has fields for name, AC bonus, penalty, speed, and fumble. */
+      input.sheet-armor-name {
+        width: $equip-width/3;
+      }
+    }
+
+    div.sheet-equip.sheet-weapon {
+      /* A weapon has fields for name, damage, sneak damage, and range. */
+      input.sheet-weapon-name {
+        width: $equip-width/3;
+      }
+    }
+
+    input.sheet-equip-select:not([value="Custom"]) ~ div.sheet-equip.sheet-custom,
+    input.sheet-equip-select:not([value="Armor"]) ~ div.sheet-equip.sheet-armor,
+    input.sheet-equip-select:not([value="Weapon"]) ~ div.sheet-equip.sheet-weapon {
+      /* Equipment type selection logic. */
+      display: none !important;
     }
   }
 
-  /* Format the birth augur description. */
   input.sheet-augur-desc {
+    /* Format the birth augur description. */
     background: transparent;
     border: none;
     cursor: default;
@@ -195,5 +214,14 @@ input[type=number] {
   input.sheet-augur-hidden[value="26"] ~ div.sheet-if-crit,
   input.sheet-augur-hidden[value="28"] ~ div.sheet-if-crit {
     display: block;
+  }
+
+  textarea {
+    /* Format the notes textarea. */
+    resize: none !important;
+    margin: 0em;
+    padding: 0.25em;
+    overflow-x: hidden;
+    overflow-y: scroll;
   }
 }
