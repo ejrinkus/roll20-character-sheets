@@ -65,7 +65,8 @@ input[type=number] {
   height: 2em;
   position: relative;
 }
-.sheet-root div.sheet-col.sheet-label-inline > label {
+.sheet-root div.sheet-col.sheet-label-inline > label,
+.sheet-root div.sheet-col.sheet-label-inline span {
   margin: 0;
   position: absolute;
   top: 50%;
@@ -135,6 +136,19 @@ input[type=number] {
   border: 1px solid #cccccc;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
+}
+.sheet-root div.repitem div.sheet-equip div.sheet-col.sheet-label-inline {
+  /* Styling for labels that are inline with their fields. */
+  width: 8em;
+  height: 2em;
+  position: relative;
+}
+.sheet-root div.repitem div.sheet-equip div.sheet-col.sheet-label-inline > label,
+.sheet-root div.repitem div.sheet-equip div.sheet-col.sheet-label-inline span {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 .sheet-root div.repitem select.sheet-equip-type ~ div.sheet-equip::before {
   /* This will "hide" the part of the top border adjacent to the equip-type select

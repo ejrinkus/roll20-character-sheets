@@ -71,21 +71,62 @@ div.root
             div.equip.custom.row
               div.col
                 input(type="text", name=`attr_EquipCustom${c}`, value="Custom description")
-            div.equip.armor
-              input.armor-name(type="text", name=`attr_EquipArmorName${c}`, value="Armor name")
-              | , AC
-              input(type="number", name=`attr_EquipArmorClass${c}`)
-              | , check penalty
-              input(type="number", name=`attr_EquipArmorCheckPen${c}`)
-              | , speed penalty
-              input(type="number", name=`attr_EquipArmorSpeedPen${c}`)
-              | , fumble die
-              input(type="number", name=`attr_EquipArmorFumble${c}`)
-            div.equip.weapon
-              input.weapon-name(type="text", name=`attr_EquipWeapName${c}`, value="Weapon name")
-              input(type="number", name=`attr_EquipWeapDmg${c}`)
-              input(type="number", name=`attr_EquipWeapSneak${c}`)
-              input(type="number", name=`attr_EquipWeapRange${c}`)
+            div.equip.armor.row
+              div.col
+                input.armor-name(type="text", name=`attr_EquipArmorName${c}`, value="Armor name")
+              div.col
+                div.row
+                  div.col.label-inline
+                    span AC
+                div.row
+                  div.col.label-inline
+                    span check penalty
+              div.col
+                div.row
+                  div.col
+                    input(type="number", name=`attr_EquipArmorClass${c}`)
+                div.row
+                  div.col
+                    input(type="number", name=`attr_EquipArmorCheckPen${c}`)
+              div.col
+                div.row
+                  div.col.label-inline
+                    span speed penalty
+                div.row
+                  div.col.label-inline
+                    span fumble die
+              div.col
+                div.row
+                  div.col
+                    input(type="number", name=`attr_EquipArmorSpeedPen${c}`)
+                div.row
+                  div.col
+                    input(type="number", name=`attr_EquipArmorFumble${c}`)
+            div.equip.weapon.row
+              div.col
+                input.weapon-name(type="text", name=`attr_EquipWeapName${c}`, value="Weapon name")
+              div.col
+                div.row
+                  div.col.label-inline
+                    span damage
+                div.row
+                  div.col.label-inline
+                    span sneak damage
+              div.col
+                div.row
+                  div.col
+                    input(type="number", name=`attr_EquipWeapDmg${c}`)
+                div.row
+                  div.col
+                    input(type="number", name=`attr_EquipWeapSneak${c}`)
+              div.col
+                div.row
+                  div.col.label-inline
+                    span range
+              div.col
+                div.row
+                  div.col
+                    input(type="number", name=`attr_EquipWeapRange${c}`)
       // BIRTH AUGUR ROW
       div.row
         div.col.full
