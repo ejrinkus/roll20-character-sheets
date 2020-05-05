@@ -136,6 +136,7 @@ input[type=number] {
   border: 1px solid #cccccc;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
+  box-shadow: 0.5em 0.5em 0.25em;
 }
 .sheet-root div.repitem div.sheet-equip div.sheet-col.sheet-label-inline {
   /* Styling for labels that are inline with their fields. */
@@ -143,12 +144,14 @@ input[type=number] {
   height: 2em;
   position: relative;
 }
-.sheet-root div.repitem div.sheet-equip div.sheet-col.sheet-label-inline > label,
-.sheet-root div.repitem div.sheet-equip div.sheet-col.sheet-label-inline span {
+.sheet-root div.repitem div.sheet-equip div.sheet-col.sheet-label-inline > span {
   margin: 0;
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
+}
+.sheet-root div.repitem div.sheet-equip input {
+  width: 5em;
 }
 .sheet-root div.repitem select.sheet-equip-type ~ div.sheet-equip::before {
   /* This will "hide" the part of the top border adjacent to the equip-type select
@@ -156,7 +159,7 @@ input[type=number] {
   content: "";
   position: absolute;
   display: block;
-  height: 3px;
+  height: 2px;
   width: 9.8em;
   left: 1px;
   top: -1px;
@@ -168,16 +171,8 @@ input[type=number] {
 .sheet-root div.repitem div.sheet-equip.sheet-custom input {
   width: 41em;
 }
-.sheet-root div.repitem div.sheet-equip.sheet-armor {
-  /* A piece of armor has fields for name, AC bonus, penalty, speed, and fumble. */
-}
-.sheet-root div.repitem div.sheet-equip.sheet-armor input.sheet-armor-name {
-  width: 13.6666666667em;
-}
-.sheet-root div.repitem div.sheet-equip.sheet-weapon {
-  /* A weapon has fields for name, damage, sneak damage, and range. */
-}
-.sheet-root div.repitem div.sheet-equip.sheet-weapon input.sheet-weapon-name {
+.sheet-root div.repitem div.sheet-equip.sheet-armor input.sheet-armor-name,
+.sheet-root div.repitem div.sheet-equip.sheet-weapon input.sheet-armor-name {
   width: 13.6666666667em;
 }
 .sheet-root div.repitem input.sheet-equip-select:not([value=Custom]) ~ div.sheet-equip.sheet-custom,

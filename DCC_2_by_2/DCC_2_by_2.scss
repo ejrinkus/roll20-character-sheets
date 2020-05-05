@@ -157,18 +157,21 @@ input[type=number] {
       border: 1px solid rgb(204, 204, 204);
       border-bottom-left-radius: 3px;
       border-bottom-right-radius: 3px;
+      box-shadow: 0.5em 0.5em 0.25em;
       div.sheet-col.sheet-label-inline {
         /* Styling for labels that are inline with their fields. */
         width: 8em;
         height: 2em;
         position: relative;
-        > label,
-        span {
+        > span {
           margin: 0;
           position: absolute;
           top: 50%;
           transform: translate(0, -50%);
         }
+      }
+      input {
+        width: 5em;
       }
     }
     select.sheet-equip-type ~ div.sheet-equip::before {
@@ -177,7 +180,7 @@ input[type=number] {
       content: "";
       position: absolute;
       display: block;
-      height: 3px;
+      height: 2px;
       width: $select-width - 0.2em;
       left: 1px;
       top: -1px;
@@ -191,16 +194,9 @@ input[type=number] {
       }
     }
     
-    div.sheet-equip.sheet-armor {
-      /* A piece of armor has fields for name, AC bonus, penalty, speed, and fumble. */
-      input.sheet-armor-name {
-        width: $equip-width/3;
-      }
-    }
-
+    div.sheet-equip.sheet-armor,
     div.sheet-equip.sheet-weapon {
-      /* A weapon has fields for name, damage, sneak damage, and range. */
-      input.sheet-weapon-name {
+      input.sheet-armor-name {
         width: $equip-width/3;
       }
     }
