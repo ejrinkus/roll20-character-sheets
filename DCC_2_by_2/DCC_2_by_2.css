@@ -34,43 +34,103 @@ input[type=number] {
   width: 87em;
   background-color: gray;
   padding: 2em;
-}
-.sheet-root div.sheet-character {
-  /* Configure the containers for the character sheet. */
-  display: block;
-  background-color: white;
-  padding: 0.5em;
-  width: 85em;
-  box-shadow: 1em 1em 0.5em;
-}
-.sheet-root div.sheet-character > div.sheet-row {
-  display: block;
-}
-.sheet-root div.sheet-character > div.sheet-row > div.sheet-col {
-  width: 20em;
-  margin: 0.5em !important;
-}
-.sheet-root div.sheet-character > div.sheet-row > div.sheet-col.sheet-double {
-  width: 41em;
-}
-.sheet-root div.sheet-character > div.sheet-row > div.sheet-col.sheet-triple {
-  width: 62em;
-}
-.sheet-root div.sheet-character > div.sheet-row > div.sheet-col.sheet-full {
-  width: 83em;
-}
-.sheet-root div.sheet-col.sheet-label-inline {
-  /* Styling for labels that are inline with their fields. */
-  width: 4em;
-  height: 2em;
   position: relative;
 }
-.sheet-root div.sheet-col.sheet-label-inline > label,
-.sheet-root div.sheet-col.sheet-label-inline span {
-  margin: 0;
+.sheet-root div.sheet-tabs {
+  position: relative;
+}
+.sheet-root button.sheet-tab {
+  position: relative;
+  width: 20em;
+  margin-left: 1em;
+  background: lightgrey;
+  border: 0;
+  padding: 0;
+  border-bottom: 1px solid grey;
+  border-top-left-radius: 0.3em;
+  border-top-right-radius: 0.3em;
+  position: relative;
+  z-index: 1;
+  box-shadow: 1.25em 0.75em 0.5em;
+}
+.sheet-root button.sheet-tab > input.sheet-tabtext {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.sheet-root input.sheet-char-control[value="1"] ~ div.sheet-tabs > button.sheet-tab.sheet-tab-1,
+.sheet-root input.sheet-char-control[value="2"] ~ div.sheet-tabs > button.sheet-tab.sheet-tab-2,
+.sheet-root input.sheet-char-control[value="3"] ~ div.sheet-tabs > button.sheet-tab.sheet-tab-3,
+.sheet-root input.sheet-char-control[value="4"] ~ div.sheet-tabs > button.sheet-tab.sheet-tab-4 {
+  /* Respond to character selection tabs. */
+  position: relative;
+  z-index: 2;
+  background: white;
+  border-bottom: 1px solid white;
+}
+.sheet-root input.sheet-char-control[value="1"] ~ div.sheet-tabs > button.sheet-tab.sheet-tab-1::before,
+.sheet-root input.sheet-char-control[value="2"] ~ div.sheet-tabs > button.sheet-tab.sheet-tab-2::before,
+.sheet-root input.sheet-char-control[value="3"] ~ div.sheet-tabs > button.sheet-tab.sheet-tab-3::before,
+.sheet-root input.sheet-char-control[value="4"] ~ div.sheet-tabs > button.sheet-tab.sheet-tab-4::before {
+  content: "";
   position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
+  background: transparent;
+  height: inherit;
+  width: 0;
+  bottom: -1px;
+  left: -0.5em;
+  border-right: 0.25em solid white;
+  border-bottom: 1em solid white;
+  border-left: 0.25em solid transparent;
+  border-top: 1em solid transparent;
+}
+.sheet-root input.sheet-char-control[value="1"] ~ div.sheet-tabs > button.sheet-tab.sheet-tab-1::after,
+.sheet-root input.sheet-char-control[value="2"] ~ div.sheet-tabs > button.sheet-tab.sheet-tab-2::after,
+.sheet-root input.sheet-char-control[value="3"] ~ div.sheet-tabs > button.sheet-tab.sheet-tab-3::after,
+.sheet-root input.sheet-char-control[value="4"] ~ div.sheet-tabs > button.sheet-tab.sheet-tab-4::after {
+  content: "";
+  position: absolute;
+  background: transparent;
+  height: inherit;
+  width: 0;
+  bottom: -1px;
+  right: -0.5em;
+  border-left: 0.25em solid white;
+  border-bottom: 1em solid white;
+  border-right: 0.25em solid transparent;
+  border-top: 1em solid transparent;
+}
+.sheet-root input.sheet-char-control:not([value="1"]) ~ div.sheet-tabs > button.sheet-tab.sheet-tab-1::before,
+.sheet-root input.sheet-char-control:not([value="2"]) ~ div.sheet-tabs > button.sheet-tab.sheet-tab-2::before,
+.sheet-root input.sheet-char-control:not([value="3"]) ~ div.sheet-tabs > button.sheet-tab.sheet-tab-3::before,
+.sheet-root input.sheet-char-control:not([value="4"]) ~ div.sheet-tabs > button.sheet-tab.sheet-tab-4::before {
+  content: "";
+  position: absolute;
+  background: transparent;
+  height: inherit;
+  width: 0;
+  bottom: 0;
+  left: -0.5em;
+  border-right: 0.25em solid lightgrey;
+  border-bottom: 1em solid lightgrey;
+  border-left: 0.25em solid transparent;
+  border-top: 1em solid transparent;
+}
+.sheet-root input.sheet-char-control:not([value="1"]) ~ div.sheet-tabs > button.sheet-tab.sheet-tab-1::after,
+.sheet-root input.sheet-char-control:not([value="2"]) ~ div.sheet-tabs > button.sheet-tab.sheet-tab-2::after,
+.sheet-root input.sheet-char-control:not([value="3"]) ~ div.sheet-tabs > button.sheet-tab.sheet-tab-3::after,
+.sheet-root input.sheet-char-control:not([value="4"]) ~ div.sheet-tabs > button.sheet-tab.sheet-tab-4::after {
+  content: "";
+  position: absolute;
+  background: transparent;
+  height: inherit;
+  width: 0;
+  bottom: 0;
+  right: -0.5em;
+  border-left: 0.25em solid lightgrey;
+  border-bottom: 1em solid lightgrey;
+  border-right: 0.25em solid transparent;
+  border-top: 1em solid transparent;
 }
 .sheet-root input.sheet-char-control:not([value="1"]) ~ div.sheet-character.sheet-char-1,
 .sheet-root input.sheet-char-control:not([value="2"]) ~ div.sheet-character.sheet-char-2,
@@ -79,12 +139,51 @@ input[type=number] {
   /* Respond to character selection tabs. */
   display: none;
 }
-.sheet-root button.sheet-tab > input.sheet-tabtext {
-  background: transparent;
-  border: none;
-  cursor: pointer;
+.sheet-root div.sheet-character {
+  /* Configure the containers for the character sheet. */
+  display: block;
+  background-color: white;
+  padding: 0.5em;
+  width: 85em;
+  position: relative;
+  z-index: 2;
+  box-shadow: 1.25em 0.75em 0.5em;
 }
-.sheet-root .sheet-checklines {
+.sheet-root div.sheet-character div.sheet-row {
+  display: block;
+}
+.sheet-root div.sheet-character div.sheet-row div.sheet-col.sheet-single,
+.sheet-root div.sheet-character div.sheet-row div.sheet-col.sheet-double,
+.sheet-root div.sheet-character div.sheet-row div.sheet-col.sheet-triple,
+.sheet-root div.sheet-character div.sheet-row div.sheet-col.sheet-full {
+  margin: 0.5em !important;
+}
+.sheet-root div.sheet-character div.sheet-row div.sheet-col.sheet-single {
+  width: 20em;
+}
+.sheet-root div.sheet-character div.sheet-row div.sheet-col.sheet-double {
+  width: 41em;
+}
+.sheet-root div.sheet-character div.sheet-row div.sheet-col.sheet-triple {
+  width: 62em;
+}
+.sheet-root div.sheet-character div.sheet-row div.sheet-col.sheet-full {
+  width: 83em;
+}
+.sheet-root div.sheet-character div.sheet-col.sheet-label-inline {
+  /* Styling for labels that are inline with their fields. */
+  width: 4em;
+  height: 2em;
+  position: relative;
+}
+.sheet-root div.sheet-character div.sheet-col.sheet-label-inline > label,
+.sheet-root div.sheet-character div.sheet-col.sheet-label-inline span {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.sheet-root div.sheet-character .sheet-checklines {
   /* Configure the container for the alignment checkline buttons. */
   display: inline-flex;
   align-items: center;
@@ -92,7 +191,7 @@ input[type=number] {
   height: 27px;
   padding: 4px;
 }
-.sheet-root .sheet-checklines > button.sheet-checkline {
+.sheet-root div.sheet-character .sheet-checklines > button.sheet-checkline {
   background: transparent;
   border: none;
   border-bottom: 1px solid black;
@@ -102,24 +201,24 @@ input[type=number] {
   justify-content: center;
   align-items: center;
 }
-.sheet-root .sheet-checklines > button.sheet-checkline > span.sheet-checked {
+.sheet-root div.sheet-character .sheet-checklines > button.sheet-checkline > span.sheet-checked {
   color: black;
   display: inline-flex;
 }
-.sheet-root .sheet-checklines > button.sheet-checkline ~ span {
+.sheet-root div.sheet-character .sheet-checklines > button.sheet-checkline ~ span {
   margin-right: 10px;
 }
-.sheet-root .sheet-checklines input.sheet-checkline:not([value=lawful]) ~ button.sheet-checkline-lawful > span.sheet-checked,
-.sheet-root .sheet-checklines input.sheet-checkline:not([value=neutral]) ~ button.sheet-checkline-neutral > span.sheet-checked,
-.sheet-root .sheet-checklines input.sheet-checkline:not([value=chaotic]) ~ button.sheet-checkline-chaotic > span.sheet-checked {
+.sheet-root div.sheet-character .sheet-checklines input.sheet-checkline:not([value=lawful]) ~ button.sheet-checkline-lawful > span.sheet-checked,
+.sheet-root div.sheet-character .sheet-checklines input.sheet-checkline:not([value=neutral]) ~ button.sheet-checkline-neutral > span.sheet-checked,
+.sheet-root div.sheet-character .sheet-checklines input.sheet-checkline:not([value=chaotic]) ~ button.sheet-checkline-chaotic > span.sheet-checked {
   /* Hide the "checked" section of the checkline if the attribute value does not match the checkline. */
   background: transparent;
   color: transparent;
 }
-.sheet-root div.repitem {
+.sheet-root div.sheet-character div.repitem {
   /* Format the gear section. */
 }
-.sheet-root div.repitem select.sheet-equip-type {
+.sheet-root div.sheet-character div.repitem select.sheet-equip-type {
   width: 10em;
   display: block;
   margin-bottom: 0em;
@@ -127,77 +226,74 @@ input[type=number] {
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
 }
-.sheet-root div.repitem div.sheet-equip {
-  /* Width of an equipment controls div is the width of a double-wide div. */
-  width: 41em;
+.sheet-root div.sheet-character div.repitem div.sheet-equip {
+  /* Width of an equipment controls div is the width of a double-wide div.
+  But since we're using a padding of $sheet-col-margins, we need to subtract
+  two times that value to get the correct width. */
+  width: 39.5em;
   display: inline-block;
   position: relative;
-  margin-bottom: 1em;
   border: 1px solid #cccccc;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
-  box-shadow: 0.5em 0.5em 0.25em;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
 }
-.sheet-root div.repitem div.sheet-equip div.sheet-col.sheet-label-inline {
+.sheet-root div.sheet-character div.repitem div.sheet-equip div.sheet-col.sheet-input-col {
+  margin-left: 0.5em;
+}
+.sheet-root div.sheet-character div.repitem div.sheet-equip div.sheet-col.sheet-label-inline {
   /* Styling for labels that are inline with their fields. */
   width: 8em;
-  height: 2em;
-  position: relative;
 }
-.sheet-root div.repitem div.sheet-equip div.sheet-col.sheet-label-inline > span {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-}
-.sheet-root div.repitem div.sheet-equip input {
+.sheet-root div.sheet-character div.repitem div.sheet-equip input {
   width: 5em;
 }
-.sheet-root div.repitem select.sheet-equip-type ~ div.sheet-equip::before {
+.sheet-root div.sheet-character div.repitem select.sheet-equip-type ~ div.sheet-equip::before {
   /* This will "hide" the part of the top border adjacent to the equip-type select
   control, effectively making the components look like one object. */
   content: "";
   position: absolute;
   display: block;
-  height: 2px;
+  height: 3px;
   width: 9.8em;
   left: 1px;
   top: -1px;
   background: white;
 }
-.sheet-root div.repitem div.sheet-equip.sheet-custom {
+.sheet-root div.sheet-character div.repitem div.sheet-equip.sheet-custom {
   /* A piece of custom equipment just has a free text field. */
 }
-.sheet-root div.repitem div.sheet-equip.sheet-custom input {
-  width: 41em;
+.sheet-root div.sheet-character div.repitem div.sheet-equip.sheet-custom input {
+  width: 39.5em;
 }
-.sheet-root div.repitem div.sheet-equip.sheet-armor input.sheet-armor-name,
-.sheet-root div.repitem div.sheet-equip.sheet-weapon input.sheet-armor-name {
-  width: 13.6666666667em;
+.sheet-root div.sheet-character div.repitem div.sheet-equip.sheet-armor input.sheet-equip-name,
+.sheet-root div.sheet-character div.repitem div.sheet-equip.sheet-weapon input.sheet-equip-name {
+  width: 7.9em;
 }
-.sheet-root div.repitem input.sheet-equip-select:not([value=Custom]) ~ div.sheet-equip.sheet-custom,
-.sheet-root div.repitem input.sheet-equip-select:not([value=Armor]) ~ div.sheet-equip.sheet-armor,
-.sheet-root div.repitem input.sheet-equip-select:not([value=Weapon]) ~ div.sheet-equip.sheet-weapon {
+.sheet-root div.sheet-character div.repitem input.sheet-equip-select:not([value=Custom]) ~ div.sheet-equip.sheet-custom,
+.sheet-root div.sheet-character div.repitem input.sheet-equip-select:not([value=Armor]) ~ div.sheet-equip.sheet-armor,
+.sheet-root div.sheet-character div.repitem input.sheet-equip-select:not([value=Weapon]) ~ div.sheet-equip.sheet-weapon {
   /* Equipment type selection logic. */
   display: none !important;
 }
-.sheet-root input.sheet-augur-desc {
+.sheet-root div.sheet-character input.sheet-augur-desc {
   /* Format the birth augur description. */
   background: transparent;
   border: none;
   cursor: default;
-  width: 60em;
+  width: 36em;
 }
-.sheet-root div.sheet-if-healing,
-.sheet-root div.sheet-if-crit {
+.sheet-root div.sheet-character div.sheet-if-healing,
+.sheet-root div.sheet-character div.sheet-if-crit {
   display: none;
 }
-.sheet-root input.sheet-augur-hidden[value="16"] ~ div.sheet-if-healing,
-.sheet-root input.sheet-augur-hidden[value="26"] ~ div.sheet-if-crit,
-.sheet-root input.sheet-augur-hidden[value="28"] ~ div.sheet-if-crit {
+.sheet-root div.sheet-character input.sheet-augur-hidden[value="16"] ~ div.sheet-if-healing,
+.sheet-root div.sheet-character input.sheet-augur-hidden[value="26"] ~ div.sheet-if-crit,
+.sheet-root div.sheet-character input.sheet-augur-hidden[value="28"] ~ div.sheet-if-crit {
   display: block;
 }
-.sheet-root textarea {
+.sheet-root div.sheet-character textarea {
   /* Format the notes textarea. */
   resize: none !important;
   margin: 0em;

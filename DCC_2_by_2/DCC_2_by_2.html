@@ -1,30 +1,30 @@
 
 <div class="root">
+  <input class="char-control" type="hidden" name="attr_character" value="1"/>
   <div class="tabs">
-    <button class="tab" type="action" name="act_1_tab">
+    <button class="tab tab-1" type="action" name="act_1_tab">
       <input class="tabtext" type="text" name="attr_name_1" value="Character 1" readonly="readonly"/>
     </button>
-    <button class="tab" type="action" name="act_2_tab">
+    <button class="tab tab-2" type="action" name="act_2_tab">
       <input class="tabtext" type="text" name="attr_name_2" value="Character 2" readonly="readonly"/>
     </button>
-    <button class="tab" type="action" name="act_3_tab">
+    <button class="tab tab-3" type="action" name="act_3_tab">
       <input class="tabtext" type="text" name="attr_name_3" value="Character 3" readonly="readonly"/>
     </button>
-    <button class="tab" type="action" name="act_4_tab">
+    <button class="tab tab-4" type="action" name="act_4_tab">
       <input class="tabtext" type="text" name="attr_name_4" value="Character 4" readonly="readonly"/>
     </button>
   </div>
-  <input class="char-control" type="hidden" name="attr_character" value="1"/>
   <div class="character char-1">
     <!-- NAME/OCCUPATION/ALIGNMENT ROW-->
     <div class="row"> 
       <!-- NAME-->
-      <div class="col">
+      <div class="col single">
         <label>Name</label>
         <input type="text" name="attr_name_1" value="Character 1"/>
       </div>
       <!-- OCCUPATION-->
-      <div class="col">
+      <div class="col single">
         <label>Occupation</label>
         <input type="text" name="attr_occupation_1"/>
       </div>
@@ -39,133 +39,152 @@
         </div>
       </div>
     </div>
-    <!-- STATS/EQUIPMENT ROW-->
+    <!-- MAIN BODY-->
     <div class="row">
-      <!-- ATTRIBUTES-->
+      <!-- STATS/AUGUR COLUMN-->
       <div class="col">
-        <label>Attributes</label>
+        <!-- STATS ROW-->
         <div class="row">
-          <div class="col label-inline">
-            <label class="short">STR</label>
+          <!-- ATTRIBUTES-->
+          <div class="col single">
+            <label>Attributes</label>
+            <div class="row">
+              <div class="col label-inline">
+                <label class="short">STR</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_STR_1"/>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_STR_1_mod" readonly="readonly" value="0"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label class="short">AGI</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_AGI_1"/>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_AGI_1_mod" readonly="readonly" value="0"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label class="short">STA</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_STA_1"/>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_STA_1_mod" readonly="readonly" value="0"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label class="short">PER</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_PER_1"/>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_PER_1_mod" readonly="readonly" value="0"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label class="short">INT</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_INT_1"/>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_INT_1_mod" readonly="readonly" value="0"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label class="short">LUC</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_LUC_1"/>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_LUC_1_mod" readonly="readonly" value="0"/>
+              </div>
+            </div>
           </div>
-          <div class="col">
-            <input type="number" name="attr_STR_1"/>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_STR_1_mod" readonly="readonly" value="0"/>
+          <!-- HP/AC/MOVEMENT/SAVES-->
+          <div class="col single">
+            <label>&nbsp;</label>
+            <div class="row">
+              <div class="col label-inline">
+                <label>HP</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_HP_1"/>
+              </div>
+              <div class="col label-inline" style="width:1em">
+                <label style="font-size:2em">/</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_HP_1_max"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label>MOV</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_MOV_1"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label>AC</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_AC_1"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label>REF</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_REF_1"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label>FOR</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_FOR_1"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label>WIL</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_WIL_1"/>
+              </div>
+            </div>
           </div>
         </div>
+        <!-- BIRTH AUGUR ROW-->
         <div class="row">
-          <div class="col label-inline">
-            <label class="short">AGI</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_AGI_1"/>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_AGI_1_mod" readonly="readonly" value="0"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">STA</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_STA_1"/>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_STA_1_mod" readonly="readonly" value="0"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">PER</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_PER_1"/>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_PER_1_mod" readonly="readonly" value="0"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">INT</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_INT_1"/>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_INT_1_mod" readonly="readonly" value="0"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">LUC</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_LUC_1"/>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_LUC_1_mod" readonly="readonly" value="0"/>
-          </div>
-        </div>
-      </div>
-      <!-- HP/AC/MOVEMENT/SAVES-->
-      <div class="col">
-        <label>&nbsp;</label>
-        <div class="row">
-          <div class="col label-inline">
-            <label>HP</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_HP_1"/>
-          </div>
-          <div class="col label-inline" style="width:1em">
-            <label style="font-size:2em">/</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_HP_1_max"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label>MOV</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_MOV_1"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label>AC</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_AC_1"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label>REF</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_REF_1"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label>FOR</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_FOR_1"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label>WIL</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_WIL_1"/>
+          <div class="col double">
+            <label>Birth Augur</label>
+            <input class="augur-hidden" type="hidden" name="attr_augur_1" readonly="readonly"/>
+            <input class="augur" type="number" name="attr_start_luck_1"/>
+            <input class="augur-desc" type="text" value="Luck modifier at Level 0" readonly="readonly"/><br/>
+            <input class="augur" type="number" name="attr_augur_1"/>
+            <input class="augur-desc" type="text" name="attr_augur_desc_1" readonly="readonly"/>
+            <div class="if-healing note">*If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.</div>
+            <div class="if-crit note">**Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.</div>
           </div>
         </div>
       </div>
@@ -187,17 +206,9 @@
           </div>
           <div class="equip armor row">
             <div class="col">
-              <input class="armor-name" type="text" name="attr_EquipArmorName1" value="Armor name"/>
+              <input class="equip-name" type="text" name="attr_EquipArmorName1" value="Armor name"/>
             </div>
-            <div class="col">
-              <div class="row">
-                <div class="col label-inline"><span>AC</span></div>
-              </div>
-              <div class="row">
-                <div class="col label-inline"><span>check penalty</span></div>
-              </div>
-            </div>
-            <div class="col">
+            <div class="col input-col">
               <div class="row">
                 <div class="col">
                   <input type="number" name="attr_EquipArmorClass1"/>
@@ -211,13 +222,13 @@
             </div>
             <div class="col">
               <div class="row">
-                <div class="col label-inline"><span>speed penalty</span></div>
+                <div class="col label-inline"><span>AC</span></div>
               </div>
               <div class="row">
-                <div class="col label-inline"><span>fumble die</span></div>
+                <div class="col label-inline"><span>check penalty</span></div>
               </div>
             </div>
-            <div class="col">
+            <div class="col input-col">
               <div class="row">
                 <div class="col">
                   <input type="number" name="attr_EquipArmorSpeedPen1"/>
@@ -229,20 +240,20 @@
                 </div>
               </div>
             </div>
+            <div class="col">
+              <div class="row">
+                <div class="col label-inline"><span>speed penalty</span></div>
+              </div>
+              <div class="row">
+                <div class="col label-inline"><span>fumble die</span></div>
+              </div>
+            </div>
           </div>
           <div class="equip weapon row">
             <div class="col">
-              <input class="weapon-name" type="text" name="attr_EquipWeapName1" value="Weapon name"/>
+              <input class="equip-name" type="text" name="attr_EquipWeapName1" value="Weapon name"/>
             </div>
-            <div class="col">
-              <div class="row">
-                <div class="col label-inline"><span>damage</span></div>
-              </div>
-              <div class="row">
-                <div class="col label-inline"><span>sneak damage</span></div>
-              </div>
-            </div>
-            <div class="col">
+            <div class="col input-col">
               <div class="row">
                 <div class="col">
                   <input type="text" name="attr_EquipWeapDmg1"/>
@@ -256,31 +267,26 @@
             </div>
             <div class="col">
               <div class="row">
-                <div class="col label-inline"><span>range</span></div>
+                <div class="col label-inline"><span>damage</span></div>
+              </div>
+              <div class="row">
+                <div class="col label-inline"><span>sneak damage</span></div>
               </div>
             </div>
-            <div class="col">
+            <div class="col input-col">
               <div class="row">
                 <div class="col">
                   <input type="text" name="attr_EquipWeapRange1"/>
                 </div>
               </div>
             </div>
+            <div class="col">
+              <div class="row">
+                <div class="col label-inline"><span>range</span></div>
+              </div>
+            </div>
           </div>
         </fieldset>
-      </div>
-    </div>
-    <!-- BIRTH AUGUR ROW-->
-    <div class="row">
-      <div class="col full">
-        <label>Birth Augur</label>
-        <input class="augur-hidden" type="hidden" name="attr_augur_1" readonly="readonly"/>
-        <input class="augur" type="number" name="attr_start_luck_1"/>
-        <input class="augur-desc" type="text" value="Luck modifier at Level 0" readonly="readonly"/><br/>
-        <input class="augur" type="number" name="attr_augur_1"/>
-        <input class="augur-desc" type="text" name="attr_augur_desc_1" readonly="readonly"/>
-        <div class="if-healing note">*If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.</div>
-        <div class="if-crit note">**Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.</div>
       </div>
     </div>
     <!-- NOTES/MONEY ROW-->
@@ -291,7 +297,7 @@
         <textarea name="attr_notes_1"></textarea>
       </div>
       <!-- MONEY-->
-      <div class="col">
+      <div class="col single">
         <div class="row">
           <div class="col label-inline">
             <label class="short">CP</label>
@@ -339,12 +345,12 @@
     <!-- NAME/OCCUPATION/ALIGNMENT ROW-->
     <div class="row"> 
       <!-- NAME-->
-      <div class="col">
+      <div class="col single">
         <label>Name</label>
         <input type="text" name="attr_name_2" value="Character 2"/>
       </div>
       <!-- OCCUPATION-->
-      <div class="col">
+      <div class="col single">
         <label>Occupation</label>
         <input type="text" name="attr_occupation_2"/>
       </div>
@@ -359,133 +365,152 @@
         </div>
       </div>
     </div>
-    <!-- STATS/EQUIPMENT ROW-->
+    <!-- MAIN BODY-->
     <div class="row">
-      <!-- ATTRIBUTES-->
+      <!-- STATS/AUGUR COLUMN-->
       <div class="col">
-        <label>Attributes</label>
+        <!-- STATS ROW-->
         <div class="row">
-          <div class="col label-inline">
-            <label class="short">STR</label>
+          <!-- ATTRIBUTES-->
+          <div class="col single">
+            <label>Attributes</label>
+            <div class="row">
+              <div class="col label-inline">
+                <label class="short">STR</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_STR_2"/>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_STR_2_mod" readonly="readonly" value="0"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label class="short">AGI</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_AGI_2"/>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_AGI_2_mod" readonly="readonly" value="0"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label class="short">STA</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_STA_2"/>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_STA_2_mod" readonly="readonly" value="0"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label class="short">PER</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_PER_2"/>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_PER_2_mod" readonly="readonly" value="0"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label class="short">INT</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_INT_2"/>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_INT_2_mod" readonly="readonly" value="0"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label class="short">LUC</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_LUC_2"/>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_LUC_2_mod" readonly="readonly" value="0"/>
+              </div>
+            </div>
           </div>
-          <div class="col">
-            <input type="number" name="attr_STR_2"/>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_STR_2_mod" readonly="readonly" value="0"/>
+          <!-- HP/AC/MOVEMENT/SAVES-->
+          <div class="col single">
+            <label>&nbsp;</label>
+            <div class="row">
+              <div class="col label-inline">
+                <label>HP</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_HP_2"/>
+              </div>
+              <div class="col label-inline" style="width:1em">
+                <label style="font-size:2em">/</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_HP_2_max"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label>MOV</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_MOV_2"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label>AC</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_AC_2"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label>REF</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_REF_2"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label>FOR</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_FOR_2"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label>WIL</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_WIL_2"/>
+              </div>
+            </div>
           </div>
         </div>
+        <!-- BIRTH AUGUR ROW-->
         <div class="row">
-          <div class="col label-inline">
-            <label class="short">AGI</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_AGI_2"/>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_AGI_2_mod" readonly="readonly" value="0"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">STA</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_STA_2"/>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_STA_2_mod" readonly="readonly" value="0"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">PER</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_PER_2"/>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_PER_2_mod" readonly="readonly" value="0"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">INT</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_INT_2"/>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_INT_2_mod" readonly="readonly" value="0"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">LUC</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_LUC_2"/>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_LUC_2_mod" readonly="readonly" value="0"/>
-          </div>
-        </div>
-      </div>
-      <!-- HP/AC/MOVEMENT/SAVES-->
-      <div class="col">
-        <label>&nbsp;</label>
-        <div class="row">
-          <div class="col label-inline">
-            <label>HP</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_HP_2"/>
-          </div>
-          <div class="col label-inline" style="width:1em">
-            <label style="font-size:2em">/</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_HP_2_max"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label>MOV</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_MOV_2"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label>AC</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_AC_2"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label>REF</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_REF_2"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label>FOR</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_FOR_2"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label>WIL</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_WIL_2"/>
+          <div class="col double">
+            <label>Birth Augur</label>
+            <input class="augur-hidden" type="hidden" name="attr_augur_2" readonly="readonly"/>
+            <input class="augur" type="number" name="attr_start_luck_2"/>
+            <input class="augur-desc" type="text" value="Luck modifier at Level 0" readonly="readonly"/><br/>
+            <input class="augur" type="number" name="attr_augur_2"/>
+            <input class="augur-desc" type="text" name="attr_augur_desc_2" readonly="readonly"/>
+            <div class="if-healing note">*If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.</div>
+            <div class="if-crit note">**Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.</div>
           </div>
         </div>
       </div>
@@ -507,17 +532,9 @@
           </div>
           <div class="equip armor row">
             <div class="col">
-              <input class="armor-name" type="text" name="attr_EquipArmorName2" value="Armor name"/>
+              <input class="equip-name" type="text" name="attr_EquipArmorName2" value="Armor name"/>
             </div>
-            <div class="col">
-              <div class="row">
-                <div class="col label-inline"><span>AC</span></div>
-              </div>
-              <div class="row">
-                <div class="col label-inline"><span>check penalty</span></div>
-              </div>
-            </div>
-            <div class="col">
+            <div class="col input-col">
               <div class="row">
                 <div class="col">
                   <input type="number" name="attr_EquipArmorClass2"/>
@@ -531,13 +548,13 @@
             </div>
             <div class="col">
               <div class="row">
-                <div class="col label-inline"><span>speed penalty</span></div>
+                <div class="col label-inline"><span>AC</span></div>
               </div>
               <div class="row">
-                <div class="col label-inline"><span>fumble die</span></div>
+                <div class="col label-inline"><span>check penalty</span></div>
               </div>
             </div>
-            <div class="col">
+            <div class="col input-col">
               <div class="row">
                 <div class="col">
                   <input type="number" name="attr_EquipArmorSpeedPen2"/>
@@ -549,20 +566,20 @@
                 </div>
               </div>
             </div>
+            <div class="col">
+              <div class="row">
+                <div class="col label-inline"><span>speed penalty</span></div>
+              </div>
+              <div class="row">
+                <div class="col label-inline"><span>fumble die</span></div>
+              </div>
+            </div>
           </div>
           <div class="equip weapon row">
             <div class="col">
-              <input class="weapon-name" type="text" name="attr_EquipWeapName2" value="Weapon name"/>
+              <input class="equip-name" type="text" name="attr_EquipWeapName2" value="Weapon name"/>
             </div>
-            <div class="col">
-              <div class="row">
-                <div class="col label-inline"><span>damage</span></div>
-              </div>
-              <div class="row">
-                <div class="col label-inline"><span>sneak damage</span></div>
-              </div>
-            </div>
-            <div class="col">
+            <div class="col input-col">
               <div class="row">
                 <div class="col">
                   <input type="text" name="attr_EquipWeapDmg2"/>
@@ -576,31 +593,26 @@
             </div>
             <div class="col">
               <div class="row">
-                <div class="col label-inline"><span>range</span></div>
+                <div class="col label-inline"><span>damage</span></div>
+              </div>
+              <div class="row">
+                <div class="col label-inline"><span>sneak damage</span></div>
               </div>
             </div>
-            <div class="col">
+            <div class="col input-col">
               <div class="row">
                 <div class="col">
                   <input type="text" name="attr_EquipWeapRange2"/>
                 </div>
               </div>
             </div>
+            <div class="col">
+              <div class="row">
+                <div class="col label-inline"><span>range</span></div>
+              </div>
+            </div>
           </div>
         </fieldset>
-      </div>
-    </div>
-    <!-- BIRTH AUGUR ROW-->
-    <div class="row">
-      <div class="col full">
-        <label>Birth Augur</label>
-        <input class="augur-hidden" type="hidden" name="attr_augur_2" readonly="readonly"/>
-        <input class="augur" type="number" name="attr_start_luck_2"/>
-        <input class="augur-desc" type="text" value="Luck modifier at Level 0" readonly="readonly"/><br/>
-        <input class="augur" type="number" name="attr_augur_2"/>
-        <input class="augur-desc" type="text" name="attr_augur_desc_2" readonly="readonly"/>
-        <div class="if-healing note">*If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.</div>
-        <div class="if-crit note">**Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.</div>
       </div>
     </div>
     <!-- NOTES/MONEY ROW-->
@@ -611,7 +623,7 @@
         <textarea name="attr_notes_2"></textarea>
       </div>
       <!-- MONEY-->
-      <div class="col">
+      <div class="col single">
         <div class="row">
           <div class="col label-inline">
             <label class="short">CP</label>
@@ -659,12 +671,12 @@
     <!-- NAME/OCCUPATION/ALIGNMENT ROW-->
     <div class="row"> 
       <!-- NAME-->
-      <div class="col">
+      <div class="col single">
         <label>Name</label>
         <input type="text" name="attr_name_3" value="Character 3"/>
       </div>
       <!-- OCCUPATION-->
-      <div class="col">
+      <div class="col single">
         <label>Occupation</label>
         <input type="text" name="attr_occupation_3"/>
       </div>
@@ -679,133 +691,152 @@
         </div>
       </div>
     </div>
-    <!-- STATS/EQUIPMENT ROW-->
+    <!-- MAIN BODY-->
     <div class="row">
-      <!-- ATTRIBUTES-->
+      <!-- STATS/AUGUR COLUMN-->
       <div class="col">
-        <label>Attributes</label>
+        <!-- STATS ROW-->
         <div class="row">
-          <div class="col label-inline">
-            <label class="short">STR</label>
+          <!-- ATTRIBUTES-->
+          <div class="col single">
+            <label>Attributes</label>
+            <div class="row">
+              <div class="col label-inline">
+                <label class="short">STR</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_STR_3"/>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_STR_3_mod" readonly="readonly" value="0"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label class="short">AGI</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_AGI_3"/>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_AGI_3_mod" readonly="readonly" value="0"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label class="short">STA</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_STA_3"/>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_STA_3_mod" readonly="readonly" value="0"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label class="short">PER</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_PER_3"/>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_PER_3_mod" readonly="readonly" value="0"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label class="short">INT</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_INT_3"/>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_INT_3_mod" readonly="readonly" value="0"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label class="short">LUC</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_LUC_3"/>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_LUC_3_mod" readonly="readonly" value="0"/>
+              </div>
+            </div>
           </div>
-          <div class="col">
-            <input type="number" name="attr_STR_3"/>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_STR_3_mod" readonly="readonly" value="0"/>
+          <!-- HP/AC/MOVEMENT/SAVES-->
+          <div class="col single">
+            <label>&nbsp;</label>
+            <div class="row">
+              <div class="col label-inline">
+                <label>HP</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_HP_3"/>
+              </div>
+              <div class="col label-inline" style="width:1em">
+                <label style="font-size:2em">/</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_HP_3_max"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label>MOV</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_MOV_3"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label>AC</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_AC_3"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label>REF</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_REF_3"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label>FOR</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_FOR_3"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label>WIL</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_WIL_3"/>
+              </div>
+            </div>
           </div>
         </div>
+        <!-- BIRTH AUGUR ROW-->
         <div class="row">
-          <div class="col label-inline">
-            <label class="short">AGI</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_AGI_3"/>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_AGI_3_mod" readonly="readonly" value="0"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">STA</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_STA_3"/>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_STA_3_mod" readonly="readonly" value="0"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">PER</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_PER_3"/>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_PER_3_mod" readonly="readonly" value="0"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">INT</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_INT_3"/>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_INT_3_mod" readonly="readonly" value="0"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">LUC</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_LUC_3"/>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_LUC_3_mod" readonly="readonly" value="0"/>
-          </div>
-        </div>
-      </div>
-      <!-- HP/AC/MOVEMENT/SAVES-->
-      <div class="col">
-        <label>&nbsp;</label>
-        <div class="row">
-          <div class="col label-inline">
-            <label>HP</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_HP_3"/>
-          </div>
-          <div class="col label-inline" style="width:1em">
-            <label style="font-size:2em">/</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_HP_3_max"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label>MOV</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_MOV_3"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label>AC</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_AC_3"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label>REF</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_REF_3"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label>FOR</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_FOR_3"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label>WIL</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_WIL_3"/>
+          <div class="col double">
+            <label>Birth Augur</label>
+            <input class="augur-hidden" type="hidden" name="attr_augur_3" readonly="readonly"/>
+            <input class="augur" type="number" name="attr_start_luck_3"/>
+            <input class="augur-desc" type="text" value="Luck modifier at Level 0" readonly="readonly"/><br/>
+            <input class="augur" type="number" name="attr_augur_3"/>
+            <input class="augur-desc" type="text" name="attr_augur_desc_3" readonly="readonly"/>
+            <div class="if-healing note">*If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.</div>
+            <div class="if-crit note">**Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.</div>
           </div>
         </div>
       </div>
@@ -827,17 +858,9 @@
           </div>
           <div class="equip armor row">
             <div class="col">
-              <input class="armor-name" type="text" name="attr_EquipArmorName3" value="Armor name"/>
+              <input class="equip-name" type="text" name="attr_EquipArmorName3" value="Armor name"/>
             </div>
-            <div class="col">
-              <div class="row">
-                <div class="col label-inline"><span>AC</span></div>
-              </div>
-              <div class="row">
-                <div class="col label-inline"><span>check penalty</span></div>
-              </div>
-            </div>
-            <div class="col">
+            <div class="col input-col">
               <div class="row">
                 <div class="col">
                   <input type="number" name="attr_EquipArmorClass3"/>
@@ -851,13 +874,13 @@
             </div>
             <div class="col">
               <div class="row">
-                <div class="col label-inline"><span>speed penalty</span></div>
+                <div class="col label-inline"><span>AC</span></div>
               </div>
               <div class="row">
-                <div class="col label-inline"><span>fumble die</span></div>
+                <div class="col label-inline"><span>check penalty</span></div>
               </div>
             </div>
-            <div class="col">
+            <div class="col input-col">
               <div class="row">
                 <div class="col">
                   <input type="number" name="attr_EquipArmorSpeedPen3"/>
@@ -869,20 +892,20 @@
                 </div>
               </div>
             </div>
+            <div class="col">
+              <div class="row">
+                <div class="col label-inline"><span>speed penalty</span></div>
+              </div>
+              <div class="row">
+                <div class="col label-inline"><span>fumble die</span></div>
+              </div>
+            </div>
           </div>
           <div class="equip weapon row">
             <div class="col">
-              <input class="weapon-name" type="text" name="attr_EquipWeapName3" value="Weapon name"/>
+              <input class="equip-name" type="text" name="attr_EquipWeapName3" value="Weapon name"/>
             </div>
-            <div class="col">
-              <div class="row">
-                <div class="col label-inline"><span>damage</span></div>
-              </div>
-              <div class="row">
-                <div class="col label-inline"><span>sneak damage</span></div>
-              </div>
-            </div>
-            <div class="col">
+            <div class="col input-col">
               <div class="row">
                 <div class="col">
                   <input type="text" name="attr_EquipWeapDmg3"/>
@@ -896,31 +919,26 @@
             </div>
             <div class="col">
               <div class="row">
-                <div class="col label-inline"><span>range</span></div>
+                <div class="col label-inline"><span>damage</span></div>
+              </div>
+              <div class="row">
+                <div class="col label-inline"><span>sneak damage</span></div>
               </div>
             </div>
-            <div class="col">
+            <div class="col input-col">
               <div class="row">
                 <div class="col">
                   <input type="text" name="attr_EquipWeapRange3"/>
                 </div>
               </div>
             </div>
+            <div class="col">
+              <div class="row">
+                <div class="col label-inline"><span>range</span></div>
+              </div>
+            </div>
           </div>
         </fieldset>
-      </div>
-    </div>
-    <!-- BIRTH AUGUR ROW-->
-    <div class="row">
-      <div class="col full">
-        <label>Birth Augur</label>
-        <input class="augur-hidden" type="hidden" name="attr_augur_3" readonly="readonly"/>
-        <input class="augur" type="number" name="attr_start_luck_3"/>
-        <input class="augur-desc" type="text" value="Luck modifier at Level 0" readonly="readonly"/><br/>
-        <input class="augur" type="number" name="attr_augur_3"/>
-        <input class="augur-desc" type="text" name="attr_augur_desc_3" readonly="readonly"/>
-        <div class="if-healing note">*If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.</div>
-        <div class="if-crit note">**Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.</div>
       </div>
     </div>
     <!-- NOTES/MONEY ROW-->
@@ -931,7 +949,7 @@
         <textarea name="attr_notes_3"></textarea>
       </div>
       <!-- MONEY-->
-      <div class="col">
+      <div class="col single">
         <div class="row">
           <div class="col label-inline">
             <label class="short">CP</label>
@@ -979,12 +997,12 @@
     <!-- NAME/OCCUPATION/ALIGNMENT ROW-->
     <div class="row"> 
       <!-- NAME-->
-      <div class="col">
+      <div class="col single">
         <label>Name</label>
         <input type="text" name="attr_name_4" value="Character 4"/>
       </div>
       <!-- OCCUPATION-->
-      <div class="col">
+      <div class="col single">
         <label>Occupation</label>
         <input type="text" name="attr_occupation_4"/>
       </div>
@@ -999,133 +1017,152 @@
         </div>
       </div>
     </div>
-    <!-- STATS/EQUIPMENT ROW-->
+    <!-- MAIN BODY-->
     <div class="row">
-      <!-- ATTRIBUTES-->
+      <!-- STATS/AUGUR COLUMN-->
       <div class="col">
-        <label>Attributes</label>
+        <!-- STATS ROW-->
         <div class="row">
-          <div class="col label-inline">
-            <label class="short">STR</label>
+          <!-- ATTRIBUTES-->
+          <div class="col single">
+            <label>Attributes</label>
+            <div class="row">
+              <div class="col label-inline">
+                <label class="short">STR</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_STR_4"/>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_STR_4_mod" readonly="readonly" value="0"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label class="short">AGI</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_AGI_4"/>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_AGI_4_mod" readonly="readonly" value="0"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label class="short">STA</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_STA_4"/>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_STA_4_mod" readonly="readonly" value="0"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label class="short">PER</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_PER_4"/>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_PER_4_mod" readonly="readonly" value="0"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label class="short">INT</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_INT_4"/>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_INT_4_mod" readonly="readonly" value="0"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label class="short">LUC</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_LUC_4"/>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_LUC_4_mod" readonly="readonly" value="0"/>
+              </div>
+            </div>
           </div>
-          <div class="col">
-            <input type="number" name="attr_STR_4"/>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_STR_4_mod" readonly="readonly" value="0"/>
+          <!-- HP/AC/MOVEMENT/SAVES-->
+          <div class="col single">
+            <label>&nbsp;</label>
+            <div class="row">
+              <div class="col label-inline">
+                <label>HP</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_HP_4"/>
+              </div>
+              <div class="col label-inline" style="width:1em">
+                <label style="font-size:2em">/</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_HP_4_max"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label>MOV</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_MOV_4"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label>AC</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_AC_4"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label>REF</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_REF_4"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label>FOR</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_FOR_4"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
+                <label>WIL</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_WIL_4"/>
+              </div>
+            </div>
           </div>
         </div>
+        <!-- BIRTH AUGUR ROW-->
         <div class="row">
-          <div class="col label-inline">
-            <label class="short">AGI</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_AGI_4"/>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_AGI_4_mod" readonly="readonly" value="0"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">STA</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_STA_4"/>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_STA_4_mod" readonly="readonly" value="0"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">PER</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_PER_4"/>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_PER_4_mod" readonly="readonly" value="0"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">INT</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_INT_4"/>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_INT_4_mod" readonly="readonly" value="0"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">LUC</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_LUC_4"/>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_LUC_4_mod" readonly="readonly" value="0"/>
-          </div>
-        </div>
-      </div>
-      <!-- HP/AC/MOVEMENT/SAVES-->
-      <div class="col">
-        <label>&nbsp;</label>
-        <div class="row">
-          <div class="col label-inline">
-            <label>HP</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_HP_4"/>
-          </div>
-          <div class="col label-inline" style="width:1em">
-            <label style="font-size:2em">/</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_HP_4_max"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label>MOV</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_MOV_4"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label>AC</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_AC_4"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label>REF</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_REF_4"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label>FOR</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_FOR_4"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label>WIL</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_WIL_4"/>
+          <div class="col double">
+            <label>Birth Augur</label>
+            <input class="augur-hidden" type="hidden" name="attr_augur_4" readonly="readonly"/>
+            <input class="augur" type="number" name="attr_start_luck_4"/>
+            <input class="augur-desc" type="text" value="Luck modifier at Level 0" readonly="readonly"/><br/>
+            <input class="augur" type="number" name="attr_augur_4"/>
+            <input class="augur-desc" type="text" name="attr_augur_desc_4" readonly="readonly"/>
+            <div class="if-healing note">*If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.</div>
+            <div class="if-crit note">**Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.</div>
           </div>
         </div>
       </div>
@@ -1147,17 +1184,9 @@
           </div>
           <div class="equip armor row">
             <div class="col">
-              <input class="armor-name" type="text" name="attr_EquipArmorName4" value="Armor name"/>
+              <input class="equip-name" type="text" name="attr_EquipArmorName4" value="Armor name"/>
             </div>
-            <div class="col">
-              <div class="row">
-                <div class="col label-inline"><span>AC</span></div>
-              </div>
-              <div class="row">
-                <div class="col label-inline"><span>check penalty</span></div>
-              </div>
-            </div>
-            <div class="col">
+            <div class="col input-col">
               <div class="row">
                 <div class="col">
                   <input type="number" name="attr_EquipArmorClass4"/>
@@ -1171,13 +1200,13 @@
             </div>
             <div class="col">
               <div class="row">
-                <div class="col label-inline"><span>speed penalty</span></div>
+                <div class="col label-inline"><span>AC</span></div>
               </div>
               <div class="row">
-                <div class="col label-inline"><span>fumble die</span></div>
+                <div class="col label-inline"><span>check penalty</span></div>
               </div>
             </div>
-            <div class="col">
+            <div class="col input-col">
               <div class="row">
                 <div class="col">
                   <input type="number" name="attr_EquipArmorSpeedPen4"/>
@@ -1189,20 +1218,20 @@
                 </div>
               </div>
             </div>
+            <div class="col">
+              <div class="row">
+                <div class="col label-inline"><span>speed penalty</span></div>
+              </div>
+              <div class="row">
+                <div class="col label-inline"><span>fumble die</span></div>
+              </div>
+            </div>
           </div>
           <div class="equip weapon row">
             <div class="col">
-              <input class="weapon-name" type="text" name="attr_EquipWeapName4" value="Weapon name"/>
+              <input class="equip-name" type="text" name="attr_EquipWeapName4" value="Weapon name"/>
             </div>
-            <div class="col">
-              <div class="row">
-                <div class="col label-inline"><span>damage</span></div>
-              </div>
-              <div class="row">
-                <div class="col label-inline"><span>sneak damage</span></div>
-              </div>
-            </div>
-            <div class="col">
+            <div class="col input-col">
               <div class="row">
                 <div class="col">
                   <input type="text" name="attr_EquipWeapDmg4"/>
@@ -1216,31 +1245,26 @@
             </div>
             <div class="col">
               <div class="row">
-                <div class="col label-inline"><span>range</span></div>
+                <div class="col label-inline"><span>damage</span></div>
+              </div>
+              <div class="row">
+                <div class="col label-inline"><span>sneak damage</span></div>
               </div>
             </div>
-            <div class="col">
+            <div class="col input-col">
               <div class="row">
                 <div class="col">
                   <input type="text" name="attr_EquipWeapRange4"/>
                 </div>
               </div>
             </div>
+            <div class="col">
+              <div class="row">
+                <div class="col label-inline"><span>range</span></div>
+              </div>
+            </div>
           </div>
         </fieldset>
-      </div>
-    </div>
-    <!-- BIRTH AUGUR ROW-->
-    <div class="row">
-      <div class="col full">
-        <label>Birth Augur</label>
-        <input class="augur-hidden" type="hidden" name="attr_augur_4" readonly="readonly"/>
-        <input class="augur" type="number" name="attr_start_luck_4"/>
-        <input class="augur-desc" type="text" value="Luck modifier at Level 0" readonly="readonly"/><br/>
-        <input class="augur" type="number" name="attr_augur_4"/>
-        <input class="augur-desc" type="text" name="attr_augur_desc_4" readonly="readonly"/>
-        <div class="if-healing note">*If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.</div>
-        <div class="if-crit note">**Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.</div>
       </div>
     </div>
     <!-- NOTES/MONEY ROW-->
@@ -1251,7 +1275,7 @@
         <textarea name="attr_notes_4"></textarea>
       </div>
       <!-- MONEY-->
-      <div class="col">
+      <div class="col single">
         <div class="row">
           <div class="col label-inline">
             <label class="short">CP</label>

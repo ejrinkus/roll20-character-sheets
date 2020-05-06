@@ -1,19 +1,19 @@
 div.root
+  input.char-control(type="hidden", name="attr_character", value="1")
   div.tabs
     each c in ["1", "2", "3", "4"]
-      button.tab(type="action", name=`act_${c}_tab`)
+      button(class=`tab tab-${c}`, type="action", name=`act_${c}_tab`)
         input.tabtext(type="text", name=`attr_name_${c}`, value=`Character ${c}`, readonly)
-  input.char-control(type="hidden", name="attr_character", value="1")
   each c in ["1", "2", "3", "4"]
     div(class=`character char-${c}`)
       // NAME/OCCUPATION/ALIGNMENT ROW
       div.row  
         // NAME
-        div.col
+        div.col.single
           label Name
           input(type="text", name=`attr_name_${c}`, value=`Character ${c}`)
         // OCCUPATION
-        div.col
+        div.col.single
           label Occupation
           input(type="text", name=`attr_occupation_${c}`)
         // ALIGNMENT
@@ -27,37 +27,55 @@ div.root
                   | X
               span
                 | #{pair[1]}
-      // STATS/EQUIPMENT ROW
+      // MAIN BODY
       div.row
-        // ATTRIBUTES
+        // STATS/AUGUR COLUMN
         div.col
-          label Attributes
-          each att in ["STR", "AGI", "STA", "PER", "INT", "LUC"]
-            div.row
-              div.col.label-inline
-                label.short #{att}
-              div.col
-                input(type="number", name=`attr_${att}_${c}`)
-              div.col
-                input(type="number", name=`attr_${att}_${c}_mod`, readonly, value=0)
-        // HP/AC/MOVEMENT/SAVES
-        div.col
-          label &nbsp;
+          // STATS ROW
           div.row
-            div.col.label-inline
-              label HP
-            div.col
-              input(type="number", name=`attr_HP_${c}`)
-            div.col.label-inline(style="width:1em")
-              label(style="font-size:2em") /
-            div.col
-              input(type="number", name=`attr_HP_${c}_max`)
-          each save in ["MOV", "AC", "REF", "FOR", "WIL"]
-            div.row
-              div.col.label-inline
-                label #{save}
-              div.col
-                input(type="number", name=`attr_${save}_${c}`)    
+            // ATTRIBUTES
+            div.col.single
+              label Attributes
+              each att in ["STR", "AGI", "STA", "PER", "INT", "LUC"]
+                div.row
+                  div.col.label-inline
+                    label.short #{att}
+                  div.col
+                    input(type="number", name=`attr_${att}_${c}`)
+                  div.col
+                    input(type="number", name=`attr_${att}_${c}_mod`, readonly, value=0)
+            // HP/AC/MOVEMENT/SAVES
+            div.col.single
+              label &nbsp;
+              div.row
+                div.col.label-inline
+                  label HP
+                div.col
+                  input(type="number", name=`attr_HP_${c}`)
+                div.col.label-inline(style="width:1em")
+                  label(style="font-size:2em") /
+                div.col
+                  input(type="number", name=`attr_HP_${c}_max`)
+              each save in ["MOV", "AC", "REF", "FOR", "WIL"]
+                div.row
+                  div.col.label-inline
+                    label #{save}
+                  div.col
+                    input(type="number", name=`attr_${save}_${c}`)
+          // BIRTH AUGUR ROW
+          div.row
+            div.col.double
+              label Birth Augur
+              input.augur-hidden(type="hidden", name=`attr_augur_${c}`, readonly)
+              input.augur(type="number", name=`attr_start_luck_${c}`)
+              input.augur-desc(type="text", value="Luck modifier at Level 0", readonly)
+              br
+              input.augur(type="number", name=`attr_augur_${c}`)
+              input.augur-desc(type="text", name=`attr_augur_desc_${c}`, readonly)
+              div.if-healing.note
+                | *If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.
+              div.if-crit.note
+                | **Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.
         // EQUIPMENT
         div.col.double
           label Equipment
@@ -73,15 +91,8 @@ div.root
                 input(type="text", name=`attr_EquipCustom${c}`, value="Custom description")
             div.equip.armor.row
               div.col
-                input.armor-name(type="text", name=`attr_EquipArmorName${c}`, value="Armor name")
-              div.col
-                div.row
-                  div.col.label-inline
-                    span AC
-                div.row
-                  div.col.label-inline
-                    span check penalty
-              div.col
+                input.equip-name(type="text", name=`attr_EquipArmorName${c}`, value="Armor name")
+              div.col.input-col
                 div.row
                   div.col
                     input(type="number", name=`attr_EquipArmorClass${c}`)
@@ -91,28 +102,28 @@ div.root
               div.col
                 div.row
                   div.col.label-inline
-                    span speed penalty
+                    span AC
                 div.row
                   div.col.label-inline
-                    span fumble die
-              div.col
+                    span check penalty
+              div.col.input-col
                 div.row
                   div.col
                     input(type="number", name=`attr_EquipArmorSpeedPen${c}`)
                 div.row
                   div.col
                     input(type="text", name=`attr_EquipArmorFumble${c}`)
+              div.col
+                div.row
+                  div.col.label-inline
+                    span speed penalty
+                div.row
+                  div.col.label-inline
+                    span fumble die
             div.equip.weapon.row
               div.col
-                input.weapon-name(type="text", name=`attr_EquipWeapName${c}`, value="Weapon name")
-              div.col
-                div.row
-                  div.col.label-inline
-                    span damage
-                div.row
-                  div.col.label-inline
-                    span sneak damage
-              div.col
+                input.equip-name(type="text", name=`attr_EquipWeapName${c}`, value="Weapon name")
+              div.col.input-col
                 div.row
                   div.col
                     input(type="text", name=`attr_EquipWeapDmg${c}`)
@@ -122,25 +133,18 @@ div.root
               div.col
                 div.row
                   div.col.label-inline
-                    span range
-              div.col
+                    span damage
+                div.row
+                  div.col.label-inline
+                    span sneak damage
+              div.col.input-col
                 div.row
                   div.col
                     input(type="text", name=`attr_EquipWeapRange${c}`)
-      // BIRTH AUGUR ROW
-      div.row
-        div.col.full
-          label Birth Augur
-          input.augur-hidden(type="hidden", name=`attr_augur_${c}`, readonly)
-          input.augur(type="number", name=`attr_start_luck_${c}`)
-          input.augur-desc(type="text", value="Luck modifier at Level 0", readonly)
-          br
-          input.augur(type="number", name=`attr_augur_${c}`)
-          input.augur-desc(type="text", name=`attr_augur_desc_${c}`, readonly)
-          div.if-healing.note
-            | *If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.
-          div.if-crit.note
-            | **Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.
+              div.col
+                div.row
+                  div.col.label-inline
+                    span range
       // NOTES/MONEY ROW
       div.row
         // NOTES
@@ -148,7 +152,7 @@ div.root
         div.col.triple
           textarea(name=`attr_notes_${c}`)
         // MONEY
-        div.col
+        div.col.single
           each coin in [["CP", ""], ["SP", "1sp = 10cp"], ["GP", "1gp = 10sp"], ["EP", "1ep = 10gp"], ["PP", "1pp = 10ep"]]
             div.row
               div.col.label-inline
