@@ -3,19 +3,28 @@
   <input class="char-control" type="hidden" name="attr_character" value="1"/>
   <div class="tabs">
     <button class="tab tab-1" type="action" name="act_1_tab">
+      <input class="checkline" type="hidden" name="attr_dead_1" value=""/>
+      <input class="tabrank" type="text" name="attr_rank_1" value="1" readonly="readonly"/>
       <input class="tabtext" type="text" name="attr_name_1" value="Character 1" readonly="readonly"/>
     </button>
     <button class="tab tab-2" type="action" name="act_2_tab">
+      <input class="checkline" type="hidden" name="attr_dead_2" value=""/>
+      <input class="tabrank" type="text" name="attr_rank_2" value="2" readonly="readonly"/>
       <input class="tabtext" type="text" name="attr_name_2" value="Character 2" readonly="readonly"/>
     </button>
     <button class="tab tab-3" type="action" name="act_3_tab">
+      <input class="checkline" type="hidden" name="attr_dead_3" value=""/>
+      <input class="tabrank" type="text" name="attr_rank_3" value="3" readonly="readonly"/>
       <input class="tabtext" type="text" name="attr_name_3" value="Character 3" readonly="readonly"/>
     </button>
     <button class="tab tab-4" type="action" name="act_4_tab">
+      <input class="checkline" type="hidden" name="attr_dead_4" value=""/>
+      <input class="tabrank" type="text" name="attr_rank_4" value="4" readonly="readonly"/>
       <input class="tabtext" type="text" name="attr_name_4" value="Character 4" readonly="readonly"/>
     </button>
   </div>
   <div class="character char-1">
+    <input class="checkline" type="hidden" name="attr_dead_1" value=""/><span class="dead">DEAD</span>
     <!-- NAME/OCCUPATION/ALIGNMENT ROW-->
     <div class="row"> 
       <!-- NAME-->
@@ -29,13 +38,21 @@
         <input type="text" name="attr_occupation_1"/>
       </div>
       <!-- ALIGNMENT-->
-      <div class="col double">
+      <div class="col single">
         <label>Alignment</label>
         <div class="checklines"> 
-          <input class="checkline" type="hidden" name="attr_alignment_1" value=""/>
+          <input class="checkline" type="hidden" name="attr_alignment_1" value="false"/>
           <button class="checkline checkline-lawful" type="action" name="act_alignment_lawful_1"><span class="checked">X</span></button><span>Lawful</span>
           <button class="checkline checkline-neutral" type="action" name="act_alignment_neutral_1"><span class="checked">X</span></button><span>Neutral</span>
           <button class="checkline checkline-chaotic" type="action" name="act_alignment_chaotic_1"><span class="checked">X</span></button><span>Chaotic</span>
+        </div>
+      </div>
+      <div class="col single">
+        <label>Status</label>
+        <div class="checklines"><span>Rank:&nbsp;</span>
+          <input type="number" name="attr_rank_1" value="1" style="margin-right:1em"/>
+          <input class="checkline" type="hidden" name="attr_dead_1" value=""/>
+          <button class="checkline checkline-dead" type="action" name="act_dead_1"><span class="checked">X</span></button><span>Dead?</span>
         </div>
       </div>
     </div>
@@ -56,7 +73,7 @@
                 <input type="number" name="attr_STR_1"/>
               </div>
               <div class="col">
-                <input type="number" name="attr_STR_1_mod" readonly="readonly" value="0"/>
+                <input type="number" name="attr_STR_1_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
             </div>
             <div class="row">
@@ -67,7 +84,7 @@
                 <input type="number" name="attr_AGI_1"/>
               </div>
               <div class="col">
-                <input type="number" name="attr_AGI_1_mod" readonly="readonly" value="0"/>
+                <input type="number" name="attr_AGI_1_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
             </div>
             <div class="row">
@@ -78,7 +95,7 @@
                 <input type="number" name="attr_STA_1"/>
               </div>
               <div class="col">
-                <input type="number" name="attr_STA_1_mod" readonly="readonly" value="0"/>
+                <input type="number" name="attr_STA_1_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
             </div>
             <div class="row">
@@ -89,7 +106,7 @@
                 <input type="number" name="attr_PER_1"/>
               </div>
               <div class="col">
-                <input type="number" name="attr_PER_1_mod" readonly="readonly" value="0"/>
+                <input type="number" name="attr_PER_1_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
             </div>
             <div class="row">
@@ -100,7 +117,7 @@
                 <input type="number" name="attr_INT_1"/>
               </div>
               <div class="col">
-                <input type="number" name="attr_INT_1_mod" readonly="readonly" value="0"/>
+                <input type="number" name="attr_INT_1_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
             </div>
             <div class="row">
@@ -111,7 +128,7 @@
                 <input type="number" name="attr_LUC_1"/>
               </div>
               <div class="col">
-                <input type="number" name="attr_LUC_1_mod" readonly="readonly" value="0"/>
+                <input type="number" name="attr_LUC_1_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
             </div>
           </div>
@@ -342,6 +359,7 @@
     </div>
   </div>
   <div class="character char-2">
+    <input class="checkline" type="hidden" name="attr_dead_2" value=""/><span class="dead">DEAD</span>
     <!-- NAME/OCCUPATION/ALIGNMENT ROW-->
     <div class="row"> 
       <!-- NAME-->
@@ -355,13 +373,21 @@
         <input type="text" name="attr_occupation_2"/>
       </div>
       <!-- ALIGNMENT-->
-      <div class="col double">
+      <div class="col single">
         <label>Alignment</label>
         <div class="checklines"> 
-          <input class="checkline" type="hidden" name="attr_alignment_2" value=""/>
+          <input class="checkline" type="hidden" name="attr_alignment_2" value="false"/>
           <button class="checkline checkline-lawful" type="action" name="act_alignment_lawful_2"><span class="checked">X</span></button><span>Lawful</span>
           <button class="checkline checkline-neutral" type="action" name="act_alignment_neutral_2"><span class="checked">X</span></button><span>Neutral</span>
           <button class="checkline checkline-chaotic" type="action" name="act_alignment_chaotic_2"><span class="checked">X</span></button><span>Chaotic</span>
+        </div>
+      </div>
+      <div class="col single">
+        <label>Status</label>
+        <div class="checklines"><span>Rank:&nbsp;</span>
+          <input type="number" name="attr_rank_2" value="2" style="margin-right:1em"/>
+          <input class="checkline" type="hidden" name="attr_dead_2" value=""/>
+          <button class="checkline checkline-dead" type="action" name="act_dead_2"><span class="checked">X</span></button><span>Dead?</span>
         </div>
       </div>
     </div>
@@ -382,7 +408,7 @@
                 <input type="number" name="attr_STR_2"/>
               </div>
               <div class="col">
-                <input type="number" name="attr_STR_2_mod" readonly="readonly" value="0"/>
+                <input type="number" name="attr_STR_2_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
             </div>
             <div class="row">
@@ -393,7 +419,7 @@
                 <input type="number" name="attr_AGI_2"/>
               </div>
               <div class="col">
-                <input type="number" name="attr_AGI_2_mod" readonly="readonly" value="0"/>
+                <input type="number" name="attr_AGI_2_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
             </div>
             <div class="row">
@@ -404,7 +430,7 @@
                 <input type="number" name="attr_STA_2"/>
               </div>
               <div class="col">
-                <input type="number" name="attr_STA_2_mod" readonly="readonly" value="0"/>
+                <input type="number" name="attr_STA_2_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
             </div>
             <div class="row">
@@ -415,7 +441,7 @@
                 <input type="number" name="attr_PER_2"/>
               </div>
               <div class="col">
-                <input type="number" name="attr_PER_2_mod" readonly="readonly" value="0"/>
+                <input type="number" name="attr_PER_2_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
             </div>
             <div class="row">
@@ -426,7 +452,7 @@
                 <input type="number" name="attr_INT_2"/>
               </div>
               <div class="col">
-                <input type="number" name="attr_INT_2_mod" readonly="readonly" value="0"/>
+                <input type="number" name="attr_INT_2_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
             </div>
             <div class="row">
@@ -437,7 +463,7 @@
                 <input type="number" name="attr_LUC_2"/>
               </div>
               <div class="col">
-                <input type="number" name="attr_LUC_2_mod" readonly="readonly" value="0"/>
+                <input type="number" name="attr_LUC_2_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
             </div>
           </div>
@@ -668,6 +694,7 @@
     </div>
   </div>
   <div class="character char-3">
+    <input class="checkline" type="hidden" name="attr_dead_3" value=""/><span class="dead">DEAD</span>
     <!-- NAME/OCCUPATION/ALIGNMENT ROW-->
     <div class="row"> 
       <!-- NAME-->
@@ -681,13 +708,21 @@
         <input type="text" name="attr_occupation_3"/>
       </div>
       <!-- ALIGNMENT-->
-      <div class="col double">
+      <div class="col single">
         <label>Alignment</label>
         <div class="checklines"> 
-          <input class="checkline" type="hidden" name="attr_alignment_3" value=""/>
+          <input class="checkline" type="hidden" name="attr_alignment_3" value="false"/>
           <button class="checkline checkline-lawful" type="action" name="act_alignment_lawful_3"><span class="checked">X</span></button><span>Lawful</span>
           <button class="checkline checkline-neutral" type="action" name="act_alignment_neutral_3"><span class="checked">X</span></button><span>Neutral</span>
           <button class="checkline checkline-chaotic" type="action" name="act_alignment_chaotic_3"><span class="checked">X</span></button><span>Chaotic</span>
+        </div>
+      </div>
+      <div class="col single">
+        <label>Status</label>
+        <div class="checklines"><span>Rank:&nbsp;</span>
+          <input type="number" name="attr_rank_3" value="3" style="margin-right:1em"/>
+          <input class="checkline" type="hidden" name="attr_dead_3" value=""/>
+          <button class="checkline checkline-dead" type="action" name="act_dead_3"><span class="checked">X</span></button><span>Dead?</span>
         </div>
       </div>
     </div>
@@ -708,7 +743,7 @@
                 <input type="number" name="attr_STR_3"/>
               </div>
               <div class="col">
-                <input type="number" name="attr_STR_3_mod" readonly="readonly" value="0"/>
+                <input type="number" name="attr_STR_3_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
             </div>
             <div class="row">
@@ -719,7 +754,7 @@
                 <input type="number" name="attr_AGI_3"/>
               </div>
               <div class="col">
-                <input type="number" name="attr_AGI_3_mod" readonly="readonly" value="0"/>
+                <input type="number" name="attr_AGI_3_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
             </div>
             <div class="row">
@@ -730,7 +765,7 @@
                 <input type="number" name="attr_STA_3"/>
               </div>
               <div class="col">
-                <input type="number" name="attr_STA_3_mod" readonly="readonly" value="0"/>
+                <input type="number" name="attr_STA_3_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
             </div>
             <div class="row">
@@ -741,7 +776,7 @@
                 <input type="number" name="attr_PER_3"/>
               </div>
               <div class="col">
-                <input type="number" name="attr_PER_3_mod" readonly="readonly" value="0"/>
+                <input type="number" name="attr_PER_3_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
             </div>
             <div class="row">
@@ -752,7 +787,7 @@
                 <input type="number" name="attr_INT_3"/>
               </div>
               <div class="col">
-                <input type="number" name="attr_INT_3_mod" readonly="readonly" value="0"/>
+                <input type="number" name="attr_INT_3_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
             </div>
             <div class="row">
@@ -763,7 +798,7 @@
                 <input type="number" name="attr_LUC_3"/>
               </div>
               <div class="col">
-                <input type="number" name="attr_LUC_3_mod" readonly="readonly" value="0"/>
+                <input type="number" name="attr_LUC_3_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
             </div>
           </div>
@@ -994,6 +1029,7 @@
     </div>
   </div>
   <div class="character char-4">
+    <input class="checkline" type="hidden" name="attr_dead_4" value=""/><span class="dead">DEAD</span>
     <!-- NAME/OCCUPATION/ALIGNMENT ROW-->
     <div class="row"> 
       <!-- NAME-->
@@ -1007,13 +1043,21 @@
         <input type="text" name="attr_occupation_4"/>
       </div>
       <!-- ALIGNMENT-->
-      <div class="col double">
+      <div class="col single">
         <label>Alignment</label>
         <div class="checklines"> 
-          <input class="checkline" type="hidden" name="attr_alignment_4" value=""/>
+          <input class="checkline" type="hidden" name="attr_alignment_4" value="false"/>
           <button class="checkline checkline-lawful" type="action" name="act_alignment_lawful_4"><span class="checked">X</span></button><span>Lawful</span>
           <button class="checkline checkline-neutral" type="action" name="act_alignment_neutral_4"><span class="checked">X</span></button><span>Neutral</span>
           <button class="checkline checkline-chaotic" type="action" name="act_alignment_chaotic_4"><span class="checked">X</span></button><span>Chaotic</span>
+        </div>
+      </div>
+      <div class="col single">
+        <label>Status</label>
+        <div class="checklines"><span>Rank:&nbsp;</span>
+          <input type="number" name="attr_rank_4" value="4" style="margin-right:1em"/>
+          <input class="checkline" type="hidden" name="attr_dead_4" value=""/>
+          <button class="checkline checkline-dead" type="action" name="act_dead_4"><span class="checked">X</span></button><span>Dead?</span>
         </div>
       </div>
     </div>
@@ -1034,7 +1078,7 @@
                 <input type="number" name="attr_STR_4"/>
               </div>
               <div class="col">
-                <input type="number" name="attr_STR_4_mod" readonly="readonly" value="0"/>
+                <input type="number" name="attr_STR_4_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
             </div>
             <div class="row">
@@ -1045,7 +1089,7 @@
                 <input type="number" name="attr_AGI_4"/>
               </div>
               <div class="col">
-                <input type="number" name="attr_AGI_4_mod" readonly="readonly" value="0"/>
+                <input type="number" name="attr_AGI_4_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
             </div>
             <div class="row">
@@ -1056,7 +1100,7 @@
                 <input type="number" name="attr_STA_4"/>
               </div>
               <div class="col">
-                <input type="number" name="attr_STA_4_mod" readonly="readonly" value="0"/>
+                <input type="number" name="attr_STA_4_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
             </div>
             <div class="row">
@@ -1067,7 +1111,7 @@
                 <input type="number" name="attr_PER_4"/>
               </div>
               <div class="col">
-                <input type="number" name="attr_PER_4_mod" readonly="readonly" value="0"/>
+                <input type="number" name="attr_PER_4_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
             </div>
             <div class="row">
@@ -1078,7 +1122,7 @@
                 <input type="number" name="attr_INT_4"/>
               </div>
               <div class="col">
-                <input type="number" name="attr_INT_4_mod" readonly="readonly" value="0"/>
+                <input type="number" name="attr_INT_4_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
             </div>
             <div class="row">
@@ -1089,7 +1133,7 @@
                 <input type="number" name="attr_LUC_4"/>
               </div>
               <div class="col">
-                <input type="number" name="attr_LUC_4_mod" readonly="readonly" value="0"/>
+                <input type="number" name="attr_LUC_4_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
             </div>
           </div>
@@ -1378,6 +1422,21 @@
       });
     })
   }
+  function deadHandlers(charI) {
+    on(`clicked:dead_${charI}`, function() {
+      getAttrs([`dead_${charI}`], function(values) {
+        var val = "";
+        if (values[`dead_${charI}`] == "alive") {
+          val = "dead";
+        } else {
+          val = "alive";
+        }
+        setAttrs({
+          [`dead_${charI}`]: val
+        });
+      });
+    });
+  }
   function getMod(val) {
     if (val >= 18) {
       return 3;
@@ -1454,6 +1513,9 @@
 
     // Defined in alignment.js
     alignmentHandlers(charI);
+
+    // Defined in dead.js
+    deadHandlers(charI);
 
     // Defined in birth_augurs.js
     augurHandlers(charI);

@@ -24,6 +24,10 @@ label {
   font-size: 1.5em;
 }
 
+button {
+  outline: none;
+}
+
 input {
   outline: none;
   width: $sheet-col-width;
@@ -39,6 +43,11 @@ input[type=number] {
   height: 2em;
 }
 
+input[type=number][readonly] {
+  -moz-appearance: textfield;
+  height: 2em;
+}
+
 .sheet-note {
   font-size: 0.83em;
 }
@@ -49,6 +58,12 @@ input[type=number] {
   background-color: $root-background;
   padding: $root-padding*2;
   position: relative;
+  
+  input.sheet-checkline[value="dead"] ~ input.sheet-tabrank,
+  input.sheet-checkline[value="dead"] ~ input.sheet-tabtext {
+    /* Strikethrough tab text for dead characters. */
+    background-image: linear-gradient(transparent 1em, black 1em, black 1.15em, transparent 1.15em);
+  }
 
   div.sheet-tabs {
     position: relative;
@@ -67,7 +82,14 @@ input[type=number] {
     position: relative;
     z-index: 1;
     box-shadow: $sheet-shadow;
+    > input.sheet-tabrank {
+      width: 2em;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
     > input.sheet-tabtext {
+      width: $sheet-col-width - 4em;
       background: transparent;
       border: none;
       cursor: pointer;
@@ -96,7 +118,7 @@ input[type=number] {
     width: 0;
     bottom: -1px;
 
-    left: -0.5em;
+    left: -0.45em;
     border-right: 0.25em solid white;
     border-bottom: 1em solid white;
     border-left: 0.25em solid transparent;
@@ -114,7 +136,7 @@ input[type=number] {
     width: 0;
     bottom: -1px;
 
-    right: -0.5em;
+    right: -0.45em;
     border-left: 0.25em solid white;
     border-bottom: 1em solid white;
     border-right: 0.25em solid transparent;
@@ -132,7 +154,7 @@ input[type=number] {
     width: 0;
     bottom: 0;
 
-    left: -0.5em;
+    left: -0.45em;
     border-right: 0.25em solid lightgrey;
     border-bottom: 1em solid lightgrey;
     border-left: 0.25em solid transparent;
@@ -150,7 +172,7 @@ input[type=number] {
     width: 0;
     bottom: 0;
 
-    right: -0.5em;
+    right: -0.45em;
     border-left: 0.25em solid lightgrey;
     border-bottom: 1em solid lightgrey;
     border-right: 0.25em solid transparent;
@@ -171,9 +193,27 @@ input[type=number] {
     background-color: $sheet-background;
     padding: $sheet-col-margins;
     width: $sheet-width;
+    border-radius: 0.25em;
     position: relative;
     z-index: 2;
     box-shadow: $sheet-shadow;
+    
+    span.sheet-dead {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 100;
+      font-size: 20em;
+      color: red;
+    }
+    
+    input.sheet-checkline[value="alive"] ~ span.sheet-dead {
+      /* Hide the "DEAD" stamp the character is not dead. */
+      color: transparent;
+      z-index: -100;
+    }
+
     div.sheet-row {
       display: block;
       div.sheet-col.sheet-single,
@@ -211,7 +251,7 @@ input[type=number] {
     }
 
     .sheet-checklines {
-      /* Configure the container for the alignment checkline buttons. */
+      /* Configure the container for the checkline buttons. */
       display: inline-flex;
       align-items: center;
       vertical-align: bottom;
@@ -239,6 +279,12 @@ input[type=number] {
       input.sheet-checkline:not([value="neutral"]) ~ button.sheet-checkline-neutral > span.sheet-checked,
       input.sheet-checkline:not([value="chaotic"]) ~ button.sheet-checkline-chaotic > span.sheet-checked {
         /* Hide the "checked" section of the checkline if the attribute value does not match the checkline. */
+        background: transparent;
+        color: transparent;
+      }
+      
+      input.sheet-checkline[value="alive"] ~ button.sheet-checkline-dead > span.sheet-checked {
+        /* Hide the "checked" section of the checkline if the character is not dead. */
         background: transparent;
         color: transparent;
       }

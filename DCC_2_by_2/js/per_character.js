@@ -10,6 +10,9 @@
     // Defined in alignment.js
     alignmentHandlers(charI);
 
+    // Defined in dead.js
+    deadHandlers(charI);
+
     // Defined in birth_augurs.js
     augurHandlers(charI);
     

@@ -3,9 +3,14 @@ div.root
   div.tabs
     each c in ["1", "2", "3", "4"]
       button(class=`tab tab-${c}`, type="action", name=`act_${c}_tab`)
+        input(type="hidden", name=`attr_dead_${c}`, value="").checkline
+        input.tabrank(type="text", name=`attr_rank_${c}`, value=`${c}`, readonly)
         input.tabtext(type="text", name=`attr_name_${c}`, value=`Character ${c}`, readonly)
   each c in ["1", "2", "3", "4"]
     div(class=`character char-${c}`)
+      input(type="hidden", name=`attr_dead_${c}`, value="").checkline
+      span.dead
+        | DEAD
       // NAME/OCCUPATION/ALIGNMENT ROW
       div.row  
         // NAME
@@ -17,16 +22,28 @@ div.root
           label Occupation
           input(type="text", name=`attr_occupation_${c}`)
         // ALIGNMENT
-        div.col.double
+        div.col.single
           label Alignment
           div.checklines 
-            input(type="hidden", name=`attr_alignment_${c}`, value="").checkline
+            input(type="hidden", name=`attr_alignment_${c}`, value="false").checkline
             each pair in [["lawful", "Lawful"], ["neutral", "Neutral"], ["chaotic", "Chaotic"]]
               button(class=`checkline checkline-${pair[0]}`, type="action", name=`act_alignment_${pair[0]}_${c}`)
                 span.checked
                   | X
               span
                 | #{pair[1]}
+        div.col.single
+          label Status
+          div.checklines
+            span
+              | Rank:&nbsp;
+            input(type="number", name=`attr_rank_${c}`, value=`${c}`, style="margin-right:1em")
+            input(type="hidden", name=`attr_dead_${c}`, value="").checkline
+            button(class=`checkline checkline-dead`, type="action", name=`act_dead_${c}`)
+              span.checked
+                | X
+            span
+              | Dead?
       // MAIN BODY
       div.row
         // STATS/AUGUR COLUMN
@@ -43,7 +60,7 @@ div.root
                   div.col
                     input(type="number", name=`attr_${att}_${c}`)
                   div.col
-                    input(type="number", name=`attr_${att}_${c}_mod`, readonly, value=0)
+                    input(type="number", name=`attr_${att}_${c}_mod`, style="cursor:default", readonly, value=0)
             // HP/AC/MOVEMENT/SAVES
             div.col.single
               label &nbsp;
@@ -168,6 +185,7 @@ script(type="text/worker")
   //- These files can be included in any order, as they only depend on constants.js.
   include js/char_tabs.js
   include js/alignment.js
+  include js/dead.js
   include js/mods.js
   include js/birth_augurs.js
   include js/equipment.js
