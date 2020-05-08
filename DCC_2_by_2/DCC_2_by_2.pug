@@ -61,6 +61,8 @@ div.root
                     input(type="number", name=`attr_${att}_${c}`)
                   div.col
                     input(type="number", name=`attr_${att}_${c}_mod`, style="cursor:default", readonly, value=0)
+                  div.col
+                    button(type="roll", value=`/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{${att}_${c}_mod}`, name=`roll_${att}Check`)
             // HP/AC/MOVEMENT/SAVES
             div.col.single
               label &nbsp;
@@ -79,6 +81,9 @@ div.root
                     label #{save}
                   div.col
                     input(type="number", name=`attr_${save}_${c}`)
+                  if save != "MOV" && save != "AC"
+                    div.col
+                      button(type="roll", value=`/roll 1d20 + @{${save}_${c}}`, name=`roll_${save}Save`)
           // BIRTH AUGUR ROW
           div.row
             div.col.double
