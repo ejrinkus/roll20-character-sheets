@@ -38,6 +38,16 @@ input[type=number][readonly] {
   font-size: 0.83em;
 }
 
+button[type=roll].sheet-d10::before {
+  font-family: "dicefontd10";
+  content: "J";
+}
+
+button[type=roll].sheet-d20::before {
+  font-family: "dicefontd20";
+  content: "T";
+}
+
 /* Configure the root div containing all elements. */
 .sheet-root {
   width: 87em;

@@ -1,4 +1,5 @@
 div.root
+  input(type="hidden", name="attr_total_living", value="")
   input.char-control(type="hidden", name="attr_character", value="1")
   div.tabs
     each c in ["1", "2", "3", "4"]
@@ -62,11 +63,13 @@ div.root
                   div.col
                     input(type="number", name=`attr_${att}_${c}_mod`, style="cursor:default", readonly, value=0)
                   div.col
-                    button(type="roll", value=`/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{${att}_${c}_mod}`, name=`roll_${att}Check`)
+                    button.d20(type="roll", value=`/roll 1d20 + @{${att}_${c}_mod}`, name=`roll_${att}Trained${c}`)
+                  div.col
+                    button.d10(type="roll", value=`/roll 1d10 + @{${att}_${c}_mod}`, name=`roll_${att}Untrained${c}`)
             // HP/AC/MOVEMENT/SAVES
             div.col.single
-              label &nbsp;
               div.row
+                label Attributes (cont.)
                 div.col.label-inline
                   label HP
                 div.col
@@ -75,15 +78,18 @@ div.root
                   label(style="font-size:2em") /
                 div.col
                   input(type="number", name=`attr_HP_${c}_max`)
-              each save in ["MOV", "AC", "REF", "FOR", "WIL"]
+              each save in ["MOV", "AC", "INI", "REF", "FOR", "WIL"]
                 div.row
                   div.col.label-inline
                     label #{save}
                   div.col
                     input(type="number", name=`attr_${save}_${c}`)
-                  if save != "MOV" && save != "AC"
+                  if save != "MOV" && save != "AC" && save != "INI"
                     div.col
-                      button(type="roll", value=`/roll 1d20 + @{${save}_${c}}`, name=`roll_${save}Save`)
+                      button.d20(type="roll", value=`/roll 1d20 + @{${save}_${c}}`, name=`roll_${save}Save${c}`)
+                  else if save == "INI"
+                    div.col
+                      button.d20(type="roll", value=`/roll 1d20 + @{${save}_${c}} &{tracker}`, name=`roll_initiative${c}`)
           // BIRTH AUGUR ROW
           div.row
             div.col.double

@@ -1,5 +1,6 @@
 
 <div class="root">
+  <input type="hidden" name="attr_total_living" value=""/>
   <input class="char-control" type="hidden" name="attr_character" value="1"/>
   <div class="tabs">
     <button class="tab tab-1" type="action" name="act_1_tab">
@@ -76,7 +77,10 @@
                 <input type="number" name="attr_STR_1_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{STR_1_mod}" name="roll_STRCheck"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{STR_1_mod}" name="roll_STRTrained1"></button>
+              </div>
+              <div class="col">
+                <button class="d10" type="roll" value="/roll 1d10 + @{STR_1_mod}" name="roll_STRUntrained1"></button>
               </div>
             </div>
             <div class="row">
@@ -90,7 +94,10 @@
                 <input type="number" name="attr_AGI_1_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{AGI_1_mod}" name="roll_AGICheck"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{AGI_1_mod}" name="roll_AGITrained1"></button>
+              </div>
+              <div class="col">
+                <button class="d10" type="roll" value="/roll 1d10 + @{AGI_1_mod}" name="roll_AGIUntrained1"></button>
               </div>
             </div>
             <div class="row">
@@ -104,7 +111,10 @@
                 <input type="number" name="attr_STA_1_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{STA_1_mod}" name="roll_STACheck"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{STA_1_mod}" name="roll_STATrained1"></button>
+              </div>
+              <div class="col">
+                <button class="d10" type="roll" value="/roll 1d10 + @{STA_1_mod}" name="roll_STAUntrained1"></button>
               </div>
             </div>
             <div class="row">
@@ -118,7 +128,10 @@
                 <input type="number" name="attr_PER_1_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{PER_1_mod}" name="roll_PERCheck"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{PER_1_mod}" name="roll_PERTrained1"></button>
+              </div>
+              <div class="col">
+                <button class="d10" type="roll" value="/roll 1d10 + @{PER_1_mod}" name="roll_PERUntrained1"></button>
               </div>
             </div>
             <div class="row">
@@ -132,7 +145,10 @@
                 <input type="number" name="attr_INT_1_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{INT_1_mod}" name="roll_INTCheck"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{INT_1_mod}" name="roll_INTTrained1"></button>
+              </div>
+              <div class="col">
+                <button class="d10" type="roll" value="/roll 1d10 + @{INT_1_mod}" name="roll_INTUntrained1"></button>
               </div>
             </div>
             <div class="row">
@@ -146,14 +162,17 @@
                 <input type="number" name="attr_LUC_1_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{LUC_1_mod}" name="roll_LUCCheck"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{LUC_1_mod}" name="roll_LUCTrained1"></button>
+              </div>
+              <div class="col">
+                <button class="d10" type="roll" value="/roll 1d10 + @{LUC_1_mod}" name="roll_LUCUntrained1"></button>
               </div>
             </div>
           </div>
           <!-- HP/AC/MOVEMENT/SAVES-->
           <div class="col single">
-            <label>&nbsp;</label>
             <div class="row">
+              <label>Attributes (cont.)</label>
               <div class="col label-inline">
                 <label>HP</label>
               </div>
@@ -185,13 +204,24 @@
             </div>
             <div class="row">
               <div class="col label-inline">
+                <label>INI</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_INI_1"/>
+              </div>
+              <div class="col">
+                <button class="d20" type="roll" value="/roll 1d20 + @{INI_1} &amp;{tracker}" name="roll_initiative1"></button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
                 <label>REF</label>
               </div>
               <div class="col">
                 <input type="number" name="attr_REF_1"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll 1d20 + @{REF_1}" name="roll_REFSave"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{REF_1}" name="roll_REFSave1"></button>
               </div>
             </div>
             <div class="row">
@@ -202,7 +232,7 @@
                 <input type="number" name="attr_FOR_1"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll 1d20 + @{FOR_1}" name="roll_FORSave"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{FOR_1}" name="roll_FORSave1"></button>
               </div>
             </div>
             <div class="row">
@@ -213,7 +243,7 @@
                 <input type="number" name="attr_WIL_1"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll 1d20 + @{WIL_1}" name="roll_WILSave"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{WIL_1}" name="roll_WILSave1"></button>
               </div>
             </div>
           </div>
@@ -438,7 +468,10 @@
                 <input type="number" name="attr_STR_2_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{STR_2_mod}" name="roll_STRCheck"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{STR_2_mod}" name="roll_STRTrained2"></button>
+              </div>
+              <div class="col">
+                <button class="d10" type="roll" value="/roll 1d10 + @{STR_2_mod}" name="roll_STRUntrained2"></button>
               </div>
             </div>
             <div class="row">
@@ -452,7 +485,10 @@
                 <input type="number" name="attr_AGI_2_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{AGI_2_mod}" name="roll_AGICheck"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{AGI_2_mod}" name="roll_AGITrained2"></button>
+              </div>
+              <div class="col">
+                <button class="d10" type="roll" value="/roll 1d10 + @{AGI_2_mod}" name="roll_AGIUntrained2"></button>
               </div>
             </div>
             <div class="row">
@@ -466,7 +502,10 @@
                 <input type="number" name="attr_STA_2_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{STA_2_mod}" name="roll_STACheck"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{STA_2_mod}" name="roll_STATrained2"></button>
+              </div>
+              <div class="col">
+                <button class="d10" type="roll" value="/roll 1d10 + @{STA_2_mod}" name="roll_STAUntrained2"></button>
               </div>
             </div>
             <div class="row">
@@ -480,7 +519,10 @@
                 <input type="number" name="attr_PER_2_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{PER_2_mod}" name="roll_PERCheck"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{PER_2_mod}" name="roll_PERTrained2"></button>
+              </div>
+              <div class="col">
+                <button class="d10" type="roll" value="/roll 1d10 + @{PER_2_mod}" name="roll_PERUntrained2"></button>
               </div>
             </div>
             <div class="row">
@@ -494,7 +536,10 @@
                 <input type="number" name="attr_INT_2_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{INT_2_mod}" name="roll_INTCheck"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{INT_2_mod}" name="roll_INTTrained2"></button>
+              </div>
+              <div class="col">
+                <button class="d10" type="roll" value="/roll 1d10 + @{INT_2_mod}" name="roll_INTUntrained2"></button>
               </div>
             </div>
             <div class="row">
@@ -508,14 +553,17 @@
                 <input type="number" name="attr_LUC_2_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{LUC_2_mod}" name="roll_LUCCheck"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{LUC_2_mod}" name="roll_LUCTrained2"></button>
+              </div>
+              <div class="col">
+                <button class="d10" type="roll" value="/roll 1d10 + @{LUC_2_mod}" name="roll_LUCUntrained2"></button>
               </div>
             </div>
           </div>
           <!-- HP/AC/MOVEMENT/SAVES-->
           <div class="col single">
-            <label>&nbsp;</label>
             <div class="row">
+              <label>Attributes (cont.)</label>
               <div class="col label-inline">
                 <label>HP</label>
               </div>
@@ -547,13 +595,24 @@
             </div>
             <div class="row">
               <div class="col label-inline">
+                <label>INI</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_INI_2"/>
+              </div>
+              <div class="col">
+                <button class="d20" type="roll" value="/roll 1d20 + @{INI_2} &amp;{tracker}" name="roll_initiative2"></button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
                 <label>REF</label>
               </div>
               <div class="col">
                 <input type="number" name="attr_REF_2"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll 1d20 + @{REF_2}" name="roll_REFSave"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{REF_2}" name="roll_REFSave2"></button>
               </div>
             </div>
             <div class="row">
@@ -564,7 +623,7 @@
                 <input type="number" name="attr_FOR_2"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll 1d20 + @{FOR_2}" name="roll_FORSave"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{FOR_2}" name="roll_FORSave2"></button>
               </div>
             </div>
             <div class="row">
@@ -575,7 +634,7 @@
                 <input type="number" name="attr_WIL_2"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll 1d20 + @{WIL_2}" name="roll_WILSave"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{WIL_2}" name="roll_WILSave2"></button>
               </div>
             </div>
           </div>
@@ -800,7 +859,10 @@
                 <input type="number" name="attr_STR_3_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{STR_3_mod}" name="roll_STRCheck"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{STR_3_mod}" name="roll_STRTrained3"></button>
+              </div>
+              <div class="col">
+                <button class="d10" type="roll" value="/roll 1d10 + @{STR_3_mod}" name="roll_STRUntrained3"></button>
               </div>
             </div>
             <div class="row">
@@ -814,7 +876,10 @@
                 <input type="number" name="attr_AGI_3_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{AGI_3_mod}" name="roll_AGICheck"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{AGI_3_mod}" name="roll_AGITrained3"></button>
+              </div>
+              <div class="col">
+                <button class="d10" type="roll" value="/roll 1d10 + @{AGI_3_mod}" name="roll_AGIUntrained3"></button>
               </div>
             </div>
             <div class="row">
@@ -828,7 +893,10 @@
                 <input type="number" name="attr_STA_3_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{STA_3_mod}" name="roll_STACheck"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{STA_3_mod}" name="roll_STATrained3"></button>
+              </div>
+              <div class="col">
+                <button class="d10" type="roll" value="/roll 1d10 + @{STA_3_mod}" name="roll_STAUntrained3"></button>
               </div>
             </div>
             <div class="row">
@@ -842,7 +910,10 @@
                 <input type="number" name="attr_PER_3_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{PER_3_mod}" name="roll_PERCheck"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{PER_3_mod}" name="roll_PERTrained3"></button>
+              </div>
+              <div class="col">
+                <button class="d10" type="roll" value="/roll 1d10 + @{PER_3_mod}" name="roll_PERUntrained3"></button>
               </div>
             </div>
             <div class="row">
@@ -856,7 +927,10 @@
                 <input type="number" name="attr_INT_3_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{INT_3_mod}" name="roll_INTCheck"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{INT_3_mod}" name="roll_INTTrained3"></button>
+              </div>
+              <div class="col">
+                <button class="d10" type="roll" value="/roll 1d10 + @{INT_3_mod}" name="roll_INTUntrained3"></button>
               </div>
             </div>
             <div class="row">
@@ -870,14 +944,17 @@
                 <input type="number" name="attr_LUC_3_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{LUC_3_mod}" name="roll_LUCCheck"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{LUC_3_mod}" name="roll_LUCTrained3"></button>
+              </div>
+              <div class="col">
+                <button class="d10" type="roll" value="/roll 1d10 + @{LUC_3_mod}" name="roll_LUCUntrained3"></button>
               </div>
             </div>
           </div>
           <!-- HP/AC/MOVEMENT/SAVES-->
           <div class="col single">
-            <label>&nbsp;</label>
             <div class="row">
+              <label>Attributes (cont.)</label>
               <div class="col label-inline">
                 <label>HP</label>
               </div>
@@ -909,13 +986,24 @@
             </div>
             <div class="row">
               <div class="col label-inline">
+                <label>INI</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_INI_3"/>
+              </div>
+              <div class="col">
+                <button class="d20" type="roll" value="/roll 1d20 + @{INI_3} &amp;{tracker}" name="roll_initiative3"></button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
                 <label>REF</label>
               </div>
               <div class="col">
                 <input type="number" name="attr_REF_3"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll 1d20 + @{REF_3}" name="roll_REFSave"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{REF_3}" name="roll_REFSave3"></button>
               </div>
             </div>
             <div class="row">
@@ -926,7 +1014,7 @@
                 <input type="number" name="attr_FOR_3"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll 1d20 + @{FOR_3}" name="roll_FORSave"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{FOR_3}" name="roll_FORSave3"></button>
               </div>
             </div>
             <div class="row">
@@ -937,7 +1025,7 @@
                 <input type="number" name="attr_WIL_3"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll 1d20 + @{WIL_3}" name="roll_WILSave"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{WIL_3}" name="roll_WILSave3"></button>
               </div>
             </div>
           </div>
@@ -1162,7 +1250,10 @@
                 <input type="number" name="attr_STR_4_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{STR_4_mod}" name="roll_STRCheck"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{STR_4_mod}" name="roll_STRTrained4"></button>
+              </div>
+              <div class="col">
+                <button class="d10" type="roll" value="/roll 1d10 + @{STR_4_mod}" name="roll_STRUntrained4"></button>
               </div>
             </div>
             <div class="row">
@@ -1176,7 +1267,10 @@
                 <input type="number" name="attr_AGI_4_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{AGI_4_mod}" name="roll_AGICheck"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{AGI_4_mod}" name="roll_AGITrained4"></button>
+              </div>
+              <div class="col">
+                <button class="d10" type="roll" value="/roll 1d10 + @{AGI_4_mod}" name="roll_AGIUntrained4"></button>
               </div>
             </div>
             <div class="row">
@@ -1190,7 +1284,10 @@
                 <input type="number" name="attr_STA_4_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{STA_4_mod}" name="roll_STACheck"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{STA_4_mod}" name="roll_STATrained4"></button>
+              </div>
+              <div class="col">
+                <button class="d10" type="roll" value="/roll 1d10 + @{STA_4_mod}" name="roll_STAUntrained4"></button>
               </div>
             </div>
             <div class="row">
@@ -1204,7 +1301,10 @@
                 <input type="number" name="attr_PER_4_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{PER_4_mod}" name="roll_PERCheck"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{PER_4_mod}" name="roll_PERTrained4"></button>
+              </div>
+              <div class="col">
+                <button class="d10" type="roll" value="/roll 1d10 + @{PER_4_mod}" name="roll_PERUntrained4"></button>
               </div>
             </div>
             <div class="row">
@@ -1218,7 +1318,10 @@
                 <input type="number" name="attr_INT_4_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{INT_4_mod}" name="roll_INTCheck"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{INT_4_mod}" name="roll_INTTrained4"></button>
+              </div>
+              <div class="col">
+                <button class="d10" type="roll" value="/roll 1d10 + @{INT_4_mod}" name="roll_INTUntrained4"></button>
               </div>
             </div>
             <div class="row">
@@ -1232,14 +1335,17 @@
                 <input type="number" name="attr_LUC_4_mod" style="cursor:default" readonly="readonly" value="0"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll ?{Check Type|Trained, 1d20|Untrained, 1d10} + @{LUC_4_mod}" name="roll_LUCCheck"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{LUC_4_mod}" name="roll_LUCTrained4"></button>
+              </div>
+              <div class="col">
+                <button class="d10" type="roll" value="/roll 1d10 + @{LUC_4_mod}" name="roll_LUCUntrained4"></button>
               </div>
             </div>
           </div>
           <!-- HP/AC/MOVEMENT/SAVES-->
           <div class="col single">
-            <label>&nbsp;</label>
             <div class="row">
+              <label>Attributes (cont.)</label>
               <div class="col label-inline">
                 <label>HP</label>
               </div>
@@ -1271,13 +1377,24 @@
             </div>
             <div class="row">
               <div class="col label-inline">
+                <label>INI</label>
+              </div>
+              <div class="col">
+                <input type="number" name="attr_INI_4"/>
+              </div>
+              <div class="col">
+                <button class="d20" type="roll" value="/roll 1d20 + @{INI_4} &amp;{tracker}" name="roll_initiative4"></button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col label-inline">
                 <label>REF</label>
               </div>
               <div class="col">
                 <input type="number" name="attr_REF_4"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll 1d20 + @{REF_4}" name="roll_REFSave"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{REF_4}" name="roll_REFSave4"></button>
               </div>
             </div>
             <div class="row">
@@ -1288,7 +1405,7 @@
                 <input type="number" name="attr_FOR_4"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll 1d20 + @{FOR_4}" name="roll_FORSave"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{FOR_4}" name="roll_FORSave4"></button>
               </div>
             </div>
             <div class="row">
@@ -1299,7 +1416,7 @@
                 <input type="number" name="attr_WIL_4"/>
               </div>
               <div class="col">
-                <button type="roll" value="/roll 1d20 + @{WIL_4}" name="roll_WILSave"></button>
+                <button class="d20" type="roll" value="/roll 1d20 + @{WIL_4}" name="roll_WILSave4"></button>
               </div>
             </div>
           </div>
@@ -1532,15 +1649,24 @@
   }
   function deadHandlers(charI) {
     on(`clicked:dead_${charI}`, function() {
-      getAttrs([`dead_${charI}`], function(values) {
+      getAttrs([`dead_1`, `dead_2`, `dead_3`, `dead_4`, `total_living`], function(values) {
+        // Figure out the new state for charI, since that's the one that changed.
         var val = "";
         if (values[`dead_${charI}`] == "alive") {
           val = "dead";
         } else {
           val = "alive";
         }
+        // Then figure out the total count of living characters.
+        var count = 0;
+        if (val == "alive") count = 1;
+        for (var c = 1; c <= 4; c++) {
+          if (c == charI) continue;
+          if (values[`dead_${c}`] == "alive") count += 1;
+        }
         setAttrs({
-          [`dead_${charI}`]: val
+          [`dead_${charI}`]: val,
+          [`total_living`]: count
         });
       });
     });
