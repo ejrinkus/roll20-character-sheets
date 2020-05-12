@@ -1,0 +1,22 @@
+$sheet-col-width: 20em !default;
+
+@for $i from 1 through 4 {
+    div.sheet-if-healing-#{$i},
+    div.sheet-if-crit-#{$i} {
+        display: none;
+    }
+
+    input.sheet-control-augur-#{$i}[value="16"] ~ .sheet-root div.sheet-if-healing-#{$i},
+    input.sheet-control-augur-#{$i}[value="26"] ~ .sheet-root div.sheet-if-crit-#{$i},
+    input.sheet-control-augur-#{$i}[value="28"] ~ .sheet-root div.sheet-if-crit-#{$i} {
+        display: block;
+    }
+}
+
+input.sheet-augur-desc {
+    /* Format the birth augur description. */
+    background: transparent;
+    border: none;
+    cursor: default;
+    width: $sheet-col-width*1.8;
+}

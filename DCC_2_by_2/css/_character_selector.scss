@@ -1,0 +1,67 @@
+div.sheet-tabs > button.sheet-tab::before,
+div.sheet-tabs > button.sheet-tab::after {
+  /* Shared configuration for the triangular pseudo-elements.  These elements are placed on the
+  left and right sides of the tabs to make them look like real folder tabs. */
+  content: "";
+  position: absolute;
+  background: transparent;
+  height: inherit;
+  width: 0;
+  bottom: -1px;
+  border-top: 1em solid transparent;
+}
+
+div.sheet-tabs > button.sheet-tab::before {
+  /* Position the left-side triangular pseudo-elements. */
+  left: -0.45em;
+  border-left: 0.25em solid transparent;
+}
+
+div.sheet-tabs > button.sheet-tab::after {
+  /* Position the left-side triangular pseudo-elements. */
+  right: -0.45em;
+  border-right: 0.25em solid transparent;
+}
+
+@for $i from 1 through 4 {
+  input.sheet-control-char[value="#{$i}"] ~ .sheet-root {
+    div.sheet-tabs > button.sheet-tab.sheet-tab-#{$i} {
+      /* Turn the selected tab white. */
+      position: relative;
+      z-index: 2;
+      background: white;
+      border-bottom: 1px solid white;
+    }
+
+    div.sheet-tabs > button.sheet-tab.sheet-tab-#{$i}::before {
+      /* Turn the triangular pseudo-elements white for the selected tab. */
+      border-right: 0.25em solid white;
+      border-bottom: 1em solid white;
+    }
+
+    div.sheet-tabs > button.sheet-tab.sheet-tab-#{$i}::after {
+      /* Turn the triangular pseudo-elements white for the selected tab. */
+      border-left: 0.25em solid white;
+      border-bottom: 1em solid white;
+    }
+  }
+
+  input.sheet-control-char:not([value="#{$i}"]) ~ .sheet-root {
+    div.sheet-character.sheet-char-#{$i} {
+      /* Hide characters that are not selected. */
+      display: none;
+    }
+
+    div.sheet-tabs > button.sheet-tab.sheet-tab-#{$i}::before {
+      /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
+      border-right: 0.25em solid lightgrey;
+      border-bottom: 1em solid lightgrey;
+    }
+
+    div.sheet-tabs > button.sheet-tab.sheet-tab-#{$i}::after {
+      /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
+      border-left: 0.25em solid lightgrey;
+      border-bottom: 1em solid lightgrey;
+    }
+  }
+}

@@ -1,4 +1,453 @@
 @import url("https://fonts.googleapis.com/css?family=IM+Fell+English+SC|Marko+One&display=swap");
+input.sheet-control-alignment-1:not([value=lawful]) ~ .sheet-root button.sheet-alignment-lawful-1 > span.sheet-checked {
+  /* Hide the "checked" section for the alignments that are not currently selected. */
+  background: transparent;
+  color: transparent !important;
+}
+
+input.sheet-control-alignment-1:not([value=neutral]) ~ .sheet-root button.sheet-alignment-neutral-1 > span.sheet-checked {
+  /* Hide the "checked" section for the alignments that are not currently selected. */
+  background: transparent;
+  color: transparent !important;
+}
+
+input.sheet-control-alignment-1:not([value=chaotic]) ~ .sheet-root button.sheet-alignment-chaotic-1 > span.sheet-checked {
+  /* Hide the "checked" section for the alignments that are not currently selected. */
+  background: transparent;
+  color: transparent !important;
+}
+
+input.sheet-control-alignment-2:not([value=lawful]) ~ .sheet-root button.sheet-alignment-lawful-2 > span.sheet-checked {
+  /* Hide the "checked" section for the alignments that are not currently selected. */
+  background: transparent;
+  color: transparent !important;
+}
+
+input.sheet-control-alignment-2:not([value=neutral]) ~ .sheet-root button.sheet-alignment-neutral-2 > span.sheet-checked {
+  /* Hide the "checked" section for the alignments that are not currently selected. */
+  background: transparent;
+  color: transparent !important;
+}
+
+input.sheet-control-alignment-2:not([value=chaotic]) ~ .sheet-root button.sheet-alignment-chaotic-2 > span.sheet-checked {
+  /* Hide the "checked" section for the alignments that are not currently selected. */
+  background: transparent;
+  color: transparent !important;
+}
+
+input.sheet-control-alignment-3:not([value=lawful]) ~ .sheet-root button.sheet-alignment-lawful-3 > span.sheet-checked {
+  /* Hide the "checked" section for the alignments that are not currently selected. */
+  background: transparent;
+  color: transparent !important;
+}
+
+input.sheet-control-alignment-3:not([value=neutral]) ~ .sheet-root button.sheet-alignment-neutral-3 > span.sheet-checked {
+  /* Hide the "checked" section for the alignments that are not currently selected. */
+  background: transparent;
+  color: transparent !important;
+}
+
+input.sheet-control-alignment-3:not([value=chaotic]) ~ .sheet-root button.sheet-alignment-chaotic-3 > span.sheet-checked {
+  /* Hide the "checked" section for the alignments that are not currently selected. */
+  background: transparent;
+  color: transparent !important;
+}
+
+input.sheet-control-alignment-4:not([value=lawful]) ~ .sheet-root button.sheet-alignment-lawful-4 > span.sheet-checked {
+  /* Hide the "checked" section for the alignments that are not currently selected. */
+  background: transparent;
+  color: transparent !important;
+}
+
+input.sheet-control-alignment-4:not([value=neutral]) ~ .sheet-root button.sheet-alignment-neutral-4 > span.sheet-checked {
+  /* Hide the "checked" section for the alignments that are not currently selected. */
+  background: transparent;
+  color: transparent !important;
+}
+
+input.sheet-control-alignment-4:not([value=chaotic]) ~ .sheet-root button.sheet-alignment-chaotic-4 > span.sheet-checked {
+  /* Hide the "checked" section for the alignments that are not currently selected. */
+  background: transparent;
+  color: transparent !important;
+}
+
+div.sheet-if-healing-1,
+div.sheet-if-crit-1 {
+  display: none;
+}
+
+input.sheet-control-augur-1[value="16"] ~ .sheet-root div.sheet-if-healing-1,
+input.sheet-control-augur-1[value="26"] ~ .sheet-root div.sheet-if-crit-1,
+input.sheet-control-augur-1[value="28"] ~ .sheet-root div.sheet-if-crit-1 {
+  display: block;
+}
+
+div.sheet-if-healing-2,
+div.sheet-if-crit-2 {
+  display: none;
+}
+
+input.sheet-control-augur-2[value="16"] ~ .sheet-root div.sheet-if-healing-2,
+input.sheet-control-augur-2[value="26"] ~ .sheet-root div.sheet-if-crit-2,
+input.sheet-control-augur-2[value="28"] ~ .sheet-root div.sheet-if-crit-2 {
+  display: block;
+}
+
+div.sheet-if-healing-3,
+div.sheet-if-crit-3 {
+  display: none;
+}
+
+input.sheet-control-augur-3[value="16"] ~ .sheet-root div.sheet-if-healing-3,
+input.sheet-control-augur-3[value="26"] ~ .sheet-root div.sheet-if-crit-3,
+input.sheet-control-augur-3[value="28"] ~ .sheet-root div.sheet-if-crit-3 {
+  display: block;
+}
+
+div.sheet-if-healing-4,
+div.sheet-if-crit-4 {
+  display: none;
+}
+
+input.sheet-control-augur-4[value="16"] ~ .sheet-root div.sheet-if-healing-4,
+input.sheet-control-augur-4[value="26"] ~ .sheet-root div.sheet-if-crit-4,
+input.sheet-control-augur-4[value="28"] ~ .sheet-root div.sheet-if-crit-4 {
+  display: block;
+}
+
+input.sheet-augur-desc {
+  /* Format the birth augur description. */
+  background: transparent;
+  border: none;
+  cursor: default;
+  width: 36em;
+}
+
+div.sheet-tabs > button.sheet-tab::before,
+div.sheet-tabs > button.sheet-tab::after {
+  /* Shared configuration for the triangular pseudo-elements.  These elements are placed on the
+  left and right sides of the tabs to make them look like real folder tabs. */
+  content: "";
+  position: absolute;
+  background: transparent;
+  height: inherit;
+  width: 0;
+  bottom: -1px;
+  border-top: 1em solid transparent;
+}
+
+div.sheet-tabs > button.sheet-tab::before {
+  /* Position the left-side triangular pseudo-elements. */
+  left: -0.45em;
+  border-left: 0.25em solid transparent;
+}
+
+div.sheet-tabs > button.sheet-tab::after {
+  /* Position the left-side triangular pseudo-elements. */
+  right: -0.45em;
+  border-right: 0.25em solid transparent;
+}
+
+input.sheet-control-char[value="1"] ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-1 {
+  /* Turn the selected tab white. */
+  position: relative;
+  z-index: 2;
+  background: white;
+  border-bottom: 1px solid white;
+}
+input.sheet-control-char[value="1"] ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-1::before {
+  /* Turn the triangular pseudo-elements white for the selected tab. */
+  border-right: 0.25em solid white;
+  border-bottom: 1em solid white;
+}
+input.sheet-control-char[value="1"] ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-1::after {
+  /* Turn the triangular pseudo-elements white for the selected tab. */
+  border-left: 0.25em solid white;
+  border-bottom: 1em solid white;
+}
+
+input.sheet-control-char:not([value="1"]) ~ .sheet-root div.sheet-character.sheet-char-1 {
+  /* Hide characters that are not selected. */
+  display: none;
+}
+input.sheet-control-char:not([value="1"]) ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-1::before {
+  /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
+  border-right: 0.25em solid lightgrey;
+  border-bottom: 1em solid lightgrey;
+}
+input.sheet-control-char:not([value="1"]) ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-1::after {
+  /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
+  border-left: 0.25em solid lightgrey;
+  border-bottom: 1em solid lightgrey;
+}
+
+input.sheet-control-char[value="2"] ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-2 {
+  /* Turn the selected tab white. */
+  position: relative;
+  z-index: 2;
+  background: white;
+  border-bottom: 1px solid white;
+}
+input.sheet-control-char[value="2"] ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-2::before {
+  /* Turn the triangular pseudo-elements white for the selected tab. */
+  border-right: 0.25em solid white;
+  border-bottom: 1em solid white;
+}
+input.sheet-control-char[value="2"] ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-2::after {
+  /* Turn the triangular pseudo-elements white for the selected tab. */
+  border-left: 0.25em solid white;
+  border-bottom: 1em solid white;
+}
+
+input.sheet-control-char:not([value="2"]) ~ .sheet-root div.sheet-character.sheet-char-2 {
+  /* Hide characters that are not selected. */
+  display: none;
+}
+input.sheet-control-char:not([value="2"]) ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-2::before {
+  /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
+  border-right: 0.25em solid lightgrey;
+  border-bottom: 1em solid lightgrey;
+}
+input.sheet-control-char:not([value="2"]) ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-2::after {
+  /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
+  border-left: 0.25em solid lightgrey;
+  border-bottom: 1em solid lightgrey;
+}
+
+input.sheet-control-char[value="3"] ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-3 {
+  /* Turn the selected tab white. */
+  position: relative;
+  z-index: 2;
+  background: white;
+  border-bottom: 1px solid white;
+}
+input.sheet-control-char[value="3"] ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-3::before {
+  /* Turn the triangular pseudo-elements white for the selected tab. */
+  border-right: 0.25em solid white;
+  border-bottom: 1em solid white;
+}
+input.sheet-control-char[value="3"] ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-3::after {
+  /* Turn the triangular pseudo-elements white for the selected tab. */
+  border-left: 0.25em solid white;
+  border-bottom: 1em solid white;
+}
+
+input.sheet-control-char:not([value="3"]) ~ .sheet-root div.sheet-character.sheet-char-3 {
+  /* Hide characters that are not selected. */
+  display: none;
+}
+input.sheet-control-char:not([value="3"]) ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-3::before {
+  /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
+  border-right: 0.25em solid lightgrey;
+  border-bottom: 1em solid lightgrey;
+}
+input.sheet-control-char:not([value="3"]) ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-3::after {
+  /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
+  border-left: 0.25em solid lightgrey;
+  border-bottom: 1em solid lightgrey;
+}
+
+input.sheet-control-char[value="4"] ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-4 {
+  /* Turn the selected tab white. */
+  position: relative;
+  z-index: 2;
+  background: white;
+  border-bottom: 1px solid white;
+}
+input.sheet-control-char[value="4"] ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-4::before {
+  /* Turn the triangular pseudo-elements white for the selected tab. */
+  border-right: 0.25em solid white;
+  border-bottom: 1em solid white;
+}
+input.sheet-control-char[value="4"] ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-4::after {
+  /* Turn the triangular pseudo-elements white for the selected tab. */
+  border-left: 0.25em solid white;
+  border-bottom: 1em solid white;
+}
+
+input.sheet-control-char:not([value="4"]) ~ .sheet-root div.sheet-character.sheet-char-4 {
+  /* Hide characters that are not selected. */
+  display: none;
+}
+input.sheet-control-char:not([value="4"]) ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-4::before {
+  /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
+  border-right: 0.25em solid lightgrey;
+  border-bottom: 1em solid lightgrey;
+}
+input.sheet-control-char:not([value="4"]) ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-4::after {
+  /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
+  border-left: 0.25em solid lightgrey;
+  border-bottom: 1em solid lightgrey;
+}
+
+input.sheet-control-dead-1[value=dead] ~ .sheet-root button.sheet-tab-1 > input.sheet-tabrank,
+input.sheet-control-dead-1[value=dead] ~ .sheet-root button.sheet-tab-1 > input.sheet-tabtext {
+  /* Strikethrough tab text for dead characters. */
+  background-image: linear-gradient(transparent 1em, black 1em, black 1.15em, transparent 1.15em);
+}
+input.sheet-control-dead-1[value=dead] ~ .sheet-root span.sheet-dead-1 {
+  /* Put that DEAD stamp all up in their face. */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  font-size: 20em;
+  color: red;
+}
+
+input.sheet-control-dead-1[value=alive] ~ .sheet-root span.sheet-dead-1 {
+  /* Hide the "DEAD" stamp the character is not dead. */
+  display: none;
+}
+input.sheet-control-dead-1[value=alive] ~ .sheet-root button.sheet-checkline-dead-1 > span.sheet-checked {
+  /* Hide the "checked" section of the checkline if the character is not dead. */
+  background: transparent;
+  color: transparent !important;
+}
+
+input.sheet-control-dead-2[value=dead] ~ .sheet-root button.sheet-tab-2 > input.sheet-tabrank,
+input.sheet-control-dead-2[value=dead] ~ .sheet-root button.sheet-tab-2 > input.sheet-tabtext {
+  /* Strikethrough tab text for dead characters. */
+  background-image: linear-gradient(transparent 1em, black 1em, black 1.15em, transparent 1.15em);
+}
+input.sheet-control-dead-2[value=dead] ~ .sheet-root span.sheet-dead-2 {
+  /* Put that DEAD stamp all up in their face. */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  font-size: 20em;
+  color: red;
+}
+
+input.sheet-control-dead-2[value=alive] ~ .sheet-root span.sheet-dead-2 {
+  /* Hide the "DEAD" stamp the character is not dead. */
+  display: none;
+}
+input.sheet-control-dead-2[value=alive] ~ .sheet-root button.sheet-checkline-dead-2 > span.sheet-checked {
+  /* Hide the "checked" section of the checkline if the character is not dead. */
+  background: transparent;
+  color: transparent !important;
+}
+
+input.sheet-control-dead-3[value=dead] ~ .sheet-root button.sheet-tab-3 > input.sheet-tabrank,
+input.sheet-control-dead-3[value=dead] ~ .sheet-root button.sheet-tab-3 > input.sheet-tabtext {
+  /* Strikethrough tab text for dead characters. */
+  background-image: linear-gradient(transparent 1em, black 1em, black 1.15em, transparent 1.15em);
+}
+input.sheet-control-dead-3[value=dead] ~ .sheet-root span.sheet-dead-3 {
+  /* Put that DEAD stamp all up in their face. */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  font-size: 20em;
+  color: red;
+}
+
+input.sheet-control-dead-3[value=alive] ~ .sheet-root span.sheet-dead-3 {
+  /* Hide the "DEAD" stamp the character is not dead. */
+  display: none;
+}
+input.sheet-control-dead-3[value=alive] ~ .sheet-root button.sheet-checkline-dead-3 > span.sheet-checked {
+  /* Hide the "checked" section of the checkline if the character is not dead. */
+  background: transparent;
+  color: transparent !important;
+}
+
+input.sheet-control-dead-4[value=dead] ~ .sheet-root button.sheet-tab-4 > input.sheet-tabrank,
+input.sheet-control-dead-4[value=dead] ~ .sheet-root button.sheet-tab-4 > input.sheet-tabtext {
+  /* Strikethrough tab text for dead characters. */
+  background-image: linear-gradient(transparent 1em, black 1em, black 1.15em, transparent 1.15em);
+}
+input.sheet-control-dead-4[value=dead] ~ .sheet-root span.sheet-dead-4 {
+  /* Put that DEAD stamp all up in their face. */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  font-size: 20em;
+  color: red;
+}
+
+input.sheet-control-dead-4[value=alive] ~ .sheet-root span.sheet-dead-4 {
+  /* Hide the "DEAD" stamp the character is not dead. */
+  display: none;
+}
+input.sheet-control-dead-4[value=alive] ~ .sheet-root button.sheet-checkline-dead-4 > span.sheet-checked {
+  /* Hide the "checked" section of the checkline if the character is not dead. */
+  background: transparent;
+  color: transparent !important;
+}
+
+input.sheet-equip-select:not([value=Custom]) ~ div.sheet-equip.sheet-custom,
+input.sheet-equip-select:not([value=Armor]) ~ div.sheet-equip.sheet-armor,
+input.sheet-equip-select:not([value=Weapon]) ~ div.sheet-equip.sheet-weapon {
+  /* Equipment type selection logic. */
+  display: none !important;
+}
+
+div.repitem {
+  /* Format the gear section. */
+}
+div.repitem select.sheet-equip-type {
+  width: 10em;
+  display: block;
+  margin-bottom: 0em;
+  border-bottom: 0px solid transparent;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+div.repitem div.sheet-equip {
+  /* Width of an equipment controls div is the width of a double-wide div.
+  But since we're using a padding of $sheet-col-margins, we need to subtract
+  two times that value to get the correct width. */
+  width: 39.5em;
+  display: inline-block;
+  position: relative;
+  border: 1px solid #cccccc;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+}
+div.repitem div.sheet-equip div.sheet-col.sheet-input-col {
+  margin-left: 0.5em;
+}
+div.repitem div.sheet-equip div.sheet-col.sheet-label-inline {
+  /* Styling for labels that are inline with their fields. */
+  width: 8em;
+}
+div.repitem div.sheet-equip input {
+  width: 5em;
+}
+div.repitem select.sheet-equip-type ~ div.sheet-equip::before {
+  /* This will "hide" the part of the top border adjacent to the equip-type select
+  control, effectively making the components look like one object. */
+  content: "";
+  position: absolute;
+  display: block;
+  height: 3px;
+  width: 9.8em;
+  left: 1px;
+  top: -1px;
+  background: white;
+}
+div.repitem div.sheet-equip.sheet-custom {
+  /* A piece of custom equipment just has a free text field. */
+}
+div.repitem div.sheet-equip.sheet-custom input {
+  width: 39.5em;
+}
+div.repitem div.sheet-equip.sheet-armor input.sheet-equip-name,
+div.repitem div.sheet-equip.sheet-weapon input.sheet-equip-name {
+  width: 7.9em;
+}
+
 /* Some global formatting. */
 * {
   font-family: "Marko One";
@@ -55,11 +504,6 @@ button[type=roll].sheet-d20::before {
   padding: 2em;
   position: relative;
 }
-.sheet-root input.sheet-checkline[value=dead] ~ input.sheet-tabrank,
-.sheet-root input.sheet-checkline[value=dead] ~ input.sheet-tabtext {
-  /* Strikethrough tab text for dead characters. */
-  background-image: linear-gradient(transparent 1em, black 1em, black 1.15em, transparent 1.15em);
-}
 .sheet-root div.sheet-tabs {
   position: relative;
 }
@@ -89,89 +533,9 @@ button[type=roll].sheet-d20::before {
   border: none;
   cursor: pointer;
 }
-.sheet-root input.sheet-char-control[value="1"] ~ div.sheet-tabs > button.sheet-tab.sheet-tab-1,
-.sheet-root input.sheet-char-control[value="2"] ~ div.sheet-tabs > button.sheet-tab.sheet-tab-2,
-.sheet-root input.sheet-char-control[value="3"] ~ div.sheet-tabs > button.sheet-tab.sheet-tab-3,
-.sheet-root input.sheet-char-control[value="4"] ~ div.sheet-tabs > button.sheet-tab.sheet-tab-4 {
-  /* Respond to character selection tabs. */
-  position: relative;
-  z-index: 2;
-  background: white;
-  border-bottom: 1px solid white;
-}
-.sheet-root input.sheet-char-control[value="1"] ~ div.sheet-tabs > button.sheet-tab.sheet-tab-1::before,
-.sheet-root input.sheet-char-control[value="2"] ~ div.sheet-tabs > button.sheet-tab.sheet-tab-2::before,
-.sheet-root input.sheet-char-control[value="3"] ~ div.sheet-tabs > button.sheet-tab.sheet-tab-3::before,
-.sheet-root input.sheet-char-control[value="4"] ~ div.sheet-tabs > button.sheet-tab.sheet-tab-4::before {
-  content: "";
-  position: absolute;
-  background: transparent;
-  height: inherit;
-  width: 0;
-  bottom: -1px;
-  left: -0.45em;
-  border-right: 0.25em solid white;
-  border-bottom: 1em solid white;
-  border-left: 0.25em solid transparent;
-  border-top: 1em solid transparent;
-}
-.sheet-root input.sheet-char-control[value="1"] ~ div.sheet-tabs > button.sheet-tab.sheet-tab-1::after,
-.sheet-root input.sheet-char-control[value="2"] ~ div.sheet-tabs > button.sheet-tab.sheet-tab-2::after,
-.sheet-root input.sheet-char-control[value="3"] ~ div.sheet-tabs > button.sheet-tab.sheet-tab-3::after,
-.sheet-root input.sheet-char-control[value="4"] ~ div.sheet-tabs > button.sheet-tab.sheet-tab-4::after {
-  content: "";
-  position: absolute;
-  background: transparent;
-  height: inherit;
-  width: 0;
-  bottom: -1px;
-  right: -0.45em;
-  border-left: 0.25em solid white;
-  border-bottom: 1em solid white;
-  border-right: 0.25em solid transparent;
-  border-top: 1em solid transparent;
-}
-.sheet-root input.sheet-char-control:not([value="1"]) ~ div.sheet-tabs > button.sheet-tab.sheet-tab-1::before,
-.sheet-root input.sheet-char-control:not([value="2"]) ~ div.sheet-tabs > button.sheet-tab.sheet-tab-2::before,
-.sheet-root input.sheet-char-control:not([value="3"]) ~ div.sheet-tabs > button.sheet-tab.sheet-tab-3::before,
-.sheet-root input.sheet-char-control:not([value="4"]) ~ div.sheet-tabs > button.sheet-tab.sheet-tab-4::before {
-  content: "";
-  position: absolute;
-  background: transparent;
-  height: inherit;
-  width: 0;
-  bottom: 0;
-  left: -0.45em;
-  border-right: 0.25em solid lightgrey;
-  border-bottom: 1em solid lightgrey;
-  border-left: 0.25em solid transparent;
-  border-top: 1em solid transparent;
-}
-.sheet-root input.sheet-char-control:not([value="1"]) ~ div.sheet-tabs > button.sheet-tab.sheet-tab-1::after,
-.sheet-root input.sheet-char-control:not([value="2"]) ~ div.sheet-tabs > button.sheet-tab.sheet-tab-2::after,
-.sheet-root input.sheet-char-control:not([value="3"]) ~ div.sheet-tabs > button.sheet-tab.sheet-tab-3::after,
-.sheet-root input.sheet-char-control:not([value="4"]) ~ div.sheet-tabs > button.sheet-tab.sheet-tab-4::after {
-  content: "";
-  position: absolute;
-  background: transparent;
-  height: inherit;
-  width: 0;
-  bottom: 0;
-  right: -0.45em;
-  border-left: 0.25em solid lightgrey;
-  border-bottom: 1em solid lightgrey;
-  border-right: 0.25em solid transparent;
-  border-top: 1em solid transparent;
-}
-.sheet-root input.sheet-char-control:not([value="1"]) ~ div.sheet-character.sheet-char-1,
-.sheet-root input.sheet-char-control:not([value="2"]) ~ div.sheet-character.sheet-char-2,
-.sheet-root input.sheet-char-control:not([value="3"]) ~ div.sheet-character.sheet-char-3,
-.sheet-root input.sheet-char-control:not([value="4"]) ~ div.sheet-character.sheet-char-4 {
-  /* Respond to character selection tabs. */
-  display: none;
-}
 .sheet-root div.sheet-character {
-  /* Configure the containers for the character sheet. */
+  /* Configure the containers for the character sheet.  Note that sheets are hidden by default,
+     and only revealed if the correct tab is selected. */
   display: block;
   background-color: white;
   padding: 0.5em;
@@ -189,11 +553,6 @@ button[type=roll].sheet-d20::before {
   z-index: 100;
   font-size: 20em;
   color: red;
-}
-.sheet-root div.sheet-character input.sheet-checkline[value=alive] ~ span.sheet-dead {
-  /* Hide the "DEAD" stamp the character is not dead. */
-  color: transparent;
-  z-index: -100;
 }
 .sheet-root div.sheet-character div.sheet-row {
   display: block;
@@ -253,96 +612,6 @@ button[type=roll].sheet-d20::before {
 }
 .sheet-root div.sheet-character .sheet-checklines > button.sheet-checkline ~ span {
   margin-right: 10px;
-}
-.sheet-root div.sheet-character .sheet-checklines input.sheet-checkline:not([value=lawful]) ~ button.sheet-checkline-lawful > span.sheet-checked,
-.sheet-root div.sheet-character .sheet-checklines input.sheet-checkline:not([value=neutral]) ~ button.sheet-checkline-neutral > span.sheet-checked,
-.sheet-root div.sheet-character .sheet-checklines input.sheet-checkline:not([value=chaotic]) ~ button.sheet-checkline-chaotic > span.sheet-checked {
-  /* Hide the "checked" section of the checkline if the attribute value does not match the checkline. */
-  background: transparent;
-  color: transparent;
-}
-.sheet-root div.sheet-character .sheet-checklines input.sheet-checkline[value=alive] ~ button.sheet-checkline-dead > span.sheet-checked {
-  /* Hide the "checked" section of the checkline if the character is not dead. */
-  background: transparent;
-  color: transparent;
-}
-.sheet-root div.sheet-character div.repitem {
-  /* Format the gear section. */
-}
-.sheet-root div.sheet-character div.repitem select.sheet-equip-type {
-  width: 10em;
-  display: block;
-  margin-bottom: 0em;
-  border-bottom: 0px solid transparent;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-}
-.sheet-root div.sheet-character div.repitem div.sheet-equip {
-  /* Width of an equipment controls div is the width of a double-wide div.
-  But since we're using a padding of $sheet-col-margins, we need to subtract
-  two times that value to get the correct width. */
-  width: 39.5em;
-  display: inline-block;
-  position: relative;
-  border: 1px solid #cccccc;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  padding: 0.5em;
-  margin-bottom: 0.5em;
-}
-.sheet-root div.sheet-character div.repitem div.sheet-equip div.sheet-col.sheet-input-col {
-  margin-left: 0.5em;
-}
-.sheet-root div.sheet-character div.repitem div.sheet-equip div.sheet-col.sheet-label-inline {
-  /* Styling for labels that are inline with their fields. */
-  width: 8em;
-}
-.sheet-root div.sheet-character div.repitem div.sheet-equip input {
-  width: 5em;
-}
-.sheet-root div.sheet-character div.repitem select.sheet-equip-type ~ div.sheet-equip::before {
-  /* This will "hide" the part of the top border adjacent to the equip-type select
-  control, effectively making the components look like one object. */
-  content: "";
-  position: absolute;
-  display: block;
-  height: 3px;
-  width: 9.8em;
-  left: 1px;
-  top: -1px;
-  background: white;
-}
-.sheet-root div.sheet-character div.repitem div.sheet-equip.sheet-custom {
-  /* A piece of custom equipment just has a free text field. */
-}
-.sheet-root div.sheet-character div.repitem div.sheet-equip.sheet-custom input {
-  width: 39.5em;
-}
-.sheet-root div.sheet-character div.repitem div.sheet-equip.sheet-armor input.sheet-equip-name,
-.sheet-root div.sheet-character div.repitem div.sheet-equip.sheet-weapon input.sheet-equip-name {
-  width: 7.9em;
-}
-.sheet-root div.sheet-character div.repitem input.sheet-equip-select:not([value=Custom]) ~ div.sheet-equip.sheet-custom,
-.sheet-root div.sheet-character div.repitem input.sheet-equip-select:not([value=Armor]) ~ div.sheet-equip.sheet-armor,
-.sheet-root div.sheet-character div.repitem input.sheet-equip-select:not([value=Weapon]) ~ div.sheet-equip.sheet-weapon {
-  /* Equipment type selection logic. */
-  display: none !important;
-}
-.sheet-root div.sheet-character input.sheet-augur-desc {
-  /* Format the birth augur description. */
-  background: transparent;
-  border: none;
-  cursor: default;
-  width: 36em;
-}
-.sheet-root div.sheet-character div.sheet-if-healing,
-.sheet-root div.sheet-character div.sheet-if-crit {
-  display: none;
-}
-.sheet-root div.sheet-character input.sheet-augur-hidden[value="16"] ~ div.sheet-if-healing,
-.sheet-root div.sheet-character input.sheet-augur-hidden[value="26"] ~ div.sheet-if-crit,
-.sheet-root div.sheet-character input.sheet-augur-hidden[value="28"] ~ div.sheet-if-crit {
-  display: block;
 }
 .sheet-root div.sheet-character textarea {
   /* Format the notes textarea. */

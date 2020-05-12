@@ -1,16 +1,23 @@
+// Hidden "control" inputs to help drive sheet behavior.
+input.control-char(type="hidden", name="attr_character", value="1")
+input.control-survivors(type="hidden", name="attr_total_living", value="")
+each c in ["1", "2", "3", "4"]
+  // More hidden controls, but these need to be per-character.
+  input(class=`control-dead-${c}`, type="hidden", name=`attr_dead_${c}`, value="")
+  input(class=`control-alignment-${c}`, type="hidden", name=`attr_alignment_${c}`, value="false")
+  input(class=`control-augur-${c}`, type="hidden", name=`attr_augur_${c}`)
+
+// The actual sheet content.
 div.root
-  input(type="hidden", name="attr_total_living", value="")
-  input.char-control(type="hidden", name="attr_character", value="1")
   div.tabs
     each c in ["1", "2", "3", "4"]
       button(class=`tab tab-${c}`, type="action", name=`act_${c}_tab`)
-        input(type="hidden", name=`attr_dead_${c}`, value="").checkline
         input.tabrank(type="text", name=`attr_rank_${c}`, value=`${c}`, readonly)
         input.tabtext(type="text", name=`attr_name_${c}`, value=`Character ${c}`, readonly)
   each c in ["1", "2", "3", "4"]
     div(class=`character char-${c}`)
       input(type="hidden", name=`attr_dead_${c}`, value="").checkline
-      span.dead
+      span(class=`dead-${c}`)
         | DEAD
       // NAME/OCCUPATION/ALIGNMENT ROW
       div.row  
@@ -26,9 +33,8 @@ div.root
         div.col.single
           label Alignment
           div.checklines 
-            input(type="hidden", name=`attr_alignment_${c}`, value="false").checkline
             each pair in [["lawful", "Lawful"], ["neutral", "Neutral"], ["chaotic", "Chaotic"]]
-              button(class=`checkline checkline-${pair[0]}`, type="action", name=`act_alignment_${pair[0]}_${c}`)
+              button(class=`checkline alignment-${pair[0]}-${c}`, type="action", name=`act_alignment_${pair[0]}_${c}`)
                 span.checked
                   | X
               span
@@ -39,8 +45,7 @@ div.root
             span
               | Rank:&nbsp;
             input(type="number", name=`attr_rank_${c}`, value=`${c}`, style="margin-right:1em")
-            input(type="hidden", name=`attr_dead_${c}`, value="").checkline
-            button(class=`checkline checkline-dead`, type="action", name=`act_dead_${c}`)
+            button(class=`checkline checkline-dead-${c}`, type="action", name=`act_dead_${c}`)
               span.checked
                 | X
             span
@@ -94,15 +99,14 @@ div.root
           div.row
             div.col.double
               label Birth Augur
-              input.augur-hidden(type="hidden", name=`attr_augur_${c}`, readonly)
               input.augur(type="number", name=`attr_start_luck_${c}`)
               input.augur-desc(type="text", value="Luck modifier at Level 0", readonly)
               br
               input.augur(type="number", name=`attr_augur_${c}`)
               input.augur-desc(type="text", name=`attr_augur_desc_${c}`, readonly)
-              div.if-healing.note
+              div(class=`if-healing-${c} note`)
                 | *If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.
-              div.if-crit.note
+              div(class=`if-crit-${c} note`)
                 | **Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.
         // EQUIPMENT
         div.col.double
