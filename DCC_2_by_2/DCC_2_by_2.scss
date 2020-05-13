@@ -16,10 +16,16 @@ $root-width: 87em;
   $sheet-col-width: $sheet-col-width
 );
 @use 'css/character_selector.scss';
+@use 'css/checklines.scss';
 @use 'css/death_selector.scss';
 @use 'css/equipment.scss' with (
   $sheet-col-width: $sheet-col-width,
   $sheet-col-margins: $sheet-col-margins
+);
+@use 'css/tabs.scss' with (
+  $sheet-col-width: $sheet-col-width,
+  $sheet-col-margins: $sheet-col-margins,
+  $sheet-shadow: $sheet-shadow
 );
 @import url('https://fonts.googleapis.com/css?family=IM+Fell+English+SC|Marko+One&display=swap');
 
@@ -79,37 +85,6 @@ button[type=roll].sheet-d20::before {
   padding: $root-padding*2;
   position: relative;
 
-  div.sheet-tabs {
-    position: relative;
-  }
-
-  button.sheet-tab {
-    position: relative;
-    width: $sheet-col-width;
-    margin-left: $sheet-col-margins*2;
-    background: lightgrey;
-    border: 0;
-    padding: 0;
-    border-bottom: 1px solid grey;
-    border-top-left-radius: 0.3em;
-    border-top-right-radius: 0.3em;
-    position: relative;
-    z-index: 1;
-    box-shadow: $sheet-shadow;
-    > input.sheet-tabrank {
-      width: 2em;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-    }
-    > input.sheet-tabtext {
-      width: $sheet-col-width - 4em;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-    }
-  }
-
   div.sheet-character {
     /* Configure the containers for the character sheet.  Note that sheets are hidden by default,
        and only revealed if the correct tab is selected. */
@@ -121,16 +96,6 @@ button[type=roll].sheet-d20::before {
     position: relative;
     z-index: 2;
     box-shadow: $sheet-shadow;
-    
-    span.sheet-dead {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 100;
-      font-size: 20em;
-      color: red;
-    }
 
     div.sheet-row {
       display: block;
@@ -165,32 +130,6 @@ button[type=roll].sheet-d20::before {
         position: absolute;
         top: 50%;
         transform: translate(0, -50%);
-      }
-    }
-
-    .sheet-checklines {
-      /* Configure the container for the checkline buttons. */
-      display: inline-flex;
-      align-items: center;
-      vertical-align: bottom;
-      height: 27px;
-      padding: 4px;
-      > button.sheet-checkline {
-        background: transparent;
-        border: none;
-        border-bottom: 1px solid black;  
-        width: 14px;
-        height: 14px;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        > span.sheet-checked {
-          color: black;
-          display: inline-flex;
-        }
-        ~ span {
-          margin-right: 10px;
-        }
       }
     }
 

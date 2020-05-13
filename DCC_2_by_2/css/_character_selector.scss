@@ -7,7 +7,6 @@ div.sheet-tabs > button.sheet-tab::after {
   background: transparent;
   height: inherit;
   width: 0;
-  bottom: -1px;
   border-top: 1em solid transparent;
 }
 
@@ -35,12 +34,14 @@ div.sheet-tabs > button.sheet-tab::after {
 
     div.sheet-tabs > button.sheet-tab.sheet-tab-#{$i}::before {
       /* Turn the triangular pseudo-elements white for the selected tab. */
+      bottom: -1px;
       border-right: 0.25em solid white;
       border-bottom: 1em solid white;
     }
 
     div.sheet-tabs > button.sheet-tab.sheet-tab-#{$i}::after {
       /* Turn the triangular pseudo-elements white for the selected tab. */
+      bottom: -1px;
       border-left: 0.25em solid white;
       border-bottom: 1em solid white;
     }
@@ -54,12 +55,14 @@ div.sheet-tabs > button.sheet-tab::after {
 
     div.sheet-tabs > button.sheet-tab.sheet-tab-#{$i}::before {
       /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
+      bottom: 0;
       border-right: 0.25em solid lightgrey;
       border-bottom: 1em solid lightgrey;
     }
 
     div.sheet-tabs > button.sheet-tab.sheet-tab-#{$i}::after {
       /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
+      bottom: 0;
       border-left: 0.25em solid lightgrey;
       border-bottom: 1em solid lightgrey;
     }

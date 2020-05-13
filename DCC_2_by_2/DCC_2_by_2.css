@@ -132,7 +132,6 @@ div.sheet-tabs > button.sheet-tab::after {
   background: transparent;
   height: inherit;
   width: 0;
-  bottom: -1px;
   border-top: 1em solid transparent;
 }
 
@@ -157,11 +156,13 @@ input.sheet-control-char[value="1"] ~ .sheet-root div.sheet-tabs > button.sheet-
 }
 input.sheet-control-char[value="1"] ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-1::before {
   /* Turn the triangular pseudo-elements white for the selected tab. */
+  bottom: -1px;
   border-right: 0.25em solid white;
   border-bottom: 1em solid white;
 }
 input.sheet-control-char[value="1"] ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-1::after {
   /* Turn the triangular pseudo-elements white for the selected tab. */
+  bottom: -1px;
   border-left: 0.25em solid white;
   border-bottom: 1em solid white;
 }
@@ -172,11 +173,13 @@ input.sheet-control-char:not([value="1"]) ~ .sheet-root div.sheet-character.shee
 }
 input.sheet-control-char:not([value="1"]) ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-1::before {
   /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
+  bottom: 0;
   border-right: 0.25em solid lightgrey;
   border-bottom: 1em solid lightgrey;
 }
 input.sheet-control-char:not([value="1"]) ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-1::after {
   /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
+  bottom: 0;
   border-left: 0.25em solid lightgrey;
   border-bottom: 1em solid lightgrey;
 }
@@ -190,11 +193,13 @@ input.sheet-control-char[value="2"] ~ .sheet-root div.sheet-tabs > button.sheet-
 }
 input.sheet-control-char[value="2"] ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-2::before {
   /* Turn the triangular pseudo-elements white for the selected tab. */
+  bottom: -1px;
   border-right: 0.25em solid white;
   border-bottom: 1em solid white;
 }
 input.sheet-control-char[value="2"] ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-2::after {
   /* Turn the triangular pseudo-elements white for the selected tab. */
+  bottom: -1px;
   border-left: 0.25em solid white;
   border-bottom: 1em solid white;
 }
@@ -205,11 +210,13 @@ input.sheet-control-char:not([value="2"]) ~ .sheet-root div.sheet-character.shee
 }
 input.sheet-control-char:not([value="2"]) ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-2::before {
   /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
+  bottom: 0;
   border-right: 0.25em solid lightgrey;
   border-bottom: 1em solid lightgrey;
 }
 input.sheet-control-char:not([value="2"]) ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-2::after {
   /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
+  bottom: 0;
   border-left: 0.25em solid lightgrey;
   border-bottom: 1em solid lightgrey;
 }
@@ -223,11 +230,13 @@ input.sheet-control-char[value="3"] ~ .sheet-root div.sheet-tabs > button.sheet-
 }
 input.sheet-control-char[value="3"] ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-3::before {
   /* Turn the triangular pseudo-elements white for the selected tab. */
+  bottom: -1px;
   border-right: 0.25em solid white;
   border-bottom: 1em solid white;
 }
 input.sheet-control-char[value="3"] ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-3::after {
   /* Turn the triangular pseudo-elements white for the selected tab. */
+  bottom: -1px;
   border-left: 0.25em solid white;
   border-bottom: 1em solid white;
 }
@@ -238,11 +247,13 @@ input.sheet-control-char:not([value="3"]) ~ .sheet-root div.sheet-character.shee
 }
 input.sheet-control-char:not([value="3"]) ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-3::before {
   /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
+  bottom: 0;
   border-right: 0.25em solid lightgrey;
   border-bottom: 1em solid lightgrey;
 }
 input.sheet-control-char:not([value="3"]) ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-3::after {
   /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
+  bottom: 0;
   border-left: 0.25em solid lightgrey;
   border-bottom: 1em solid lightgrey;
 }
@@ -256,11 +267,13 @@ input.sheet-control-char[value="4"] ~ .sheet-root div.sheet-tabs > button.sheet-
 }
 input.sheet-control-char[value="4"] ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-4::before {
   /* Turn the triangular pseudo-elements white for the selected tab. */
+  bottom: -1px;
   border-right: 0.25em solid white;
   border-bottom: 1em solid white;
 }
 input.sheet-control-char[value="4"] ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-4::after {
   /* Turn the triangular pseudo-elements white for the selected tab. */
+  bottom: -1px;
   border-left: 0.25em solid white;
   border-bottom: 1em solid white;
 }
@@ -271,13 +284,41 @@ input.sheet-control-char:not([value="4"]) ~ .sheet-root div.sheet-character.shee
 }
 input.sheet-control-char:not([value="4"]) ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-4::before {
   /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
+  bottom: 0;
   border-right: 0.25em solid lightgrey;
   border-bottom: 1em solid lightgrey;
 }
 input.sheet-control-char:not([value="4"]) ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-4::after {
   /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
+  bottom: 0;
   border-left: 0.25em solid lightgrey;
   border-bottom: 1em solid lightgrey;
+}
+
+.sheet-checklines {
+  /* Configure the container for the checkline buttons. */
+  display: inline-flex;
+  align-items: center;
+  vertical-align: bottom;
+  height: 27px;
+  padding: 4px;
+}
+.sheet-checklines > button.sheet-checkline {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  width: 14px;
+  height: 14px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.sheet-checklines > button.sheet-checkline > span.sheet-checked {
+  color: black;
+  display: inline-flex;
+}
+.sheet-checklines > button.sheet-checkline ~ span {
+  margin-right: 10px;
 }
 
 input.sheet-control-dead-1[value=dead] ~ .sheet-root button.sheet-tab-1 > input.sheet-tabrank,
@@ -448,6 +489,37 @@ div.repitem div.sheet-equip.sheet-weapon input.sheet-equip-name {
   width: 7.9em;
 }
 
+div.sheet-tabs {
+  position: relative;
+}
+
+button.sheet-tab {
+  position: relative;
+  width: 20em;
+  margin-left: 1em;
+  background: lightgrey;
+  border: 0;
+  padding: 0;
+  border-bottom: 1px solid grey;
+  border-top-left-radius: 0.3em;
+  border-top-right-radius: 0.3em;
+  position: relative;
+  z-index: 1;
+  box-shadow: 1.25em 0.75em 0.5em;
+}
+button.sheet-tab > input.sheet-tabrank {
+  width: 2em;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+button.sheet-tab > input.sheet-tabtext {
+  width: 16em;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 /* Some global formatting. */
 * {
   font-family: "Marko One";
@@ -504,35 +576,6 @@ button[type=roll].sheet-d20::before {
   padding: 2em;
   position: relative;
 }
-.sheet-root div.sheet-tabs {
-  position: relative;
-}
-.sheet-root button.sheet-tab {
-  position: relative;
-  width: 20em;
-  margin-left: 1em;
-  background: lightgrey;
-  border: 0;
-  padding: 0;
-  border-bottom: 1px solid grey;
-  border-top-left-radius: 0.3em;
-  border-top-right-radius: 0.3em;
-  position: relative;
-  z-index: 1;
-  box-shadow: 1.25em 0.75em 0.5em;
-}
-.sheet-root button.sheet-tab > input.sheet-tabrank {
-  width: 2em;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-}
-.sheet-root button.sheet-tab > input.sheet-tabtext {
-  width: 16em;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-}
 .sheet-root div.sheet-character {
   /* Configure the containers for the character sheet.  Note that sheets are hidden by default,
      and only revealed if the correct tab is selected. */
@@ -544,15 +587,6 @@ button[type=roll].sheet-d20::before {
   position: relative;
   z-index: 2;
   box-shadow: 1.25em 0.75em 0.5em;
-}
-.sheet-root div.sheet-character span.sheet-dead {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 100;
-  font-size: 20em;
-  color: red;
 }
 .sheet-root div.sheet-character div.sheet-row {
   display: block;
@@ -587,31 +621,6 @@ button[type=roll].sheet-d20::before {
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
-}
-.sheet-root div.sheet-character .sheet-checklines {
-  /* Configure the container for the checkline buttons. */
-  display: inline-flex;
-  align-items: center;
-  vertical-align: bottom;
-  height: 27px;
-  padding: 4px;
-}
-.sheet-root div.sheet-character .sheet-checklines > button.sheet-checkline {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid black;
-  width: 14px;
-  height: 14px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-}
-.sheet-root div.sheet-character .sheet-checklines > button.sheet-checkline > span.sheet-checked {
-  color: black;
-  display: inline-flex;
-}
-.sheet-root div.sheet-character .sheet-checklines > button.sheet-checkline ~ span {
-  margin-right: 10px;
 }
 .sheet-root div.sheet-character textarea {
   /* Format the notes textarea. */
