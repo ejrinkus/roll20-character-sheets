@@ -1,7 +1,13 @@
+include html/sheets.pug
+include html/fields.pug
+include html/tabs.pug
+
+- var chars = ["1", "2", "3", "4"]
+
 // Hidden "control" inputs to help drive sheet behavior.
 input.control-char(type="hidden", name="attr_character", value="1")
 input.control-survivors(type="hidden", name="attr_total_living", value="")
-each c in ["1", "2", "3", "4"]
+each c in chars
   // More hidden controls, but these need to be per-character.
   input(class=`control-dead-${c}`, type="hidden", name=`attr_dead_${c}`, value="")
   input(class=`control-alignment-${c}`, type="hidden", name=`attr_alignment_${c}`, value="false")
@@ -9,47 +15,17 @@ each c in ["1", "2", "3", "4"]
 
 // The actual sheet content.
 div.root
-  div.tabs
-    each c in ["1", "2", "3", "4"]
-      button(class=`tab tab-${c}`, type="action", name=`act_${c}_tab`)
-        input.tabrank(type="text", name=`attr_rank_${c}`, value=`${c}`, readonly)
-        input.tabtext(type="text", name=`attr_name_${c}`, value=`Character ${c}`, readonly)
-  each c in ["1", "2", "3", "4"]
-    div(class=`character char-${c}`)
-      input(type="hidden", name=`attr_dead_${c}`, value="").checkline
-      span(class=`dead-${c}`)
-        | DEAD
+  +tabs(chars)
+  each c in chars
+    +sheets(c)
       // NAME/OCCUPATION/ALIGNMENT ROW
       div.row  
         // NAME
-        div.col.single
-          label Name
-          input(type="text", name=`attr_name_${c}`, value=`Character ${c}`)
-        // OCCUPATION
-        div.col.single
-          label Occupation
-          input(type="text", name=`attr_occupation_${c}`)
-        // ALIGNMENT
-        div.col.single
-          label Alignment
-          div.checklines 
-            each pair in [["lawful", "Lawful"], ["neutral", "Neutral"], ["chaotic", "Chaotic"]]
-              button(class=`checkline alignment-${pair[0]}-${c}`, type="action", name=`act_alignment_${pair[0]}_${c}`)
-                span.checked
-                  | X
-              span
-                | #{pair[1]}
-        div.col.single
-          label Status
-          div.checklines
-            span
-              | Rank:&nbsp;
-            input(type="number", name=`attr_rank_${c}`, value=`${c}`, style="margin-right:1em")
-            button(class=`checkline checkline-dead-${c}`, type="action", name=`act_dead_${c}`)
-              span.checked
-                | X
-            span
-              | Dead?
+        +label_above_text_field("Name", c)(value=`Character ${c}`)
+        +label_above_text_field("Occupation", c)
+        +checklines("Alignment", c, "Lawful", "Neutral", "Chaotic")
+        +checklines("Status", c, "Dead?")
+          +span_beside_num_field("Rank", c)(value=`${c}`, style="margin-right:1em")
       // MAIN BODY
       div.row
         // STATS/AUGUR COLUMN
@@ -60,17 +36,12 @@ div.root
             div.col.single
               label Attributes
               each att in ["STR", "AGI", "STA", "PER", "INT", "LUC"]
-                div.row
-                  div.col.label-inline
-                    label.short #{att}
-                  div.col
-                    input(type="number", name=`attr_${att}_${c}`)
-                  div.col
-                    input(type="number", name=`attr_${att}_${c}_mod`, style="cursor:default", readonly, value=0)
-                  div.col
-                    button.d20(type="roll", value=`/roll 1d20 + @{${att}_${c}_mod}`, name=`roll_${att}Trained${c}`)
-                  div.col
-                    button.d10(type="roll", value=`/roll 1d10 + @{${att}_${c}_mod}`, name=`roll_${att}Untrained${c}`)
+                -
+                  var trained_roll = `1d20 + @{${att}_${c}_mod}`;
+                  var trained = `/em @{name_${c}} rolls a trained ${att} check: [[${trained_roll}]]`;
+                  var untrained_roll = `1d10 + @{${att}_${c}_mod}`;
+                  var untrained = `/em @{name_${c}} rolls an untrained ${att} check: [[${untrained_roll}]]`;
+                +attribute(att, c, true, ["d20", trained, "Trained"], ["d10", untrained, "Untrained"])
             // HP/AC/MOVEMENT/SAVES
             div.col.single
               div.row
@@ -83,18 +54,17 @@ div.root
                   label(style="font-size:2em") /
                 div.col
                   input(type="number", name=`attr_HP_${c}_max`)
-              each save in ["MOV", "AC", "INI", "REF", "FOR", "WIL"]
-                div.row
-                  div.col.label-inline
-                    label #{save}
-                  div.col
-                    input(type="number", name=`attr_${save}_${c}`)
-                  if save != "MOV" && save != "AC" && save != "INI"
-                    div.col
-                      button.d20(type="roll", value=`/roll 1d20 + @{${save}_${c}}`, name=`roll_${save}Save${c}`)
-                  else if save == "INI"
-                    div.col
-                      button.d20(type="roll", value=`/roll 1d20 + @{${save}_${c}} &{tracker}`, name=`roll_initiative${c}`)
+              each stat in ["MOV", "AC"]
+                +attribute(stat, c, false)
+              -
+                var roll = `1d20 + @{INI_${c}} &{tracker}`;
+                var cmd = `/em @{name_${c}} rolls for initiative: [[${roll}]]`;
+              +attribute("INI", c, false, ["d20", cmd, ""])
+              each save in ["REF", "FOR", "WIL"]
+                -
+                  var roll = `1d20 + @{${save}_${c}}`;
+                  var cmd = `/em @{name_${c}} rolls a ${save} save: [[${roll}]]`;
+                +attribute(save, c, false, ["d20", cmd, "Save"])
           // BIRTH AUGUR ROW
           div.row
             div.col.double

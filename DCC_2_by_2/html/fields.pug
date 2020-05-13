@@ -1,0 +1,46 @@
+// Simple text inputs with a label above them.
+mixin label_above_text_field(name, c)
+  - var lowername = name.replace(/\W/g, '').toLowerCase();
+  div.col.single
+    label #{name}
+    input(type="text", name=`attr_${lowername}_${c}`)&attributes(attributes)
+
+// Simple number inputs labelled by a span to the left of the input.
+mixin span_beside_num_field(name, c)
+  - var lowername = name.replace(/\W/g, '').toLowerCase();
+  span
+    | #{name}:&nbsp;
+  input(type="number", name=`attr_${lowername}_${c}`)&attributes(attributes)
+
+// A checkline is a set of inputs similar to radio buttons, but formatted to look more like checkboxes.
+// This mixin creates a checkline block, with a label above the block.  Optionally includes an extra
+// block that precedes the checkline itself.
+mixin checklines(name, c, ...values)
+  - var lowername = name.replace(/\W/g, '').toLowerCase();
+  div.col.single
+    label #{name}
+    div.checklines 
+      if block
+        block
+      each v in values
+        - var lowerv = v.replace(/\W/g, '').toLowerCase();
+        button(class=`checkline ${lowername}-${lowerv}-${c}`, type="action", name=`act_${lowername}_${lowerv}_${c}`)
+          span.checked
+            | X
+        span
+          | #{v}
+
+// Creates an attribute row, consisting of a label and two number inputs.  One input is for the
+// attribute score, the other is a readonly input displaying the modifier.
+mixin attribute(name, c, has_mod, ...rolls)
+  div.row
+    div.col.label-inline
+      label.short #{name}
+    div.col
+      input(type="number", name=`attr_${name}_${c}`)
+    if has_mod
+      div.col
+        input(type="number", name=`attr_${name}_${c}_mod`, style="cursor:default", readonly, value=0)
+    each roll in rolls
+      div.col
+        button(class=roll[0], type="roll", value=roll[1], name=`roll_${name}${roll[2]}${c}`)

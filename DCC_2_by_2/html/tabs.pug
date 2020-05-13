@@ -1,0 +1,6 @@
+mixin tabs(values)
+  div.tabs
+    each v in values
+      button(class=`tab tab-${v}`, type="action", name=`act_${v}_tab`)
+        input.tabrank(type="text", name=`attr_rank_${v}`, value=`${v}`, readonly)
+        input.tabtext(type="text", name=`attr_name_${v}`, value=`Character ${v}`, readonly)

@@ -326,7 +326,7 @@ input.sheet-control-dead-1[value=dead] ~ .sheet-root button.sheet-tab-1 > input.
   /* Strikethrough tab text for dead characters. */
   background-image: linear-gradient(transparent 1em, black 1em, black 1.15em, transparent 1.15em);
 }
-input.sheet-control-dead-1[value=dead] ~ .sheet-root span.sheet-dead-1 {
+input.sheet-control-dead-1[value=dead] ~ .sheet-root span.sheet-dead-stamp-1 {
   /* Put that DEAD stamp all up in their face. */
   position: absolute;
   top: 50%;
@@ -337,11 +337,11 @@ input.sheet-control-dead-1[value=dead] ~ .sheet-root span.sheet-dead-1 {
   color: red;
 }
 
-input.sheet-control-dead-1[value=alive] ~ .sheet-root span.sheet-dead-1 {
+input.sheet-control-dead-1[value=alive] ~ .sheet-root span.sheet-dead-stamp-1 {
   /* Hide the "DEAD" stamp the character is not dead. */
   display: none;
 }
-input.sheet-control-dead-1[value=alive] ~ .sheet-root button.sheet-checkline-dead-1 > span.sheet-checked {
+input.sheet-control-dead-1[value=alive] ~ .sheet-root button.sheet-status-dead-1 > span.sheet-checked {
   /* Hide the "checked" section of the checkline if the character is not dead. */
   background: transparent;
   color: transparent !important;
@@ -352,7 +352,7 @@ input.sheet-control-dead-2[value=dead] ~ .sheet-root button.sheet-tab-2 > input.
   /* Strikethrough tab text for dead characters. */
   background-image: linear-gradient(transparent 1em, black 1em, black 1.15em, transparent 1.15em);
 }
-input.sheet-control-dead-2[value=dead] ~ .sheet-root span.sheet-dead-2 {
+input.sheet-control-dead-2[value=dead] ~ .sheet-root span.sheet-dead-stamp-2 {
   /* Put that DEAD stamp all up in their face. */
   position: absolute;
   top: 50%;
@@ -363,11 +363,11 @@ input.sheet-control-dead-2[value=dead] ~ .sheet-root span.sheet-dead-2 {
   color: red;
 }
 
-input.sheet-control-dead-2[value=alive] ~ .sheet-root span.sheet-dead-2 {
+input.sheet-control-dead-2[value=alive] ~ .sheet-root span.sheet-dead-stamp-2 {
   /* Hide the "DEAD" stamp the character is not dead. */
   display: none;
 }
-input.sheet-control-dead-2[value=alive] ~ .sheet-root button.sheet-checkline-dead-2 > span.sheet-checked {
+input.sheet-control-dead-2[value=alive] ~ .sheet-root button.sheet-status-dead-2 > span.sheet-checked {
   /* Hide the "checked" section of the checkline if the character is not dead. */
   background: transparent;
   color: transparent !important;
@@ -378,7 +378,7 @@ input.sheet-control-dead-3[value=dead] ~ .sheet-root button.sheet-tab-3 > input.
   /* Strikethrough tab text for dead characters. */
   background-image: linear-gradient(transparent 1em, black 1em, black 1.15em, transparent 1.15em);
 }
-input.sheet-control-dead-3[value=dead] ~ .sheet-root span.sheet-dead-3 {
+input.sheet-control-dead-3[value=dead] ~ .sheet-root span.sheet-dead-stamp-3 {
   /* Put that DEAD stamp all up in their face. */
   position: absolute;
   top: 50%;
@@ -389,11 +389,11 @@ input.sheet-control-dead-3[value=dead] ~ .sheet-root span.sheet-dead-3 {
   color: red;
 }
 
-input.sheet-control-dead-3[value=alive] ~ .sheet-root span.sheet-dead-3 {
+input.sheet-control-dead-3[value=alive] ~ .sheet-root span.sheet-dead-stamp-3 {
   /* Hide the "DEAD" stamp the character is not dead. */
   display: none;
 }
-input.sheet-control-dead-3[value=alive] ~ .sheet-root button.sheet-checkline-dead-3 > span.sheet-checked {
+input.sheet-control-dead-3[value=alive] ~ .sheet-root button.sheet-status-dead-3 > span.sheet-checked {
   /* Hide the "checked" section of the checkline if the character is not dead. */
   background: transparent;
   color: transparent !important;
@@ -404,7 +404,7 @@ input.sheet-control-dead-4[value=dead] ~ .sheet-root button.sheet-tab-4 > input.
   /* Strikethrough tab text for dead characters. */
   background-image: linear-gradient(transparent 1em, black 1em, black 1.15em, transparent 1.15em);
 }
-input.sheet-control-dead-4[value=dead] ~ .sheet-root span.sheet-dead-4 {
+input.sheet-control-dead-4[value=dead] ~ .sheet-root span.sheet-dead-stamp-4 {
   /* Put that DEAD stamp all up in their face. */
   position: absolute;
   top: 50%;
@@ -415,11 +415,11 @@ input.sheet-control-dead-4[value=dead] ~ .sheet-root span.sheet-dead-4 {
   color: red;
 }
 
-input.sheet-control-dead-4[value=alive] ~ .sheet-root span.sheet-dead-4 {
+input.sheet-control-dead-4[value=alive] ~ .sheet-root span.sheet-dead-stamp-4 {
   /* Hide the "DEAD" stamp the character is not dead. */
   display: none;
 }
-input.sheet-control-dead-4[value=alive] ~ .sheet-root button.sheet-checkline-dead-4 > span.sheet-checked {
+input.sheet-control-dead-4[value=alive] ~ .sheet-root button.sheet-status-dead-4 > span.sheet-checked {
   /* Hide the "checked" section of the checkline if the character is not dead. */
   background: transparent;
   color: transparent !important;

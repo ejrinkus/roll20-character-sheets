@@ -1,6 +1,6 @@
 
   function deadHandlers(charI) {
-    on(`clicked:dead_${charI}`, function() {
+    on(`clicked:status_dead_${charI}`, function() {
       getAttrs([`dead_1`, `dead_2`, `dead_3`, `dead_4`, `total_living`], function(values) {
         // Figure out the new state for charI, since that's the one that changed.
         var val = "";
