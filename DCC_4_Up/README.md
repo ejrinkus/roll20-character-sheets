@@ -9,7 +9,7 @@ This project uses Pug (formerly known as Jade) as an HTML templating engine, and
 For Pug in particular, it's recommended to also ensure you have pug-cli installed.  This will allow you to run the following command to automatically watch for and compile changes to the Pug files (make sure you run from the DCC_4_Up directory):
 
 ```
-> pug -w ./DCC_4_Up.pug -o ./
+> pug -w ./DCC_4_Up.pug -o ./ -P
 ```
 
 SASS has a similar tool that installs with the framework by default:
