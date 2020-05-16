@@ -1,0 +1,10 @@
+label Birth Augur
+input.augur(type="number", name=`attr_start_luck_${c}`)
+input.augur-desc(type="text", value="Luck modifier at Level 0", readonly)
+br
+input.augur(type="number", name=`attr_augur_${c}`)
+input.augur-desc(type="text", name=`attr_augur_desc_${c}`, readonly)
+div(class=`if-healing-${c} note`)
+  | *If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.
+div(class=`if-crit-${c} note`)
+  | **Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.

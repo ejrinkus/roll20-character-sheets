@@ -4,29 +4,29 @@ $sheet-num-cols: 4;
 $sheet-col-width: 20em;
 $sheet-col-margins: 0.5em;
 $sheet-padding: 1em;
-$sheet-width: 85em;
+$sheet-width: 64em;
 $sheet-shadow: 1.25em 0.75em 0.5em;
 
 $root-background: gray;
 $root-padding: 1em;
-$root-width: 87em;
+$root-width: 66em;
 
-@use 'css/alignment_selector.scss';
-@use 'css/augur.scss' with (
+@use 'src/components/alignment/alignment_selector.scss';
+@use 'src/components/augur/augur.scss' with (
   $sheet-col-width: $sheet-col-width
 );
-@use 'css/character_selector.scss';
-@use 'css/checklines.scss';
-@use 'css/death_selector.scss';
-@use 'css/equipment.scss' with (
+@use 'src/components/tabs/character_selector.scss';
+@use 'src/components/status/death_selector.scss';
+@use 'src/components/equipment/equipment.scss' with (
   $sheet-col-width: $sheet-col-width,
   $sheet-col-margins: $sheet-col-margins
 );
-@use 'css/tabs.scss' with (
-  $sheet-col-width: $sheet-col-width,
-  $sheet-col-margins: $sheet-col-margins,
+@use 'src/components/tabs/tabs.scss' with (
+  $sheet-tab-width: $sheet-col-width*0.75,
+  $sheet-tab-margins: $sheet-col-margins*0.75,
   $sheet-shadow: $sheet-shadow
 );
+@use 'src/mixins/checklines.scss';
 @import url('https://fonts.googleapis.com/css?family=IM+Fell+English+SC|Marko+One&display=swap');
 
 /* Some global formatting. */
@@ -49,7 +49,7 @@ input {
   width: $sheet-col-width;
 }
 
-input[type=text] {
+input[type=text].sheet-underline {
   background: transparent;
   border: none;
   border-bottom: 1px solid black;
@@ -66,6 +66,12 @@ input[type=number][readonly] {
 
 .sheet-note {
   font-size: 0.83em;
+}
+
+button[type=roll] {
+  // Can't use em here, since it won't have the same em-to-pixel ratio as the rest of the sheet
+  // (the ::before pseudo-element changes the font, and thus the value of 1em).
+  height: 18px;
 }
 
 button[type=roll].sheet-d10::before {
@@ -114,9 +120,9 @@ button[type=roll].sheet-d20::before {
       div.sheet-col.sheet-triple {
         width: $sheet-col-width*3 + $sheet-col-margins*4;
       }
-      div.sheet-col.sheet-full {
-        width: $sheet-col-width*4 + $sheet-col-margins*6;
-      }
+    }
+    > div.sheet-row {
+      margin-top: $sheet-col-margins*2;
     }
 
     div.sheet-col.sheet-label-inline {

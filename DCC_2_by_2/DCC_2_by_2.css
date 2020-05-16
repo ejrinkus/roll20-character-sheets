@@ -118,7 +118,7 @@ input.sheet-control-augur-4[value="28"] ~ .sheet-root div.sheet-if-crit-4 {
 input.sheet-augur-desc {
   /* Format the birth augur description. */
   background: transparent;
-  border: none;
+  border-width: 0;
   cursor: default;
   width: 36em;
 }
@@ -171,6 +171,10 @@ input.sheet-control-char:not([value="1"]) ~ .sheet-root div.sheet-character.shee
   /* Hide characters that are not selected. */
   display: none;
 }
+input.sheet-control-char:not([value="1"]) ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-1 > input.sheet-tabrank {
+  border: none;
+  cursor: pointer;
+}
 input.sheet-control-char:not([value="1"]) ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-1::before {
   /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
   bottom: 0;
@@ -207,6 +211,10 @@ input.sheet-control-char[value="2"] ~ .sheet-root div.sheet-tabs > button.sheet-
 input.sheet-control-char:not([value="2"]) ~ .sheet-root div.sheet-character.sheet-char-2 {
   /* Hide characters that are not selected. */
   display: none;
+}
+input.sheet-control-char:not([value="2"]) ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-2 > input.sheet-tabrank {
+  border: none;
+  cursor: pointer;
 }
 input.sheet-control-char:not([value="2"]) ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-2::before {
   /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
@@ -245,6 +253,10 @@ input.sheet-control-char:not([value="3"]) ~ .sheet-root div.sheet-character.shee
   /* Hide characters that are not selected. */
   display: none;
 }
+input.sheet-control-char:not([value="3"]) ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-3 > input.sheet-tabrank {
+  border: none;
+  cursor: pointer;
+}
 input.sheet-control-char:not([value="3"]) ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-3::before {
   /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
   bottom: 0;
@@ -282,6 +294,10 @@ input.sheet-control-char:not([value="4"]) ~ .sheet-root div.sheet-character.shee
   /* Hide characters that are not selected. */
   display: none;
 }
+input.sheet-control-char:not([value="4"]) ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-4 > input.sheet-tabrank {
+  border: none;
+  cursor: pointer;
+}
 input.sheet-control-char:not([value="4"]) ~ .sheet-root div.sheet-tabs > button.sheet-tab.sheet-tab-4::before {
   /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
   bottom: 0;
@@ -293,32 +309,6 @@ input.sheet-control-char:not([value="4"]) ~ .sheet-root div.sheet-tabs > button.
   bottom: 0;
   border-left: 0.25em solid lightgrey;
   border-bottom: 1em solid lightgrey;
-}
-
-.sheet-checklines {
-  /* Configure the container for the checkline buttons. */
-  display: inline-flex;
-  align-items: center;
-  vertical-align: bottom;
-  height: 27px;
-  padding: 4px;
-}
-.sheet-checklines > button.sheet-checkline {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid black;
-  width: 14px;
-  height: 14px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-}
-.sheet-checklines > button.sheet-checkline > span.sheet-checked {
-  color: black;
-  display: inline-flex;
-}
-.sheet-checklines > button.sheet-checkline ~ span {
-  margin-right: 10px;
 }
 
 input.sheet-control-dead-1[value=dead] ~ .sheet-root button.sheet-tab-1 > input.sheet-tabrank,
@@ -447,7 +437,7 @@ div.repitem div.sheet-equip {
   /* Width of an equipment controls div is the width of a double-wide div.
   But since we're using a padding of $sheet-col-margins, we need to subtract
   two times that value to get the correct width. */
-  width: 39.5em;
+  width: 60em;
   display: inline-block;
   position: relative;
   border: 1px solid #cccccc;
@@ -482,11 +472,11 @@ div.repitem div.sheet-equip.sheet-custom {
   /* A piece of custom equipment just has a free text field. */
 }
 div.repitem div.sheet-equip.sheet-custom input {
-  width: 39.5em;
+  width: 60em;
 }
 div.repitem div.sheet-equip.sheet-armor input.sheet-equip-name,
 div.repitem div.sheet-equip.sheet-weapon input.sheet-equip-name {
-  width: 7.9em;
+  width: 12em;
 }
 
 div.sheet-tabs {
@@ -495,8 +485,8 @@ div.sheet-tabs {
 
 button.sheet-tab {
   position: relative;
-  width: 20em;
-  margin-left: 1em;
+  width: 15em;
+  margin-left: 0.75em;
   background: lightgrey;
   border: 0;
   padding: 0;
@@ -508,16 +498,41 @@ button.sheet-tab {
   box-shadow: 1.25em 0.75em 0.5em;
 }
 button.sheet-tab > input.sheet-tabrank {
+  display: inline-block;
   width: 2em;
+  background: transparent;
+}
+button.sheet-tab > input.sheet-tabtext {
+  width: 11em;
   background: transparent;
   border: none;
   cursor: pointer;
 }
-button.sheet-tab > input.sheet-tabtext {
-  width: 16em;
+
+.sheet-checklines {
+  /* Configure the container for the checkline buttons. */
+  display: inline-flex;
+  align-items: center;
+  vertical-align: bottom;
+  height: 27px;
+  padding: 4px;
+}
+.sheet-checklines > button.sheet-checkline {
   background: transparent;
   border: none;
-  cursor: pointer;
+  border-bottom: 1px solid black;
+  width: 14px;
+  height: 14px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.sheet-checklines > button.sheet-checkline > span.sheet-checked {
+  color: black;
+  display: inline-flex;
+}
+.sheet-checklines > button.sheet-checkline ~ span {
+  margin-right: 10px;
 }
 
 /* Some global formatting. */
@@ -540,7 +555,7 @@ input {
   width: 20em;
 }
 
-input[type=text] {
+input[type=text].sheet-underline {
   background: transparent;
   border: none;
   border-bottom: 1px solid black;
@@ -559,6 +574,10 @@ input[type=number][readonly] {
   font-size: 0.83em;
 }
 
+button[type=roll] {
+  height: 18px;
+}
+
 button[type=roll].sheet-d10::before {
   font-family: "dicefontd10";
   content: "J";
@@ -571,7 +590,7 @@ button[type=roll].sheet-d20::before {
 
 /* Configure the root div containing all elements. */
 .sheet-root {
-  width: 87em;
+  width: 66em;
   background-color: gray;
   padding: 2em;
   position: relative;
@@ -582,7 +601,7 @@ button[type=roll].sheet-d20::before {
   display: block;
   background-color: white;
   padding: 0.5em;
-  width: 85em;
+  width: 64em;
   border-radius: 0.25em;
   position: relative;
   z-index: 2;
@@ -606,8 +625,8 @@ button[type=roll].sheet-d20::before {
 .sheet-root div.sheet-character div.sheet-row div.sheet-col.sheet-triple {
   width: 62em;
 }
-.sheet-root div.sheet-character div.sheet-row div.sheet-col.sheet-full {
-  width: 83em;
+.sheet-root div.sheet-character > div.sheet-row {
+  margin-top: 1em;
 }
 .sheet-root div.sheet-character div.sheet-col.sheet-label-inline {
   /* Styling for labels that are inline with their fields. */

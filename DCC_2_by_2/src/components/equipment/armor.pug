@@ -1,0 +1,31 @@
+div.equip.armor.row
+  div.col
+    input.equip-name.underline(type="text", name=`attr_EquipArmorName${c}`, value="Armor name")
+  div.col.input-col
+    div.row
+      div.col
+        input(type="number", name=`attr_EquipArmorClass${c}`)
+    div.row
+      div.col
+        input(type="number", name=`attr_EquipArmorCheckPen${c}`)
+  div.col
+    div.row
+      div.col.label-inline
+        span AC
+    div.row
+      div.col.label-inline
+        span check penalty
+  div.col.input-col
+    div.row
+      div.col
+        input(type="number", name=`attr_EquipArmorSpeedPen${c}`)
+    div.row
+      div.col
+        input.underline(type="text", name=`attr_EquipArmorFumble${c}`)
+  div.col
+    div.row
+      div.col.label-inline
+        span speed penalty
+    div.row
+      div.col.label-inline
+        span fumble die

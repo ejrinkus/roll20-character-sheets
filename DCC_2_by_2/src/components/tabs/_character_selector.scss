@@ -53,6 +53,13 @@ div.sheet-tabs > button.sheet-tab::after {
       display: none;
     }
 
+    div.sheet-tabs > button.sheet-tab.sheet-tab-#{$i} {
+      > input.sheet-tabrank {
+        border: none;
+        cursor: pointer;
+      }
+    }
+
     div.sheet-tabs > button.sheet-tab.sheet-tab-#{$i}::before {
       /* Turn the triangular pseudo-elements lightgrey for the selected tab. */
       bottom: 0;

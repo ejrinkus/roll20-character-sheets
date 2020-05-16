@@ -1,0 +1,66 @@
+// Pre-built input for text attributes.
+mixin text_attribute(name, c, default_val)
+  - var lowername = name.replace(/\W/g, '').toLowerCase();
+  input.underline(type="text", name=`attr_${lowername}_${c}`, value=default_val)&attributes(attributes)
+
+// Pre-built input for numeric attributes.
+mixin num_attribute(name, c, default_val)
+  - var lowername = name.replace(/\W/g, '').toLowerCase();
+  input(type="number", name=`attr_${lowername}_${c}`, value=default_val)&attributes(attributes)
+
+// Simple number inputs labelled by a span to the left of the input.
+mixin span_beside_num_field(name, c)
+  - var lowername = name.replace(/\W/g, '').toLowerCase();
+  span
+    | #{name}:&nbsp;
+  input(type="number", name=`attr_${lowername}_${c}`)&attributes(attributes)
+
+// A checkline is a set of inputs similar to radio buttons, but formatted to look more like checkboxes.
+mixin checklines(name, c, ...values)
+  - var lowername = name.replace(/\W/g, '').toLowerCase();
+  each v in values
+    - var lowerv = v.replace(/\W/g, '').toLowerCase();
+    button(class=`checkline ${lowername}-${lowerv}-${c}`, type="action", name=`act_${lowername}_${lowerv}_${c}`)
+      span.checked
+        | X
+    span
+      | #{v}
+
+mixin label_num_field(name, c)
+  div.row
+    div.col.label-inline
+      label.short #{name}
+    div.col
+      input(type="number", name=`attr_${name}_${c}`)
+    block
+
+mixin mod_field(name, c)
+  div.col
+    input(type="number", name=`attr_${name}_${c}_mod`, style="cursor:default", readonly)
+
+// Creates an attribute row, consisting of a label, two number inputs, and two roll buttons (trained and untrained).
+mixin attribute(name, c)
+  +label_num_field(name, c)
+    +mod_field(name, c)
+    div.col
+      button.d20(type="roll", value=`/em @{name_${c}} rolls a trained ${name} check: [[1d20 + @{${name}_${c}_mod}]]`, name=`roll_${name}Trained${c}`)
+    div.col
+      button.d10(type="roll", value=`/em @{name_${c}} rolls an untrained ${name} check: [[1d10 + @{${name}_${c}_mod}]]`, name=`roll_${name}Untrained${c}`)
+
+mixin save(name, c)
+  +label_num_field(name, c)
+    div.col
+      button.d20(type="roll", value=`/em @{name_${c}} rolls a ${name} save: [[1d20 + @{${name}_${c}}]]`, name=`roll_${name}Save${c}`)
+
+mixin initiative(c)
+  - var name = "INI";
+  +label_num_field(name, c)
+    div.col
+      button.d20(type="roll", value=`/em @{name_${c}} rolls for initiative: [[1d20 + @{${name}_${c}} &{tracker}]]`, name=`roll_${name}${c}`)
+
+mixin ratio(name, c)
+  +label_num_field(name, c)
+    div.col.label-inline(style="width:1em")
+      label(style="font-size:2em") /
+    div.col
+      input(type="number", name=`attr_${name}_${c}_max`)

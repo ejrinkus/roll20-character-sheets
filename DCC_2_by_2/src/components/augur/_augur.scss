@@ -16,7 +16,7 @@ $sheet-col-width: 20em !default;
 input.sheet-augur-desc {
     /* Format the birth augur description. */
     background: transparent;
-    border: none;
+    border-width: 0;
     cursor: default;
     width: $sheet-col-width*1.8;
 }

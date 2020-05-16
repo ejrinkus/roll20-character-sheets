@@ -1,0 +1,27 @@
+div(class=`character char-${c}`)
+  input(type="hidden", name=`attr_dead_${c}`, value="").checkline
+  span(class=`dead-stamp-${c}`)
+    | DEAD
+  div.row
+    div.col.single
+      include ../name/name.pug
+    div.col.single
+      include ../occupation/occupation.pug
+    div.col.single
+      include ../status/status.pug
+  div.row
+    div.col.single
+      include ../alignment/alignment.pug
+    div.col.double
+      include ../augur/augur.pug
+  div.row
+    // attributes.pug consists of two div.col.single elements
+    include ../attributes/attributes.pug
+  div.row
+    div.col.triple
+      include ../equipment/equipment.pug
+  div.row
+    div.col.double
+      include ../notes/notes.pug
+    div.col.single
+      include ../wealth/wealth.pug

@@ -1,5 +1,5 @@
-$sheet-col-width: 20em !default;
-$sheet-col-margins: 0.5em !default;
+$sheet-tab-width: 20em !default;
+$sheet-tab-margins: 0.5em !default;
 $sheet-shadow: 1.25em 0.75em 0.5em !default;
 
 div.sheet-tabs {
@@ -8,8 +8,8 @@ div.sheet-tabs {
 
 button.sheet-tab {
   position: relative;
-  width: $sheet-col-width;
-  margin-left: $sheet-col-margins*2;
+  width: $sheet-tab-width;
+  margin-left: $sheet-tab-margins*2;
   background: lightgrey;
   border: 0;
   padding: 0;
@@ -20,13 +20,12 @@ button.sheet-tab {
   z-index: 1;
   box-shadow: $sheet-shadow;
   > input.sheet-tabrank {
+    display: inline-block;
     width: 2em;
     background: transparent;
-    border: none;
-    cursor: pointer;
   }
   > input.sheet-tabtext {
-    width: $sheet-col-width - 4em;
+    width: $sheet-tab-width - 4em;
     background: transparent;
     border: none;
     cursor: pointer;

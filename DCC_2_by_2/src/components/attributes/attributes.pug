@@ -1,0 +1,13 @@
+div.col.single
+  label Attributes
+  each att in ["STR", "AGI", "STA", "PER", "INT", "LUC"]
+    +attribute(att, c)
+div.col.single
+  div.row
+    label Attributes (cont.)
+  +ratio("HP", c)
+  each stat in ["MOV", "AC"]
+    +label_num_field(stat, c)
+  +initiative(c)
+  each save in ["REF", "FOR", "WIL"]
+    +save(save, c)

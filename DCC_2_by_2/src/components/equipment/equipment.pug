@@ -1,0 +1,11 @@
+label Equipment
+fieldset(class=`repeating_equipment${c}`)
+  input.equip-select(type="hidden", name=`attr_EquipSelect${c}`, value="")
+  select.equip-type(name=`attr_EquipType${c}`)
+    option &lt;select type&gt;
+    option Custom
+    option Armor
+    option Weapon
+  include custom.pug
+  include armor.pug
+  include weapon.pug

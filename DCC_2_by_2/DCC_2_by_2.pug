@@ -1,179 +1,36 @@
-include html/sheets.pug
-include html/fields.pug
-include html/tabs.pug
+include src/mixins/controls.pug
+include src/mixins/fields.pug
 
 - var chars = ["1", "2", "3", "4"]
 
 // Hidden "control" inputs to help drive sheet behavior.
-input.control-char(type="hidden", name="attr_character", value="1")
-input.control-survivors(type="hidden", name="attr_total_living", value="")
++hidden_control("character", -1, "1").control-char
++hidden_control("total_living", -1, "").control-survivors
 each c in chars
   // More hidden controls, but these need to be per-character.
-  input(class=`control-dead-${c}`, type="hidden", name=`attr_dead_${c}`, value="")
-  input(class=`control-alignment-${c}`, type="hidden", name=`attr_alignment_${c}`, value="false")
-  input(class=`control-augur-${c}`, type="hidden", name=`attr_augur_${c}`)
+  +hidden_control("dead", c, "")(class=`control-dead-${c}`)
+  +hidden_control("alignment", c, "false")(class=`control-alignment-${c}`)
+  +hidden_control("augur", c, 0)(class=`control-augur-${c}`)
 
 // The actual sheet content.
 div.root
-  +tabs(chars)
+  div.tabs
+    each c in chars
+      include src/components/tabs/tabs.pug
   each c in chars
-    +sheets(c)
-      // NAME/OCCUPATION/ALIGNMENT ROW
-      div.row  
-        // NAME
-        +label_above_text_field("Name", c)(value=`Character ${c}`)
-        +label_above_text_field("Occupation", c)
-        +checklines("Alignment", c, "Lawful", "Neutral", "Chaotic")
-        +checklines("Status", c, "Dead?")
-          +span_beside_num_field("Rank", c)(value=`${c}`, style="margin-right:1em")
-      // MAIN BODY
-      div.row
-        // STATS/AUGUR COLUMN
-        div.col
-          // STATS ROW
-          div.row
-            // ATTRIBUTES
-            div.col.single
-              label Attributes
-              each att in ["STR", "AGI", "STA", "PER", "INT", "LUC"]
-                -
-                  var trained_roll = `1d20 + @{${att}_${c}_mod}`;
-                  var trained = `/em @{name_${c}} rolls a trained ${att} check: [[${trained_roll}]]`;
-                  var untrained_roll = `1d10 + @{${att}_${c}_mod}`;
-                  var untrained = `/em @{name_${c}} rolls an untrained ${att} check: [[${untrained_roll}]]`;
-                +attribute(att, c, true, ["d20", trained, "Trained"], ["d10", untrained, "Untrained"])
-            // HP/AC/MOVEMENT/SAVES
-            div.col.single
-              div.row
-                label Attributes (cont.)
-                div.col.label-inline
-                  label HP
-                div.col
-                  input(type="number", name=`attr_HP_${c}`)
-                div.col.label-inline(style="width:1em")
-                  label(style="font-size:2em") /
-                div.col
-                  input(type="number", name=`attr_HP_${c}_max`)
-              each stat in ["MOV", "AC"]
-                +attribute(stat, c, false)
-              -
-                var roll = `1d20 + @{INI_${c}} &{tracker}`;
-                var cmd = `/em @{name_${c}} rolls for initiative: [[${roll}]]`;
-              +attribute("INI", c, false, ["d20", cmd, ""])
-              each save in ["REF", "FOR", "WIL"]
-                -
-                  var roll = `1d20 + @{${save}_${c}}`;
-                  var cmd = `/em @{name_${c}} rolls a ${save} save: [[${roll}]]`;
-                +attribute(save, c, false, ["d20", cmd, "Save"])
-          // BIRTH AUGUR ROW
-          div.row
-            div.col.double
-              label Birth Augur
-              input.augur(type="number", name=`attr_start_luck_${c}`)
-              input.augur-desc(type="text", value="Luck modifier at Level 0", readonly)
-              br
-              input.augur(type="number", name=`attr_augur_${c}`)
-              input.augur-desc(type="text", name=`attr_augur_desc_${c}`, readonly)
-              div(class=`if-healing-${c} note`)
-                | *If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.
-              div(class=`if-crit-${c} note`)
-                | **Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.
-        // EQUIPMENT
-        div.col.double
-          label Equipment
-          fieldset(class=`repeating_equipment${c}`)
-            input.equip-select(type="hidden", name=`attr_EquipSelect${c}`, value="")
-            select.equip-type(name=`attr_EquipType${c}`)
-              option &lt;select type&gt;
-              option Custom
-              option Armor
-              option Weapon
-            div.equip.custom.row
-              div.col
-                input(type="text", name=`attr_EquipCustom${c}`, value="Custom description")
-            div.equip.armor.row
-              div.col
-                input.equip-name(type="text", name=`attr_EquipArmorName${c}`, value="Armor name")
-              div.col.input-col
-                div.row
-                  div.col
-                    input(type="number", name=`attr_EquipArmorClass${c}`)
-                div.row
-                  div.col
-                    input(type="number", name=`attr_EquipArmorCheckPen${c}`)
-              div.col
-                div.row
-                  div.col.label-inline
-                    span AC
-                div.row
-                  div.col.label-inline
-                    span check penalty
-              div.col.input-col
-                div.row
-                  div.col
-                    input(type="number", name=`attr_EquipArmorSpeedPen${c}`)
-                div.row
-                  div.col
-                    input(type="text", name=`attr_EquipArmorFumble${c}`)
-              div.col
-                div.row
-                  div.col.label-inline
-                    span speed penalty
-                div.row
-                  div.col.label-inline
-                    span fumble die
-            div.equip.weapon.row
-              div.col
-                input.equip-name(type="text", name=`attr_EquipWeapName${c}`, value="Weapon name")
-              div.col.input-col
-                div.row
-                  div.col
-                    input(type="text", name=`attr_EquipWeapDmg${c}`)
-                div.row
-                  div.col
-                    input(type="text", name=`attr_EquipWeapSneak${c}`)
-              div.col
-                div.row
-                  div.col.label-inline
-                    span damage
-                div.row
-                  div.col.label-inline
-                    span sneak damage
-              div.col.input-col
-                div.row
-                  div.col
-                    input(type="text", name=`attr_EquipWeapRange${c}`)
-              div.col
-                div.row
-                  div.col.label-inline
-                    span range
-      // NOTES/MONEY ROW
-      div.row
-        // NOTES
-        label(style="margin:0.5em") Notes
-        div.col.triple
-          textarea(name=`attr_notes_${c}`)
-        // MONEY
-        div.col.single
-          each coin in [["CP", ""], ["SP", "1sp = 10cp"], ["GP", "1gp = 10sp"], ["EP", "1ep = 10gp"], ["PP", "1pp = 10ep"]]
-            div.row
-              div.col.label-inline
-                label.short #{coin[0]}
-              div.col
-                input(type="number", style="width:8em", name=`attr_${coin[0]}_${c}`)
-                |  #{coin[1]}
+    include src/components/sheets/sheets.pug
 
 script(type="text/worker")
   //- This file MUST be included first, as it defines constants used in the files below.
-  include js/constants.js
+  include src/js/constants.js
 
   //- These files can be included in any order, as they only depend on constants.js.
-  include js/char_tabs.js
-  include js/alignment.js
-  include js/dead.js
-  include js/mods.js
-  include js/birth_augurs.js
-  include js/equipment.js
+  include src/components/tabs/char_tabs.js
+  include src/components/alignment/alignment.js
+  include src/components/status/dead.js
+  include src/components/attributes/mods.js
+  include src/components/augur/birth_augurs.js
+  include src/components/equipment/equipment.js
 
   //- This file MUST be included last, as it uses code defined in the files above.
-  include js/per_character.js
+  include src/js/per_character.js

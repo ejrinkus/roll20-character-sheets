@@ -1,0 +1,8 @@
+label Wealth
+each coin in [["CP", ""], ["SP", "1sp = 10cp"], ["GP", "1gp = 10sp"], ["EP", "1ep = 10gp"], ["PP", "1pp = 10ep"]]
+  div.row
+    div.col.label-inline
+      label.short #{coin[0]}
+    div.col
+      input(type="number", style="width:8em", name=`attr_${coin[0]}_${c}`)
+      |  #{coin[1]}

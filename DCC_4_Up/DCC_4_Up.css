@@ -1,0 +1,29 @@
+div.sheet-tab-row {
+  background-color: coral;
+  width: 85em;
+}
+
+div.sheet-character {
+  background-color: cornflowerblue;
+  width: 85em;
+}
+
+/* Fancy fonts!!! */
+* {
+  font-family: "Marko One";
+  font-size: 12px;
+}
+
+label {
+  font-family: "IM Fell English SC";
+  font-size: 1.5em;
+}
+
+/* Root styling */
+div.sheet-root {
+  background-color: grey;
+  width: 87em;
+  padding: 1em;
+}
+
+/*# sourceMappingURL=DCC_4_Up.css.map */

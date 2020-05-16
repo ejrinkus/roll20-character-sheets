@@ -1,0 +1,4 @@
+// var c is defined in the parent file - DCC_2_by_2.pug, and represents the character number.
+button(class=`tab tab-${c}`, type="action", name=`act_${c}_tab`)
+  input.tabrank(type="text", name=`attr_rank_${c}`, value=`${c}`)
+  input.tabtext(type="text", name=`attr_name_${c}`, value=`Character ${c}`, readonly)

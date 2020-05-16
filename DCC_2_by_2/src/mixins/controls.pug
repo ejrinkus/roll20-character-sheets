@@ -1,0 +1,5 @@
+mixin hidden_control(name, c, default_value)
+  if c > 0
+    input(type="hidden", name=`attr_${name}_${c}`, value=default_value)&attributes(attributes)
+  else
+    input(type="hidden", name=`attr_${name}`, value=default_value)&attributes(attributes)

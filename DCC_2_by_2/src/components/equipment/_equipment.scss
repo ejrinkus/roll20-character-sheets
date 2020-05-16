@@ -20,7 +20,7 @@ div.repitem {
         border-bottom-right-radius: 0px;
     }
 
-    $equip-width: $sheet-col-width*2 - $sheet-col-margins;
+    $equip-width: $sheet-col-width*3;
     div.sheet-equip {
         /* Width of an equipment controls div is the width of a double-wide div.
         But since we're using a padding of $sheet-col-margins, we need to subtract
