@@ -7,18 +7,3 @@ mixin text_attribute(name, c, default_val)
 mixin num_attribute(name, c, default_val)
   - var lowername = name.replace(/\W/g, '').toLowerCase();
   input(type="number", name=`attr_${lowername}_${c}`, value=default_val)&attributes(attributes)
-
-// Simple number inputs labelled by a span to the left of the input.
-mixin span_beside_num_field(name, c)
-  - var lowername = name.replace(/\W/g, '').toLowerCase();
-  span
-    | #{name}:&nbsp;
-  input(type="number", name=`attr_${lowername}_${c}`)&attributes(attributes)
-
-mixin label_num_field(name, c)
-  div.row
-    div.col.label-inline
-      label.short #{name}
-    div.col
-      input(type="number", name=`attr_${name}_${c}`)
-    block
