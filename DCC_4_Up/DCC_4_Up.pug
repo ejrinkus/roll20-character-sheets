@@ -1,5 +1,6 @@
 include src/mixins/controls.pug
 include src/mixins/fields.pug
+include src/mixins/toggle.pug
 
 - var chars = ["1", "2", "3", "4"]
 
@@ -8,7 +9,6 @@ include src/mixins/fields.pug
 +hidden_control("total_living", -1, "").control-survivors
 each c in chars
   // More hidden controls, but these need to be per-character.
-  +hidden_control("dead", c, "")(class=`control-dead-${c}`)
   +hidden_control("alignment", c, "false")(class=`control-alignment-${c}`)
   +hidden_control("augur", c, 0)(class=`control-augur-${c}`)
 
@@ -27,7 +27,6 @@ script(type="text/worker")
   //- These files can be included in any order, as they only depend on constants.js.
   include src/components/tabs/char_tabs.js
   include src/components/alignment/alignment.js
-  include src/components/status/dead.js
   include src/components/status/xp.js
   include src/components/attributes/mods.js
   include src/components/augur/birth_augurs.js

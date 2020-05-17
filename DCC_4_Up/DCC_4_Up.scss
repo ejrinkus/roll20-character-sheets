@@ -27,6 +27,7 @@ $root-width: 66em;
   $sheet-shadow: $sheet-shadow
 );
 @use 'src/mixins/checklines.scss';
+@use 'src/mixins/toggle.scss';
 @import url('https://fonts.googleapis.com/css?family=IM+Fell+English+SC|Marko+One&display=swap');
 
 /* Some global formatting. */

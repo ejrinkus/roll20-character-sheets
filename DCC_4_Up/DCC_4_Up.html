@@ -2,53 +2,54 @@
 <!-- Pre-built input for text attributes.-->
 <!-- Pre-built input for numeric attributes.-->
 <!-- Simple number inputs labelled by a span to the left of the input.-->
-<!-- A checkline is a set of inputs similar to radio buttons, but formatted to look more like checkboxes.-->
+<!-- A checkline is a set of inputs similar to radio buttons, but formatted to look more like the sheet's custom checkboxes.-->
 <!-- Creates an attribute row, consisting of a label, two number inputs, and two roll buttons (trained and untrained).-->
+<!-- A toggle is like a checkbox, but with a different appearance.-->
 <!-- Hidden "control" inputs to help drive sheet behavior.-->
 <input class="control-char" type="hidden" name="attr_character" value="1"/>
 <input class="control-survivors" type="hidden" name="attr_total_living" value=""/>
 <!-- More hidden controls, but these need to be per-character.-->
-<input class="control-dead-1" type="hidden" name="attr_dead_1" value=""/>
 <input class="control-alignment-1" type="hidden" name="attr_alignment_1" value="false"/>
 <input class="control-augur-1" type="hidden" name="attr_augur_1" value="0"/>
 <!-- More hidden controls, but these need to be per-character.-->
-<input class="control-dead-2" type="hidden" name="attr_dead_2" value=""/>
 <input class="control-alignment-2" type="hidden" name="attr_alignment_2" value="false"/>
 <input class="control-augur-2" type="hidden" name="attr_augur_2" value="0"/>
 <!-- More hidden controls, but these need to be per-character.-->
-<input class="control-dead-3" type="hidden" name="attr_dead_3" value=""/>
 <input class="control-alignment-3" type="hidden" name="attr_alignment_3" value="false"/>
 <input class="control-augur-3" type="hidden" name="attr_augur_3" value="0"/>
 <!-- More hidden controls, but these need to be per-character.-->
-<input class="control-dead-4" type="hidden" name="attr_dead_4" value=""/>
 <input class="control-alignment-4" type="hidden" name="attr_alignment_4" value="false"/>
 <input class="control-augur-4" type="hidden" name="attr_augur_4" value="0"/>
 <!-- The actual sheet content.-->
 <div class="root">
   <div class="tabs">
     <!-- var c is defined in the parent file - DCC_2_by_2.pug, and represents the character number.-->
+    <input class="toggle-ctrl" type="hidden" name="attr_dead_1"/>
     <button class="tab tab-1" type="action" name="act_1_tab">
       <input class="tabrank" type="text" name="attr_rank_1" value="1"/>
       <input class="tabtext" type="text" name="attr_name_1" value="Character 1" readonly="readonly"/>
     </button>
     <!-- var c is defined in the parent file - DCC_2_by_2.pug, and represents the character number.-->
+    <input class="toggle-ctrl" type="hidden" name="attr_dead_2"/>
     <button class="tab tab-2" type="action" name="act_2_tab">
       <input class="tabrank" type="text" name="attr_rank_2" value="2"/>
       <input class="tabtext" type="text" name="attr_name_2" value="Character 2" readonly="readonly"/>
     </button>
     <!-- var c is defined in the parent file - DCC_2_by_2.pug, and represents the character number.-->
+    <input class="toggle-ctrl" type="hidden" name="attr_dead_3"/>
     <button class="tab tab-3" type="action" name="act_3_tab">
       <input class="tabrank" type="text" name="attr_rank_3" value="3"/>
       <input class="tabtext" type="text" name="attr_name_3" value="Character 3" readonly="readonly"/>
     </button>
     <!-- var c is defined in the parent file - DCC_2_by_2.pug, and represents the character number.-->
+    <input class="toggle-ctrl" type="hidden" name="attr_dead_4"/>
     <button class="tab tab-4" type="action" name="act_4_tab">
       <input class="tabrank" type="text" name="attr_rank_4" value="4"/>
       <input class="tabtext" type="text" name="attr_name_4" value="Character 4" readonly="readonly"/>
     </button>
   </div>
   <div class="character char-1">
-    <input class="checkline" type="hidden" name="attr_dead_1" value=""/><span class="dead-stamp-1">DEAD</span>
+    <input class="toggle-ctrl" type="hidden" name="attr_dead_1"/><span class="dead-stamp">DEAD</span>
     <div class="row">
       <div class="col single">
         <label>Name</label>
@@ -61,7 +62,21 @@
       <div class="col single">
         <label>Status</label>
         <div class="checklines">
-          <button class="checkline status-dead-1" type="action" name="act_status_dead_1"><span class="checked">X</span></button><span>Dead?</span>
+          <input class="toggle-ctrl" type="hidden" name="attr_dead_1"/>
+          <button class="toggle" type="action" name="act_dead_1"><span class="checked">X</span></button><span>Dead?</span>
+          <script type="text/worker">on(`clicked:dead_1`, function() {
+              getAttrs([`dead_1`], function(values) {
+                // Figure out the new state for charI, since that's the one that changed.
+                var val = "off";
+                if (values[`dead_1`] == "off") {
+                  val = "on";
+                }
+                setAttrs({
+                  [`dead_1`]: val
+                });
+              });
+            });
+          </script>
           <input type="number" name="attr_xp_1" value="0" style="width:4.5em;"/><span>&nbsp;XP</span>
           <input type="number" name="attr_level_1" value="0" style="cursor:default;" readonly="readonly"/><span>&nbsp;Level</span>
         </div>
@@ -438,7 +453,7 @@
     </div>
   </div>
   <div class="character char-2">
-    <input class="checkline" type="hidden" name="attr_dead_2" value=""/><span class="dead-stamp-2">DEAD</span>
+    <input class="toggle-ctrl" type="hidden" name="attr_dead_2"/><span class="dead-stamp">DEAD</span>
     <div class="row">
       <div class="col single">
         <label>Name</label>
@@ -451,7 +466,21 @@
       <div class="col single">
         <label>Status</label>
         <div class="checklines">
-          <button class="checkline status-dead-2" type="action" name="act_status_dead_2"><span class="checked">X</span></button><span>Dead?</span>
+          <input class="toggle-ctrl" type="hidden" name="attr_dead_2"/>
+          <button class="toggle" type="action" name="act_dead_2"><span class="checked">X</span></button><span>Dead?</span>
+          <script type="text/worker">on(`clicked:dead_2`, function() {
+              getAttrs([`dead_2`], function(values) {
+                // Figure out the new state for charI, since that's the one that changed.
+                var val = "off";
+                if (values[`dead_2`] == "off") {
+                  val = "on";
+                }
+                setAttrs({
+                  [`dead_2`]: val
+                });
+              });
+            });
+          </script>
           <input type="number" name="attr_xp_2" value="0" style="width:4.5em;"/><span>&nbsp;XP</span>
           <input type="number" name="attr_level_2" value="0" style="cursor:default;" readonly="readonly"/><span>&nbsp;Level</span>
         </div>
@@ -828,7 +857,7 @@
     </div>
   </div>
   <div class="character char-3">
-    <input class="checkline" type="hidden" name="attr_dead_3" value=""/><span class="dead-stamp-3">DEAD</span>
+    <input class="toggle-ctrl" type="hidden" name="attr_dead_3"/><span class="dead-stamp">DEAD</span>
     <div class="row">
       <div class="col single">
         <label>Name</label>
@@ -841,7 +870,21 @@
       <div class="col single">
         <label>Status</label>
         <div class="checklines">
-          <button class="checkline status-dead-3" type="action" name="act_status_dead_3"><span class="checked">X</span></button><span>Dead?</span>
+          <input class="toggle-ctrl" type="hidden" name="attr_dead_3"/>
+          <button class="toggle" type="action" name="act_dead_3"><span class="checked">X</span></button><span>Dead?</span>
+          <script type="text/worker">on(`clicked:dead_3`, function() {
+              getAttrs([`dead_3`], function(values) {
+                // Figure out the new state for charI, since that's the one that changed.
+                var val = "off";
+                if (values[`dead_3`] == "off") {
+                  val = "on";
+                }
+                setAttrs({
+                  [`dead_3`]: val
+                });
+              });
+            });
+          </script>
           <input type="number" name="attr_xp_3" value="0" style="width:4.5em;"/><span>&nbsp;XP</span>
           <input type="number" name="attr_level_3" value="0" style="cursor:default;" readonly="readonly"/><span>&nbsp;Level</span>
         </div>
@@ -1218,7 +1261,7 @@
     </div>
   </div>
   <div class="character char-4">
-    <input class="checkline" type="hidden" name="attr_dead_4" value=""/><span class="dead-stamp-4">DEAD</span>
+    <input class="toggle-ctrl" type="hidden" name="attr_dead_4"/><span class="dead-stamp">DEAD</span>
     <div class="row">
       <div class="col single">
         <label>Name</label>
@@ -1231,7 +1274,21 @@
       <div class="col single">
         <label>Status</label>
         <div class="checklines">
-          <button class="checkline status-dead-4" type="action" name="act_status_dead_4"><span class="checked">X</span></button><span>Dead?</span>
+          <input class="toggle-ctrl" type="hidden" name="attr_dead_4"/>
+          <button class="toggle" type="action" name="act_dead_4"><span class="checked">X</span></button><span>Dead?</span>
+          <script type="text/worker">on(`clicked:dead_4`, function() {
+              getAttrs([`dead_4`], function(values) {
+                // Figure out the new state for charI, since that's the one that changed.
+                var val = "off";
+                if (values[`dead_4`] == "off") {
+                  val = "on";
+                }
+                setAttrs({
+                  [`dead_4`]: val
+                });
+              });
+            });
+          </script>
           <input type="number" name="attr_xp_4" value="0" style="width:4.5em;"/><span>&nbsp;XP</span>
           <input type="number" name="attr_level_4" value="0" style="cursor:default;" readonly="readonly"/><span>&nbsp;Level</span>
         </div>
@@ -1666,30 +1723,6 @@
       });
     })
   }
-  function deadHandlers(charI) {
-    on(`clicked:status_dead_${charI}`, function() {
-      getAttrs([`dead_1`, `dead_2`, `dead_3`, `dead_4`, `total_living`], function(values) {
-        // Figure out the new state for charI, since that's the one that changed.
-        var val = "";
-        if (values[`dead_${charI}`] == "alive") {
-          val = "dead";
-        } else {
-          val = "alive";
-        }
-        // Then figure out the total count of living characters.
-        var count = 0;
-        if (val == "alive") count = 1;
-        for (var c = 1; c <= 4; c++) {
-          if (c == charI) continue;
-          if (values[`dead_${c}`] == "alive") count += 1;
-        }
-        setAttrs({
-          [`dead_${charI}`]: val,
-          [`total_living`]: count
-        });
-      });
-    });
-  }
   function getLevel(xp) {
     if (xp < 10) {
       return 0;
@@ -1809,9 +1842,6 @@
 
     // Defined in alignment.js
     alignmentHandlers(charI);
-
-    // Defined in dead.js
-    deadHandlers(charI);
 
     // Defined in xp.js
     xpHandlers(charI);

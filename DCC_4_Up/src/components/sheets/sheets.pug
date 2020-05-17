@@ -1,6 +1,6 @@
 div(class=`character char-${c}`)
-  input(type="hidden", name=`attr_dead_${c}`, value="").checkline
-  span(class=`dead-stamp-${c}`)
+  +toggle_ctrl("Dead?", c)
+  span(class=`dead-stamp`)
     | DEAD
   div.row
     div.col.single

@@ -10,9 +10,6 @@
     // Defined in alignment.js
     alignmentHandlers(charI);
 
-    // Defined in dead.js
-    deadHandlers(charI);
-
     // Defined in xp.js
     xpHandlers(charI);
 

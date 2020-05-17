@@ -1,6 +1,6 @@
 label Status
 div.checklines
-  +checklines("Status", c, "Dead?")
+  +toggle("Dead?", c)
   +num_attribute("XP", c, 0)(style="width:4.5em")
   span
     | &nbsp;XP

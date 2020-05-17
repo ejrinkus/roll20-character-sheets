@@ -15,7 +15,7 @@ mixin span_beside_num_field(name, c)
     | #{name}:&nbsp;
   input(type="number", name=`attr_${lowername}_${c}`)&attributes(attributes)
 
-// A checkline is a set of inputs similar to radio buttons, but formatted to look more like checkboxes.
+// A checkline is a set of inputs similar to radio buttons, but formatted to look more like the sheet's custom checkboxes.
 mixin checklines(name, c, ...values)
   - var lowername = name.replace(/\W/g, '').toLowerCase();
   each v in values

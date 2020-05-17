@@ -1,0 +1,27 @@
+// A toggle is like a checkbox, but with a different appearance.
+
+mixin toggle_ctrl(name, c)
+  - var lowername = name.replace(/\W/g, '').toLowerCase();
+  input.toggle-ctrl(type="hidden", name=`attr_${lowername}_${c}`)&attributes(attributes)
+
+mixin toggle(name, c)
+  - var lowername = name.replace(/\W/g, '').toLowerCase();
+  +toggle_ctrl(name, c)
+  button.toggle(type="action", name=`act_${lowername}_${c}`)
+    span.checked
+      | X
+  span
+    | #{name}
+  script(type="text/worker").
+    on(`clicked:#{lowername}_#{c}`, function() {
+      getAttrs([`#{lowername}_#{c}`], function(values) {
+        // Figure out the new state for charI, since that's the one that changed.
+        var val = "off";
+        if (values[`#{lowername}_#{c}`] == "off") {
+          val = "on";
+        }
+        setAttrs({
+          [`#{lowername}_#{c}`]: val
+        });
+      });
+    });

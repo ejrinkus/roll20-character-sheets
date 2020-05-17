@@ -1,0 +1,26 @@
+@for $i from 1 through 4 {
+  input.sheet-toggle-ctrl[value="off"] ~ button.sheet-toggle {
+    > span.sheet-checked {
+      background: transparent;
+      color: transparent !important;
+    }
+  }
+}
+
+button.sheet-toggle {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;  
+  width: 14px;
+  height: 14px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  > span.sheet-checked {
+    color: black;
+    display: inline-flex;
+  }
+  ~ span {
+    margin-right: 10px;
+  }
+}
