@@ -21,7 +21,7 @@
     return -3;
   }
   
-  function equipHandlers(charI) {
+  function modHandlers(charI) {
     attributes.forEach(function(attr) {
       on(`change:${attr}_${charI} sheet:opened`, function() {
         getAttrs([`${attr}_${charI}`], function(values) {

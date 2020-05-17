@@ -4,7 +4,29 @@
 <!-- Pre-built input for text attributes.-->
 <!-- Pre-built input for numeric attributes.-->
 <!-- Simple number inputs labelled by a span to the left of the input.-->
-<!-- Creates an attribute row, consisting of a label, two number inputs, and two roll buttons (trained and untrained).-->
+<!-- Creates a score row.  A basic score row contains a label and numeric-->
+<!-- attribute field.-->
+<!---->
+<!-- If |has_mod| is true, the row will additionally have a readonly field-->
+<!-- containing the modifier.  Note that a separate script should be written for-->
+<!-- the component that can calculate this modifier when the score changes.-->
+<!-- If this is false, and there are rolls specified, the rolls will use the-->
+<!-- value of the score itself to modify the roll.-->
+<!---->
+<!-- If |has_tracker| is true specified, then all rolls will be sent to the turn-->
+<!-- tracker.-->
+<!---->
+<!-- If |is_ratio| is true, then the score will be treated as a ratio and a-->
+<!-- second numeric field will be added representing the maximum value for the-->
+<!-- score.  The two fields will be separated by a '/'.  This flag is mutually-->
+<!-- exclusive with |has_mod|.  Setting both to 'true' is undefined behavior.-->
+<!---->
+<!-- The |rolls| rest args contains a list of [name, msg, prefix, die_class]-->
+<!-- tuples.  For each tuple, a roll button will be added to the row.  |name|-->
+<!-- will be used in the roll name so that each button's roll can be easily-->
+<!-- referenced in macros.  Each button will roll the given |prefix| modified by-->
+<!-- this row's modifier (if one exists).  |msg| is used in the roll text to-->
+<!-- differentiate between the different version of the roll.-->
 <!-- A toggle is like a checkbox, but with a different appearance.-->
 <!-- Hidden "control" inputs to help drive sheet behavior.-->
 <input class="control-char" type="hidden" name="attr_character" value="1"/>
@@ -125,7 +147,7 @@
       <!-- attributes.pug consists of two div.col.single elements-->
       <div class="col single">
         <div class="row">
-          <label>Attributes</label>
+          <label>Ability Scores</label>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -138,11 +160,12 @@
             <input type="number" name="attr_STR_1_mod" style="cursor:default" readonly="readonly"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_1} rolls a trained STR check: [[1d20 + @{STR_1_mod}]]" name="roll_STRTrained1"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{STR_1_mod} trained STR check for @{name_1}" name="roll_STRTrained1"></button>
           </div>
           <div class="col">
-            <button class="d10" type="roll" value="/em @{name_1} rolls an untrained STR check: [[1d10 + @{STR_1_mod}]]" name="roll_STRUntrained1"></button>
+            <button class="d10" type="roll" value="/r 1d10 + @{STR_1_mod}  untrained STR check for @{name_1}" name="roll_STRUntrained1"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -155,11 +178,12 @@
             <input type="number" name="attr_AGI_1_mod" style="cursor:default" readonly="readonly"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_1} rolls a trained AGI check: [[1d20 + @{AGI_1_mod}]]" name="roll_AGITrained1"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{AGI_1_mod} trained AGI check for @{name_1}" name="roll_AGITrained1"></button>
           </div>
           <div class="col">
-            <button class="d10" type="roll" value="/em @{name_1} rolls an untrained AGI check: [[1d10 + @{AGI_1_mod}]]" name="roll_AGIUntrained1"></button>
+            <button class="d10" type="roll" value="/r 1d10 + @{AGI_1_mod}  untrained AGI check for @{name_1}" name="roll_AGIUntrained1"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -172,11 +196,12 @@
             <input type="number" name="attr_STA_1_mod" style="cursor:default" readonly="readonly"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_1} rolls a trained STA check: [[1d20 + @{STA_1_mod}]]" name="roll_STATrained1"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{STA_1_mod} trained STA check for @{name_1}" name="roll_STATrained1"></button>
           </div>
           <div class="col">
-            <button class="d10" type="roll" value="/em @{name_1} rolls an untrained STA check: [[1d10 + @{STA_1_mod}]]" name="roll_STAUntrained1"></button>
+            <button class="d10" type="roll" value="/r 1d10 + @{STA_1_mod}  untrained STA check for @{name_1}" name="roll_STAUntrained1"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -189,11 +214,12 @@
             <input type="number" name="attr_PER_1_mod" style="cursor:default" readonly="readonly"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_1} rolls a trained PER check: [[1d20 + @{PER_1_mod}]]" name="roll_PERTrained1"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{PER_1_mod} trained PER check for @{name_1}" name="roll_PERTrained1"></button>
           </div>
           <div class="col">
-            <button class="d10" type="roll" value="/em @{name_1} rolls an untrained PER check: [[1d10 + @{PER_1_mod}]]" name="roll_PERUntrained1"></button>
+            <button class="d10" type="roll" value="/r 1d10 + @{PER_1_mod}  untrained PER check for @{name_1}" name="roll_PERUntrained1"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -206,11 +232,12 @@
             <input type="number" name="attr_INT_1_mod" style="cursor:default" readonly="readonly"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_1} rolls a trained INT check: [[1d20 + @{INT_1_mod}]]" name="roll_INTTrained1"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{INT_1_mod} trained INT check for @{name_1}" name="roll_INTTrained1"></button>
           </div>
           <div class="col">
-            <button class="d10" type="roll" value="/em @{name_1} rolls an untrained INT check: [[1d10 + @{INT_1_mod}]]" name="roll_INTUntrained1"></button>
+            <button class="d10" type="roll" value="/r 1d10 + @{INT_1_mod}  untrained INT check for @{name_1}" name="roll_INTUntrained1"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -223,11 +250,12 @@
             <input type="number" name="attr_LUC_1_mod" style="cursor:default" readonly="readonly"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_1} rolls a trained LUC check: [[1d20 + @{LUC_1_mod}]]" name="roll_LUCTrained1"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{LUC_1_mod} trained LUC check for @{name_1}" name="roll_LUCTrained1"></button>
           </div>
           <div class="col">
-            <button class="d10" type="roll" value="/em @{name_1} rolls an untrained LUC check: [[1d10 + @{LUC_1_mod}]]" name="roll_LUCUntrained1"></button>
+            <button class="d10" type="roll" value="/r 1d10 + @{LUC_1_mod}  untrained LUC check for @{name_1}" name="roll_LUCUntrained1"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
       </div>
       <div class="col single">
@@ -248,8 +276,9 @@
             <input type="number" name="attr_REF_1"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_1} rolls a REF save: [[1d20 + @{REF_1}]]" name="roll_REFSave1"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{REF_1} REF save for @{name_1}" name="roll_REF1"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -259,8 +288,9 @@
             <input type="number" name="attr_FOR_1"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_1} rolls a FOR save: [[1d20 + @{FOR_1}]]" name="roll_FORSave1"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{FOR_1} FOR save for @{name_1}" name="roll_FOR1"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -270,13 +300,14 @@
             <input type="number" name="attr_WIL_1"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_1} rolls a WIL save: [[1d20 + @{WIL_1}]]" name="roll_WILSave1"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{WIL_1} WIL save for @{name_1}" name="roll_WIL1"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
       </div>
       <div class="col single">
         <div class="row">
-          <label>Attributes (cont.)</label>
+          <label>Other Stats</label>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -291,6 +322,7 @@
           <div class="col">
             <input type="number" name="attr_HP_1_max"/>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -299,6 +331,7 @@
           <div class="col">
             <input type="number" name="attr_MOV_1"/>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -307,6 +340,7 @@
           <div class="col">
             <input type="number" name="attr_AC_1"/>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -316,8 +350,9 @@
             <input type="number" name="attr_INI_1"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_1} rolls for initiative: [[1d20 + @{INI_1} &amp;{tracker}]]" name="roll_INI1"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{INI_1} &amp;{tracker} initiative for @{name_1}" name="roll_INI1"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
       </div>
     </div>
@@ -548,7 +583,7 @@
       <!-- attributes.pug consists of two div.col.single elements-->
       <div class="col single">
         <div class="row">
-          <label>Attributes</label>
+          <label>Ability Scores</label>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -561,11 +596,12 @@
             <input type="number" name="attr_STR_2_mod" style="cursor:default" readonly="readonly"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_2} rolls a trained STR check: [[1d20 + @{STR_2_mod}]]" name="roll_STRTrained2"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{STR_2_mod} trained STR check for @{name_2}" name="roll_STRTrained2"></button>
           </div>
           <div class="col">
-            <button class="d10" type="roll" value="/em @{name_2} rolls an untrained STR check: [[1d10 + @{STR_2_mod}]]" name="roll_STRUntrained2"></button>
+            <button class="d10" type="roll" value="/r 1d10 + @{STR_2_mod}  untrained STR check for @{name_2}" name="roll_STRUntrained2"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -578,11 +614,12 @@
             <input type="number" name="attr_AGI_2_mod" style="cursor:default" readonly="readonly"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_2} rolls a trained AGI check: [[1d20 + @{AGI_2_mod}]]" name="roll_AGITrained2"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{AGI_2_mod} trained AGI check for @{name_2}" name="roll_AGITrained2"></button>
           </div>
           <div class="col">
-            <button class="d10" type="roll" value="/em @{name_2} rolls an untrained AGI check: [[1d10 + @{AGI_2_mod}]]" name="roll_AGIUntrained2"></button>
+            <button class="d10" type="roll" value="/r 1d10 + @{AGI_2_mod}  untrained AGI check for @{name_2}" name="roll_AGIUntrained2"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -595,11 +632,12 @@
             <input type="number" name="attr_STA_2_mod" style="cursor:default" readonly="readonly"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_2} rolls a trained STA check: [[1d20 + @{STA_2_mod}]]" name="roll_STATrained2"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{STA_2_mod} trained STA check for @{name_2}" name="roll_STATrained2"></button>
           </div>
           <div class="col">
-            <button class="d10" type="roll" value="/em @{name_2} rolls an untrained STA check: [[1d10 + @{STA_2_mod}]]" name="roll_STAUntrained2"></button>
+            <button class="d10" type="roll" value="/r 1d10 + @{STA_2_mod}  untrained STA check for @{name_2}" name="roll_STAUntrained2"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -612,11 +650,12 @@
             <input type="number" name="attr_PER_2_mod" style="cursor:default" readonly="readonly"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_2} rolls a trained PER check: [[1d20 + @{PER_2_mod}]]" name="roll_PERTrained2"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{PER_2_mod} trained PER check for @{name_2}" name="roll_PERTrained2"></button>
           </div>
           <div class="col">
-            <button class="d10" type="roll" value="/em @{name_2} rolls an untrained PER check: [[1d10 + @{PER_2_mod}]]" name="roll_PERUntrained2"></button>
+            <button class="d10" type="roll" value="/r 1d10 + @{PER_2_mod}  untrained PER check for @{name_2}" name="roll_PERUntrained2"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -629,11 +668,12 @@
             <input type="number" name="attr_INT_2_mod" style="cursor:default" readonly="readonly"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_2} rolls a trained INT check: [[1d20 + @{INT_2_mod}]]" name="roll_INTTrained2"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{INT_2_mod} trained INT check for @{name_2}" name="roll_INTTrained2"></button>
           </div>
           <div class="col">
-            <button class="d10" type="roll" value="/em @{name_2} rolls an untrained INT check: [[1d10 + @{INT_2_mod}]]" name="roll_INTUntrained2"></button>
+            <button class="d10" type="roll" value="/r 1d10 + @{INT_2_mod}  untrained INT check for @{name_2}" name="roll_INTUntrained2"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -646,11 +686,12 @@
             <input type="number" name="attr_LUC_2_mod" style="cursor:default" readonly="readonly"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_2} rolls a trained LUC check: [[1d20 + @{LUC_2_mod}]]" name="roll_LUCTrained2"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{LUC_2_mod} trained LUC check for @{name_2}" name="roll_LUCTrained2"></button>
           </div>
           <div class="col">
-            <button class="d10" type="roll" value="/em @{name_2} rolls an untrained LUC check: [[1d10 + @{LUC_2_mod}]]" name="roll_LUCUntrained2"></button>
+            <button class="d10" type="roll" value="/r 1d10 + @{LUC_2_mod}  untrained LUC check for @{name_2}" name="roll_LUCUntrained2"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
       </div>
       <div class="col single">
@@ -671,8 +712,9 @@
             <input type="number" name="attr_REF_2"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_2} rolls a REF save: [[1d20 + @{REF_2}]]" name="roll_REFSave2"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{REF_2} REF save for @{name_2}" name="roll_REF2"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -682,8 +724,9 @@
             <input type="number" name="attr_FOR_2"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_2} rolls a FOR save: [[1d20 + @{FOR_2}]]" name="roll_FORSave2"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{FOR_2} FOR save for @{name_2}" name="roll_FOR2"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -693,13 +736,14 @@
             <input type="number" name="attr_WIL_2"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_2} rolls a WIL save: [[1d20 + @{WIL_2}]]" name="roll_WILSave2"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{WIL_2} WIL save for @{name_2}" name="roll_WIL2"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
       </div>
       <div class="col single">
         <div class="row">
-          <label>Attributes (cont.)</label>
+          <label>Other Stats</label>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -714,6 +758,7 @@
           <div class="col">
             <input type="number" name="attr_HP_2_max"/>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -722,6 +767,7 @@
           <div class="col">
             <input type="number" name="attr_MOV_2"/>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -730,6 +776,7 @@
           <div class="col">
             <input type="number" name="attr_AC_2"/>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -739,8 +786,9 @@
             <input type="number" name="attr_INI_2"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_2} rolls for initiative: [[1d20 + @{INI_2} &amp;{tracker}]]" name="roll_INI2"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{INI_2} &amp;{tracker} initiative for @{name_2}" name="roll_INI2"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
       </div>
     </div>
@@ -971,7 +1019,7 @@
       <!-- attributes.pug consists of two div.col.single elements-->
       <div class="col single">
         <div class="row">
-          <label>Attributes</label>
+          <label>Ability Scores</label>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -984,11 +1032,12 @@
             <input type="number" name="attr_STR_3_mod" style="cursor:default" readonly="readonly"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_3} rolls a trained STR check: [[1d20 + @{STR_3_mod}]]" name="roll_STRTrained3"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{STR_3_mod} trained STR check for @{name_3}" name="roll_STRTrained3"></button>
           </div>
           <div class="col">
-            <button class="d10" type="roll" value="/em @{name_3} rolls an untrained STR check: [[1d10 + @{STR_3_mod}]]" name="roll_STRUntrained3"></button>
+            <button class="d10" type="roll" value="/r 1d10 + @{STR_3_mod}  untrained STR check for @{name_3}" name="roll_STRUntrained3"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -1001,11 +1050,12 @@
             <input type="number" name="attr_AGI_3_mod" style="cursor:default" readonly="readonly"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_3} rolls a trained AGI check: [[1d20 + @{AGI_3_mod}]]" name="roll_AGITrained3"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{AGI_3_mod} trained AGI check for @{name_3}" name="roll_AGITrained3"></button>
           </div>
           <div class="col">
-            <button class="d10" type="roll" value="/em @{name_3} rolls an untrained AGI check: [[1d10 + @{AGI_3_mod}]]" name="roll_AGIUntrained3"></button>
+            <button class="d10" type="roll" value="/r 1d10 + @{AGI_3_mod}  untrained AGI check for @{name_3}" name="roll_AGIUntrained3"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -1018,11 +1068,12 @@
             <input type="number" name="attr_STA_3_mod" style="cursor:default" readonly="readonly"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_3} rolls a trained STA check: [[1d20 + @{STA_3_mod}]]" name="roll_STATrained3"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{STA_3_mod} trained STA check for @{name_3}" name="roll_STATrained3"></button>
           </div>
           <div class="col">
-            <button class="d10" type="roll" value="/em @{name_3} rolls an untrained STA check: [[1d10 + @{STA_3_mod}]]" name="roll_STAUntrained3"></button>
+            <button class="d10" type="roll" value="/r 1d10 + @{STA_3_mod}  untrained STA check for @{name_3}" name="roll_STAUntrained3"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -1035,11 +1086,12 @@
             <input type="number" name="attr_PER_3_mod" style="cursor:default" readonly="readonly"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_3} rolls a trained PER check: [[1d20 + @{PER_3_mod}]]" name="roll_PERTrained3"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{PER_3_mod} trained PER check for @{name_3}" name="roll_PERTrained3"></button>
           </div>
           <div class="col">
-            <button class="d10" type="roll" value="/em @{name_3} rolls an untrained PER check: [[1d10 + @{PER_3_mod}]]" name="roll_PERUntrained3"></button>
+            <button class="d10" type="roll" value="/r 1d10 + @{PER_3_mod}  untrained PER check for @{name_3}" name="roll_PERUntrained3"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -1052,11 +1104,12 @@
             <input type="number" name="attr_INT_3_mod" style="cursor:default" readonly="readonly"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_3} rolls a trained INT check: [[1d20 + @{INT_3_mod}]]" name="roll_INTTrained3"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{INT_3_mod} trained INT check for @{name_3}" name="roll_INTTrained3"></button>
           </div>
           <div class="col">
-            <button class="d10" type="roll" value="/em @{name_3} rolls an untrained INT check: [[1d10 + @{INT_3_mod}]]" name="roll_INTUntrained3"></button>
+            <button class="d10" type="roll" value="/r 1d10 + @{INT_3_mod}  untrained INT check for @{name_3}" name="roll_INTUntrained3"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -1069,11 +1122,12 @@
             <input type="number" name="attr_LUC_3_mod" style="cursor:default" readonly="readonly"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_3} rolls a trained LUC check: [[1d20 + @{LUC_3_mod}]]" name="roll_LUCTrained3"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{LUC_3_mod} trained LUC check for @{name_3}" name="roll_LUCTrained3"></button>
           </div>
           <div class="col">
-            <button class="d10" type="roll" value="/em @{name_3} rolls an untrained LUC check: [[1d10 + @{LUC_3_mod}]]" name="roll_LUCUntrained3"></button>
+            <button class="d10" type="roll" value="/r 1d10 + @{LUC_3_mod}  untrained LUC check for @{name_3}" name="roll_LUCUntrained3"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
       </div>
       <div class="col single">
@@ -1094,8 +1148,9 @@
             <input type="number" name="attr_REF_3"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_3} rolls a REF save: [[1d20 + @{REF_3}]]" name="roll_REFSave3"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{REF_3} REF save for @{name_3}" name="roll_REF3"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -1105,8 +1160,9 @@
             <input type="number" name="attr_FOR_3"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_3} rolls a FOR save: [[1d20 + @{FOR_3}]]" name="roll_FORSave3"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{FOR_3} FOR save for @{name_3}" name="roll_FOR3"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -1116,13 +1172,14 @@
             <input type="number" name="attr_WIL_3"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_3} rolls a WIL save: [[1d20 + @{WIL_3}]]" name="roll_WILSave3"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{WIL_3} WIL save for @{name_3}" name="roll_WIL3"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
       </div>
       <div class="col single">
         <div class="row">
-          <label>Attributes (cont.)</label>
+          <label>Other Stats</label>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -1137,6 +1194,7 @@
           <div class="col">
             <input type="number" name="attr_HP_3_max"/>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -1145,6 +1203,7 @@
           <div class="col">
             <input type="number" name="attr_MOV_3"/>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -1153,6 +1212,7 @@
           <div class="col">
             <input type="number" name="attr_AC_3"/>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -1162,8 +1222,9 @@
             <input type="number" name="attr_INI_3"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_3} rolls for initiative: [[1d20 + @{INI_3} &amp;{tracker}]]" name="roll_INI3"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{INI_3} &amp;{tracker} initiative for @{name_3}" name="roll_INI3"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
       </div>
     </div>
@@ -1394,7 +1455,7 @@
       <!-- attributes.pug consists of two div.col.single elements-->
       <div class="col single">
         <div class="row">
-          <label>Attributes</label>
+          <label>Ability Scores</label>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -1407,11 +1468,12 @@
             <input type="number" name="attr_STR_4_mod" style="cursor:default" readonly="readonly"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_4} rolls a trained STR check: [[1d20 + @{STR_4_mod}]]" name="roll_STRTrained4"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{STR_4_mod} trained STR check for @{name_4}" name="roll_STRTrained4"></button>
           </div>
           <div class="col">
-            <button class="d10" type="roll" value="/em @{name_4} rolls an untrained STR check: [[1d10 + @{STR_4_mod}]]" name="roll_STRUntrained4"></button>
+            <button class="d10" type="roll" value="/r 1d10 + @{STR_4_mod}  untrained STR check for @{name_4}" name="roll_STRUntrained4"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -1424,11 +1486,12 @@
             <input type="number" name="attr_AGI_4_mod" style="cursor:default" readonly="readonly"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_4} rolls a trained AGI check: [[1d20 + @{AGI_4_mod}]]" name="roll_AGITrained4"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{AGI_4_mod} trained AGI check for @{name_4}" name="roll_AGITrained4"></button>
           </div>
           <div class="col">
-            <button class="d10" type="roll" value="/em @{name_4} rolls an untrained AGI check: [[1d10 + @{AGI_4_mod}]]" name="roll_AGIUntrained4"></button>
+            <button class="d10" type="roll" value="/r 1d10 + @{AGI_4_mod}  untrained AGI check for @{name_4}" name="roll_AGIUntrained4"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -1441,11 +1504,12 @@
             <input type="number" name="attr_STA_4_mod" style="cursor:default" readonly="readonly"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_4} rolls a trained STA check: [[1d20 + @{STA_4_mod}]]" name="roll_STATrained4"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{STA_4_mod} trained STA check for @{name_4}" name="roll_STATrained4"></button>
           </div>
           <div class="col">
-            <button class="d10" type="roll" value="/em @{name_4} rolls an untrained STA check: [[1d10 + @{STA_4_mod}]]" name="roll_STAUntrained4"></button>
+            <button class="d10" type="roll" value="/r 1d10 + @{STA_4_mod}  untrained STA check for @{name_4}" name="roll_STAUntrained4"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -1458,11 +1522,12 @@
             <input type="number" name="attr_PER_4_mod" style="cursor:default" readonly="readonly"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_4} rolls a trained PER check: [[1d20 + @{PER_4_mod}]]" name="roll_PERTrained4"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{PER_4_mod} trained PER check for @{name_4}" name="roll_PERTrained4"></button>
           </div>
           <div class="col">
-            <button class="d10" type="roll" value="/em @{name_4} rolls an untrained PER check: [[1d10 + @{PER_4_mod}]]" name="roll_PERUntrained4"></button>
+            <button class="d10" type="roll" value="/r 1d10 + @{PER_4_mod}  untrained PER check for @{name_4}" name="roll_PERUntrained4"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -1475,11 +1540,12 @@
             <input type="number" name="attr_INT_4_mod" style="cursor:default" readonly="readonly"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_4} rolls a trained INT check: [[1d20 + @{INT_4_mod}]]" name="roll_INTTrained4"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{INT_4_mod} trained INT check for @{name_4}" name="roll_INTTrained4"></button>
           </div>
           <div class="col">
-            <button class="d10" type="roll" value="/em @{name_4} rolls an untrained INT check: [[1d10 + @{INT_4_mod}]]" name="roll_INTUntrained4"></button>
+            <button class="d10" type="roll" value="/r 1d10 + @{INT_4_mod}  untrained INT check for @{name_4}" name="roll_INTUntrained4"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -1492,11 +1558,12 @@
             <input type="number" name="attr_LUC_4_mod" style="cursor:default" readonly="readonly"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_4} rolls a trained LUC check: [[1d20 + @{LUC_4_mod}]]" name="roll_LUCTrained4"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{LUC_4_mod} trained LUC check for @{name_4}" name="roll_LUCTrained4"></button>
           </div>
           <div class="col">
-            <button class="d10" type="roll" value="/em @{name_4} rolls an untrained LUC check: [[1d10 + @{LUC_4_mod}]]" name="roll_LUCUntrained4"></button>
+            <button class="d10" type="roll" value="/r 1d10 + @{LUC_4_mod}  untrained LUC check for @{name_4}" name="roll_LUCUntrained4"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
       </div>
       <div class="col single">
@@ -1517,8 +1584,9 @@
             <input type="number" name="attr_REF_4"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_4} rolls a REF save: [[1d20 + @{REF_4}]]" name="roll_REFSave4"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{REF_4} REF save for @{name_4}" name="roll_REF4"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -1528,8 +1596,9 @@
             <input type="number" name="attr_FOR_4"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_4} rolls a FOR save: [[1d20 + @{FOR_4}]]" name="roll_FORSave4"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{FOR_4} FOR save for @{name_4}" name="roll_FOR4"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -1539,13 +1608,14 @@
             <input type="number" name="attr_WIL_4"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_4} rolls a WIL save: [[1d20 + @{WIL_4}]]" name="roll_WILSave4"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{WIL_4} WIL save for @{name_4}" name="roll_WIL4"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
       </div>
       <div class="col single">
         <div class="row">
-          <label>Attributes (cont.)</label>
+          <label>Other Stats</label>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -1560,6 +1630,7 @@
           <div class="col">
             <input type="number" name="attr_HP_4_max"/>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -1568,6 +1639,7 @@
           <div class="col">
             <input type="number" name="attr_MOV_4"/>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -1576,6 +1648,7 @@
           <div class="col">
             <input type="number" name="attr_AC_4"/>
           </div>
+          <script type="text/worker"></script>
         </div>
         <div class="row">
           <div class="col label-inline">
@@ -1585,8 +1658,9 @@
             <input type="number" name="attr_INI_4"/>
           </div>
           <div class="col">
-            <button class="d20" type="roll" value="/em @{name_4} rolls for initiative: [[1d20 + @{INI_4} &amp;{tracker}]]" name="roll_INI4"></button>
+            <button class="d20" type="roll" value="/r 1d20 + @{INI_4} &amp;{tracker} initiative for @{name_4}" name="roll_INI4"></button>
           </div>
+          <script type="text/worker"></script>
         </div>
       </div>
     </div>
@@ -1856,7 +1930,7 @@
     return -3;
   }
   
-  function equipHandlers(charI) {
+  function modHandlers(charI) {
     attributes.forEach(function(attr) {
       on(`change:${attr}_${charI} sheet:opened`, function() {
         getAttrs([`${attr}_${charI}`], function(values) {
@@ -1891,7 +1965,7 @@
       });
     });
   }
-  function modHandlers(charI) {
+  function equipHandlers(charI) {
     on(`change:repeating_equipment${charI}:EquipType${charI}`, function() {
       getAttrs([`repeating_equipment${charI}_EquipType${charI}`], function(values) {
         setAttrs({

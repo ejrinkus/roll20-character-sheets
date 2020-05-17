@@ -1,8 +1,13 @@
 div.col.single
   div.row
-    label Attributes
+    label Ability Scores
   each att in ["STR", "AGI", "STA", "PER", "INT", "LUC"]
-    +attribute(att, c)
+    +score(att, c,
+           true /* has_mod */,
+           false /* has_tracker */,
+           false /* is_ratio */,
+           ["Trained", `trained ${att} check`, "1d20", "d20"],
+           ["Untrained", ` untrained ${att} check`, "1d10", "d10"])
 div.col.single
   div.row
     label Saves
@@ -11,11 +16,25 @@ div.col.single
       // Spacer row, so that REF, FOR and WIL are across from AGI, STA and PER, respectively.
       label &nbsp;
   each save in ["REF", "FOR", "WIL"]
-    +save(save, c)
+    +score(save, c,
+           false /* has_mod */,
+           false /* has_tracker */,
+           false /* is_ratio */,
+           ["", `${save} save`, "1d20", "d20"])
 div.col.single
   div.row
-    label Attributes (cont.)
-  +ratio("HP", c)
+    label Other Stats
+  +score("HP", c,
+         false /* has_mod */,
+         false /* has_tracker */,
+         true /* is_ratio */)
   each stat in ["MOV", "AC"]
-    +label_num_field(stat, c)
-  +initiative(c)
+    +score(stat, c,
+           false /* has_mod */,
+           false /* has_tracker */,
+           false /* is_ratio */)
+  +score("INI", c,
+         false /* has_mod */,
+         true /* has_tracker */,
+         false /* is_ratio */,
+        ["", `initiative`, "1d20", "d20"])

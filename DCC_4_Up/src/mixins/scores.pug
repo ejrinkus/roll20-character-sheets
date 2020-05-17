@@ -1,0 +1,54 @@
+// Creates a score row.  A basic score row contains a label and numeric
+// attribute field.
+//
+// If |has_mod| is true, the row will additionally have a readonly field
+// containing the modifier.  Note that a separate script should be written for
+// the component that can calculate this modifier when the score changes.
+// If this is false, and there are rolls specified, the rolls will use the
+// value of the score itself to modify the roll.
+//
+// If |has_tracker| is true specified, then all rolls will be sent to the turn
+// tracker.
+//
+// If |is_ratio| is true, then the score will be treated as a ratio and a
+// second numeric field will be added representing the maximum value for the
+// score.  The two fields will be separated by a '/'.  This flag is mutually
+// exclusive with |has_mod|.  Setting both to 'true' is undefined behavior.
+//
+// The |rolls| rest args contains a list of [name, msg, prefix, die_class]
+// tuples.  For each tuple, a roll button will be added to the row.  |name|
+// will be used in the roll name so that each button's roll can be easily
+// referenced in macros.  Each button will roll the given |prefix| modified by
+// this row's modifier (if one exists).  |msg| is used in the roll text to
+// differentiate between the different version of the roll.
+mixin score(name, c, has_mod, has_tracker, is_ratio, ...rolls)
+  div.row
+    div.col.label-inline
+      label.short #{name}
+    div.col
+      input(type="number", name=`attr_${name}_${c}`)
+    if has_mod
+      div.col
+        input(type="number", name=`attr_${name}_${c}_mod`, style="cursor:default", readonly)
+    if is_ratio
+      div.col.label-inline(style="width:1em")
+        label(style="font-size:2em") /
+      div.col
+        input(type="number", name=`attr_${name}_${c}_max`)
+    each roll in rolls
+      -
+        var roll_name = roll[0];
+        var msg = roll[1];
+        var r = `/r ${roll[2]}`;
+        if (has_mod) {
+          r = r + ` + @{${name}_${c}_mod}`;
+        } else {
+          r = r + ` + @{${name}_${c}}`;
+        }
+        if (has_tracker) {
+          r = r + " &{tracker}";
+        }
+        r = r + ` ${msg} for @{name_${c}}`;
+      div.col
+        button(class=roll[3], type="roll", value=r, name=`roll_${name}${roll_name}${c}`)
+    script(type="text/worker").
