@@ -18,6 +18,6 @@ mixin checklines(name, c, ...values)
     script(type="text/worker").
       on(`clicked:#{lowername}_#{lowerv}_#{c}`, function() {
         setAttrs({
-          [`#{lowername}_#{c}`]: #{lowerv}
+          [`#{lowername}_#{c}`]: `#{lowerv}`
         });
       });

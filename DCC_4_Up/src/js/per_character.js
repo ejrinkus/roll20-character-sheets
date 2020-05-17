@@ -7,9 +7,6 @@
     // Defined in mods.js
     modHandlers(charI);
 
-    // Defined in alignment.js
-    alignmentHandlers(charI);
-
     // Defined in xp.js
     xpHandlers(charI);
 

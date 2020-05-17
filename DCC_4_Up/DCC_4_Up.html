@@ -91,21 +91,21 @@
           <button class="checkline checkline-lawful" type="action" name="act_alignment_lawful_1"><span class="checked">X</span></button><span>Lawful</span>
           <script type="text/worker">on(`clicked:alignment_lawful_1`, function() {
               setAttrs({
-                [`alignment_1`]: lawful
+                [`alignment_1`]: `lawful`
               });
             });
           </script>
           <button class="checkline checkline-neutral" type="action" name="act_alignment_neutral_1"><span class="checked">X</span></button><span>Neutral</span>
           <script type="text/worker">on(`clicked:alignment_neutral_1`, function() {
               setAttrs({
-                [`alignment_1`]: neutral
+                [`alignment_1`]: `neutral`
               });
             });
           </script>
           <button class="checkline checkline-chaotic" type="action" name="act_alignment_chaotic_1"><span class="checked">X</span></button><span>Chaotic</span>
           <script type="text/worker">on(`clicked:alignment_chaotic_1`, function() {
               setAttrs({
-                [`alignment_1`]: chaotic
+                [`alignment_1`]: `chaotic`
               });
             });
           </script>
@@ -514,21 +514,21 @@
           <button class="checkline checkline-lawful" type="action" name="act_alignment_lawful_2"><span class="checked">X</span></button><span>Lawful</span>
           <script type="text/worker">on(`clicked:alignment_lawful_2`, function() {
               setAttrs({
-                [`alignment_2`]: lawful
+                [`alignment_2`]: `lawful`
               });
             });
           </script>
           <button class="checkline checkline-neutral" type="action" name="act_alignment_neutral_2"><span class="checked">X</span></button><span>Neutral</span>
           <script type="text/worker">on(`clicked:alignment_neutral_2`, function() {
               setAttrs({
-                [`alignment_2`]: neutral
+                [`alignment_2`]: `neutral`
               });
             });
           </script>
           <button class="checkline checkline-chaotic" type="action" name="act_alignment_chaotic_2"><span class="checked">X</span></button><span>Chaotic</span>
           <script type="text/worker">on(`clicked:alignment_chaotic_2`, function() {
               setAttrs({
-                [`alignment_2`]: chaotic
+                [`alignment_2`]: `chaotic`
               });
             });
           </script>
@@ -937,21 +937,21 @@
           <button class="checkline checkline-lawful" type="action" name="act_alignment_lawful_3"><span class="checked">X</span></button><span>Lawful</span>
           <script type="text/worker">on(`clicked:alignment_lawful_3`, function() {
               setAttrs({
-                [`alignment_3`]: lawful
+                [`alignment_3`]: `lawful`
               });
             });
           </script>
           <button class="checkline checkline-neutral" type="action" name="act_alignment_neutral_3"><span class="checked">X</span></button><span>Neutral</span>
           <script type="text/worker">on(`clicked:alignment_neutral_3`, function() {
               setAttrs({
-                [`alignment_3`]: neutral
+                [`alignment_3`]: `neutral`
               });
             });
           </script>
           <button class="checkline checkline-chaotic" type="action" name="act_alignment_chaotic_3"><span class="checked">X</span></button><span>Chaotic</span>
           <script type="text/worker">on(`clicked:alignment_chaotic_3`, function() {
               setAttrs({
-                [`alignment_3`]: chaotic
+                [`alignment_3`]: `chaotic`
               });
             });
           </script>
@@ -1360,21 +1360,21 @@
           <button class="checkline checkline-lawful" type="action" name="act_alignment_lawful_4"><span class="checked">X</span></button><span>Lawful</span>
           <script type="text/worker">on(`clicked:alignment_lawful_4`, function() {
               setAttrs({
-                [`alignment_4`]: lawful
+                [`alignment_4`]: `lawful`
               });
             });
           </script>
           <button class="checkline checkline-neutral" type="action" name="act_alignment_neutral_4"><span class="checked">X</span></button><span>Neutral</span>
           <script type="text/worker">on(`clicked:alignment_neutral_4`, function() {
               setAttrs({
-                [`alignment_4`]: neutral
+                [`alignment_4`]: `neutral`
               });
             });
           </script>
           <button class="checkline checkline-chaotic" type="action" name="act_alignment_chaotic_4"><span class="checked">X</span></button><span>Chaotic</span>
           <script type="text/worker">on(`clicked:alignment_chaotic_4`, function() {
               setAttrs({
-                [`alignment_4`]: chaotic
+                [`alignment_4`]: `chaotic`
               });
             });
           </script>
@@ -1791,15 +1791,6 @@
       });
     });
   }
-  function alignmentHandlers(charI) {
-    alignments.forEach(function(alignment) {
-      on(`clicked:alignment_${alignment}_${charI}`, function() {
-        setAttrs({
-          [`alignment_${charI}`]: alignment
-        });
-      });
-    })
-  }
   function getLevel(xp) {
     if (xp < 10) {
       return 0;
@@ -1916,9 +1907,6 @@
 
     // Defined in mods.js
     modHandlers(charI);
-
-    // Defined in alignment.js
-    alignmentHandlers(charI);
 
     // Defined in xp.js
     xpHandlers(charI);
