@@ -1,13 +1,1719 @@
 
-<div class="root">Root
-  <div class="tab-row">Tabs</div>
-  <div class="character">
+<!-- Pre-built input for text attributes.-->
+<!-- Pre-built input for numeric attributes.-->
+<!-- Simple number inputs labelled by a span to the left of the input.-->
+<!-- A checkline is a set of inputs similar to radio buttons, but formatted to look more like checkboxes.-->
+<!-- Creates an attribute row, consisting of a label, two number inputs, and two roll buttons (trained and untrained).-->
+<!-- Hidden "control" inputs to help drive sheet behavior.-->
+<input class="control-char" type="hidden" name="attr_character" value="1"/>
+<input class="control-survivors" type="hidden" name="attr_total_living" value=""/>
+<!-- More hidden controls, but these need to be per-character.-->
+<input class="control-dead-1" type="hidden" name="attr_dead_1" value=""/>
+<input class="control-alignment-1" type="hidden" name="attr_alignment_1" value="false"/>
+<input class="control-augur-1" type="hidden" name="attr_augur_1" value="0"/>
+<!-- More hidden controls, but these need to be per-character.-->
+<input class="control-dead-2" type="hidden" name="attr_dead_2" value=""/>
+<input class="control-alignment-2" type="hidden" name="attr_alignment_2" value="false"/>
+<input class="control-augur-2" type="hidden" name="attr_augur_2" value="0"/>
+<!-- More hidden controls, but these need to be per-character.-->
+<input class="control-dead-3" type="hidden" name="attr_dead_3" value=""/>
+<input class="control-alignment-3" type="hidden" name="attr_alignment_3" value="false"/>
+<input class="control-augur-3" type="hidden" name="attr_augur_3" value="0"/>
+<!-- More hidden controls, but these need to be per-character.-->
+<input class="control-dead-4" type="hidden" name="attr_dead_4" value=""/>
+<input class="control-alignment-4" type="hidden" name="attr_alignment_4" value="false"/>
+<input class="control-augur-4" type="hidden" name="attr_augur_4" value="0"/>
+<!-- The actual sheet content.-->
+<div class="root">
+  <div class="tabs">
+    <!-- var c is defined in the parent file - DCC_2_by_2.pug, and represents the character number.-->
+    <button class="tab tab-1" type="action" name="act_1_tab">
+      <input class="tabrank" type="text" name="attr_rank_1" value="1"/>
+      <input class="tabtext" type="text" name="attr_name_1" value="Character 1" readonly="readonly"/>
+    </button>
+    <!-- var c is defined in the parent file - DCC_2_by_2.pug, and represents the character number.-->
+    <button class="tab tab-2" type="action" name="act_2_tab">
+      <input class="tabrank" type="text" name="attr_rank_2" value="2"/>
+      <input class="tabtext" type="text" name="attr_name_2" value="Character 2" readonly="readonly"/>
+    </button>
+    <!-- var c is defined in the parent file - DCC_2_by_2.pug, and represents the character number.-->
+    <button class="tab tab-3" type="action" name="act_3_tab">
+      <input class="tabrank" type="text" name="attr_rank_3" value="3"/>
+      <input class="tabtext" type="text" name="attr_name_3" value="Character 3" readonly="readonly"/>
+    </button>
+    <!-- var c is defined in the parent file - DCC_2_by_2.pug, and represents the character number.-->
+    <button class="tab tab-4" type="action" name="act_4_tab">
+      <input class="tabrank" type="text" name="attr_rank_4" value="4"/>
+      <input class="tabtext" type="text" name="attr_name_4" value="Character 4" readonly="readonly"/>
+    </button>
+  </div>
+  <div class="character char-1">
+    <input class="checkline" type="hidden" name="attr_dead_1" value=""/><span class="dead-stamp-1">DEAD</span>
     <div class="row">
-      <div class="col">Name</div>
-      <div class="col">Occupation</div>
-      <div class="col">Level</div>
-      <div class="col">XP</div>
-      <div class="col">Rank</div>
+      <div class="col single">
+        <label>Name</label>
+        <input class="underline" type="text" name="attr_name_1" value="Character 1"/>
+      </div>
+      <div class="col single">
+        <label>Occupation</label>
+        <input class="underline" type="text" name="attr_occupation_1" value=""/>
+      </div>
+      <div class="col single">
+        <label>Status</label>
+        <div class="checklines">
+          <button class="checkline status-dead-1" type="action" name="act_status_dead_1"><span class="checked">X</span></button><span>Dead?</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col single">
+        <label>Alignment</label>
+        <div class="checklines">
+          <button class="checkline alignment-lawful-1" type="action" name="act_alignment_lawful_1"><span class="checked">X</span></button><span>Lawful</span>
+          <button class="checkline alignment-neutral-1" type="action" name="act_alignment_neutral_1"><span class="checked">X</span></button><span>Neutral</span>
+          <button class="checkline alignment-chaotic-1" type="action" name="act_alignment_chaotic_1"><span class="checked">X</span></button><span>Chaotic</span>
+        </div>
+      </div>
+      <div class="col double">
+        <label>Birth Augur</label>
+        <input class="augur" type="number" name="attr_start_luck_1"/>
+        <input class="augur-desc" type="text" value="Luck modifier at Level 0" readonly="readonly"/><br/>
+        <input class="augur" type="number" name="attr_augur_1"/>
+        <input class="augur-desc" type="text" name="attr_augur_desc_1" readonly="readonly"/>
+        <div class="if-healing-1 note">*If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.</div>
+        <div class="if-crit-1 note">**Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.</div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- attributes.pug consists of two div.col.single elements-->
+      <div class="col single">
+        <label>Attributes</label>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">STR</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_STR_1"/>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_STR_1_mod" style="cursor:default" readonly="readonly"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_1} rolls a trained STR check: [[1d20 + @{STR_1_mod}]]" name="roll_STRTrained1"></button>
+          </div>
+          <div class="col">
+            <button class="d10" type="roll" value="/em @{name_1} rolls an untrained STR check: [[1d10 + @{STR_1_mod}]]" name="roll_STRUntrained1"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">AGI</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_AGI_1"/>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_AGI_1_mod" style="cursor:default" readonly="readonly"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_1} rolls a trained AGI check: [[1d20 + @{AGI_1_mod}]]" name="roll_AGITrained1"></button>
+          </div>
+          <div class="col">
+            <button class="d10" type="roll" value="/em @{name_1} rolls an untrained AGI check: [[1d10 + @{AGI_1_mod}]]" name="roll_AGIUntrained1"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">STA</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_STA_1"/>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_STA_1_mod" style="cursor:default" readonly="readonly"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_1} rolls a trained STA check: [[1d20 + @{STA_1_mod}]]" name="roll_STATrained1"></button>
+          </div>
+          <div class="col">
+            <button class="d10" type="roll" value="/em @{name_1} rolls an untrained STA check: [[1d10 + @{STA_1_mod}]]" name="roll_STAUntrained1"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">PER</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_PER_1"/>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_PER_1_mod" style="cursor:default" readonly="readonly"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_1} rolls a trained PER check: [[1d20 + @{PER_1_mod}]]" name="roll_PERTrained1"></button>
+          </div>
+          <div class="col">
+            <button class="d10" type="roll" value="/em @{name_1} rolls an untrained PER check: [[1d10 + @{PER_1_mod}]]" name="roll_PERUntrained1"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">INT</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_INT_1"/>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_INT_1_mod" style="cursor:default" readonly="readonly"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_1} rolls a trained INT check: [[1d20 + @{INT_1_mod}]]" name="roll_INTTrained1"></button>
+          </div>
+          <div class="col">
+            <button class="d10" type="roll" value="/em @{name_1} rolls an untrained INT check: [[1d10 + @{INT_1_mod}]]" name="roll_INTUntrained1"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">LUC</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_LUC_1"/>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_LUC_1_mod" style="cursor:default" readonly="readonly"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_1} rolls a trained LUC check: [[1d20 + @{LUC_1_mod}]]" name="roll_LUCTrained1"></button>
+          </div>
+          <div class="col">
+            <button class="d10" type="roll" value="/em @{name_1} rolls an untrained LUC check: [[1d10 + @{LUC_1_mod}]]" name="roll_LUCUntrained1"></button>
+          </div>
+        </div>
+      </div>
+      <div class="col single">
+        <div class="row">
+          <label>Attributes (cont.)</label>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">HP</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_HP_1"/>
+          </div>
+          <div class="col label-inline" style="width:1em">
+            <label style="font-size:2em">/</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_HP_1_max"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">MOV</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_MOV_1"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">AC</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_AC_1"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">INI</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_INI_1"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_1} rolls for initiative: [[1d20 + @{INI_1} &amp;{tracker}]]" name="roll_INI1"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">REF</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_REF_1"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_1} rolls a REF save: [[1d20 + @{REF_1}]]" name="roll_REFSave1"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">FOR</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_FOR_1"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_1} rolls a FOR save: [[1d20 + @{FOR_1}]]" name="roll_FORSave1"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">WIL</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_WIL_1"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_1} rolls a WIL save: [[1d20 + @{WIL_1}]]" name="roll_WILSave1"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col triple">
+        <label>Equipment</label>
+        <fieldset class="repeating_equipment1">
+          <input class="equip-select" type="hidden" name="attr_EquipSelect1" value=""/>
+          <select class="equip-type" name="attr_EquipType1">
+            <option>&lt;select type&gt;</option>
+            <option>Custom</option>
+            <option>Armor</option>
+            <option>Weapon</option>
+          </select>
+          <div class="equip custom row">
+            <div class="col">
+              <input class="underline" type="text" name="attr_EquipCustom1" value="Custom description"/>
+            </div>
+          </div>
+          <div class="equip armor row">
+            <div class="col">
+              <input class="equip-name underline" type="text" name="attr_EquipArmorName1" value="Armor name"/>
+            </div>
+            <div class="col input-col">
+              <div class="row">
+                <div class="col">
+                  <input type="number" name="attr_EquipArmorClass1"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <input type="number" name="attr_EquipArmorCheckPen1"/>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col label-inline"><span>AC</span></div>
+              </div>
+              <div class="row">
+                <div class="col label-inline"><span>check penalty</span></div>
+              </div>
+            </div>
+            <div class="col input-col">
+              <div class="row">
+                <div class="col">
+                  <input type="number" name="attr_EquipArmorSpeedPen1"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <input class="underline" type="text" name="attr_EquipArmorFumble1"/>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col label-inline"><span>speed penalty</span></div>
+              </div>
+              <div class="row">
+                <div class="col label-inline"><span>fumble die</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="equip weapon row">
+            <div class="col">
+              <input class="equip-name underline" type="text" name="attr_EquipWeapName1" value="Weapon name"/>
+            </div>
+            <div class="col input-col">
+              <div class="row">
+                <div class="col">
+                  <input class="underline" type="text" name="attr_EquipWeapDmg1"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <input class="underline" type="text" name="attr_EquipWeapSneak1"/>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col label-inline"><span>damage</span></div>
+              </div>
+              <div class="row">
+                <div class="col label-inline"><span>sneak damage</span></div>
+              </div>
+            </div>
+            <div class="col input-col">
+              <div class="row">
+                <div class="col">
+                  <input type="text" name="attr_EquipWeapRange1"/>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col label-inline"><span>range</span></div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col double">
+        <label>Notes</label>
+        <textarea name="attr_notes_1"></textarea>
+      </div>
+      <div class="col single">
+        <label>Wealth</label>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">CP</label>
+          </div>
+          <div class="col">
+            <input type="number" style="width:8em" name="attr_CP_1"/> 
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">SP</label>
+          </div>
+          <div class="col">
+            <input type="number" style="width:8em" name="attr_SP_1"/> 1sp = 10cp
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">GP</label>
+          </div>
+          <div class="col">
+            <input type="number" style="width:8em" name="attr_GP_1"/> 1gp = 10sp
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">EP</label>
+          </div>
+          <div class="col">
+            <input type="number" style="width:8em" name="attr_EP_1"/> 1ep = 10gp
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">PP</label>
+          </div>
+          <div class="col">
+            <input type="number" style="width:8em" name="attr_PP_1"/> 1pp = 10ep
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="character char-2">
+    <input class="checkline" type="hidden" name="attr_dead_2" value=""/><span class="dead-stamp-2">DEAD</span>
+    <div class="row">
+      <div class="col single">
+        <label>Name</label>
+        <input class="underline" type="text" name="attr_name_2" value="Character 2"/>
+      </div>
+      <div class="col single">
+        <label>Occupation</label>
+        <input class="underline" type="text" name="attr_occupation_2" value=""/>
+      </div>
+      <div class="col single">
+        <label>Status</label>
+        <div class="checklines">
+          <button class="checkline status-dead-2" type="action" name="act_status_dead_2"><span class="checked">X</span></button><span>Dead?</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col single">
+        <label>Alignment</label>
+        <div class="checklines">
+          <button class="checkline alignment-lawful-2" type="action" name="act_alignment_lawful_2"><span class="checked">X</span></button><span>Lawful</span>
+          <button class="checkline alignment-neutral-2" type="action" name="act_alignment_neutral_2"><span class="checked">X</span></button><span>Neutral</span>
+          <button class="checkline alignment-chaotic-2" type="action" name="act_alignment_chaotic_2"><span class="checked">X</span></button><span>Chaotic</span>
+        </div>
+      </div>
+      <div class="col double">
+        <label>Birth Augur</label>
+        <input class="augur" type="number" name="attr_start_luck_2"/>
+        <input class="augur-desc" type="text" value="Luck modifier at Level 0" readonly="readonly"/><br/>
+        <input class="augur" type="number" name="attr_augur_2"/>
+        <input class="augur-desc" type="text" name="attr_augur_desc_2" readonly="readonly"/>
+        <div class="if-healing-2 note">*If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.</div>
+        <div class="if-crit-2 note">**Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.</div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- attributes.pug consists of two div.col.single elements-->
+      <div class="col single">
+        <label>Attributes</label>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">STR</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_STR_2"/>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_STR_2_mod" style="cursor:default" readonly="readonly"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_2} rolls a trained STR check: [[1d20 + @{STR_2_mod}]]" name="roll_STRTrained2"></button>
+          </div>
+          <div class="col">
+            <button class="d10" type="roll" value="/em @{name_2} rolls an untrained STR check: [[1d10 + @{STR_2_mod}]]" name="roll_STRUntrained2"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">AGI</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_AGI_2"/>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_AGI_2_mod" style="cursor:default" readonly="readonly"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_2} rolls a trained AGI check: [[1d20 + @{AGI_2_mod}]]" name="roll_AGITrained2"></button>
+          </div>
+          <div class="col">
+            <button class="d10" type="roll" value="/em @{name_2} rolls an untrained AGI check: [[1d10 + @{AGI_2_mod}]]" name="roll_AGIUntrained2"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">STA</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_STA_2"/>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_STA_2_mod" style="cursor:default" readonly="readonly"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_2} rolls a trained STA check: [[1d20 + @{STA_2_mod}]]" name="roll_STATrained2"></button>
+          </div>
+          <div class="col">
+            <button class="d10" type="roll" value="/em @{name_2} rolls an untrained STA check: [[1d10 + @{STA_2_mod}]]" name="roll_STAUntrained2"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">PER</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_PER_2"/>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_PER_2_mod" style="cursor:default" readonly="readonly"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_2} rolls a trained PER check: [[1d20 + @{PER_2_mod}]]" name="roll_PERTrained2"></button>
+          </div>
+          <div class="col">
+            <button class="d10" type="roll" value="/em @{name_2} rolls an untrained PER check: [[1d10 + @{PER_2_mod}]]" name="roll_PERUntrained2"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">INT</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_INT_2"/>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_INT_2_mod" style="cursor:default" readonly="readonly"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_2} rolls a trained INT check: [[1d20 + @{INT_2_mod}]]" name="roll_INTTrained2"></button>
+          </div>
+          <div class="col">
+            <button class="d10" type="roll" value="/em @{name_2} rolls an untrained INT check: [[1d10 + @{INT_2_mod}]]" name="roll_INTUntrained2"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">LUC</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_LUC_2"/>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_LUC_2_mod" style="cursor:default" readonly="readonly"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_2} rolls a trained LUC check: [[1d20 + @{LUC_2_mod}]]" name="roll_LUCTrained2"></button>
+          </div>
+          <div class="col">
+            <button class="d10" type="roll" value="/em @{name_2} rolls an untrained LUC check: [[1d10 + @{LUC_2_mod}]]" name="roll_LUCUntrained2"></button>
+          </div>
+        </div>
+      </div>
+      <div class="col single">
+        <div class="row">
+          <label>Attributes (cont.)</label>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">HP</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_HP_2"/>
+          </div>
+          <div class="col label-inline" style="width:1em">
+            <label style="font-size:2em">/</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_HP_2_max"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">MOV</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_MOV_2"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">AC</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_AC_2"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">INI</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_INI_2"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_2} rolls for initiative: [[1d20 + @{INI_2} &amp;{tracker}]]" name="roll_INI2"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">REF</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_REF_2"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_2} rolls a REF save: [[1d20 + @{REF_2}]]" name="roll_REFSave2"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">FOR</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_FOR_2"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_2} rolls a FOR save: [[1d20 + @{FOR_2}]]" name="roll_FORSave2"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">WIL</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_WIL_2"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_2} rolls a WIL save: [[1d20 + @{WIL_2}]]" name="roll_WILSave2"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col triple">
+        <label>Equipment</label>
+        <fieldset class="repeating_equipment2">
+          <input class="equip-select" type="hidden" name="attr_EquipSelect2" value=""/>
+          <select class="equip-type" name="attr_EquipType2">
+            <option>&lt;select type&gt;</option>
+            <option>Custom</option>
+            <option>Armor</option>
+            <option>Weapon</option>
+          </select>
+          <div class="equip custom row">
+            <div class="col">
+              <input class="underline" type="text" name="attr_EquipCustom2" value="Custom description"/>
+            </div>
+          </div>
+          <div class="equip armor row">
+            <div class="col">
+              <input class="equip-name underline" type="text" name="attr_EquipArmorName2" value="Armor name"/>
+            </div>
+            <div class="col input-col">
+              <div class="row">
+                <div class="col">
+                  <input type="number" name="attr_EquipArmorClass2"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <input type="number" name="attr_EquipArmorCheckPen2"/>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col label-inline"><span>AC</span></div>
+              </div>
+              <div class="row">
+                <div class="col label-inline"><span>check penalty</span></div>
+              </div>
+            </div>
+            <div class="col input-col">
+              <div class="row">
+                <div class="col">
+                  <input type="number" name="attr_EquipArmorSpeedPen2"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <input class="underline" type="text" name="attr_EquipArmorFumble2"/>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col label-inline"><span>speed penalty</span></div>
+              </div>
+              <div class="row">
+                <div class="col label-inline"><span>fumble die</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="equip weapon row">
+            <div class="col">
+              <input class="equip-name underline" type="text" name="attr_EquipWeapName2" value="Weapon name"/>
+            </div>
+            <div class="col input-col">
+              <div class="row">
+                <div class="col">
+                  <input class="underline" type="text" name="attr_EquipWeapDmg2"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <input class="underline" type="text" name="attr_EquipWeapSneak2"/>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col label-inline"><span>damage</span></div>
+              </div>
+              <div class="row">
+                <div class="col label-inline"><span>sneak damage</span></div>
+              </div>
+            </div>
+            <div class="col input-col">
+              <div class="row">
+                <div class="col">
+                  <input type="text" name="attr_EquipWeapRange2"/>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col label-inline"><span>range</span></div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col double">
+        <label>Notes</label>
+        <textarea name="attr_notes_2"></textarea>
+      </div>
+      <div class="col single">
+        <label>Wealth</label>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">CP</label>
+          </div>
+          <div class="col">
+            <input type="number" style="width:8em" name="attr_CP_2"/> 
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">SP</label>
+          </div>
+          <div class="col">
+            <input type="number" style="width:8em" name="attr_SP_2"/> 1sp = 10cp
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">GP</label>
+          </div>
+          <div class="col">
+            <input type="number" style="width:8em" name="attr_GP_2"/> 1gp = 10sp
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">EP</label>
+          </div>
+          <div class="col">
+            <input type="number" style="width:8em" name="attr_EP_2"/> 1ep = 10gp
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">PP</label>
+          </div>
+          <div class="col">
+            <input type="number" style="width:8em" name="attr_PP_2"/> 1pp = 10ep
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="character char-3">
+    <input class="checkline" type="hidden" name="attr_dead_3" value=""/><span class="dead-stamp-3">DEAD</span>
+    <div class="row">
+      <div class="col single">
+        <label>Name</label>
+        <input class="underline" type="text" name="attr_name_3" value="Character 3"/>
+      </div>
+      <div class="col single">
+        <label>Occupation</label>
+        <input class="underline" type="text" name="attr_occupation_3" value=""/>
+      </div>
+      <div class="col single">
+        <label>Status</label>
+        <div class="checklines">
+          <button class="checkline status-dead-3" type="action" name="act_status_dead_3"><span class="checked">X</span></button><span>Dead?</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col single">
+        <label>Alignment</label>
+        <div class="checklines">
+          <button class="checkline alignment-lawful-3" type="action" name="act_alignment_lawful_3"><span class="checked">X</span></button><span>Lawful</span>
+          <button class="checkline alignment-neutral-3" type="action" name="act_alignment_neutral_3"><span class="checked">X</span></button><span>Neutral</span>
+          <button class="checkline alignment-chaotic-3" type="action" name="act_alignment_chaotic_3"><span class="checked">X</span></button><span>Chaotic</span>
+        </div>
+      </div>
+      <div class="col double">
+        <label>Birth Augur</label>
+        <input class="augur" type="number" name="attr_start_luck_3"/>
+        <input class="augur-desc" type="text" value="Luck modifier at Level 0" readonly="readonly"/><br/>
+        <input class="augur" type="number" name="attr_augur_3"/>
+        <input class="augur-desc" type="text" name="attr_augur_desc_3" readonly="readonly"/>
+        <div class="if-healing-3 note">*If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.</div>
+        <div class="if-crit-3 note">**Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.</div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- attributes.pug consists of two div.col.single elements-->
+      <div class="col single">
+        <label>Attributes</label>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">STR</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_STR_3"/>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_STR_3_mod" style="cursor:default" readonly="readonly"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_3} rolls a trained STR check: [[1d20 + @{STR_3_mod}]]" name="roll_STRTrained3"></button>
+          </div>
+          <div class="col">
+            <button class="d10" type="roll" value="/em @{name_3} rolls an untrained STR check: [[1d10 + @{STR_3_mod}]]" name="roll_STRUntrained3"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">AGI</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_AGI_3"/>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_AGI_3_mod" style="cursor:default" readonly="readonly"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_3} rolls a trained AGI check: [[1d20 + @{AGI_3_mod}]]" name="roll_AGITrained3"></button>
+          </div>
+          <div class="col">
+            <button class="d10" type="roll" value="/em @{name_3} rolls an untrained AGI check: [[1d10 + @{AGI_3_mod}]]" name="roll_AGIUntrained3"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">STA</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_STA_3"/>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_STA_3_mod" style="cursor:default" readonly="readonly"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_3} rolls a trained STA check: [[1d20 + @{STA_3_mod}]]" name="roll_STATrained3"></button>
+          </div>
+          <div class="col">
+            <button class="d10" type="roll" value="/em @{name_3} rolls an untrained STA check: [[1d10 + @{STA_3_mod}]]" name="roll_STAUntrained3"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">PER</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_PER_3"/>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_PER_3_mod" style="cursor:default" readonly="readonly"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_3} rolls a trained PER check: [[1d20 + @{PER_3_mod}]]" name="roll_PERTrained3"></button>
+          </div>
+          <div class="col">
+            <button class="d10" type="roll" value="/em @{name_3} rolls an untrained PER check: [[1d10 + @{PER_3_mod}]]" name="roll_PERUntrained3"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">INT</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_INT_3"/>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_INT_3_mod" style="cursor:default" readonly="readonly"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_3} rolls a trained INT check: [[1d20 + @{INT_3_mod}]]" name="roll_INTTrained3"></button>
+          </div>
+          <div class="col">
+            <button class="d10" type="roll" value="/em @{name_3} rolls an untrained INT check: [[1d10 + @{INT_3_mod}]]" name="roll_INTUntrained3"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">LUC</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_LUC_3"/>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_LUC_3_mod" style="cursor:default" readonly="readonly"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_3} rolls a trained LUC check: [[1d20 + @{LUC_3_mod}]]" name="roll_LUCTrained3"></button>
+          </div>
+          <div class="col">
+            <button class="d10" type="roll" value="/em @{name_3} rolls an untrained LUC check: [[1d10 + @{LUC_3_mod}]]" name="roll_LUCUntrained3"></button>
+          </div>
+        </div>
+      </div>
+      <div class="col single">
+        <div class="row">
+          <label>Attributes (cont.)</label>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">HP</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_HP_3"/>
+          </div>
+          <div class="col label-inline" style="width:1em">
+            <label style="font-size:2em">/</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_HP_3_max"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">MOV</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_MOV_3"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">AC</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_AC_3"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">INI</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_INI_3"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_3} rolls for initiative: [[1d20 + @{INI_3} &amp;{tracker}]]" name="roll_INI3"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">REF</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_REF_3"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_3} rolls a REF save: [[1d20 + @{REF_3}]]" name="roll_REFSave3"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">FOR</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_FOR_3"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_3} rolls a FOR save: [[1d20 + @{FOR_3}]]" name="roll_FORSave3"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">WIL</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_WIL_3"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_3} rolls a WIL save: [[1d20 + @{WIL_3}]]" name="roll_WILSave3"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col triple">
+        <label>Equipment</label>
+        <fieldset class="repeating_equipment3">
+          <input class="equip-select" type="hidden" name="attr_EquipSelect3" value=""/>
+          <select class="equip-type" name="attr_EquipType3">
+            <option>&lt;select type&gt;</option>
+            <option>Custom</option>
+            <option>Armor</option>
+            <option>Weapon</option>
+          </select>
+          <div class="equip custom row">
+            <div class="col">
+              <input class="underline" type="text" name="attr_EquipCustom3" value="Custom description"/>
+            </div>
+          </div>
+          <div class="equip armor row">
+            <div class="col">
+              <input class="equip-name underline" type="text" name="attr_EquipArmorName3" value="Armor name"/>
+            </div>
+            <div class="col input-col">
+              <div class="row">
+                <div class="col">
+                  <input type="number" name="attr_EquipArmorClass3"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <input type="number" name="attr_EquipArmorCheckPen3"/>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col label-inline"><span>AC</span></div>
+              </div>
+              <div class="row">
+                <div class="col label-inline"><span>check penalty</span></div>
+              </div>
+            </div>
+            <div class="col input-col">
+              <div class="row">
+                <div class="col">
+                  <input type="number" name="attr_EquipArmorSpeedPen3"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <input class="underline" type="text" name="attr_EquipArmorFumble3"/>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col label-inline"><span>speed penalty</span></div>
+              </div>
+              <div class="row">
+                <div class="col label-inline"><span>fumble die</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="equip weapon row">
+            <div class="col">
+              <input class="equip-name underline" type="text" name="attr_EquipWeapName3" value="Weapon name"/>
+            </div>
+            <div class="col input-col">
+              <div class="row">
+                <div class="col">
+                  <input class="underline" type="text" name="attr_EquipWeapDmg3"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <input class="underline" type="text" name="attr_EquipWeapSneak3"/>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col label-inline"><span>damage</span></div>
+              </div>
+              <div class="row">
+                <div class="col label-inline"><span>sneak damage</span></div>
+              </div>
+            </div>
+            <div class="col input-col">
+              <div class="row">
+                <div class="col">
+                  <input type="text" name="attr_EquipWeapRange3"/>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col label-inline"><span>range</span></div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col double">
+        <label>Notes</label>
+        <textarea name="attr_notes_3"></textarea>
+      </div>
+      <div class="col single">
+        <label>Wealth</label>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">CP</label>
+          </div>
+          <div class="col">
+            <input type="number" style="width:8em" name="attr_CP_3"/> 
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">SP</label>
+          </div>
+          <div class="col">
+            <input type="number" style="width:8em" name="attr_SP_3"/> 1sp = 10cp
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">GP</label>
+          </div>
+          <div class="col">
+            <input type="number" style="width:8em" name="attr_GP_3"/> 1gp = 10sp
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">EP</label>
+          </div>
+          <div class="col">
+            <input type="number" style="width:8em" name="attr_EP_3"/> 1ep = 10gp
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">PP</label>
+          </div>
+          <div class="col">
+            <input type="number" style="width:8em" name="attr_PP_3"/> 1pp = 10ep
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="character char-4">
+    <input class="checkline" type="hidden" name="attr_dead_4" value=""/><span class="dead-stamp-4">DEAD</span>
+    <div class="row">
+      <div class="col single">
+        <label>Name</label>
+        <input class="underline" type="text" name="attr_name_4" value="Character 4"/>
+      </div>
+      <div class="col single">
+        <label>Occupation</label>
+        <input class="underline" type="text" name="attr_occupation_4" value=""/>
+      </div>
+      <div class="col single">
+        <label>Status</label>
+        <div class="checklines">
+          <button class="checkline status-dead-4" type="action" name="act_status_dead_4"><span class="checked">X</span></button><span>Dead?</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col single">
+        <label>Alignment</label>
+        <div class="checklines">
+          <button class="checkline alignment-lawful-4" type="action" name="act_alignment_lawful_4"><span class="checked">X</span></button><span>Lawful</span>
+          <button class="checkline alignment-neutral-4" type="action" name="act_alignment_neutral_4"><span class="checked">X</span></button><span>Neutral</span>
+          <button class="checkline alignment-chaotic-4" type="action" name="act_alignment_chaotic_4"><span class="checked">X</span></button><span>Chaotic</span>
+        </div>
+      </div>
+      <div class="col double">
+        <label>Birth Augur</label>
+        <input class="augur" type="number" name="attr_start_luck_4"/>
+        <input class="augur-desc" type="text" value="Luck modifier at Level 0" readonly="readonly"/><br/>
+        <input class="augur" type="number" name="attr_augur_4"/>
+        <input class="augur-desc" type="text" name="attr_augur_desc_4" readonly="readonly"/>
+        <div class="if-healing-4 note">*If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.</div>
+        <div class="if-crit-4 note">**Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.</div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- attributes.pug consists of two div.col.single elements-->
+      <div class="col single">
+        <label>Attributes</label>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">STR</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_STR_4"/>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_STR_4_mod" style="cursor:default" readonly="readonly"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_4} rolls a trained STR check: [[1d20 + @{STR_4_mod}]]" name="roll_STRTrained4"></button>
+          </div>
+          <div class="col">
+            <button class="d10" type="roll" value="/em @{name_4} rolls an untrained STR check: [[1d10 + @{STR_4_mod}]]" name="roll_STRUntrained4"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">AGI</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_AGI_4"/>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_AGI_4_mod" style="cursor:default" readonly="readonly"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_4} rolls a trained AGI check: [[1d20 + @{AGI_4_mod}]]" name="roll_AGITrained4"></button>
+          </div>
+          <div class="col">
+            <button class="d10" type="roll" value="/em @{name_4} rolls an untrained AGI check: [[1d10 + @{AGI_4_mod}]]" name="roll_AGIUntrained4"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">STA</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_STA_4"/>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_STA_4_mod" style="cursor:default" readonly="readonly"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_4} rolls a trained STA check: [[1d20 + @{STA_4_mod}]]" name="roll_STATrained4"></button>
+          </div>
+          <div class="col">
+            <button class="d10" type="roll" value="/em @{name_4} rolls an untrained STA check: [[1d10 + @{STA_4_mod}]]" name="roll_STAUntrained4"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">PER</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_PER_4"/>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_PER_4_mod" style="cursor:default" readonly="readonly"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_4} rolls a trained PER check: [[1d20 + @{PER_4_mod}]]" name="roll_PERTrained4"></button>
+          </div>
+          <div class="col">
+            <button class="d10" type="roll" value="/em @{name_4} rolls an untrained PER check: [[1d10 + @{PER_4_mod}]]" name="roll_PERUntrained4"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">INT</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_INT_4"/>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_INT_4_mod" style="cursor:default" readonly="readonly"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_4} rolls a trained INT check: [[1d20 + @{INT_4_mod}]]" name="roll_INTTrained4"></button>
+          </div>
+          <div class="col">
+            <button class="d10" type="roll" value="/em @{name_4} rolls an untrained INT check: [[1d10 + @{INT_4_mod}]]" name="roll_INTUntrained4"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">LUC</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_LUC_4"/>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_LUC_4_mod" style="cursor:default" readonly="readonly"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_4} rolls a trained LUC check: [[1d20 + @{LUC_4_mod}]]" name="roll_LUCTrained4"></button>
+          </div>
+          <div class="col">
+            <button class="d10" type="roll" value="/em @{name_4} rolls an untrained LUC check: [[1d10 + @{LUC_4_mod}]]" name="roll_LUCUntrained4"></button>
+          </div>
+        </div>
+      </div>
+      <div class="col single">
+        <div class="row">
+          <label>Attributes (cont.)</label>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">HP</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_HP_4"/>
+          </div>
+          <div class="col label-inline" style="width:1em">
+            <label style="font-size:2em">/</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_HP_4_max"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">MOV</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_MOV_4"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">AC</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_AC_4"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">INI</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_INI_4"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_4} rolls for initiative: [[1d20 + @{INI_4} &amp;{tracker}]]" name="roll_INI4"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">REF</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_REF_4"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_4} rolls a REF save: [[1d20 + @{REF_4}]]" name="roll_REFSave4"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">FOR</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_FOR_4"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_4} rolls a FOR save: [[1d20 + @{FOR_4}]]" name="roll_FORSave4"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">WIL</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_WIL_4"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_4} rolls a WIL save: [[1d20 + @{WIL_4}]]" name="roll_WILSave4"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col triple">
+        <label>Equipment</label>
+        <fieldset class="repeating_equipment4">
+          <input class="equip-select" type="hidden" name="attr_EquipSelect4" value=""/>
+          <select class="equip-type" name="attr_EquipType4">
+            <option>&lt;select type&gt;</option>
+            <option>Custom</option>
+            <option>Armor</option>
+            <option>Weapon</option>
+          </select>
+          <div class="equip custom row">
+            <div class="col">
+              <input class="underline" type="text" name="attr_EquipCustom4" value="Custom description"/>
+            </div>
+          </div>
+          <div class="equip armor row">
+            <div class="col">
+              <input class="equip-name underline" type="text" name="attr_EquipArmorName4" value="Armor name"/>
+            </div>
+            <div class="col input-col">
+              <div class="row">
+                <div class="col">
+                  <input type="number" name="attr_EquipArmorClass4"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <input type="number" name="attr_EquipArmorCheckPen4"/>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col label-inline"><span>AC</span></div>
+              </div>
+              <div class="row">
+                <div class="col label-inline"><span>check penalty</span></div>
+              </div>
+            </div>
+            <div class="col input-col">
+              <div class="row">
+                <div class="col">
+                  <input type="number" name="attr_EquipArmorSpeedPen4"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <input class="underline" type="text" name="attr_EquipArmorFumble4"/>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col label-inline"><span>speed penalty</span></div>
+              </div>
+              <div class="row">
+                <div class="col label-inline"><span>fumble die</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="equip weapon row">
+            <div class="col">
+              <input class="equip-name underline" type="text" name="attr_EquipWeapName4" value="Weapon name"/>
+            </div>
+            <div class="col input-col">
+              <div class="row">
+                <div class="col">
+                  <input class="underline" type="text" name="attr_EquipWeapDmg4"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <input class="underline" type="text" name="attr_EquipWeapSneak4"/>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col label-inline"><span>damage</span></div>
+              </div>
+              <div class="row">
+                <div class="col label-inline"><span>sneak damage</span></div>
+              </div>
+            </div>
+            <div class="col input-col">
+              <div class="row">
+                <div class="col">
+                  <input type="text" name="attr_EquipWeapRange4"/>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col label-inline"><span>range</span></div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col double">
+        <label>Notes</label>
+        <textarea name="attr_notes_4"></textarea>
+      </div>
+      <div class="col single">
+        <label>Wealth</label>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">CP</label>
+          </div>
+          <div class="col">
+            <input type="number" style="width:8em" name="attr_CP_4"/> 
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">SP</label>
+          </div>
+          <div class="col">
+            <input type="number" style="width:8em" name="attr_SP_4"/> 1sp = 10cp
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">GP</label>
+          </div>
+          <div class="col">
+            <input type="number" style="width:8em" name="attr_GP_4"/> 1gp = 10sp
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">EP</label>
+          </div>
+          <div class="col">
+            <input type="number" style="width:8em" name="attr_EP_4"/> 1ep = 10gp
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">PP</label>
+          </div>
+          <div class="col">
+            <input type="number" style="width:8em" name="attr_PP_4"/> 1pp = 10ep
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+<script type="text/worker">
+  
+  const characterIndices = ["1", "2", "3", "4"];
+  const alignments = ["lawful","neutral","chaotic"];
+  const attributes = ["STR", "AGI", "STA", "PER", "INT", "LUC"];
+
+  const birthAugurs = [
+    "Enter your birth augur roll",
+    "Harsh winter: All attack rolls",
+    "The bull: Melee attack rolls",
+    "Fortunate date: Missile fire attack rolls",
+    "Raised by wolves: Unarmed attack rolls",
+    "Conceived on horseback: Mounted attack rolls",
+    "Born on the battlefield: Damage rolls",
+    "Path of the bear: Melee damage rolls",
+    "Hawkeye: Missile fire damage rolls",
+    "Pack hunter: Attack and damage rolls for 0-level starting weapon",
+    "Born under the loom: Skill checks (including thief skills)",
+    "Fox’s cunning: Find/disable traps",
+    "Four-leafed clover: Find secret doors",
+    "Seventh son: Spell checks",
+    "The raging storm: Spell damage",
+    "Righteous heart: Turn unholy checks",
+    "Survived the plague: Magical healing*",
+    "Lucky sign: Saving throws",
+    "Guardian angel: Savings throws to escape traps",
+    "Survived a spider bite: Saving throws against poison",
+    "Struck by lightning: Reflex saving throws",
+    "Lived through famine: Fortitude saving throws",
+    "Resisted temptation: Willpower saving throws",
+    "Charmed house: Armor Class",
+    "Speed of the cobra: Initiative",
+    "Bountiful harvest: Hit points (applies at each level)",
+    "Warrior’s arm: Critical hit tables**",
+    "Unholy house: Corruption rolls",
+    "The Broken Star: Fumbles**",
+    "Birdsong: Number of languages",
+    "Wild child: Speed (each +1/-1 = +5’/-5’ speed)"
+  ]
+  // Display the correct sheet.
+  function tabHandlers(charI) {
+    on(`clicked:${charI}_tab`, function() {
+      getAttrs([`name_${charI}`], function(values) {
+        setAttrs({
+          ["character"]: charI
+        });
+      });
+    });
+  }
+  function alignmentHandlers(charI) {
+    alignments.forEach(function(alignment) {
+      on(`clicked:alignment_${alignment}_${charI}`, function() {
+        setAttrs({
+          [`alignment_${charI}`]: alignment
+        });
+      });
+    })
+  }
+  function deadHandlers(charI) {
+    on(`clicked:status_dead_${charI}`, function() {
+      getAttrs([`dead_1`, `dead_2`, `dead_3`, `dead_4`, `total_living`], function(values) {
+        // Figure out the new state for charI, since that's the one that changed.
+        var val = "";
+        if (values[`dead_${charI}`] == "alive") {
+          val = "dead";
+        } else {
+          val = "alive";
+        }
+        // Then figure out the total count of living characters.
+        var count = 0;
+        if (val == "alive") count = 1;
+        for (var c = 1; c <= 4; c++) {
+          if (c == charI) continue;
+          if (values[`dead_${c}`] == "alive") count += 1;
+        }
+        setAttrs({
+          [`dead_${charI}`]: val,
+          [`total_living`]: count
+        });
+      });
+    });
+  }
+  function getMod(val) {
+    if (val >= 18) {
+      return 3;
+    }
+    if (val >= 16) {
+      return 2;
+    }
+    if (val >= 13) {
+      return 1;
+    }
+    if (val >= 9) {
+      return 0;
+    }
+    if (val >= 6) {
+      return -1;
+    }
+    if (val >= 4) {
+      return -2;
+    }
+    return -3;
+  }
+  
+  function equipHandlers(charI) {
+    attributes.forEach(function(attr) {
+      on(`change:${attr}_${charI} sheet:opened`, function() {
+        getAttrs([`${attr}_${charI}`], function(values) {
+          setAttrs({
+            [`${attr}_${charI}_mod`]: getMod(values[`${attr}_${charI}`])
+          });
+        });
+      });
+    })
+  }
+  function augurHandlers(charI) {
+    on(`change:augur_${charI} sheet:opened`, function() {
+      getAttrs([`augur_${charI}`], function(values) {
+        augur = parseInt(values[`augur_${charI}`],10)||0;
+        if (augur < 0) {
+          augur = 0;
+          setAttrs({
+            [`augur_${charI}`]: augur,
+            [`augur_desc_${charI}`]: birthAugurs[augur]
+          });
+        } else if (augur > 30) {
+          augur = 30;
+          setAttrs({
+            [`augur_${charI}`]: augur,
+            [`augur_desc_${charI}`]: birthAugurs[augur]
+          });
+        } else {
+          setAttrs({
+            [`augur_desc_${charI}`]: birthAugurs[augur]
+          });
+        }
+      });
+    });
+  }
+  function modHandlers(charI) {
+    on(`change:repeating_equipment${charI}:EquipType${charI}`, function() {
+      getAttrs([`repeating_equipment${charI}_EquipType${charI}`], function(values) {
+        setAttrs({
+          [`repeating_equipment${charI}_EquipSelect${charI}`]: values[`repeating_equipment${charI}_EquipType${charI}`]
+        });
+      });
+    });
+  }
+  // Parent loop over all character sheets.  Sets up the various handlers for each sheet.
+  characterIndices.forEach(function(charI) {
+    // Defined in char_tabs.js
+    tabHandlers(charI);
+
+    // Defined in mods.js
+    modHandlers(charI);
+
+    // Defined in alignment.js
+    alignmentHandlers(charI);
+
+    // Defined in dead.js
+    deadHandlers(charI);
+
+    // Defined in birth_augurs.js
+    augurHandlers(charI);
+    
+    // Defined in equipment.js
+    equipHandlers(charI);
+  });
+</script>
