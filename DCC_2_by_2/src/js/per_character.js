@@ -13,6 +13,9 @@
     // Defined in dead.js
     deadHandlers(charI);
 
+    // Defined in xp.js
+    xpHandlers(charI);
+
     // Defined in birth_augurs.js
     augurHandlers(charI);
     

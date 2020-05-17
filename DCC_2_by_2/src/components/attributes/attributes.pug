@@ -1,7 +1,17 @@
 div.col.single
-  label Attributes
+  div.row
+    label Attributes
   each att in ["STR", "AGI", "STA", "PER", "INT", "LUC"]
     +attribute(att, c)
+div.col.single
+  div.row
+    label Saves
+  div.row
+    div.col.label-inline
+      // Spacer row, so that REF, FOR and WIL are across from AGI, STA and PER, respectively.
+      label &nbsp;
+  each save in ["REF", "FOR", "WIL"]
+    +save(save, c)
 div.col.single
   div.row
     label Attributes (cont.)
@@ -9,5 +19,3 @@ div.col.single
   each stat in ["MOV", "AC"]
     +label_num_field(stat, c)
   +initiative(c)
-  each save in ["REF", "FOR", "WIL"]
-    +save(save, c)

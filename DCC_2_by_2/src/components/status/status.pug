@@ -1,3 +1,9 @@
 label Status
 div.checklines
   +checklines("Status", c, "Dead?")
+  +num_attribute("XP", c, 0)(style="width:4.5em")
+  span
+    | &nbsp;XP
+  +num_attribute("Level", c, 0)(style="cursor:default", readonly)
+  span
+    | &nbsp;Level

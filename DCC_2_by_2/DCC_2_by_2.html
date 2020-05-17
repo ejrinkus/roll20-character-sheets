@@ -62,6 +62,8 @@
         <label>Status</label>
         <div class="checklines">
           <button class="checkline status-dead-1" type="action" name="act_status_dead_1"><span class="checked">X</span></button><span>Dead?</span>
+          <input type="number" name="attr_xp_1" value="0" style="width:4.5em;"/><span>&nbsp;XP</span>
+          <input type="number" name="attr_level_1" value="0" style="cursor:default;" readonly="readonly"/><span>&nbsp;Level</span>
         </div>
       </div>
     </div>
@@ -87,7 +89,9 @@
     <div class="row">
       <!-- attributes.pug consists of two div.col.single elements-->
       <div class="col single">
-        <label>Attributes</label>
+        <div class="row">
+          <label>Attributes</label>
+        </div>
         <div class="row">
           <div class="col label-inline">
             <label class="short">STR</label>
@@ -193,6 +197,50 @@
       </div>
       <div class="col single">
         <div class="row">
+          <label>Saves</label>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <!-- Spacer row, so that REF, FOR and WIL are across from AGI, STA and PER, respectively.-->
+            <label>&nbsp;</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">REF</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_REF_1"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_1} rolls a REF save: [[1d20 + @{REF_1}]]" name="roll_REFSave1"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">FOR</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_FOR_1"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_1} rolls a FOR save: [[1d20 + @{FOR_1}]]" name="roll_FORSave1"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">WIL</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_WIL_1"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_1} rolls a WIL save: [[1d20 + @{WIL_1}]]" name="roll_WILSave1"></button>
+          </div>
+        </div>
+      </div>
+      <div class="col single">
+        <div class="row">
           <label>Attributes (cont.)</label>
         </div>
         <div class="row">
@@ -234,39 +282,6 @@
           </div>
           <div class="col">
             <button class="d20" type="roll" value="/em @{name_1} rolls for initiative: [[1d20 + @{INI_1} &amp;{tracker}]]" name="roll_INI1"></button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">REF</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_REF_1"/>
-          </div>
-          <div class="col">
-            <button class="d20" type="roll" value="/em @{name_1} rolls a REF save: [[1d20 + @{REF_1}]]" name="roll_REFSave1"></button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">FOR</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_FOR_1"/>
-          </div>
-          <div class="col">
-            <button class="d20" type="roll" value="/em @{name_1} rolls a FOR save: [[1d20 + @{FOR_1}]]" name="roll_FORSave1"></button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">WIL</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_WIL_1"/>
-          </div>
-          <div class="col">
-            <button class="d20" type="roll" value="/em @{name_1} rolls a WIL save: [[1d20 + @{WIL_1}]]" name="roll_WILSave1"></button>
           </div>
         </div>
       </div>
@@ -437,6 +452,8 @@
         <label>Status</label>
         <div class="checklines">
           <button class="checkline status-dead-2" type="action" name="act_status_dead_2"><span class="checked">X</span></button><span>Dead?</span>
+          <input type="number" name="attr_xp_2" value="0" style="width:4.5em;"/><span>&nbsp;XP</span>
+          <input type="number" name="attr_level_2" value="0" style="cursor:default;" readonly="readonly"/><span>&nbsp;Level</span>
         </div>
       </div>
     </div>
@@ -462,7 +479,9 @@
     <div class="row">
       <!-- attributes.pug consists of two div.col.single elements-->
       <div class="col single">
-        <label>Attributes</label>
+        <div class="row">
+          <label>Attributes</label>
+        </div>
         <div class="row">
           <div class="col label-inline">
             <label class="short">STR</label>
@@ -568,6 +587,50 @@
       </div>
       <div class="col single">
         <div class="row">
+          <label>Saves</label>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <!-- Spacer row, so that REF, FOR and WIL are across from AGI, STA and PER, respectively.-->
+            <label>&nbsp;</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">REF</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_REF_2"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_2} rolls a REF save: [[1d20 + @{REF_2}]]" name="roll_REFSave2"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">FOR</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_FOR_2"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_2} rolls a FOR save: [[1d20 + @{FOR_2}]]" name="roll_FORSave2"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">WIL</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_WIL_2"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_2} rolls a WIL save: [[1d20 + @{WIL_2}]]" name="roll_WILSave2"></button>
+          </div>
+        </div>
+      </div>
+      <div class="col single">
+        <div class="row">
           <label>Attributes (cont.)</label>
         </div>
         <div class="row">
@@ -609,39 +672,6 @@
           </div>
           <div class="col">
             <button class="d20" type="roll" value="/em @{name_2} rolls for initiative: [[1d20 + @{INI_2} &amp;{tracker}]]" name="roll_INI2"></button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">REF</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_REF_2"/>
-          </div>
-          <div class="col">
-            <button class="d20" type="roll" value="/em @{name_2} rolls a REF save: [[1d20 + @{REF_2}]]" name="roll_REFSave2"></button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">FOR</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_FOR_2"/>
-          </div>
-          <div class="col">
-            <button class="d20" type="roll" value="/em @{name_2} rolls a FOR save: [[1d20 + @{FOR_2}]]" name="roll_FORSave2"></button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">WIL</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_WIL_2"/>
-          </div>
-          <div class="col">
-            <button class="d20" type="roll" value="/em @{name_2} rolls a WIL save: [[1d20 + @{WIL_2}]]" name="roll_WILSave2"></button>
           </div>
         </div>
       </div>
@@ -812,6 +842,8 @@
         <label>Status</label>
         <div class="checklines">
           <button class="checkline status-dead-3" type="action" name="act_status_dead_3"><span class="checked">X</span></button><span>Dead?</span>
+          <input type="number" name="attr_xp_3" value="0" style="width:4.5em;"/><span>&nbsp;XP</span>
+          <input type="number" name="attr_level_3" value="0" style="cursor:default;" readonly="readonly"/><span>&nbsp;Level</span>
         </div>
       </div>
     </div>
@@ -837,7 +869,9 @@
     <div class="row">
       <!-- attributes.pug consists of two div.col.single elements-->
       <div class="col single">
-        <label>Attributes</label>
+        <div class="row">
+          <label>Attributes</label>
+        </div>
         <div class="row">
           <div class="col label-inline">
             <label class="short">STR</label>
@@ -943,6 +977,50 @@
       </div>
       <div class="col single">
         <div class="row">
+          <label>Saves</label>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <!-- Spacer row, so that REF, FOR and WIL are across from AGI, STA and PER, respectively.-->
+            <label>&nbsp;</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">REF</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_REF_3"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_3} rolls a REF save: [[1d20 + @{REF_3}]]" name="roll_REFSave3"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">FOR</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_FOR_3"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_3} rolls a FOR save: [[1d20 + @{FOR_3}]]" name="roll_FORSave3"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">WIL</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_WIL_3"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_3} rolls a WIL save: [[1d20 + @{WIL_3}]]" name="roll_WILSave3"></button>
+          </div>
+        </div>
+      </div>
+      <div class="col single">
+        <div class="row">
           <label>Attributes (cont.)</label>
         </div>
         <div class="row">
@@ -984,39 +1062,6 @@
           </div>
           <div class="col">
             <button class="d20" type="roll" value="/em @{name_3} rolls for initiative: [[1d20 + @{INI_3} &amp;{tracker}]]" name="roll_INI3"></button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">REF</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_REF_3"/>
-          </div>
-          <div class="col">
-            <button class="d20" type="roll" value="/em @{name_3} rolls a REF save: [[1d20 + @{REF_3}]]" name="roll_REFSave3"></button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">FOR</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_FOR_3"/>
-          </div>
-          <div class="col">
-            <button class="d20" type="roll" value="/em @{name_3} rolls a FOR save: [[1d20 + @{FOR_3}]]" name="roll_FORSave3"></button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">WIL</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_WIL_3"/>
-          </div>
-          <div class="col">
-            <button class="d20" type="roll" value="/em @{name_3} rolls a WIL save: [[1d20 + @{WIL_3}]]" name="roll_WILSave3"></button>
           </div>
         </div>
       </div>
@@ -1187,6 +1232,8 @@
         <label>Status</label>
         <div class="checklines">
           <button class="checkline status-dead-4" type="action" name="act_status_dead_4"><span class="checked">X</span></button><span>Dead?</span>
+          <input type="number" name="attr_xp_4" value="0" style="width:4.5em;"/><span>&nbsp;XP</span>
+          <input type="number" name="attr_level_4" value="0" style="cursor:default;" readonly="readonly"/><span>&nbsp;Level</span>
         </div>
       </div>
     </div>
@@ -1212,7 +1259,9 @@
     <div class="row">
       <!-- attributes.pug consists of two div.col.single elements-->
       <div class="col single">
-        <label>Attributes</label>
+        <div class="row">
+          <label>Attributes</label>
+        </div>
         <div class="row">
           <div class="col label-inline">
             <label class="short">STR</label>
@@ -1318,6 +1367,50 @@
       </div>
       <div class="col single">
         <div class="row">
+          <label>Saves</label>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <!-- Spacer row, so that REF, FOR and WIL are across from AGI, STA and PER, respectively.-->
+            <label>&nbsp;</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">REF</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_REF_4"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_4} rolls a REF save: [[1d20 + @{REF_4}]]" name="roll_REFSave4"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">FOR</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_FOR_4"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_4} rolls a FOR save: [[1d20 + @{FOR_4}]]" name="roll_FORSave4"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col label-inline">
+            <label class="short">WIL</label>
+          </div>
+          <div class="col">
+            <input type="number" name="attr_WIL_4"/>
+          </div>
+          <div class="col">
+            <button class="d20" type="roll" value="/em @{name_4} rolls a WIL save: [[1d20 + @{WIL_4}]]" name="roll_WILSave4"></button>
+          </div>
+        </div>
+      </div>
+      <div class="col single">
+        <div class="row">
           <label>Attributes (cont.)</label>
         </div>
         <div class="row">
@@ -1359,39 +1452,6 @@
           </div>
           <div class="col">
             <button class="d20" type="roll" value="/em @{name_4} rolls for initiative: [[1d20 + @{INI_4} &amp;{tracker}]]" name="roll_INI4"></button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">REF</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_REF_4"/>
-          </div>
-          <div class="col">
-            <button class="d20" type="roll" value="/em @{name_4} rolls a REF save: [[1d20 + @{REF_4}]]" name="roll_REFSave4"></button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">FOR</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_FOR_4"/>
-          </div>
-          <div class="col">
-            <button class="d20" type="roll" value="/em @{name_4} rolls a FOR save: [[1d20 + @{FOR_4}]]" name="roll_FORSave4"></button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col label-inline">
-            <label class="short">WIL</label>
-          </div>
-          <div class="col">
-            <input type="number" name="attr_WIL_4"/>
-          </div>
-          <div class="col">
-            <button class="d20" type="roll" value="/em @{name_4} rolls a WIL save: [[1d20 + @{WIL_4}]]" name="roll_WILSave4"></button>
           </div>
         </div>
       </div>
@@ -1630,6 +1690,49 @@
       });
     });
   }
+  function getLevel(xp) {
+    if (xp < 10) {
+      return 0;
+    }
+    if (xp < 50) {
+      return 1;
+    }
+    if (xp < 110) {
+      return 2;
+    }
+    if (xp < 190) {
+      return 3;
+    }
+    if (xp < 290) {
+      return 4;
+    }
+    if (xp < 410) {
+      return 5;
+    }
+    if (xp < 550) {
+      return 6;
+    }
+    if (xp < 710) {
+      return 7;
+    }
+    if (xp < 890) {
+      return 8;
+    }
+    if (xp < 1090) {
+      return 9;
+    }
+    return 10;
+  }
+
+  function xpHandlers(charI) {
+    on(`change:xp_${charI} sheet:opened`, function() {
+      getAttrs([`xp_${charI}`], function(values) {
+        setAttrs({
+          [`level_${charI}`]: getLevel(values[`xp_${charI}`])
+        });
+      });
+    });
+  }
   function getMod(val) {
     if (val >= 18) {
       return 3;
@@ -1709,6 +1812,9 @@
 
     // Defined in dead.js
     deadHandlers(charI);
+
+    // Defined in xp.js
+    xpHandlers(charI);
 
     // Defined in birth_augurs.js
     augurHandlers(charI);
