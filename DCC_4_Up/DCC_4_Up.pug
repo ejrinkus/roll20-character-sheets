@@ -11,7 +11,6 @@ include src/mixins/toggle.pug
 +hidden_control("total_living", -1, "").control-survivors
 each c in chars
   // More hidden controls, but these need to be per-character.
-  +hidden_control("alignment", c, "false")(class=`control-alignment-${c}`)
   +hidden_control("augur", c, 0)(class=`control-augur-${c}`)
 
 // The actual sheet content.
