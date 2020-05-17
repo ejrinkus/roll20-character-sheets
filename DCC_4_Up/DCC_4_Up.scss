@@ -11,12 +11,11 @@ $root-background: gray;
 $root-padding: 1em;
 $root-width: 66em;
 
-@use 'src/components/alignment/alignment_selector.scss';
 @use 'src/components/augur/augur.scss' with (
   $sheet-col-width: $sheet-col-width
 );
 @use 'src/components/tabs/character_selector.scss';
-@use 'src/components/status/death_selector.scss';
+@use 'src/components/status/dead_stamp.scss';
 @use 'src/components/equipment/equipment.scss' with (
   $sheet-col-width: $sheet-col-width,
   $sheet-col-margins: $sheet-col-margins
@@ -28,6 +27,7 @@ $root-width: 66em;
 );
 @use 'src/mixins/checklines.scss';
 @use 'src/mixins/toggle.scss';
+
 @import url('https://fonts.googleapis.com/css?family=IM+Fell+English+SC|Marko+One&display=swap');
 
 /* Some global formatting. */

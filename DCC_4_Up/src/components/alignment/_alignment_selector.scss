@@ -1,13 +1,8 @@
 $alignments: "lawful", "neutral", "chaotic";
 
-@for $i from 1 through 4 {
-    @each $a in $alignments {
-        input.sheet-control-alignment-#{$i}:not([value="#{$a}"]) ~ .sheet-root {
-            button.sheet-alignment-#{$a}-#{$i} > span.sheet-checked {
-                /* Hide the "checked" section for the alignments that are not currently selected. */
-                background: transparent;
-                color: transparent !important;
-            }
-        }
-    }
+@each $a in $alignments {
+  input.sheet-checklines-ctrl:not([value="#{$a}"]) ~ button.sheet-checkline-#{$a} > span.sheet-checked {
+    background: transparent;
+    color: transparent !important;
+  }
 }

@@ -1,0 +1,23 @@
+// A checkline is a set of inputs similar to radio buttons, but formatted to
+// look more like the sheet's custom checkboxes.
+
+mixin checklines_ctrl(name, c)
+  - var lowername = name.replace(/\W/g, '').toLowerCase();
+  input.checklines-ctrl(type="hidden", name=`attr_${lowername}_${c}`)&attributes(attributes)
+
+mixin checklines(name, c, ...values)
+  - var lowername = name.replace(/\W/g, '').toLowerCase();
+  +checklines_ctrl(name, c)
+  each v in values
+    - var lowerv = v.replace(/\W/g, '').toLowerCase();
+    button(class=`checkline checkline-${lowerv}`, type="action", name=`act_${lowername}_${lowerv}_${c}`)
+      span.checked
+        | X
+    span
+      | #{v}
+    script(type="text/worker").
+      on(`clicked:#{lowername}_#{lowerv}_#{c}`, function() {
+        setAttrs({
+          [`#{lowername}_#{c}`]: #{lowerv}
+        });
+      });

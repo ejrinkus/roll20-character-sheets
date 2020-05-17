@@ -1,3 +1,9 @@
+/* Checkline styles need to be aware of the different values for each set of
+checklines (in order to properly indicate which value is selected).  These
+should be defined in their own files under the relevant component, and then
+registered below. */
+@use "../components/alignment/alignment_selector";
+
 .sheet-checklines {
   /* Configure the container for the checkline buttons. */
   display: inline-flex;

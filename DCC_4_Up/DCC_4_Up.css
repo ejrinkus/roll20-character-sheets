@@ -1,76 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=IM+Fell+English+SC|Marko+One&display=swap");
-input.sheet-control-alignment-1:not([value=lawful]) ~ .sheet-root button.sheet-alignment-lawful-1 > span.sheet-checked {
-  /* Hide the "checked" section for the alignments that are not currently selected. */
-  background: transparent;
-  color: transparent !important;
-}
-
-input.sheet-control-alignment-1:not([value=neutral]) ~ .sheet-root button.sheet-alignment-neutral-1 > span.sheet-checked {
-  /* Hide the "checked" section for the alignments that are not currently selected. */
-  background: transparent;
-  color: transparent !important;
-}
-
-input.sheet-control-alignment-1:not([value=chaotic]) ~ .sheet-root button.sheet-alignment-chaotic-1 > span.sheet-checked {
-  /* Hide the "checked" section for the alignments that are not currently selected. */
-  background: transparent;
-  color: transparent !important;
-}
-
-input.sheet-control-alignment-2:not([value=lawful]) ~ .sheet-root button.sheet-alignment-lawful-2 > span.sheet-checked {
-  /* Hide the "checked" section for the alignments that are not currently selected. */
-  background: transparent;
-  color: transparent !important;
-}
-
-input.sheet-control-alignment-2:not([value=neutral]) ~ .sheet-root button.sheet-alignment-neutral-2 > span.sheet-checked {
-  /* Hide the "checked" section for the alignments that are not currently selected. */
-  background: transparent;
-  color: transparent !important;
-}
-
-input.sheet-control-alignment-2:not([value=chaotic]) ~ .sheet-root button.sheet-alignment-chaotic-2 > span.sheet-checked {
-  /* Hide the "checked" section for the alignments that are not currently selected. */
-  background: transparent;
-  color: transparent !important;
-}
-
-input.sheet-control-alignment-3:not([value=lawful]) ~ .sheet-root button.sheet-alignment-lawful-3 > span.sheet-checked {
-  /* Hide the "checked" section for the alignments that are not currently selected. */
-  background: transparent;
-  color: transparent !important;
-}
-
-input.sheet-control-alignment-3:not([value=neutral]) ~ .sheet-root button.sheet-alignment-neutral-3 > span.sheet-checked {
-  /* Hide the "checked" section for the alignments that are not currently selected. */
-  background: transparent;
-  color: transparent !important;
-}
-
-input.sheet-control-alignment-3:not([value=chaotic]) ~ .sheet-root button.sheet-alignment-chaotic-3 > span.sheet-checked {
-  /* Hide the "checked" section for the alignments that are not currently selected. */
-  background: transparent;
-  color: transparent !important;
-}
-
-input.sheet-control-alignment-4:not([value=lawful]) ~ .sheet-root button.sheet-alignment-lawful-4 > span.sheet-checked {
-  /* Hide the "checked" section for the alignments that are not currently selected. */
-  background: transparent;
-  color: transparent !important;
-}
-
-input.sheet-control-alignment-4:not([value=neutral]) ~ .sheet-root button.sheet-alignment-neutral-4 > span.sheet-checked {
-  /* Hide the "checked" section for the alignments that are not currently selected. */
-  background: transparent;
-  color: transparent !important;
-}
-
-input.sheet-control-alignment-4:not([value=chaotic]) ~ .sheet-root button.sheet-alignment-chaotic-4 > span.sheet-checked {
-  /* Hide the "checked" section for the alignments that are not currently selected. */
-  background: transparent;
-  color: transparent !important;
-}
-
 div.sheet-if-healing-1,
 div.sheet-if-crit-1 {
   display: none;
@@ -426,6 +354,25 @@ button.sheet-tab > input.sheet-tabtext {
   cursor: pointer;
 }
 
+input.sheet-checklines-ctrl:not([value=lawful]) ~ button.sheet-checkline-lawful > span.sheet-checked {
+  background: transparent;
+  color: transparent !important;
+}
+
+input.sheet-checklines-ctrl:not([value=neutral]) ~ button.sheet-checkline-neutral > span.sheet-checked {
+  background: transparent;
+  color: transparent !important;
+}
+
+input.sheet-checklines-ctrl:not([value=chaotic]) ~ button.sheet-checkline-chaotic > span.sheet-checked {
+  background: transparent;
+  color: transparent !important;
+}
+
+/* Checkline styles need to be aware of the different values for each set of
+checklines (in order to properly indicate which value is selected).  These
+should be defined in their own files under the relevant component, and then
+registered below. */
 .sheet-checklines {
   /* Configure the container for the checkline buttons. */
   display: inline-flex;
