@@ -27,7 +27,6 @@ div.repitem {
         two times that value to get the correct width. */
         width: $equip-width;
         display: inline-block;
-        position: relative;
         border: 1px solid rgb(204, 204, 204);
         border-bottom-left-radius: 3px;
         border-bottom-right-radius: 3px;
@@ -44,18 +43,17 @@ div.repitem {
         width: 5em;
         }
     }
-    select.sheet-equip-type ~ div.sheet-equip::before {
-        /* This will "hide" the part of the top border adjacent to the equip-type select
-        control, effectively making the components look like one object. */
-        content: "";
-        position: absolute;
-        display: block;
-        height: 3px;
-        width: $select-width - 0.2em;
-        left: 1px;
-        top: -1px;
-        background: white;
-    }
+    // select.sheet-equip-type ~ div.sheet-equip::before {
+    //     /* This will "hide" the part of the top border adjacent to the equip-type select
+    //     control, effectively making the components look like one object. */
+    //     content: "";
+    //     display: block;
+    //     height: 3px;
+    //     width: $select-width - 0.2em;
+    //     left: 1px;
+    //     top: -1px;
+    //     background: white;
+    // }
 
     div.sheet-equip.sheet-custom {
         /* A piece of custom equipment just has a free text field. */

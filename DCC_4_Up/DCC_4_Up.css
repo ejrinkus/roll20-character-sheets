@@ -284,7 +284,6 @@ div.repitem div.sheet-equip {
   two times that value to get the correct width. */
   width: 60em;
   display: inline-block;
-  position: relative;
   border: 1px solid #cccccc;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
@@ -300,18 +299,6 @@ div.repitem div.sheet-equip div.sheet-col.sheet-label-inline {
 }
 div.repitem div.sheet-equip input {
   width: 5em;
-}
-div.repitem select.sheet-equip-type ~ div.sheet-equip::before {
-  /* This will "hide" the part of the top border adjacent to the equip-type select
-  control, effectively making the components look like one object. */
-  content: "";
-  position: absolute;
-  display: block;
-  height: 3px;
-  width: 9.8em;
-  left: 1px;
-  top: -1px;
-  background: white;
 }
 div.repitem div.sheet-equip.sheet-custom {
   /* A piece of custom equipment just has a free text field. */

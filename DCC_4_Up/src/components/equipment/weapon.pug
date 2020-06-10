@@ -1,6 +1,11 @@
 div.equip.weapon.row
   div.col
-    input.equip-name.underline(type="text", name=`attr_EquipWeapName${c}`, value="Weapon name")
+    div.row
+      div.col
+        input.equip-name.underline(type="text", name=`attr_EquipWeapName${c}`, value="Weapon name")
+    div.row
+      div.col
+        +toggle("ranged", c, `repeating_equipment${c}`)
   div.col.input-col
     div.row
       div.col

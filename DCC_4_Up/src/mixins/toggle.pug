@@ -1,27 +1,33 @@
 // A toggle is like a checkbox, but with a different appearance.
 
-mixin toggle_ctrl(name, c)
+mixin toggle_ctrl(name, c, repeated_name="")
+  - var is_repeated = repeated_name != "";
   - var lowername = name.replace(/\W/g, '').toLowerCase();
-  input.toggle-ctrl(type="hidden", name=`attr_${lowername}_${c}`)&attributes(attributes)
+  - var attr_name = is_repeated ? [lowername, c].join('') : [lowername, c].join('_');
+  input.toggle-ctrl(type="hidden", name=`attr_${attr_name}`)&attributes(attributes)
 
-mixin toggle(name, c)
+mixin toggle(name, c, repeated_name="")
+  - var is_repeated = repeated_name != "";
   - var lowername = name.replace(/\W/g, '').toLowerCase();
-  +toggle_ctrl(name, c)
-  button.toggle(type="action", name=`act_${lowername}_${c}`)
+  - var act_name = is_repeated ? [lowername, c].join('') : [lowername, c].join('_');
+  - var attr_name = is_repeated ? [repeated_name, "_", lowername, c].join('') : [lowername, c].join('_');
+  +toggle_ctrl(name, c, repeated_name)
+  button.toggle(type="action", name=`act_${act_name}`)
     span.checked
       | X
   span
     | #{name}
+  - var event = is_repeated ? ["clicked", repeated_name, act_name].join(':') : ["clicked", act_name].join(':');
   script(type="text/worker").
-    on(`clicked:#{lowername}_#{c}`, function() {
-      getAttrs([`#{lowername}_#{c}`], function(values) {
+    on(`#{event}`, function() {
+      getAttrs([`#{attr_name}`], function(values) {
         // Figure out the new state for charI, since that's the one that changed.
         var val = "off";
-        if (values[`#{lowername}_#{c}`] == "off") {
+        if (values.#{attr_name} == "off") {
           val = "on";
         }
         setAttrs({
-          [`#{lowername}_#{c}`]: val
+          #{attr_name}: val
         });
       });
     });

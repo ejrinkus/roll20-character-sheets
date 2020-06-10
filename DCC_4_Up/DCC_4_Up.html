@@ -86,11 +86,11 @@
               getAttrs([`dead_1`], function(values) {
                 // Figure out the new state for charI, since that's the one that changed.
                 var val = "off";
-                if (values[`dead_1`] == "off") {
+                if (values.dead_1 == "off") {
                   val = "on";
                 }
                 setAttrs({
-                  [`dead_1`]: val
+                  dead_1: val
                 });
               });
             });
@@ -414,7 +414,31 @@
           </div>
           <div class="equip weapon row">
             <div class="col">
-              <input class="equip-name underline" type="text" name="attr_EquipWeapName1" value="Weapon name"/>
+              <div class="row">
+                <div class="col">
+                  <input class="equip-name underline" type="text" name="attr_EquipWeapName1" value="Weapon name"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <input class="toggle-ctrl" type="hidden" name="attr_ranged1"/>
+                  <button class="toggle" type="action" name="act_ranged1"><span class="checked">X</span></button><span>ranged</span>
+                  <script type="text/worker">on(`clicked:repeating_equipment1:ranged1`, function() {
+                      getAttrs([`repeating_equipment1_ranged1`], function(values) {
+                        // Figure out the new state for charI, since that's the one that changed.
+                        console.log("val " + values.repeating_equipment1_ranged1);
+                        var val = "off";
+                        if (values.repeating_equipment1_ranged1 == "off") {
+                          val = "on";
+                        }
+                        setAttrs({
+                          repeating_equipment1_ranged1: val
+                        });
+                      });
+                    });
+                  </script>
+                </div>
+              </div>
             </div>
             <div class="col input-col">
               <div class="row">
@@ -522,11 +546,11 @@
               getAttrs([`dead_2`], function(values) {
                 // Figure out the new state for charI, since that's the one that changed.
                 var val = "off";
-                if (values[`dead_2`] == "off") {
+                if (values.dead_2 == "off") {
                   val = "on";
                 }
                 setAttrs({
-                  [`dead_2`]: val
+                  dead_2: val
                 });
               });
             });
@@ -850,7 +874,30 @@
           </div>
           <div class="equip weapon row">
             <div class="col">
-              <input class="equip-name underline" type="text" name="attr_EquipWeapName2" value="Weapon name"/>
+              <div class="row">
+                <div class="col">
+                  <input class="equip-name underline" type="text" name="attr_EquipWeapName2" value="Weapon name"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <input class="toggle-ctrl" type="hidden" name="attr_ranged2"/>
+                  <button class="toggle" type="action" name="act_ranged2"><span class="checked">X</span></button><span>ranged</span>
+                  <script type="text/worker">on(`clicked:repeating_equipment2:ranged2`, function() {
+                      getAttrs([`repeating_equipment2_ranged2`], function(values) {
+                        // Figure out the new state for charI, since that's the one that changed.
+                        var val = "off";
+                        if (values.repeating_equipment2_ranged2 == "off") {
+                          val = "on";
+                        }
+                        setAttrs({
+                          repeating_equipment2_ranged2: val
+                        });
+                      });
+                    });
+                  </script>
+                </div>
+              </div>
             </div>
             <div class="col input-col">
               <div class="row">
@@ -958,11 +1005,11 @@
               getAttrs([`dead_3`], function(values) {
                 // Figure out the new state for charI, since that's the one that changed.
                 var val = "off";
-                if (values[`dead_3`] == "off") {
+                if (values.dead_3 == "off") {
                   val = "on";
                 }
                 setAttrs({
-                  [`dead_3`]: val
+                  dead_3: val
                 });
               });
             });
@@ -1286,7 +1333,30 @@
           </div>
           <div class="equip weapon row">
             <div class="col">
-              <input class="equip-name underline" type="text" name="attr_EquipWeapName3" value="Weapon name"/>
+              <div class="row">
+                <div class="col">
+                  <input class="equip-name underline" type="text" name="attr_EquipWeapName3" value="Weapon name"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <input class="toggle-ctrl" type="hidden" name="attr_ranged3"/>
+                  <button class="toggle" type="action" name="act_ranged3"><span class="checked">X</span></button><span>ranged</span>
+                  <script type="text/worker">on(`clicked:repeating_equipment3:ranged3`, function() {
+                      getAttrs([`repeating_equipment3_ranged3`], function(values) {
+                        // Figure out the new state for charI, since that's the one that changed.
+                        var val = "off";
+                        if (values.repeating_equipment3_ranged3 == "off") {
+                          val = "on";
+                        }
+                        setAttrs({
+                          repeating_equipment3_ranged3: val
+                        });
+                      });
+                    });
+                  </script>
+                </div>
+              </div>
             </div>
             <div class="col input-col">
               <div class="row">
@@ -1394,11 +1464,11 @@
               getAttrs([`dead_4`], function(values) {
                 // Figure out the new state for charI, since that's the one that changed.
                 var val = "off";
-                if (values[`dead_4`] == "off") {
+                if (values.dead_4 == "off") {
                   val = "on";
                 }
                 setAttrs({
-                  [`dead_4`]: val
+                  dead_4: val
                 });
               });
             });
@@ -1722,7 +1792,30 @@
           </div>
           <div class="equip weapon row">
             <div class="col">
-              <input class="equip-name underline" type="text" name="attr_EquipWeapName4" value="Weapon name"/>
+              <div class="row">
+                <div class="col">
+                  <input class="equip-name underline" type="text" name="attr_EquipWeapName4" value="Weapon name"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <input class="toggle-ctrl" type="hidden" name="attr_ranged4"/>
+                  <button class="toggle" type="action" name="act_ranged4"><span class="checked">X</span></button><span>ranged</span>
+                  <script type="text/worker">on(`clicked:repeating_equipment4:ranged4`, function() {
+                      getAttrs([`repeating_equipment4_ranged4`], function(values) {
+                        // Figure out the new state for charI, since that's the one that changed.
+                        var val = "off";
+                        if (values.repeating_equipment4_ranged4 == "off") {
+                          val = "on";
+                        }
+                        setAttrs({
+                          repeating_equipment4_ranged4: val
+                        });
+                      });
+                    });
+                  </script>
+                </div>
+              </div>
             </div>
             <div class="col input-col">
               <div class="row">
