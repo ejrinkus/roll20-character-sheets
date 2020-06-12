@@ -5,7 +5,7 @@ div.sheet-hero {
   width: max-content;
   display: grid;
   grid-template-columns: repeat(10, minmax(auto, 64px));
-  grid-template-rows: repeat(2, minmax(auto, 64px));
+  grid-template-rows: auto 64px auto;
   grid-gap: 1em 1em;
 }
 
@@ -25,8 +25,19 @@ div.sheet-hero-class {
 }
 
 div.sheet-hero-cell {
+  display: grid;
   grid-column-end: span 1;
   grid-row-end: span 1;
+  justify-content: center;
+}
+
+input.sheet-stat,
+input.sheet-stat-mod {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid grey;
+  color: grey;
+  text-align: center;
 }
 
 /* Some global formatting. */

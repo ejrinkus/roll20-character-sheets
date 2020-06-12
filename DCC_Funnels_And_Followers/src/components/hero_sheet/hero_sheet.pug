@@ -9,22 +9,42 @@ div.hero
     +text_attribute("Class", "class", "Peasant", false)
   div.hero-cell
   div.hero-cell(style=`background-image: url('${icon_path}/heart.png')`)
-    | HP
+    +stat_control("HP", "hp", 0)
   div.hero-cell(style=`background-image: url('${icon_path}/shield.png')`)
-    | AC
+    +stat_control("AC", "ac", 0)
   div.hero-cell(style=`background-image: url('${icon_path}/movement.png')`)
-    | MOV
+    +stat_control("MOV", "movement", 0)
   div.hero-cell(style=`background-image: url('${icon_path}/initiative.png')`)
-    | INI
+    +stat_control("INI", "initiative", 0)
   div.hero-cell(style=`background-image: url('${icon_path}/strength.png')`)
-    | STR
+    +stat_control("STR", "strength", 0)
   div.hero-cell(style=`background-image: url('${icon_path}/stamina.png')`)
-    | STA
+    +stat_control("STA", "stamina", 0)
   div.hero-cell(style=`background-image: url('${icon_path}/agility.png')`)
-    | AGI
+    +stat_control("AGI", "agility", 0)
   div.hero-cell(style=`background-image: url('${icon_path}/personality.png')`)
-    | PER
+    +stat_control("PER", "personality", 0)
   div.hero-cell(style=`background-image: url('${icon_path}/intelligence.png')`)
-    | INT
+    +stat_control("INT", "intelligence", 0)
   div.hero-cell(style=`background-image: url('${icon_path}/clover.png')`)
-    | LUC
+    +stat_control("LUC", "luck", 0)
+  div.hero-cell
+    span.block-label HP
+  div.hero-cell
+    span.block-label AC
+  div.hero-cell
+    span.block-label MOV
+  div.hero-cell
+    span.block-label INI
+  div.hero-cell
+    span.block-label STR
+  div.hero-cell
+    span.block-label STA
+  div.hero-cell
+    span.block-label AGI
+  div.hero-cell
+    span.block-label PER
+  div.hero-cell
+    span.block-label INT
+  div.hero-cell
+    span.block-label LUC

@@ -11,16 +11,56 @@
       <input type="text" name="attr_class" value="Peasant"/>
     </div>
     <div class="hero-cell"></div>
-    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/heart.png')">HP</div>
-    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/shield.png')">AC</div>
-    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/movement.png')">MOV</div>
-    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/initiative.png')">INI</div>
-    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/strength.png')">STR</div>
-    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/stamina.png')">STA</div>
-    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/agility.png')">AGI</div>
-    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/personality.png')">PER</div>
-    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/intelligence.png')">INT</div>
-    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/clover.png')">LUC</div>
+    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/heart.png')">
+      <input class="stat" type="number" name="attr_hp" value="0"/>
+      <input class="stat-mod" type="number" name="attr_hp_mod" value="0"/>
+    </div>
+    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/shield.png')">
+      <input class="stat" type="number" name="attr_ac" value="0"/>
+      <input class="stat-mod" type="number" name="attr_ac_mod" value="0"/>
+    </div>
+    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/movement.png')">
+      <input class="stat" type="number" name="attr_movement" value="0"/>
+      <input class="stat-mod" type="number" name="attr_movement_mod" value="0"/>
+    </div>
+    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/initiative.png')">
+      <input class="stat" type="number" name="attr_initiative" value="0"/>
+      <input class="stat-mod" type="number" name="attr_initiative_mod" value="0"/>
+    </div>
+    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/strength.png')">
+      <input class="stat" type="number" name="attr_strength" value="0"/>
+      <input class="stat-mod" type="number" name="attr_strength_mod" value="0"/>
+    </div>
+    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/stamina.png')">
+      <input class="stat" type="number" name="attr_stamina" value="0"/>
+      <input class="stat-mod" type="number" name="attr_stamina_mod" value="0"/>
+    </div>
+    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/agility.png')">
+      <input class="stat" type="number" name="attr_agility" value="0"/>
+      <input class="stat-mod" type="number" name="attr_agility_mod" value="0"/>
+    </div>
+    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/personality.png')">
+      <input class="stat" type="number" name="attr_personality" value="0"/>
+      <input class="stat-mod" type="number" name="attr_personality_mod" value="0"/>
+    </div>
+    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/intelligence.png')">
+      <input class="stat" type="number" name="attr_intelligence" value="0"/>
+      <input class="stat-mod" type="number" name="attr_intelligence_mod" value="0"/>
+    </div>
+    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/clover.png')">
+      <input class="stat" type="number" name="attr_luck" value="0"/>
+      <input class="stat-mod" type="number" name="attr_luck_mod" value="0"/>
+    </div>
+    <div class="hero-cell"><span class="block-label">HP</span></div>
+    <div class="hero-cell"><span class="block-label">AC</span></div>
+    <div class="hero-cell"><span class="block-label">MOV</span></div>
+    <div class="hero-cell"><span class="block-label">INI</span></div>
+    <div class="hero-cell"><span class="block-label">STR</span></div>
+    <div class="hero-cell"><span class="block-label">STA</span></div>
+    <div class="hero-cell"><span class="block-label">AGI</span></div>
+    <div class="hero-cell"><span class="block-label">PER</span></div>
+    <div class="hero-cell"><span class="block-label">INT</span></div>
+    <div class="hero-cell"><span class="block-label">LUC</span></div>
   </div><span class="header">Followers</span>
   <div class="hero">
     <div class="hero-name"><span class="block-label">Name</span>
@@ -33,15 +73,55 @@
       <input type="text" name="attr_class" value="Peasant"/>
     </div>
     <div class="hero-cell"></div>
-    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/heart.png')">HP</div>
-    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/shield.png')">AC</div>
-    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/movement.png')">MOV</div>
-    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/initiative.png')">INI</div>
-    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/strength.png')">STR</div>
-    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/stamina.png')">STA</div>
-    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/agility.png')">AGI</div>
-    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/personality.png')">PER</div>
-    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/intelligence.png')">INT</div>
-    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/clover.png')">LUC</div>
+    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/heart.png')">
+      <input class="stat" type="number" name="attr_hp" value="0"/>
+      <input class="stat-mod" type="number" name="attr_hp_mod" value="0"/>
+    </div>
+    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/shield.png')">
+      <input class="stat" type="number" name="attr_ac" value="0"/>
+      <input class="stat-mod" type="number" name="attr_ac_mod" value="0"/>
+    </div>
+    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/movement.png')">
+      <input class="stat" type="number" name="attr_movement" value="0"/>
+      <input class="stat-mod" type="number" name="attr_movement_mod" value="0"/>
+    </div>
+    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/initiative.png')">
+      <input class="stat" type="number" name="attr_initiative" value="0"/>
+      <input class="stat-mod" type="number" name="attr_initiative_mod" value="0"/>
+    </div>
+    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/strength.png')">
+      <input class="stat" type="number" name="attr_strength" value="0"/>
+      <input class="stat-mod" type="number" name="attr_strength_mod" value="0"/>
+    </div>
+    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/stamina.png')">
+      <input class="stat" type="number" name="attr_stamina" value="0"/>
+      <input class="stat-mod" type="number" name="attr_stamina_mod" value="0"/>
+    </div>
+    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/agility.png')">
+      <input class="stat" type="number" name="attr_agility" value="0"/>
+      <input class="stat-mod" type="number" name="attr_agility_mod" value="0"/>
+    </div>
+    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/personality.png')">
+      <input class="stat" type="number" name="attr_personality" value="0"/>
+      <input class="stat-mod" type="number" name="attr_personality_mod" value="0"/>
+    </div>
+    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/intelligence.png')">
+      <input class="stat" type="number" name="attr_intelligence" value="0"/>
+      <input class="stat-mod" type="number" name="attr_intelligence_mod" value="0"/>
+    </div>
+    <div class="hero-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/clover.png')">
+      <input class="stat" type="number" name="attr_luck" value="0"/>
+      <input class="stat-mod" type="number" name="attr_luck_mod" value="0"/>
+    </div>
+    <div class="hero-cell"><span class="block-label">HP</span></div>
+    <div class="hero-cell"><span class="block-label">AC</span></div>
+    <div class="hero-cell"><span class="block-label">MOV</span></div>
+    <div class="hero-cell"><span class="block-label">INI</span></div>
+    <div class="hero-cell"><span class="block-label">STR</span></div>
+    <div class="hero-cell"><span class="block-label">STA</span></div>
+    <div class="hero-cell"><span class="block-label">AGI</span></div>
+    <div class="hero-cell"><span class="block-label">PER</span></div>
+    <div class="hero-cell"><span class="block-label">INT</span></div>
+    <div class="hero-cell"><span class="block-label">LUC</span></div>
   </div>
 </div>
