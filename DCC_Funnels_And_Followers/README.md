@@ -33,3 +33,22 @@ HTML and CSS.  Use each of those options to load in the
 DCC_Funnels_And_Followers.html and DCC_Funnels_And_Followers.css files (you can
 only load in one HTML and one CSS file at a time).  Then create a new character
 and try out your changes!
+
+# Credits
+
+Image credits (all images were resized and re-colored using the built in icon editor at https://game-icons.net):
+ - Delapouite: https://delapouite.com/
+   - 'Alarm clock icon' by Delapouite under CC BY 3.0: https://game-icons.net/1x1/delapouite/alarm-clock.html
+   - 'Body balance icon' by Delapouite under CC BY 3.0: https://game-icons.net/1x1/delapouite/body-balance.html
+   - 'Lovers icon' by Delapouite under CC BY 3.0: https://game-icons.net/1x1/delapouite/lovers.html
+   - 'Lungs icon' by Delapouite under CC BY 3.0: https://game-icons.net/1x1/delapouite/lungs.html
+ - Lorc: https://lorcblog.blogspot.com/
+   - 'Brain icon' by Lorc under CC BY 3.0: https://game-icons.net/1x1/lorc/brain.html
+   - 'Clover icon' by Lorc under CC BY 3.0: https://game-icons.net/1x1/lorc/clover.html
+   - 'Run icon' by Lorc under CC BY 3.0: https://game-icons.net/1x1/lorc/run.html
+ - sbed: https://opengameart.org/content/95-game-icons
+   - 'Shield icon' by sbed under CC BY 3.0: https://game-icons.net/1x1/sbed/shield.html
+ - Skoll: https://game-icons.net/
+   - 'Hearts icon' by Skoll under CC BY 3.0: https://game-icons.net/1x1/skoll/hearts.html
+
+All of the above images underwent size and color transformations.
