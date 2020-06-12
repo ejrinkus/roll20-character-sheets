@@ -1,0 +1,6 @@
+mixin text_attribute(label, attr, default_val, inline_label)
+  if inline_label
+    span.inline-label #{label}
+  else
+    span.block-label #{label}
+  input(type="text", name=`attr_${attr}`, value=default_val)&attributes(attributes)

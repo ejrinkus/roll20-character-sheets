@@ -1,0 +1,30 @@
+- var heart = 'assets/icons/heart.png'
+
+div.hero
+  div.hero-name
+    +text_attribute("Name", "name", "", false)
+  div.hero-occupation
+    +text_attribute("Occupation", "occupation", "", false)
+  div.hero-class
+    +text_attribute("Class", "class", "Peasant", false)
+  div.hero-cell
+  div.hero-cell(style=`background-image: url('${heart}')`)
+    | HP
+  div.hero-cell(style=`background-image: url('${heart}')`)
+    | AC
+  div.hero-cell(style=`background-image: url('${heart}')`)
+    | MOV
+  div.hero-cell(style=`background-image: url('${heart}')`)
+    | INI
+  div.hero-cell(style=`background-image: url('${heart}')`)
+    | STR
+  div.hero-cell(style=`background-image: url('${heart}')`)
+    | STA
+  div.hero-cell(style=`background-image: url('${heart}')`)
+    | AGI
+  div.hero-cell(style=`background-image: url('${heart}')`)
+    | PER
+  div.hero-cell(style=`background-image: url('${heart}')`)
+    | INT
+  div.hero-cell(style=`background-image: url('${heart}')`)
+    | LUC

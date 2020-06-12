@@ -1,0 +1,37 @@
+@use 'src/components/hero_sheet/hero_sheet.scss';
+@use 'src/mixins/text_attribute/text_attribute.scss';
+
+@import url('https://fonts.googleapis.com/css?family=IM+Fell+English+SC|Marko+One&display=swap');
+
+/* Some global formatting. */
+* {
+  font-family: 'Marko One';
+  font-size: 12px;
+}
+
+span.sheet-block-label {
+  font-family: 'IM Fell English SC';
+  font-size: 1.5em;
+
+  display: block;
+}
+
+span.sheet-inline-label {
+  font-family: 'IM Fell English SC';
+  font-size: 1.5em;
+
+  display: inline;
+}
+
+span.sheet-header {
+  font-family: 'IM Fell English SC';
+  font-size: 3em;
+
+  display: block;
+}
+
+div.sheet-root {
+  background-color: lightgrey;
+  padding: 1em;
+  width: max-content;
+}
