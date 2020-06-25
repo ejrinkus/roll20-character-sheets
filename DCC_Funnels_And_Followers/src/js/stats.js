@@ -15,9 +15,9 @@ var statList = [
 var modList = [-3, -3, -3, -3, -2, -2, -1, -1, -1, 0, 0, 0, 0, 1, 1, 1, 2, 2, 3];
 
 statList.forEach((stat) => {
-  on(`change:${stat} sheet:opened`, function() {
-    getAttrs([stat], function(values) {
-      var newVal = values[stat]||0;
+  on(`change:repeating_heroes:${stat} sheet:opened`, function() {
+    getAttrs([`repeating_heroes_${stat}`], function(values) {
+      var newVal = values[`repeating_heroes_${stat}`]||0;
       var newMod = 0;
       if (newVal < 0) {
         newMod = modList[0];
@@ -27,7 +27,7 @@ statList.forEach((stat) => {
         newMod = modList[newVal];
       }
       setAttrs({
-        [`${stat}-mod`]: newMod
+        [`repeating_heroes_${stat}-mod`]: newMod
       });
     });
   });

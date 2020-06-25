@@ -3,7 +3,8 @@ include src/mixins/text_attribute/text_attribute.pug
 
 div.root
   span.header Heroes
-  include src/components/hero_sheet/hero_sheet.pug
+  fieldset(class=`repeating_heroes`)
+    include src/components/hero_sheet/hero_sheet.pug
 
 script(type="text/worker")
   include src/js/stats.js

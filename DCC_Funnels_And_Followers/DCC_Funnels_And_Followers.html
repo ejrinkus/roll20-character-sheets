@@ -1,64 +1,66 @@
 
 <div class="root"><span class="header">Heroes</span>
-  <div class="hero">
-    <div class="hero-name"><span class="block-label">Name</span>
-      <input type="text" name="attr_name" value=""/>
+  <fieldset class="repeating_heroes">
+    <div class="hero">
+      <div class="hero-name"><span class="block-label">Name</span>
+        <input type="text" name="attr_name" value=""/>
+      </div>
+      <div class="hero-occupation"><span class="block-label">Occupation</span>
+        <input type="text" name="attr_occupation" value=""/>
+      </div>
+      <div class="hero-class"><span class="block-label">Class</span>
+        <input type="text" name="attr_class" value="Peasant"/>
+      </div>
+      <div class="hero-cell"></div>
+      <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/heart.png')">
+        <input class="stat" type="number" name="attr_hp" value="0"/>
+        <input class="stat-mod" type="number" name="attr_hp-max" value="0"/>
+      </div>
+      <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/shield.png')">
+        <input class="stat" type="number" name="attr_ac" value="10"/>
+      </div>
+      <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/movement.png')">
+        <input class="stat" type="number" name="attr_movement" value="30"/>
+      </div>
+      <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/initiative.png')">
+        <input class="stat" type="number" name="attr_initiative" value="0"/>
+      </div>
+      <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/strength.png')">
+        <input class="stat" type="number" name="attr_strength" value="0"/>
+        <input class="stat-mod" type="number" name="attr_strength-mod" value="0" readonly="readonly"/>
+      </div>
+      <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/stamina.png')">
+        <input class="stat" type="number" name="attr_stamina" value="0"/>
+        <input class="stat-mod" type="number" name="attr_stamina-mod" value="0" readonly="readonly"/>
+      </div>
+      <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/agility.png')">
+        <input class="stat" type="number" name="attr_agility" value="0"/>
+        <input class="stat-mod" type="number" name="attr_agility-mod" value="0" readonly="readonly"/>
+      </div>
+      <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/personality.png')">
+        <input class="stat" type="number" name="attr_personality" value="0"/>
+        <input class="stat-mod" type="number" name="attr_personality-mod" value="0" readonly="readonly"/>
+      </div>
+      <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/intelligence.png')">
+        <input class="stat" type="number" name="attr_intelligence" value="0"/>
+        <input class="stat-mod" type="number" name="attr_intelligence-mod" value="0" readonly="readonly"/>
+      </div>
+      <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/clover.png')">
+        <input class="stat" type="number" name="attr_luck" value="0"/>
+        <input class="stat-mod" type="number" name="attr_luck-mod" value="0" readonly="readonly"/>
+      </div>
+      <div class="hero-label-cell"><span class="block-label">HP</span></div>
+      <div class="hero-label-cell"><span class="block-label">AC</span></div>
+      <div class="hero-label-cell"><span class="block-label">MOV</span></div>
+      <div class="hero-label-cell"><span class="block-label">INI</span></div>
+      <div class="hero-label-cell"><span class="block-label">STR</span></div>
+      <div class="hero-label-cell"><span class="block-label">STA</span></div>
+      <div class="hero-label-cell"><span class="block-label">AGI</span></div>
+      <div class="hero-label-cell"><span class="block-label">PER</span></div>
+      <div class="hero-label-cell"><span class="block-label">INT</span></div>
+      <div class="hero-label-cell"><span class="block-label">LUC</span></div>
     </div>
-    <div class="hero-occupation"><span class="block-label">Occupation</span>
-      <input type="text" name="attr_occupation" value=""/>
-    </div>
-    <div class="hero-class"><span class="block-label">Class</span>
-      <input type="text" name="attr_class" value="Peasant"/>
-    </div>
-    <div class="hero-cell"></div>
-    <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/heart.png')">
-      <input class="stat" type="number" name="attr_hp" value="0"/>
-      <input class="stat-mod" type="number" name="attr_hp-max" value="0"/>
-    </div>
-    <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/shield.png')">
-      <input class="stat" type="number" name="attr_ac" value="10"/>
-    </div>
-    <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/movement.png')">
-      <input class="stat" type="number" name="attr_movement" value="30"/>
-    </div>
-    <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/initiative.png')">
-      <input class="stat" type="number" name="attr_initiative" value="0"/>
-    </div>
-    <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/strength.png')">
-      <input class="stat" type="number" name="attr_strength" value="0"/>
-      <input class="stat-mod" type="number" name="attr_strength-mod" value="0" readonly="readonly"/>
-    </div>
-    <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/stamina.png')">
-      <input class="stat" type="number" name="attr_stamina" value="0"/>
-      <input class="stat-mod" type="number" name="attr_stamina-mod" value="0" readonly="readonly"/>
-    </div>
-    <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/agility.png')">
-      <input class="stat" type="number" name="attr_agility" value="0"/>
-      <input class="stat-mod" type="number" name="attr_agility-mod" value="0" readonly="readonly"/>
-    </div>
-    <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/personality.png')">
-      <input class="stat" type="number" name="attr_personality" value="0"/>
-      <input class="stat-mod" type="number" name="attr_personality-mod" value="0" readonly="readonly"/>
-    </div>
-    <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/intelligence.png')">
-      <input class="stat" type="number" name="attr_intelligence" value="0"/>
-      <input class="stat-mod" type="number" name="attr_intelligence-mod" value="0" readonly="readonly"/>
-    </div>
-    <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/clover.png')">
-      <input class="stat" type="number" name="attr_luck" value="0"/>
-      <input class="stat-mod" type="number" name="attr_luck-mod" value="0" readonly="readonly"/>
-    </div>
-    <div class="hero-label-cell"><span class="block-label">HP</span></div>
-    <div class="hero-label-cell"><span class="block-label">AC</span></div>
-    <div class="hero-label-cell"><span class="block-label">MOV</span></div>
-    <div class="hero-label-cell"><span class="block-label">INI</span></div>
-    <div class="hero-label-cell"><span class="block-label">STR</span></div>
-    <div class="hero-label-cell"><span class="block-label">STA</span></div>
-    <div class="hero-label-cell"><span class="block-label">AGI</span></div>
-    <div class="hero-label-cell"><span class="block-label">PER</span></div>
-    <div class="hero-label-cell"><span class="block-label">INT</span></div>
-    <div class="hero-label-cell"><span class="block-label">LUC</span></div>
-  </div>
+  </fieldset>
 </div>
 <script type="text/worker">var statList = [
   "strength",
@@ -77,9 +79,9 @@
 var modList = [-3, -3, -3, -3, -2, -2, -1, -1, -1, 0, 0, 0, 0, 1, 1, 1, 2, 2, 3];
 
 statList.forEach((stat) => {
-  on(`change:${stat} sheet:opened`, function() {
-    getAttrs([stat], function(values) {
-      var newVal = values[stat]||0;
+  on(`change:repeating_heroes:${stat} sheet:opened`, function() {
+    getAttrs([`repeating_heroes_${stat}`], function(values) {
+      var newVal = values[`repeating_heroes_${stat}`]||0;
       var newMod = 0;
       if (newVal < 0) {
         newMod = modList[0];
@@ -89,7 +91,7 @@ statList.forEach((stat) => {
         newMod = modList[newVal];
       }
       setAttrs({
-        [`${stat}-mod`]: newMod
+        [`repeating_heroes_${stat}-mod`]: newMod
       });
     });
   });
