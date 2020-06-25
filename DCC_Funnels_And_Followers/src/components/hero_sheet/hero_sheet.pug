@@ -1,4 +1,4 @@
-- var icon_path = 'https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons'
+- var iconPath = 'https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons'
 
 div.hero
   div.hero-name
@@ -8,43 +8,44 @@ div.hero
   div.hero-class
     +text_attribute("Class", "class", "Peasant", false)
   div.hero-cell
-  div.hero-cell(style=`background-image: url('${icon_path}/heart.png')`)
-    +stat_control("HP", "hp", 0)
-  div.hero-cell(style=`background-image: url('${icon_path}/shield.png')`)
-    +stat_control("AC", "ac", 0)
-  div.hero-cell(style=`background-image: url('${icon_path}/movement.png')`)
-    +stat_control("MOV", "movement", 0)
-  div.hero-cell(style=`background-image: url('${icon_path}/initiative.png')`)
-    +stat_control("INI", "initiative", 0)
-  div.hero-cell(style=`background-image: url('${icon_path}/strength.png')`)
+  div.hero-stat-cell(style=`background-image: url('${iconPath}/heart.png')`)
+    input.stat(type="number", name=`attr_hp`, value=0)
+    input.stat-mod(type="number", name=`attr_hp-max`, value=0)
+  div.hero-stat-cell(style=`background-image: url('${iconPath}/shield.png')`)
+    input.stat(type="number", name=`attr_ac`, value=10)
+  div.hero-stat-cell(style=`background-image: url('${iconPath}/movement.png')`)
+    input.stat(type="number", name=`attr_movement`, value=30)
+  div.hero-stat-cell(style=`background-image: url('${iconPath}/initiative.png')`)
+    input.stat(type="number", name=`attr_initiative`, value=0)
+  div.hero-stat-cell(style=`background-image: url('${iconPath}/strength.png')`)
     +stat_control("STR", "strength", 0)
-  div.hero-cell(style=`background-image: url('${icon_path}/stamina.png')`)
+  div.hero-stat-cell(style=`background-image: url('${iconPath}/stamina.png')`)
     +stat_control("STA", "stamina", 0)
-  div.hero-cell(style=`background-image: url('${icon_path}/agility.png')`)
+  div.hero-stat-cell(style=`background-image: url('${iconPath}/agility.png')`)
     +stat_control("AGI", "agility", 0)
-  div.hero-cell(style=`background-image: url('${icon_path}/personality.png')`)
+  div.hero-stat-cell(style=`background-image: url('${iconPath}/personality.png')`)
     +stat_control("PER", "personality", 0)
-  div.hero-cell(style=`background-image: url('${icon_path}/intelligence.png')`)
+  div.hero-stat-cell(style=`background-image: url('${iconPath}/intelligence.png')`)
     +stat_control("INT", "intelligence", 0)
-  div.hero-cell(style=`background-image: url('${icon_path}/clover.png')`)
+  div.hero-stat-cell(style=`background-image: url('${iconPath}/clover.png')`)
     +stat_control("LUC", "luck", 0)
-  div.hero-cell
+  div.hero-label-cell
     span.block-label HP
-  div.hero-cell
+  div.hero-label-cell
     span.block-label AC
-  div.hero-cell
+  div.hero-label-cell
     span.block-label MOV
-  div.hero-cell
+  div.hero-label-cell
     span.block-label INI
-  div.hero-cell
+  div.hero-label-cell
     span.block-label STR
-  div.hero-cell
+  div.hero-label-cell
     span.block-label STA
-  div.hero-cell
+  div.hero-label-cell
     span.block-label AGI
-  div.hero-cell
+  div.hero-label-cell
     span.block-label PER
-  div.hero-cell
+  div.hero-label-cell
     span.block-label INT
-  div.hero-cell
+  div.hero-label-cell
     span.block-label LUC

@@ -4,5 +4,6 @@ include src/mixins/text_attribute/text_attribute.pug
 div.root
   span.header Heroes
   include src/components/hero_sheet/hero_sheet.pug
-  span.header Followers
-  include src/components/hero_sheet/hero_sheet.pug
+
+script(type="text/worker")
+  include src/js/stats.js
