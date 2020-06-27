@@ -1,0 +1,21 @@
+div.sheet-hero-details-buttons {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(auto, 64px));
+  grid-template-rows: auto auto auto auto auto;
+  grid-gap: 1em 1em;
+}
+
+button.sheet-details-button {
+  grid-column-end: span 2;
+  grid-row-end: span 1;
+  justify-content: center;
+  text-align: center;
+}
+
+input.sheet-toggle[value=true] + div.sheet-hero-details-content {
+  display: block;
+}
+
+div.sheet-hero-details-content {
+  display: none;
+}

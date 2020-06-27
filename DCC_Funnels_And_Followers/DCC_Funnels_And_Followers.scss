@@ -1,4 +1,6 @@
 @use 'src/components/hero_sheet/hero_sheet.scss';
+@use 'src/components/hero_details/hero_details.scss';
+@use 'src/mixins/collapsible/collapsible.scss';
 @use 'src/mixins/stat_controls/stat_controls.scss';
 @use 'src/mixins/text_attribute/text_attribute.scss';
 

@@ -1,0 +1,8 @@
+mixin collapsible(label)
+  input.toggle(type="checkbox")
+  span &nbsp;#{label}
+  div.contents
+    if block
+      block
+    else
+      | PLACEHOLDER CONTENT

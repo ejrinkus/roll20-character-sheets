@@ -1,3 +1,4 @@
+include src/mixins/collapsible/collapsible.pug
 include src/mixins/stat_controls/stat_controls.pug
 include src/mixins/text_attribute/text_attribute.pug
 
@@ -7,4 +8,6 @@ div.root
     include src/components/hero_sheet/hero_sheet.pug
 
 script(type="text/worker")
+  include src/js/detail_selector.js
+  
   include src/js/stats.js

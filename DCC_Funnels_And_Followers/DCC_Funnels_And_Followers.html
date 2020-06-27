@@ -59,48 +59,131 @@
       <div class="hero-label-cell"><span class="block-label">PER</span></div>
       <div class="hero-label-cell"><span class="block-label">INT</span></div>
       <div class="hero-label-cell"><span class="block-label">LUC</span></div>
-      <div class="wrap-collapsible">
-        <input class="toggle" type="checkbox"/>
-        <label class="lbl-toggle">More Info</label>
-        <div class="collapsible-content">
-          <div class="content-inner">HERO DETAILS HERE</div>
+      <div class="wrap-hero-details">
+        <input class="toggle" type="checkbox"/><span>&nbsp;Details</span>
+        <div class="contents">
+          <div class="hero-details">
+            <div class="hero-details-buttons">
+              <button class="details-button" type="action" name="act_selectLevel0">Level 0</button>
+              <button class="details-button" type="action" name="act_selectInventory">Inventory</button>
+              <button class="details-button" type="action" name="act_selectStatus">Status</button>
+              <button class="details-button" type="action" name="act_selectAbilities">Abilities</button>
+              <button class="details-button" type="action" name="act_selectSpellcasting">Spellcasting</button>
+            </div>
+            <input class="toggle" type="hidden" name="attr_selectLevel0"/>
+            <div class="hero-details-content">
+              <div class="level_zero">LEVEL 0 PLACEHOLDER</div>
+            </div>
+            <input class="toggle" type="hidden" name="attr_selectInventory"/>
+            <div class="hero-details-content">
+              <div class="inventory">INVENTORY PLACEHOLDER</div>
+            </div>
+            <input class="toggle" type="hidden" name="attr_selectStatus"/>
+            <div class="hero-details-content">
+              <div class="status">STATUS PLACEHOLDER</div>
+            </div>
+            <input class="toggle" type="hidden" name="attr_selectAbilities"/>
+            <div class="hero-details-content">
+              <div class="abilities">ABILITIES PLACEHOLDER</div>
+            </div>
+            <input class="toggle" type="hidden" name="attr_selectSpellcasting"/>
+            <div class="hero-details-content">
+              <div class="spells">SPELLCASTING PLACEHOLDER</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </fieldset>
 </div>
-<script type="text/worker">var statList = [
-  "strength",
-  "stamina",
-  "agility",
-  "personality",
-  "intelligence",
-  "luck"
-];
+<script type="text/worker">
+  
+  on("clicked:repeating_heroes:selectLevel0", function() {
+    console.log("Clicked Level 0");
+    setAttrs({
+      repeating_heroes_selectLevel0: true,
+      repeating_heroes_selectInventory: false,
+      repeating_heroes_selectStatus: false,
+      repeating_heroes_selectAbilities: false,
+      repeating_heroes_selectSpellcasting: false
+    });
+  });
 
-// Stat modifiers, indexed by the score value.  Note that the table in the rules goes
-// from 3-18, so additional -3 mods are prepended at positions 0, 1, and 2 to faciliitate
-// simpler logic.
-// Anything below 0 is -3.
-// Anything above 18 follows this formula: floor((value - 18) / 2) + 3
-var modList = [-3, -3, -3, -3, -2, -2, -1, -1, -1, 0, 0, 0, 0, 1, 1, 1, 2, 2, 3];
+  on("clicked:repeating_heroes:selectInventory", function() {
+    console.log("Clicked Inventory");
+    setAttrs({
+      repeating_heroes_selectLevel0: false,
+      repeating_heroes_selectInventory: true,
+      repeating_heroes_selectStatus: false,
+      repeating_heroes_selectAbilities: false,
+      repeating_heroes_selectSpellcasting: false
+    });
+  });
 
-statList.forEach((stat) => {
-  on(`change:repeating_heroes:${stat} sheet:opened`, function() {
-    getAttrs([`repeating_heroes_${stat}`], function(values) {
-      var newVal = values[`repeating_heroes_${stat}`]||0;
-      var newMod = 0;
-      if (newVal < 0) {
-        newMod = modList[0];
-      } else if (newVal > 18) {
-        newMod = Math.floor((value - 18) / 2) + 3;
-      } else {
-        newMod = modList[newVal];
-      }
-      setAttrs({
-        [`repeating_heroes_${stat}-mod`]: newMod
+  on("clicked:repeating_heroes:selectStatus", function() {
+    console.log("Clicked Status");
+    setAttrs({
+      repeating_heroes_selectLevel0: false,
+      repeating_heroes_selectInventory: false,
+      repeating_heroes_selectStatus: true,
+      repeating_heroes_selectAbilities: false,
+      repeating_heroes_selectSpellcasting: false
+    });
+  });
+
+  on("clicked:repeating_heroes:selectAbilities", function() {
+    console.log("Clicked Abilities");
+    setAttrs({
+      repeating_heroes_selectLevel0: false,
+      repeating_heroes_selectInventory: false,
+      repeating_heroes_selectStatus: false,
+      repeating_heroes_selectAbilities: true,
+      repeating_heroes_selectSpellcasting: false
+    });
+  });
+
+  on("clicked:repeating_heroes:selectSpellcasting", function() {
+    console.log("Clicked Spellcasting");
+    setAttrs({
+      repeating_heroes_selectLevel0: false,
+      repeating_heroes_selectInventory: false,
+      repeating_heroes_selectStatus: false,
+      repeating_heroes_selectAbilities: false,
+      repeating_heroes_selectSpellcasting: true
+    });
+  });
+  var statList = [
+    "strength",
+    "stamina",
+    "agility",
+    "personality",
+    "intelligence",
+    "luck"
+  ];
+
+  // Stat modifiers, indexed by the score value.  Note that the table in the rules goes
+  // from 3-18, so additional -3 mods are prepended at positions 0, 1, and 2 to faciliitate
+  // simpler logic.
+  // Anything below 0 is -3.
+  // Anything above 18 follows this formula: floor((value - 18) / 2) + 3
+  var modList = [-3, -3, -3, -3, -2, -2, -1, -1, -1, 0, 0, 0, 0, 1, 1, 1, 2, 2, 3];
+
+  statList.forEach((stat) => {
+    on(`change:repeating_heroes:${stat} sheet:opened`, function() {
+      getAttrs([`repeating_heroes_${stat}`], function(values) {
+        var newVal = values[`repeating_heroes_${stat}`]||0;
+        var newMod = 0;
+        if (newVal < 0) {
+          newMod = modList[0];
+        } else if (newVal > 18) {
+          newMod = Math.floor((value - 18) / 2) + 3;
+        } else {
+          newMod = modList[newVal];
+        }
+        setAttrs({
+          [`repeating_heroes_${stat}-mod`]: newMod
+        });
       });
     });
   });
-})
 </script>
