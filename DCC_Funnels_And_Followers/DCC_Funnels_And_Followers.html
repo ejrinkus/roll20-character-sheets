@@ -64,29 +64,29 @@
         <div class="contents">
           <div class="hero-details">
             <div class="hero-details-buttons">
-              <button class="details-button" type="action" name="act_selectLevel0">Level 0</button>
-              <button class="details-button" type="action" name="act_selectInventory">Inventory</button>
-              <button class="details-button" type="action" name="act_selectStatus">Status</button>
-              <button class="details-button" type="action" name="act_selectAbilities">Abilities</button>
-              <button class="details-button" type="action" name="act_selectSpellcasting">Spellcasting</button>
+              <button class="details-button" type="action" name="act_selectlevel0">Level 0</button>
+              <button class="details-button" type="action" name="act_selectinventory">Inventory</button>
+              <button class="details-button" type="action" name="act_selectstatus">Status</button>
+              <button class="details-button" type="action" name="act_selectabilities">Abilities</button>
+              <button class="details-button" type="action" name="act_selectspellcasting">Spellcasting</button>
             </div>
-            <input class="toggle" type="hidden" name="attr_selectLevel0"/>
+            <input class="toggle" type="hidden" name="attr_selectlevel0"/>
             <div class="hero-details-content">
               <div class="level_zero">LEVEL 0 PLACEHOLDER</div>
             </div>
-            <input class="toggle" type="hidden" name="attr_selectInventory"/>
+            <input class="toggle" type="hidden" name="attr_selectinventory"/>
             <div class="hero-details-content">
               <div class="inventory">INVENTORY PLACEHOLDER</div>
             </div>
-            <input class="toggle" type="hidden" name="attr_selectStatus"/>
+            <input class="toggle" type="hidden" name="attr_selectstatus"/>
             <div class="hero-details-content">
               <div class="status">STATUS PLACEHOLDER</div>
             </div>
-            <input class="toggle" type="hidden" name="attr_selectAbilities"/>
+            <input class="toggle" type="hidden" name="attr_selectabilities"/>
             <div class="hero-details-content">
               <div class="abilities">ABILITIES PLACEHOLDER</div>
             </div>
-            <input class="toggle" type="hidden" name="attr_selectSpellcasting"/>
+            <input class="toggle" type="hidden" name="attr_selectspellcasting"/>
             <div class="hero-details-content">
               <div class="spells">SPELLCASTING PLACEHOLDER</div>
             </div>
@@ -98,59 +98,16 @@
 </div>
 <script type="text/worker">
   
-  on("clicked:repeating_heroes:selectLevel0", function() {
-    console.log("Clicked Level 0");
-    setAttrs({
-      repeating_heroes_selectLevel0: true,
-      repeating_heroes_selectInventory: false,
-      repeating_heroes_selectStatus: false,
-      repeating_heroes_selectAbilities: false,
-      repeating_heroes_selectSpellcasting: false
-    });
-  });
-
-  on("clicked:repeating_heroes:selectInventory", function() {
-    console.log("Clicked Inventory");
-    setAttrs({
-      repeating_heroes_selectLevel0: false,
-      repeating_heroes_selectInventory: true,
-      repeating_heroes_selectStatus: false,
-      repeating_heroes_selectAbilities: false,
-      repeating_heroes_selectSpellcasting: false
-    });
-  });
-
-  on("clicked:repeating_heroes:selectStatus", function() {
-    console.log("Clicked Status");
-    setAttrs({
-      repeating_heroes_selectLevel0: false,
-      repeating_heroes_selectInventory: false,
-      repeating_heroes_selectStatus: true,
-      repeating_heroes_selectAbilities: false,
-      repeating_heroes_selectSpellcasting: false
-    });
-  });
-
-  on("clicked:repeating_heroes:selectAbilities", function() {
-    console.log("Clicked Abilities");
-    setAttrs({
-      repeating_heroes_selectLevel0: false,
-      repeating_heroes_selectInventory: false,
-      repeating_heroes_selectStatus: false,
-      repeating_heroes_selectAbilities: true,
-      repeating_heroes_selectSpellcasting: false
-    });
-  });
-
-  on("clicked:repeating_heroes:selectSpellcasting", function() {
-    console.log("Clicked Spellcasting");
-    setAttrs({
-      repeating_heroes_selectLevel0: false,
-      repeating_heroes_selectInventory: false,
-      repeating_heroes_selectStatus: false,
-      repeating_heroes_selectAbilities: false,
-      repeating_heroes_selectSpellcasting: true
-    });
+  const fields = ['selectlevel0', 'selectinventory', 'selectstatus', 'selectabilities', 'selectspellcasting'];
+  on(fields.map(f => `clicked:repeating_heroes:${f}`).join(' '), function(eventInfo) {
+      const trigger = eventInfo.sourceAttribute.split('_');
+      const thisfield = trigger[3];
+      const output = {};
+      fields.forEach(f => {
+          output['repeating_heroes_' + f] = false;
+      });
+      output['repeating_heroes_' + thisfield] = true;
+      setAttrs(output);
   });
   var statList = [
     "strength",

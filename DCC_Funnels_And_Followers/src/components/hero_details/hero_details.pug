@@ -1,22 +1,22 @@
 div.hero-details
   div.hero-details-buttons
-    button.details-button(type="action" name="act_selectLevel0") Level 0
-    button.details-button(type="action" name="act_selectInventory") Inventory
-    button.details-button(type="action" name="act_selectStatus") Status
-    button.details-button(type="action" name="act_selectAbilities") Abilities
-    button.details-button(type="action" name="act_selectSpellcasting") Spellcasting
-  input.toggle(type="hidden", name="attr_selectLevel0")
+    button.details-button(type="action" name="act_selectlevel0") Level 0
+    button.details-button(type="action" name="act_selectinventory") Inventory
+    button.details-button(type="action" name="act_selectstatus") Status
+    button.details-button(type="action" name="act_selectabilities") Abilities
+    button.details-button(type="action" name="act_selectspellcasting") Spellcasting
+  input.toggle(type="hidden", name="attr_selectlevel0")
   div.hero-details-content
     include ../level_zero/level_zero.pug
-  input.toggle(type="hidden", name="attr_selectInventory")
+  input.toggle(type="hidden", name="attr_selectinventory")
   div.hero-details-content
     include ../inventory/inventory.pug
-  input.toggle(type="hidden", name="attr_selectStatus")
+  input.toggle(type="hidden", name="attr_selectstatus")
   div.hero-details-content
     include ../status/status.pug
-  input.toggle(type="hidden", name="attr_selectAbilities")
+  input.toggle(type="hidden", name="attr_selectabilities")
   div.hero-details-content
     include ../abilities/abilities.pug
-  input.toggle(type="hidden", name="attr_selectSpellcasting")
+  input.toggle(type="hidden", name="attr_selectspellcasting")
   div.hero-details-content
     include ../spells/spells.pug
