@@ -1,5 +1,5 @@
 
-  const fields = ['selectlevel0', 'selectinventory', 'selectstatus', 'selectabilities', 'selectspellcasting'];
+  const fields = ['selectvitals', 'selectinventory', 'selectstatus', 'selectabilities', 'selectspellcasting'];
   on(fields.map(f => `clicked:repeating_heroes:${f}`).join(' '), function(eventInfo) {
       const trigger = eventInfo.sourceAttribute.split('_');
       const thisfield = trigger[3];

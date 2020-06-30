@@ -1,13 +1,13 @@
 div.hero-details
   div.hero-details-buttons
-    button.details-button(type="action" name="act_selectlevel0") Level 0
+    button.details-button(type="action" name="act_selectvitals") Vitals
     button.details-button(type="action" name="act_selectinventory") Inventory
     button.details-button(type="action" name="act_selectstatus") Status
     button.details-button(type="action" name="act_selectabilities") Abilities
     button.details-button(type="action" name="act_selectspellcasting") Spellcasting
-  input.toggle(type="hidden", name="attr_selectlevel0")
+  input.toggle(type="hidden", name="attr_selectvitals")
   div.hero-details-content
-    include ../level_zero/level_zero.pug
+    include ../vitals/vitals.pug
   input.toggle(type="hidden", name="attr_selectinventory")
   div.hero-details-content
     include ../inventory/inventory.pug

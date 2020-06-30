@@ -14,7 +14,7 @@
       <div class="hero-cell"></div>
       <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/heart.png')">
         <input class="stat" type="number" name="attr_hp" value="0"/>
-        <input class="stat-mod" type="number" name="attr_hp-max" value="0"/>
+        <input class="stat-mod" type="number" name="attr_hpmax" value="0"/>
       </div>
       <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/shield.png')">
         <input class="stat" type="number" name="attr_ac" value="10"/>
@@ -27,27 +27,27 @@
       </div>
       <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/strength.png')">
         <input class="stat" type="number" name="attr_strength" value="0"/>
-        <input class="stat-mod" type="number" name="attr_strength-mod" value="0" readonly="readonly"/>
+        <input class="stat-mod" type="number" name="attr_strengthmod" value="0" readonly="readonly"/>
       </div>
       <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/stamina.png')">
         <input class="stat" type="number" name="attr_stamina" value="0"/>
-        <input class="stat-mod" type="number" name="attr_stamina-mod" value="0" readonly="readonly"/>
+        <input class="stat-mod" type="number" name="attr_staminamod" value="0" readonly="readonly"/>
       </div>
       <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/agility.png')">
         <input class="stat" type="number" name="attr_agility" value="0"/>
-        <input class="stat-mod" type="number" name="attr_agility-mod" value="0" readonly="readonly"/>
+        <input class="stat-mod" type="number" name="attr_agilitymod" value="0" readonly="readonly"/>
       </div>
       <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/personality.png')">
         <input class="stat" type="number" name="attr_personality" value="0"/>
-        <input class="stat-mod" type="number" name="attr_personality-mod" value="0" readonly="readonly"/>
+        <input class="stat-mod" type="number" name="attr_personalitymod" value="0" readonly="readonly"/>
       </div>
       <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/intelligence.png')">
         <input class="stat" type="number" name="attr_intelligence" value="0"/>
-        <input class="stat-mod" type="number" name="attr_intelligence-mod" value="0" readonly="readonly"/>
+        <input class="stat-mod" type="number" name="attr_intelligencemod" value="0" readonly="readonly"/>
       </div>
       <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/clover.png')">
         <input class="stat" type="number" name="attr_luck" value="0"/>
-        <input class="stat-mod" type="number" name="attr_luck-mod" value="0" readonly="readonly"/>
+        <input class="stat-mod" type="number" name="attr_luckmod" value="0" readonly="readonly"/>
       </div>
       <div class="hero-label-cell"><span class="block-label">HP</span></div>
       <div class="hero-label-cell"><span class="block-label">AC</span></div>
@@ -64,15 +64,31 @@
         <div class="contents">
           <div class="hero-details">
             <div class="hero-details-buttons">
-              <button class="details-button" type="action" name="act_selectlevel0">Level 0</button>
+              <button class="details-button" type="action" name="act_selectvitals">Vitals</button>
               <button class="details-button" type="action" name="act_selectinventory">Inventory</button>
               <button class="details-button" type="action" name="act_selectstatus">Status</button>
               <button class="details-button" type="action" name="act_selectabilities">Abilities</button>
               <button class="details-button" type="action" name="act_selectspellcasting">Spellcasting</button>
             </div>
-            <input class="toggle" type="hidden" name="attr_selectlevel0"/>
+            <input class="toggle" type="hidden" name="attr_selectvitals"/>
             <div class="hero-details-content">
-              <div class="level_zero">LEVEL 0 PLACEHOLDER</div>
+              <div class="vitals"><span class="inline-label vitals-label">Rolled HP:</span>
+                <input type="number" name="attr_basehp0" value="0"/>
+                <input type="number" name="attr_basehp1" value="0"/>
+                <input type="number" name="attr_basehp2" value="0"/>
+                <input type="number" name="attr_basehp3" value="0"/>
+                <input type="number" name="attr_basehp4" value="0"/>
+                <input type="number" name="attr_basehp5" value="0"/>
+                <input type="number" name="attr_basehp6" value="0"/>
+                <input type="number" name="attr_basehp7" value="0"/>
+                <input type="number" name="attr_basehp8" value="0"/>
+                <input type="number" name="attr_basehp9" value="0"/>
+                <input type="number" name="attr_basehp10" value="0"/>
+                <input type="number" name="attr_basehptotal" value="0" readonly="readonly"/><span>&nbsp;</span><span>Lvl 0</span><span>Lvl 1</span><span>Lvl 2</span><span>Lvl 3</span><span>Lvl 4</span><span>Lvl 5</span><span>Lvl 6</span><span>Lvl 7</span><span>Lvl 8</span><span>Lvl 9</span><span>Lvl 10</span><span>Total</span><span class="spacer">&nbsp;</span><span class="inline-label vitals-label">Birth Augur:</span>
+                <input type="number" name="attr_augurmod" value="0"/>
+                <input type="number" name="attr_augurroll" value="0"/>
+                <input class="augur" type="text" name="attr_augur" value="Please enter birth augur roll" readonly="readonly"/><span>&nbsp;</span><span>Mod</span><span>Roll</span><span class="augur">&nbsp;</span><span class="spacer">&nbsp;</span>
+              </div>
             </div>
             <input class="toggle" type="hidden" name="attr_selectinventory"/>
             <div class="hero-details-content">
@@ -98,7 +114,7 @@
 </div>
 <script type="text/worker">
   
-  const fields = ['selectlevel0', 'selectinventory', 'selectstatus', 'selectabilities', 'selectspellcasting'];
+  const fields = ['selectvitals', 'selectinventory', 'selectstatus', 'selectabilities', 'selectspellcasting'];
   on(fields.map(f => `clicked:repeating_heroes:${f}`).join(' '), function(eventInfo) {
       const trigger = eventInfo.sourceAttribute.split('_');
       const thisfield = trigger[3];
@@ -109,38 +125,98 @@
       output['repeating_heroes_' + thisfield] = true;
       setAttrs(output);
   });
-  var statList = [
-    "strength",
+  
+  const attributes = ["strength",
     "stamina",
     "agility",
     "personality",
     "intelligence",
-    "luck"
-  ];
-
+    "luck"];
+  const attrKeys = attributes.map(attr => `repeating_heroes_${attr}`);
+  const attrEvents = attributes.map(attr => `change:repeating_heroes:${attr}`).join(' ') + " sheet:opened";
+  const hpKeys = [...Array(11).keys()].map(i => `repeating_heroes_basehp${i}`);
+  const hpEvents = [...Array(11).keys()].map(i => `change:repeating_heroes:basehp${i}`).join(' ');
+  
   // Stat modifiers, indexed by the score value.  Note that the table in the rules goes
   // from 3-18, so additional -3 mods are prepended at positions 0, 1, and 2 to faciliitate
   // simpler logic.
   // Anything below 0 is -3.
   // Anything above 18 follows this formula: floor((value - 18) / 2) + 3
   var modList = [-3, -3, -3, -3, -2, -2, -1, -1, -1, 0, 0, 0, 0, 1, 1, 1, 2, 2, 3];
+  function getMod(attr, values) {
+    var value = parseInt(values[`repeating_heroes_${attr}`]) || 0;
+    if (value < 0) {
+      return modList[0];
+    } else if (value > 18) {
+      return Math.floor((value - 18) / 2) + 3;
+    } else {
+      return modList[value];
+    }
+  }
 
-  statList.forEach((stat) => {
-    on(`change:repeating_heroes:${stat} sheet:opened`, function() {
-      getAttrs([`repeating_heroes_${stat}`], function(values) {
-        var newVal = values[`repeating_heroes_${stat}`]||0;
-        var newMod = 0;
-        if (newVal < 0) {
-          newMod = modList[0];
-        } else if (newVal > 18) {
-          newMod = Math.floor((value - 18) / 2) + 3;
-        } else {
-          newMod = modList[newVal];
-        }
-        setAttrs({
-          [`repeating_heroes_${stat}-mod`]: newMod
-        });
-      });
+  // Updates the hp, hpmax, and basehptotal attributes based on the current state of the sheet.
+  function updateHp() {
+    getAttrs(hpKeys.concat(["repeating_heroes_stamina",
+                            "repeating_heroes_hp",
+                            "repeating_heroes_hpmax"]), function (values) {
+      var updates = {};
+
+      var staMod = getMod("stamina", values);
+      var baseTotal = hpKeys.map(key => parseInt(values[key])||0).reduce((sum, val) => sum + val);
+      updates["repeating_heroes_basehptotal"] = baseTotal;
+
+      var newMax = baseTotal + staMod;
+      if (newMax < 1) newMax = 1;
+      updates["repeating_heroes_hpmax"] = newMax;
+
+      var current = parseInt(values["repeating_heroes_hp"]) || 0;
+      var oldMax = parseInt(values["repeating_heroes_hpmax"]) || 0;
+      current += (newMax - oldMax);
+      if (current < 0) current = 0;
+      if (current > newMax) current = newMax;
+      updates["repeating_heroes_hp"] = current;
+
+      setAttrs(updates);
     });
+  }
+
+  // Updates the ac attribute based on the current state of the sheet.
+  function updateAc() {
+    getAttrs(["repeating_heroes_agility"], function (values) {
+      var agiMod = getMod("agility", values);
+      var updates = {};
+      updates["repeating_heroes_ac"] = 10 + agiMod;
+      setAttrs(updates);
+    });
+  }
+
+  // Updates the initiative attribute based on the current state of the sheet.
+  function updateIni() {
+    getAttrs(["repeating_heroes_agility"], function (values) {
+      var agiMod = getMod("agility", values);
+      var updates = {};
+      updates["repeating_heroes_initiative"] = agiMod;
+      setAttrs(updates);
+    });
+  }
+
+  // Listener for any of the base attributes changing.
+  on(attrEvents, function () {
+    getAttrs(attrKeys, function (values) {
+      var updates = {};
+
+      // Modifier updates
+      attributes.forEach(attr => updates[`repeating_heroes_${attr}mod`] = getMod(attr, values));
+
+      setAttrs(updates);
+    });
+    updateHp();
+    updateAc();
+    updateIni();
+  });
+
+  // Listener for any of the base HP rolls being entered.
+  on(hpEvents, function () {
+    updateHp();
   });
 </script>

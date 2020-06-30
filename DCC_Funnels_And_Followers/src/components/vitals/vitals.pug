@@ -1,0 +1,43 @@
+div.vitals
+  //- Start the rolled HP row
+  span.inline-label.vitals-label Rolled HP:
+  input(type="number" name="attr_basehp0" value=0)
+  input(type="number" name="attr_basehp1" value=0)
+  input(type="number" name="attr_basehp2" value=0)
+  input(type="number" name="attr_basehp3" value=0)
+  input(type="number" name="attr_basehp4" value=0)
+  input(type="number" name="attr_basehp5" value=0)
+  input(type="number" name="attr_basehp6" value=0)
+  input(type="number" name="attr_basehp7" value=0)
+  input(type="number" name="attr_basehp8" value=0)
+  input(type="number" name="attr_basehp9" value=0)
+  input(type="number" name="attr_basehp10" value=0)
+  input(type="number" name="attr_basehptotal" value=0 readonly)
+  //- Start level labels row for rolled HP
+  span &nbsp;
+  span Lvl 0
+  span Lvl 1
+  span Lvl 2
+  span Lvl 3
+  span Lvl 4
+  span Lvl 5
+  span Lvl 6
+  span Lvl 7
+  span Lvl 8
+  span Lvl 9
+  span Lvl 10
+  span Total
+  //- Spacer row
+  span.spacer &nbsp;
+  //- Start birth augur row
+  span.inline-label.vitals-label Birth Augur:
+  input(type="number" name="attr_augurmod" value=0)
+  input(type="number" name="attr_augurroll" value=0)
+  input.augur(type="text" name="attr_augur" value="Please enter birth augur roll" readonly)
+  //- Start birth augur labels row
+  span &nbsp;
+  span Mod
+  span Roll
+  span.augur &nbsp;
+  //- Spacer row
+  span.spacer &nbsp;

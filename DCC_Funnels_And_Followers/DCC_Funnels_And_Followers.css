@@ -43,7 +43,7 @@ div.sheet-wrap-hero-details {
 div.sheet-hero-details-buttons {
   display: grid;
   grid-template-columns: repeat(10, minmax(auto, 64px));
-  grid-template-rows: auto auto auto auto auto;
+  grid-template-rows: auto auto auto;
   grid-gap: 1em 1em;
 }
 
@@ -60,6 +60,23 @@ input.sheet-toggle[value=true] + div.sheet-hero-details-content {
 
 div.sheet-hero-details-content {
   display: none;
+}
+
+div.sheet-vitals {
+  display: grid;
+  grid-template-columns: 9em repeat(12, 3.5em);
+  grid-template-rows: repeat(1, auto);
+  grid-gap: 0.25em 0.5em;
+}
+
+input.sheet-augur,
+span.sheet-augur {
+  width: 100%;
+  grid-column-end: span 10;
+}
+
+span.sheet-spacer {
+  grid-column-end: span 13;
 }
 
 div.sheet-contents {
