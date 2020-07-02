@@ -11,19 +11,9 @@ div.sheet-hero {
   grid-gap: 1em 1em;
 }
 
-div.sheet-hero-name {
-  grid-column: 1/span 3;
-  grid-row: 1/span 1;
-}
-
-div.sheet-hero-occupation {
-  grid-column: 4/span 3;
-  grid-row: 1/span 1;
-}
-
-div.sheet-hero-class {
-  grid-column: 7/span 3;
-  grid-row: 1/span 1;
+div.sheet-hero-header-cell {
+  grid-column-end: span 3;
+  grid-row-end: span 1;
 }
 
 div.sheet-hero-stat-cell,
