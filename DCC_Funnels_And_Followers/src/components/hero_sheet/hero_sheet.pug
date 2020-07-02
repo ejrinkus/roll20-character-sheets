@@ -33,5 +33,7 @@ div.hero
       span.block-label #{lbl}
 
   div.wrap-hero-details
-    +collapsible("Details")
+    input.toggle(type="checkbox")
+    span &nbsp;Details
+    div.contents
       include ../hero_details/hero_details.pug

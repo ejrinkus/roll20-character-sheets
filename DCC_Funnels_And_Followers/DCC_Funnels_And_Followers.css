@@ -66,6 +66,16 @@ input.sheet-stat-mod[type=number] {
   -moz-appearance: textfield;
 }
 
+div.sheet-contents {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+input.sheet-toggle:checked ~ div.sheet-contents {
+  max-height: 100vh;
+}
+
 div.sheet-hero-details-buttons {
   display: grid;
   grid-template-columns: repeat(10, minmax(auto, 64px));
@@ -103,16 +113,6 @@ span.sheet-augur {
 
 span.sheet-spacer {
   grid-column-end: 14;
-}
-
-div.sheet-contents {
-  max-height: 0px;
-  overflow: hidden;
-  transition: max-height 0.5s ease-in-out;
-}
-
-input.sheet-toggle:checked ~ div.sheet-contents {
-  max-height: 100vh;
 }
 
 /* Some global formatting. */

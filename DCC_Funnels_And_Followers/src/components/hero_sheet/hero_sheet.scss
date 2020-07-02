@@ -67,3 +67,13 @@ input.sheet-stat-mod[type=number] {
   /* Remove spinners in Firefox */
   -moz-appearance: textfield;
 }
+
+div.sheet-contents {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+input.sheet-toggle:checked ~ div.sheet-contents {
+  max-height: 100vh;
+}
