@@ -90,7 +90,8 @@
                 <input type="number" name="attr_basehptotal" value="0" readonly="readonly"/><span>&nbsp;</span><span>Lvl 0</span><span>Lvl 1</span><span>Lvl 2</span><span>Lvl 3</span><span>Lvl 4</span><span>Lvl 5</span><span>Lvl 6</span><span>Lvl 7</span><span>Lvl 8</span><span>Lvl 9</span><span>Lvl 10</span><span>Total</span><span class="spacer">&nbsp;</span><span class="inline-label vitals-label">Birth Augur:</span>
                 <input type="number" name="attr_augurmod" value="0"/>
                 <input type="number" name="attr_augurroll" value="0"/>
-                <input class="augur" type="text" name="attr_augur" value="Please enter birth augur roll" readonly="readonly"/><span>&nbsp;</span><span>Mod</span><span>Roll</span><span class="augur">&nbsp;</span><span class="spacer">&nbsp;</span>
+                <input class="augur" type="text" name="attr_augur" value="" readonly="readonly"/><span>&nbsp;</span><span>Mod</span><span>Roll</span>
+                <input class="augur-roll" type="hidden" name="attr_augurroll"/><span class="augur-note-if-healing">*If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.</span><span class="augur-note-if-crit">**Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.</span><span class="spacer">&nbsp;</span>
               </div>
             </div>
             <input class="toggle" type="hidden" name="attr_selectinventory"/>
@@ -233,5 +234,54 @@
   // Listener for any of the base HP rolls being entered.
   on(hpEvents, function () {
     updateHp();
+  });  const birthAugurs = [
+    "<-- Enter your birth augur roll",
+    "Harsh winter: All attack rolls",
+    "The bull: Melee attack rolls",
+    "Fortunate date: Missile fire attack rolls",
+    "Raised by wolves: Unarmed attack rolls",
+    "Conceived on horseback: Mounted attack rolls",
+    "Born on the battlefield: Damage rolls",
+    "Path of the bear: Melee damage rolls",
+    "Hawkeye: Missile fire damage rolls",
+    "Pack hunter: Attack and damage rolls for 0-level starting weapon",
+    "Born under the loom: Skill checks (including thief skills)",
+    "Fox’s cunning: Find/disable traps",
+    "Four-leafed clover: Find secret doors",
+    "Seventh son: Spell checks",
+    "The raging storm: Spell damage",
+    "Righteous heart: Turn unholy checks",
+    "Survived the plague: Magical healing*",
+    "Lucky sign: Saving throws",
+    "Guardian angel: Savings throws to escape traps",
+    "Survived a spider bite: Saving throws against poison",
+    "Struck by lightning: Reflex saving throws",
+    "Lived through famine: Fortitude saving throws",
+    "Resisted temptation: Willpower saving throws",
+    "Charmed house: Armor Class",
+    "Speed of the cobra: Initiative",
+    "Bountiful harvest: Hit points (applies at each level)",
+    "Warrior’s arm: Critical hit tables**",
+    "Unholy house: Corruption rolls",
+    "The Broken Star: Fumbles**",
+    "Birdsong: Number of languages",
+    "Wild child: Speed (each +1/-1 = +5’/-5’ speed)"
+  ]
+
+  on("change:repeating_heroes:augurroll sheet:opened", function() {
+    getAttrs(["repeating_heroes_augurroll"], function(values) {
+      var updates = {};
+      augur = parseInt(values["repeating_heroes_augurroll"])||0;
+      if (augur < 0) {
+        augur = 0;
+        updates["repeating_heroes_augurroll"] = augur;
+      } else if (augur > 30) {
+        augur = 30;
+        updates["repeating_heroes_augurroll"] = augur;
+      }
+      updates["repeating_heroes_augur"] = birthAugurs[augur];
+      setAttrs(updates);
+    });
   });
+
 </script>

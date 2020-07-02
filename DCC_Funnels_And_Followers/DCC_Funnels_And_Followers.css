@@ -115,6 +115,19 @@ span.sheet-spacer {
   grid-column-end: 14;
 }
 
+span.sheet-augur-note-if-healing,
+span.sheet-augur-note-if-crit {
+  display: none;
+}
+
+input.sheet-augur-roll[value="16"] ~ span.sheet-augur-note-if-healing,
+input.sheet-augur-roll[value="26"] ~ span.sheet-augur-note-if-crit,
+input.sheet-augur-roll[value="28"] ~ span.sheet-augur-note-if-crit {
+  display: block;
+  grid-column-end: span 10;
+  grid-row-end: span 1;
+}
+
 /* Some global formatting. */
 * {
   font-family: "Marko One";

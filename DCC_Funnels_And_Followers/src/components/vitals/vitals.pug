@@ -29,11 +29,13 @@ div.vitals
   span.inline-label.vitals-label Birth Augur:
   input(type="number" name="attr_augurmod" value=0)
   input(type="number" name="attr_augurroll" value=0)
-  input.augur(type="text" name="attr_augur" value="Please enter birth augur roll" readonly)
+  input.augur(type="text" name="attr_augur" value="" readonly)
   //- Start birth augur labels row
   span &nbsp;
   span Mod
   span Roll
-  span.augur &nbsp;
+  input.augur-roll(type="hidden" name="attr_augurroll")
+  span.augur-note-if-healing *If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.
+  span.augur-note-if-crit **Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.
   //- Spacer row
   span.spacer &nbsp;
