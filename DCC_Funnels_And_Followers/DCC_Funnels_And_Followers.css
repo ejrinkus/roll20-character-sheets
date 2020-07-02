@@ -65,7 +65,7 @@ div.sheet-hero-details-content {
 div.sheet-vitals {
   display: grid;
   grid-template-columns: 9em repeat(12, 3.5em);
-  grid-template-rows: repeat(1, auto);
+  grid-template-rows: repeat(9, auto);
   grid-gap: 0.25em 0.5em;
 }
 
@@ -76,7 +76,7 @@ span.sheet-augur {
 }
 
 span.sheet-spacer {
-  grid-column-end: span 13;
+  grid-column-end: 14;
 }
 
 div.sheet-contents {

@@ -14,16 +14,16 @@
       <div class="hero-cell"></div>
       <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/heart.png')">
         <input class="stat" type="number" name="attr_hp" value="0"/>
-        <input class="stat-mod" type="number" name="attr_hpmax" value="0"/>
+        <input class="stat-mod" type="number" name="attr_hpmax" value="0" readonly="readonly"/>
       </div>
       <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/shield.png')">
-        <input class="stat" type="number" name="attr_ac" value="10"/>
+        <input class="stat" type="number" style="cursor: default" name="attr_ac" value="10" readonly="readonly"/>
       </div>
       <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/movement.png')">
-        <input class="stat" type="number" name="attr_movement" value="30"/>
+        <input class="stat" type="number" style="cursor: default" name="attr_movement" value="30" readonly="readonly"/>
       </div>
       <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/initiative.png')">
-        <input class="stat" type="number" name="attr_initiative" value="0"/>
+        <input class="stat" type="number" style="cursor: default" name="attr_initiative" value="0" readonly="readonly"/>
       </div>
       <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/master/DCC_Funnels_And_Followers/assets/icons/strength.png')">
         <input class="stat" type="number" name="attr_strength" value="0"/>
@@ -72,7 +72,10 @@
             </div>
             <input class="toggle" type="hidden" name="attr_selectvitals"/>
             <div class="hero-details-content">
-              <div class="vitals"><span class="inline-label vitals-label">Rolled HP:</span>
+              <div class="vitals"><span class="inline-label vitals-label">Saves:</span>
+                <input type="number" name="attr_forsave" value="0" readonly="readonly"/>
+                <input type="number" name="attr_refsave" value="0" readonly="readonly"/>
+                <input type="number" name="attr_wilsave" value="0" readonly="readonly"/><span class="spacer">&nbsp;</span><span>&nbsp;</span><span>FOR</span><span>REF</span><span>WIL</span><span class="spacer">&nbsp;</span><span class="spacer">&nbsp;</span><span class="inline-label vitals-label">Rolled HP:</span>
                 <input type="number" name="attr_basehp0" value="0"/>
                 <input type="number" name="attr_basehp1" value="0"/>
                 <input type="number" name="attr_basehp2" value="0"/>
@@ -183,9 +186,8 @@
   // Updates the ac attribute based on the current state of the sheet.
   function updateAc() {
     getAttrs(["repeating_heroes_agility"], function (values) {
-      var agiMod = getMod("agility", values);
       var updates = {};
-      updates["repeating_heroes_ac"] = 10 + agiMod;
+      updates["repeating_heroes_ac"] = 10 + getMod("agility", values);
       setAttrs(updates);
     });
   }
@@ -193,9 +195,21 @@
   // Updates the initiative attribute based on the current state of the sheet.
   function updateIni() {
     getAttrs(["repeating_heroes_agility"], function (values) {
-      var agiMod = getMod("agility", values);
       var updates = {};
-      updates["repeating_heroes_initiative"] = agiMod;
+      updates["repeating_heroes_initiative"] = getMod("agility", values);
+      setAttrs(updates);
+    });
+  }
+
+  // Updates the three saves based on the current state of the sheet.
+  function updateSaves() {
+    getAttrs(["repeating_heroes_stamina",
+              "repeating_heroes_agility",
+              "repeating_heroes_personality"], function (values) {
+      var updates = {};
+      updates["repeating_heroes_forsave"] = getMod("stamina", values);
+      updates["repeating_heroes_refsave"] = getMod("agility", values);
+      updates["repeating_heroes_wilsave"] = getMod("personality", values);
       setAttrs(updates);
     });
   }
@@ -213,6 +227,7 @@
     updateHp();
     updateAc();
     updateIni();
+    updateSaves();
   });
 
   // Listener for any of the base HP rolls being entered.

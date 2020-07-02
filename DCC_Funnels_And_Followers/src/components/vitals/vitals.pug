@@ -1,4 +1,18 @@
 div.vitals
+  //- Start the saves row
+  span.inline-label.vitals-label Saves:
+  input(type="number" name="attr_forsave" value=0 readonly)
+  input(type="number" name="attr_refsave" value=0 readonly)
+  input(type="number" name="attr_wilsave" value=0 readonly)
+  span.spacer &nbsp;
+  //- Start save labels row
+  span &nbsp;
+  span FOR
+  span REF
+  span WIL
+  span.spacer &nbsp;
+  //- Spacer row
+  span.spacer &nbsp;
   //- Start the rolled HP row
   span.inline-label.vitals-label Rolled HP:
   input(type="number" name="attr_basehp0" value=0)

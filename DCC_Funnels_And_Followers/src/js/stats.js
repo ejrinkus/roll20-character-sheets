@@ -57,9 +57,8 @@
   // Updates the ac attribute based on the current state of the sheet.
   function updateAc() {
     getAttrs(["repeating_heroes_agility"], function (values) {
-      var agiMod = getMod("agility", values);
       var updates = {};
-      updates["repeating_heroes_ac"] = 10 + agiMod;
+      updates["repeating_heroes_ac"] = 10 + getMod("agility", values);
       setAttrs(updates);
     });
   }
@@ -67,9 +66,21 @@
   // Updates the initiative attribute based on the current state of the sheet.
   function updateIni() {
     getAttrs(["repeating_heroes_agility"], function (values) {
-      var agiMod = getMod("agility", values);
       var updates = {};
-      updates["repeating_heroes_initiative"] = agiMod;
+      updates["repeating_heroes_initiative"] = getMod("agility", values);
+      setAttrs(updates);
+    });
+  }
+
+  // Updates the three saves based on the current state of the sheet.
+  function updateSaves() {
+    getAttrs(["repeating_heroes_stamina",
+              "repeating_heroes_agility",
+              "repeating_heroes_personality"], function (values) {
+      var updates = {};
+      updates["repeating_heroes_forsave"] = getMod("stamina", values);
+      updates["repeating_heroes_refsave"] = getMod("agility", values);
+      updates["repeating_heroes_wilsave"] = getMod("personality", values);
       setAttrs(updates);
     });
   }
@@ -87,6 +98,7 @@
     updateHp();
     updateAc();
     updateIni();
+    updateSaves();
   });
 
   // Listener for any of the base HP rolls being entered.
