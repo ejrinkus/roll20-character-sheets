@@ -7,7 +7,9 @@ div.hero
     +text_attribute("Occupation", "occupation", "", false)
   div.hero-class
     +text_attribute("Class", "class", "Peasant", false)
+
   div.hero-cell
+
   div.hero-stat-cell(style=`background-image: url('${iconPath}/heart.png')`)
     input.stat(type="number" name=`attr_hp` value=0)
     input.stat-mod(type="number" name=`attr_hpmax` value=0 readonly)
@@ -17,38 +19,16 @@ div.hero
     input.stat(type="number" style="cursor: default" name=`attr_movement` value=30 readonly)
   div.hero-stat-cell(style=`background-image: url('${iconPath}/initiative.png')`)
     input.stat(type="number" style="cursor: default" name=`attr_initiative` value=0 readonly)
-  div.hero-stat-cell(style=`background-image: url('${iconPath}/strength.png')`)
-    +stat_control("STR", "strength", 0)
-  div.hero-stat-cell(style=`background-image: url('${iconPath}/stamina.png')`)
-    +stat_control("STA", "stamina", 0)
-  div.hero-stat-cell(style=`background-image: url('${iconPath}/agility.png')`)
-    +stat_control("AGI", "agility", 0)
-  div.hero-stat-cell(style=`background-image: url('${iconPath}/personality.png')`)
-    +stat_control("PER", "personality", 0)
-  div.hero-stat-cell(style=`background-image: url('${iconPath}/intelligence.png')`)
-    +stat_control("INT", "intelligence", 0)
-  div.hero-stat-cell(style=`background-image: url('${iconPath}/clover.png')`)
-    +stat_control("LUC", "luck", 0)
-  div.hero-label-cell
-    span.block-label HP
-  div.hero-label-cell
-    span.block-label AC
-  div.hero-label-cell
-    span.block-label MOV
-  div.hero-label-cell
-    span.block-label INI
-  div.hero-label-cell
-    span.block-label STR
-  div.hero-label-cell
-    span.block-label STA
-  div.hero-label-cell
-    span.block-label AGI
-  div.hero-label-cell
-    span.block-label PER
-  div.hero-label-cell
-    span.block-label INT
-  div.hero-label-cell
-    span.block-label LUC
+
+  each stat in ["strength", "stamina", "agility", "personality", "intelligence", "luck"]
+    div.hero-stat-cell(style=`background-image: url('${iconPath}/${stat}.png')`)
+      input.stat(type="number", name=`attr_${stat}`, value=0)
+      input.stat-mod(type="number", name=`attr_${stat}mod`, value=0, readonly)
+
+  each lbl in ["HP", "AC", "MOV", "INI", "STR", "STA", "AGI", "PER", "INT", "LUC"]
+    div.hero-label-cell
+      span.block-label #{lbl}
+
   div.wrap-hero-details
     +collapsible("Details")
       include ../hero_details/hero_details.pug

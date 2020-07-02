@@ -40,6 +40,42 @@ div.sheet-wrap-hero-details {
   grid-row-end: span 1;
 }
 
+input.sheet-stat,
+input.sheet-stat-mod {
+  background: transparent;
+  border: none;
+  outline: none;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+}
+
+input.sheet-stat {
+  font-size: 1.5em;
+  height: 35px;
+}
+
+input.sheet-stat-mod {
+  font-size: 1.25em;
+  margin: 0 auto;
+  height: 29px;
+  cursor: default;
+}
+
+input.sheet-stat::-webkit-outer-spin-button,
+input.sheet-stat::-webkit-inner-spin-button,
+input.sheet-stat-mod::-webkit-outer-spin-button,
+input.sheet-stat-mod::-webkit-inner-spin-button {
+  /* Remove spinners in Chrome, Safari, Edge, Opera */
+  -webkit-appearance: none;
+}
+
+input.sheet-stat[type=number],
+input.sheet-stat-mod[type=number] {
+  /* Remove spinners in Firefox */
+  -moz-appearance: textfield;
+}
+
 div.sheet-hero-details-buttons {
   display: grid;
   grid-template-columns: repeat(10, minmax(auto, 64px));
@@ -87,42 +123,6 @@ div.sheet-contents {
 
 input.sheet-toggle:checked ~ div.sheet-contents {
   max-height: 100vh;
-}
-
-input.sheet-stat,
-input.sheet-stat-mod {
-  background: transparent;
-  border: none;
-  outline: none;
-  text-align: center;
-  color: black;
-  font-weight: bold;
-}
-
-input.sheet-stat {
-  font-size: 1.5em;
-  height: 35px;
-}
-
-input.sheet-stat-mod {
-  font-size: 1.25em;
-  margin: 0 auto;
-  height: 29px;
-  cursor: default;
-}
-
-input.sheet-stat::-webkit-outer-spin-button,
-input.sheet-stat::-webkit-inner-spin-button,
-input.sheet-stat-mod::-webkit-outer-spin-button,
-input.sheet-stat-mod::-webkit-inner-spin-button {
-  /* Remove spinners in Chrome, Safari, Edge, Opera */
-  -webkit-appearance: none;
-}
-
-input.sheet-stat[type=number],
-input.sheet-stat-mod[type=number] {
-  /* Remove spinners in Firefox */
-  -moz-appearance: textfield;
 }
 
 /* Some global formatting. */
