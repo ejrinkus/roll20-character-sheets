@@ -41,7 +41,7 @@ div.vitals
   span.spacer &nbsp;
   //- Start the max attributes row
   span.inline-label.vitals-label Max Scores:
-  each stat in ["str", "sta", "agi", "per", "int", "luc"]
+  each stat in ["strength", "stamina", "agility", "personality", "intelligence", "luck"]
     input(type="number" name=`attr_${stat}max` value=0)
   span.spacer &nbsp;
   //- Start max attributes labels row
