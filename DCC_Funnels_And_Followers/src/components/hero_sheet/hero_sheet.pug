@@ -1,27 +1,31 @@
 - var iconPath = 'https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/funnels-and-followers/DCC_Funnels_And_Followers/assets/icons'
 
 div.hero
-  -
-    var basicLabels = ["Name", "Occupation", "Class"];
-    var basicAttrs = ["name", "occupation", "class"];
-    var basicDefaults = ["", "", "Peasant"];
-    var i = 0;
-  while i < 3
-    div.hero-header-cell
-      span.block-label #{basicLabels[i]}
-      input(type="text", name=`attr_${basicAttrs[i]}`, value=`${basicDefaults[i++]}`)
-
-  div.hero-cell
+  div.hero-name-occ-cell
+    span.block-label Name
+    input(type="text", name=`attr_name`, value="")
+  div.hero-name-occ-cell
+    span.block-label Occupation
+    input(type="text", name=`attr_occupation`, value="")
+  div.hero-class-cell
+    span.block-label Class
+    input(type="text", style="width:133px" name=`attr_class`, value="None")
+  div.hero-level-cell
+    span.block-label Level
+    input(type="number", name=`attr_level`, value=0)
+  div.hero-title-cell
+    span.block-label Title
+    input(type="text", style="width:64px" name=`attr_title`, value="Peasant")
 
   div.hero-stat-cell(style=`background-image: url('${iconPath}/heart.png')`)
     input.stat(type="number" name=`attr_hp` value=0)
     input.stat-mod(type="number" name=`attr_hpmax` value=0 readonly)
   div.hero-stat-cell(style=`background-image: url('${iconPath}/shield.png')`)
-    input.stat(type="number" style="cursor: default" name=`attr_ac` value=10 readonly)
+    input.stat.standalone(type="number" name=`attr_ac` value=10 readonly)
   div.hero-stat-cell(style=`background-image: url('${iconPath}/movement.png')`)
-    input.stat(type="number" style="cursor: default" name=`attr_movement` value=30 readonly)
+    input.stat.standalone(type="number" name=`attr_movement` value=30 readonly)
   div.hero-stat-cell(style=`background-image: url('${iconPath}/initiative.png')`)
-    input.stat(type="number" style="cursor: default" name=`attr_initiative` value=0 readonly)
+    input.stat.standalone(type="number" name=`attr_initiative` value=0 readonly)
 
   each stat in ["strength", "stamina", "agility", "personality", "intelligence", "luck"]
     div.hero-stat-cell(style=`background-image: url('${iconPath}/${stat}.png')`)

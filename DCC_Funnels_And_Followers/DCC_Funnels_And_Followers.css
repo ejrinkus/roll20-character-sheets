@@ -11,8 +11,19 @@ div.sheet-hero {
   grid-gap: 1em 1em;
 }
 
-div.sheet-hero-header-cell {
+div.sheet-hero-name-occ-cell {
   grid-column-end: span 3;
+  grid-row-end: span 1;
+}
+
+div.sheet-hero-class-cell {
+  grid-column-end: span 2;
+  grid-row-end: span 1;
+}
+
+div.sheet-hero-level-cell,
+div.sheet-hero-title-cell {
+  grid-column-end: span 1;
   grid-row-end: span 1;
 }
 
@@ -38,18 +49,27 @@ input.sheet-stat-mod {
   text-align: center;
   color: black;
   font-weight: bold;
+  height: 24px;
+  width: 35px !important;
 }
 
 input.sheet-stat {
+  border-bottom: solid black;
   font-size: 1.5em;
-  height: 35px;
+  align-self: end;
+}
+
+input.sheet-stat.sheet-standalone {
+  background: transparent;
+  border: none;
+  align-self: center;
 }
 
 input.sheet-stat-mod {
   font-size: 1.25em;
   margin: 0 auto;
-  height: 29px;
   cursor: default;
+  align-self: start;
 }
 
 input.sheet-stat::-webkit-outer-spin-button,
@@ -101,7 +121,7 @@ div.sheet-hero-details-content {
 div.sheet-vitals {
   display: grid;
   grid-template-columns: 9em repeat(12, 3.5em);
-  grid-template-rows: repeat(9, auto);
+  grid-template-rows: repeat(12, auto);
   grid-gap: 0.25em 0.5em;
 }
 

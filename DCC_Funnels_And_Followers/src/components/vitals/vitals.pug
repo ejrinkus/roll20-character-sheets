@@ -39,3 +39,15 @@ div.vitals
   span.augur-note-if-crit **Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.
   //- Spacer row
   span.spacer &nbsp;
+  //- Start the max attributes row
+  span.inline-label.vitals-label Max Scores:
+  each stat in ["str", "sta", "agi", "per", "int", "luc"]
+    input(type="number" name=`attr_${stat}max` value=0)
+  span.spacer &nbsp;
+  //- Start max attributes labels row
+  span &nbsp;
+  each stat in ["STR", "STA", "AGI", "PER", "INT", "LUC"]
+    span #{stat}
+  span.spacer &nbsp;
+  //- Spacer row
+  span.spacer &nbsp;

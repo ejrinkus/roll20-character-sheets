@@ -2,28 +2,33 @@
 <div class="root"><span class="header">Heroes</span>
   <fieldset class="repeating_heroes">
     <div class="hero">
-      <div class="hero-header-cell"><span class="block-label">Name</span>
+      <div class="hero-name-occ-cell"><span class="block-label">Name</span>
         <input type="text" name="attr_name" value=""/>
       </div>
-      <div class="hero-header-cell"><span class="block-label">Occupation</span>
+      <div class="hero-name-occ-cell"><span class="block-label">Occupation</span>
         <input type="text" name="attr_occupation" value=""/>
       </div>
-      <div class="hero-header-cell"><span class="block-label">Class</span>
-        <input type="text" name="attr_class" value="Peasant"/>
+      <div class="hero-class-cell"><span class="block-label">Class</span>
+        <input type="text" style="width:133px" name="attr_class" value="None"/>
       </div>
-      <div class="hero-cell"></div>
+      <div class="hero-level-cell"><span class="block-label">Level</span>
+        <input type="number" name="attr_level" value="0"/>
+      </div>
+      <div class="hero-title-cell"><span class="block-label">Title</span>
+        <input type="text" style="width:64px" name="attr_title" value="Peasant"/>
+      </div>
       <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/funnels-and-followers/DCC_Funnels_And_Followers/assets/icons/heart.png')">
         <input class="stat" type="number" name="attr_hp" value="0"/>
         <input class="stat-mod" type="number" name="attr_hpmax" value="0" readonly="readonly"/>
       </div>
       <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/funnels-and-followers/DCC_Funnels_And_Followers/assets/icons/shield.png')">
-        <input class="stat" type="number" style="cursor: default" name="attr_ac" value="10" readonly="readonly"/>
+        <input class="stat standalone" type="number" name="attr_ac" value="10" readonly="readonly"/>
       </div>
       <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/funnels-and-followers/DCC_Funnels_And_Followers/assets/icons/movement.png')">
-        <input class="stat" type="number" style="cursor: default" name="attr_movement" value="30" readonly="readonly"/>
+        <input class="stat standalone" type="number" name="attr_movement" value="30" readonly="readonly"/>
       </div>
       <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/funnels-and-followers/DCC_Funnels_And_Followers/assets/icons/initiative.png')">
-        <input class="stat" type="number" style="cursor: default" name="attr_initiative" value="0" readonly="readonly"/>
+        <input class="stat standalone" type="number" name="attr_initiative" value="0" readonly="readonly"/>
       </div>
       <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/funnels-and-followers/DCC_Funnels_And_Followers/assets/icons/strength.png')">
         <input class="stat" type="number" name="attr_strength" value="0"/>
@@ -91,7 +96,13 @@
                 <input type="number" name="attr_augurmod" value="0"/>
                 <input type="number" name="attr_augurroll" value="0"/>
                 <input class="augur" type="text" name="attr_augur" value="" readonly="readonly"/><span>&nbsp;</span><span>Mod</span><span>Roll</span>
-                <input class="augur-roll" type="hidden" name="attr_augurroll"/><span class="augur-note-if-healing">*If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.</span><span class="augur-note-if-crit">**Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.</span><span class="spacer">&nbsp;</span>
+                <input class="augur-roll" type="hidden" name="attr_augurroll"/><span class="augur-note-if-healing">*If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.</span><span class="augur-note-if-crit">**Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.</span><span class="spacer">&nbsp;</span><span class="inline-label vitals-label">Max Scores:</span>
+                <input type="number" name="attr_strmax" value="0"/>
+                <input type="number" name="attr_stamax" value="0"/>
+                <input type="number" name="attr_agimax" value="0"/>
+                <input type="number" name="attr_permax" value="0"/>
+                <input type="number" name="attr_intmax" value="0"/>
+                <input type="number" name="attr_lucmax" value="0"/><span class="spacer">&nbsp;</span><span>&nbsp;</span><span>STR</span><span>STA</span><span>AGI</span><span>PER</span><span>INT</span><span>LUC</span><span class="spacer">&nbsp;</span><span class="spacer">&nbsp;</span>
               </div>
             </div>
             <input class="toggle" type="hidden" name="attr_selectinventory"/>

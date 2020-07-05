@@ -1,7 +1,7 @@
 div.sheet-vitals {
   display: grid;
   grid-template-columns: 9em repeat(12, 3.5em);
-  grid-template-rows: repeat(9, auto);
+  grid-template-rows: repeat(12, auto);
   grid-gap: 0.25em 0.5em;
 }
 
