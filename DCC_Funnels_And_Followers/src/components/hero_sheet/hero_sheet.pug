@@ -29,8 +29,8 @@ div.hero
 
   each stat in ["strength", "stamina", "agility", "personality", "intelligence", "luck"]
     div.hero-stat-cell(style=`background-image: url('${iconPath}/${stat}.png')`)
-      input.stat(type="number", name=`attr_${stat}`, value=0)
-      input.stat-mod(type="number", name=`attr_${stat}mod`, value=0, readonly)
+      //- input.stat(type="number", name=`attr_${stat}`, value=0)
+      input.stat.standalone(type="number", name=`attr_${stat}mod`, value=0, readonly)
 
   each lbl in ["HP", "AC", "MOV", "INI", "STR", "STA", "AGI", "PER", "INT", "LUC"]
     div.hero-label-cell

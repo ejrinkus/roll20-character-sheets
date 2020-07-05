@@ -31,28 +31,22 @@
         <input class="stat standalone" type="number" name="attr_initiative" value="0" readonly="readonly"/>
       </div>
       <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/funnels-and-followers/DCC_Funnels_And_Followers/assets/icons/strength.png')">
-        <input class="stat" type="number" name="attr_strength" value="0"/>
-        <input class="stat-mod" type="number" name="attr_strengthmod" value="0" readonly="readonly"/>
+        <input class="stat standalone" type="number" name="attr_strengthmod" value="0" readonly="readonly"/>
       </div>
       <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/funnels-and-followers/DCC_Funnels_And_Followers/assets/icons/stamina.png')">
-        <input class="stat" type="number" name="attr_stamina" value="0"/>
-        <input class="stat-mod" type="number" name="attr_staminamod" value="0" readonly="readonly"/>
+        <input class="stat standalone" type="number" name="attr_staminamod" value="0" readonly="readonly"/>
       </div>
       <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/funnels-and-followers/DCC_Funnels_And_Followers/assets/icons/agility.png')">
-        <input class="stat" type="number" name="attr_agility" value="0"/>
-        <input class="stat-mod" type="number" name="attr_agilitymod" value="0" readonly="readonly"/>
+        <input class="stat standalone" type="number" name="attr_agilitymod" value="0" readonly="readonly"/>
       </div>
       <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/funnels-and-followers/DCC_Funnels_And_Followers/assets/icons/personality.png')">
-        <input class="stat" type="number" name="attr_personality" value="0"/>
-        <input class="stat-mod" type="number" name="attr_personalitymod" value="0" readonly="readonly"/>
+        <input class="stat standalone" type="number" name="attr_personalitymod" value="0" readonly="readonly"/>
       </div>
       <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/funnels-and-followers/DCC_Funnels_And_Followers/assets/icons/intelligence.png')">
-        <input class="stat" type="number" name="attr_intelligence" value="0"/>
-        <input class="stat-mod" type="number" name="attr_intelligencemod" value="0" readonly="readonly"/>
+        <input class="stat standalone" type="number" name="attr_intelligencemod" value="0" readonly="readonly"/>
       </div>
       <div class="hero-stat-cell" style="background-image: url('https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/funnels-and-followers/DCC_Funnels_And_Followers/assets/icons/luck.png')">
-        <input class="stat" type="number" name="attr_luck" value="0"/>
-        <input class="stat-mod" type="number" name="attr_luckmod" value="0" readonly="readonly"/>
+        <input class="stat standalone" type="number" name="attr_luckmod" value="0" readonly="readonly"/>
       </div>
       <div class="hero-label-cell"><span class="block-label">HP</span></div>
       <div class="hero-label-cell"><span class="block-label">AC</span></div>
@@ -96,13 +90,25 @@
                 <input type="number" name="attr_augurmod" value="0"/>
                 <input type="number" name="attr_augurroll" value="0"/>
                 <input class="augur" type="text" name="attr_augur" value="" readonly="readonly"/><span>&nbsp;</span><span>Mod</span><span>Roll</span>
-                <input class="augur-roll" type="hidden" name="attr_augurroll"/><span class="augur-note-if-healing">*If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.</span><span class="augur-note-if-crit">**Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.</span><span class="spacer">&nbsp;</span><span class="inline-label vitals-label">Max Scores:</span>
-                <input type="number" name="attr_strengthmax" value="0"/>
-                <input type="number" name="attr_staminamax" value="0"/>
-                <input type="number" name="attr_agilitymax" value="0"/>
-                <input type="number" name="attr_personalitymax" value="0"/>
-                <input type="number" name="attr_intelligencemax" value="0"/>
-                <input type="number" name="attr_luckmax" value="0"/><span class="spacer">&nbsp;</span><span>&nbsp;</span><span>STR</span><span>STA</span><span>AGI</span><span>PER</span><span>INT</span><span>LUC</span><span class="spacer">&nbsp;</span><span class="spacer">&nbsp;</span>
+                <input class="augur-roll" type="hidden" name="attr_augurroll"/><span class="augur-note-if-healing">*If a cleric, applies to all healing the cleric performs.  Otherwise, applies to all magical healing received from other sources.</span><span class="augur-note-if-crit">**Luck normally affects critical hits and fumbles.  On this result, the modifier is doubled for purposes of crits or fumbles.</span><span class="spacer">&nbsp;</span><span class="inline-label vitals-label">Base Scores:</span>
+                <input type="number" name="attr_strengthbase" value="0"/>
+                <input type="number" name="attr_staminabase" value="0"/>
+                <input type="number" name="attr_agilitybase" value="0"/>
+                <input type="number" name="attr_personalitybase" value="0"/>
+                <input type="number" name="attr_intelligencebase" value="0"/>
+                <input type="number" name="attr_luckbase" value="0"/><span class="spacer">&nbsp;</span><span class="inline-label vitals-label">Bonuses:</span>
+                <input type="number" name="attr_strengthbonus" value="0"/>
+                <input type="number" name="attr_staminabonus" value="0"/>
+                <input type="number" name="attr_agilitybonus" value="0"/>
+                <input type="number" name="attr_personalitybonus" value="0"/>
+                <input type="number" name="attr_intelligencebonus" value="0"/>
+                <input type="number" name="attr_luckbonus" value="0"/><span class="spacer">&nbsp;</span><span class="inline-label vitals-label">Totals:</span>
+                <input type="number" name="attr_strength" value="0" readonly="readonly"/>
+                <input type="number" name="attr_stamina" value="0" readonly="readonly"/>
+                <input type="number" name="attr_agility" value="0" readonly="readonly"/>
+                <input type="number" name="attr_personality" value="0" readonly="readonly"/>
+                <input type="number" name="attr_intelligence" value="0" readonly="readonly"/>
+                <input type="number" name="attr_luck" value="0" readonly="readonly"/><span class="spacer">&nbsp;</span><span>&nbsp;</span><span>STR</span><span>STA</span><span>AGI</span><span>PER</span><span>INT</span><span>LUC</span><span class="spacer">&nbsp;</span><span class="spacer">&nbsp;</span>
               </div>
             </div>
             <input class="toggle" type="hidden" name="attr_selectinventory"/>
