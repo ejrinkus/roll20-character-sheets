@@ -1,21 +1,42 @@
 - var iconPath = 'https://raw.githubusercontent.com/ejrinkus/roll20-character-sheets/funnels-and-followers/DCC_Funnels_And_Followers/assets/icons'
 
 div.hero
-  div.hero-name-occ-cell
+  div.hero-3-cell
     span.block-label Name
-    input(type="text", name=`attr_name`, value="")
-  div.hero-name-occ-cell
+    input(type="text" name=`attr_name`, value="")
+  div.hero-3-cell
     span.block-label Occupation
-    input(type="text", name=`attr_occupation`, value="")
-  div.hero-class-cell
+    input(type="text" name=`attr_occupation`, value="")
+  div.hero-3-cell
+    span.block-label Alignment
+    select(name="attr_alignment")
+      option(value="<Select an alignment>") &lt;Select an alignment&gt;
+      option(value="Lawful") Lawful
+      option(value="Neutral") Neutral
+      option(value="Chaotic") Chaotic
+  div.hero-1-cell
+
+  div.hero-3-cell
     span.block-label Class
-    input(type="text", style="width:133px" name=`attr_class`, value="None")
-  div.hero-level-cell
-    span.block-label Level
-    input(type="number", name=`attr_level`, value=0)
-  div.hero-title-cell
+    select(name="attr_class")
+      option(value="None") None
+      option(value="Cleric") Cleric
+      option(value="Thief") Thief
+      option(value="Warrior") Warrior
+      option(value="Wizard") Wizard
+      option(value="Dwarf") Dwarf
+      option(value="Elf") Elf
+      option(value="Halfling") Halfling
+  div.hero-3-cell
     span.block-label Title
-    input(type="text", style="width:64px" name=`attr_title`, value="Peasant")
+    input(type="text" name=`attr_title` value="Peasant")
+  div.hero-2-cell
+    span.block-label Experience
+    input(type="number" style="width:140px;" name=`attr_experience` value=0)
+  div.hero-1-cell
+    span.block-label Level
+    input(type="number" name=`attr_level` value=0)
+  div.hero-1-cell
 
   div.hero-stat-cell(style=`background-image: url('${iconPath}/heart.png')`)
     input.stat(type="number" name=`attr_hp` value=0)

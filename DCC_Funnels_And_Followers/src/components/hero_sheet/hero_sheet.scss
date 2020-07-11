@@ -8,22 +8,21 @@ div.sheet-hero {
   box-shadow: 0.5em 0.5em 0.5em #606060;
 
   grid-template-columns: repeat(10, minmax(auto, 64px));
-  grid-template-rows: auto 64px auto auto;
+  grid-template-rows: auto auto 64px auto auto;
   grid-gap: 1em 1em;
 }
 
-div.sheet-hero-name-occ-cell {
+div.sheet-hero-3-cell {
   grid-column-end: span 3;
   grid-row-end: span 1;
 }
 
-div.sheet-hero-class-cell {
+div.sheet-hero-2-cell {
   grid-column-end: span 2;
   grid-row-end: span 1;
 }
 
-div.sheet-hero-level-cell,
-div.sheet-hero-title-cell {
+div.sheet-hero-1-cell {
   grid-column-end: span 1;
   grid-row-end: span 1;
 }
