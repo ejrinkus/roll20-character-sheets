@@ -117,6 +117,22 @@ div.sheet-hero-details-content {
   display: none;
 }
 
+div.sheet-abilities textarea {
+  width: 738px;
+}
+
+div.sheet-inventory textarea {
+  width: 738px;
+}
+
+div.sheet-spells textarea {
+  width: 738px;
+}
+
+div.sheet-status textarea {
+  width: 738px;
+}
+
 div.sheet-vitals {
   display: grid;
   grid-template-columns: 9em repeat(12, 3.5em);

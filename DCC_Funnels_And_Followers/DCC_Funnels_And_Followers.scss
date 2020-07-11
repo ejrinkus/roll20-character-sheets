@@ -1,5 +1,9 @@
 @use 'src/components/hero_sheet/hero_sheet.scss';
 @use 'src/components/hero_details/hero_details.scss';
+@use 'src/components/abilities/abilities.scss';
+@use 'src/components/inventory/inventory.scss';
+@use 'src/components/spells/spells.scss';
+@use 'src/components/status/status.scss';
 @use 'src/components/vitals/vitals.scss';
 
 @import url('https://fonts.googleapis.com/css?family=IM+Fell+English+SC|Marko+One&display=swap');
