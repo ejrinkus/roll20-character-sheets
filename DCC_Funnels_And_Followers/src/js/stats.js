@@ -99,6 +99,19 @@
     getAttrs(inputKeys, function (values) {
       var updates = {};
 
+      // The very first thing we handle is the birth augur, since this could impact many
+      // other parts of the sheet.
+      var augur = parseInt(values[`${prefix}_augurroll`])||0;
+      var augurMod = parseInt(values[`${prefix}_augurmod`])||0;
+      if (augur < 0) {
+        augur = 0;
+        updates[`${prefix}_augurroll`] = augur;
+      } else if (augur > 30) {
+        augur = 30;
+        updates[`${prefix}_augurroll`] = augur;
+      }
+      updates[`${prefix}_augur`] = birthAugurs[augur];
+
       // Recalc the ability scores and modifiers.
       abilityScores.forEach(function (as) {
         var newScore = (parseInt(values[`${prefix}_${as}base`])||0) +
@@ -112,8 +125,12 @@
                                           .map(i => `${prefix}_basehp${i}`)
                                           .map(key => parseInt(values[key])||0)
                                           .reduce((sum, val) => sum + val);
-      var newMaxHp = updates[`${prefix}_basehptotal`] + updates[`${prefix}_staminamod`]
-      if (newMaxHp < 0) { newMaxHp = 1; }
+      var newMaxHp = updates[`${prefix}_basehptotal`] + updates[`${prefix}_staminamod`];
+      if (augur == 25) {
+        var level = parseInt(values[`${prefix}_level`])||0;
+        newMaxHp += augurMod * (level+1)
+      }
+      if (newMaxHp < 1) { newMaxHp = 1; }
       updates[`${prefix}_hpmax`] = newMaxHp;
 
       // If the current hp is greater than the new hpmax, reduce hp to match hpmax.
@@ -123,134 +140,24 @@
 
       // And we can also update AC and INI based on the agility modifier
       updates[`${prefix}_ac`] = updates[`${prefix}_agilitymod`] + 10;
+      if (augur == 23) { updates[`${prefix}_ac`] += augurMod; }
+
       updates[`${prefix}_initiative`] = updates[`${prefix}_agilitymod`];
+      if (augur == 24) { updates[`${prefix}_ac`] += augurMod; }
 
       // Saves are based on the stamina, agility, and personality modifiers.
-      updates[`${prefix}_forsave`] = updates[`${prefix}_staminamod`];
       updates[`${prefix}_refsave`] = updates[`${prefix}_agilitymod`];
+      if (augur == 17 || augur == 20) { updates[`${prefix}_refsave`] += augurMod; }
+
+      updates[`${prefix}_forsave`] = updates[`${prefix}_staminamod`];
+      if (augur == 17 || augur == 21) { updates[`${prefix}_forsave`] += augurMod; }
+
       updates[`${prefix}_wilsave`] = updates[`${prefix}_personalitymod`];
+      if (augur == 17 || augur == 22) { updates[`${prefix}_wilsave`] += augurMod; }
 
-      // Now we need to handle the birth augur.  This means figuring out which augur is
-      // selected, updating the text description, and then updating the corresponding
-      // attribute (if necessary).
-      var augur = parseInt(values[`${prefix}_augurroll`])||0;
-      var augurMod = parseInt(values[`${prefix}_augurmod`])||0;
-      if (augur < 0) {
-        augur = 0;
-        updates[`${prefix}_augurroll`] = augur;
-      } else if (augur > 30) {
-        augur = 30;
-        updates[`${prefix}_augurroll`] = augur;
-      }
-      updates[`${prefix}_augur`] = birthAugurs[augur];
-
-      switch (augur) {
-        case 0:
-          // Description: <-- Enter your birth augur roll
-          break;
-        case 1:
-          // Description: Harsh winter: All attack rolls
-          break;
-        case 2:
-          // Description: The bull: Melee attack rolls
-          break;
-        case 3:
-          // Description: Fortunate date: Missile fire attack rolls
-          break;
-        case 4:
-          // Description: Raised by wolves: Unarmed attack rolls
-          break;
-        case 5:
-          // Description: Conceived on horseback: Mounted attack rolls
-          break;
-        case 6:
-          // Description: Born on the battlefield: Damage rolls
-          break;
-        case 7:
-          // Description: Path of the bear: Melee damage rolls
-          break;
-        case 8:
-          // Description: Hawkeye: Missile fire damage rolls
-          break;
-        case 9:
-          // Description: Pack hunter: Attack and damage rolls for 0-level starting weapon
-          break;
-        case 10:
-          // Description: Born under the loom: Skill checks (including thief skills)
-          break;
-        case 11:
-          // Description: Fox’s cunning: Find/disable traps
-          break;
-        case 12:
-          // Description: Four-leafed clover: Find secret doors
-          break;
-        case 13:
-          // Description: Seventh son: Spell checks
-          break;
-        case 14:
-          // Description: The raging storm: Spell damage
-          break;
-        case 15:
-          // Description: Righteous heart: Turn unholy checks
-          break;
-        case 16:
-          // Description: Survived the plague: Magical healing*
-          break;
-        case 17:
-          // Description: Lucky sign: Saving throws
-          updates[`${prefix}_forsave`] += augurMod;
-          updates[`${prefix}_refsave`] += augurMod;
-          updates[`${prefix}_wilsave`] += augurMod;
-          break;
-        case 18:
-          // Description: Guardian angel: Savings throws to escape traps
-          break;
-        case 19:
-          // Description: Survived a spider bite: Saving throws against poison
-          break;
-        case 20:
-          // Description: Struck by lightning: Reflex saving throws
-          updates[`${prefix}_refsave`] += augurMod;
-          break;
-        case 21:
-          // Description: Lived through famine: Fortitude saving throws
-          updates[`${prefix}_forsave`] += augurMod;
-          break;
-        case 22:
-          // Description: Resisted temptation: Willpower saving throws
-          updates[`${prefix}_wilsave`] += augurMod;
-          break;
-        case 23:
-          // Description: Charmed house: Armor Class
-          updates[`${prefix}_ac`] += augurMod;
-          break;
-        case 24:
-          // Description: Speed of the cobra: Initiative
-          updates[`${prefix}_initiative`] += augurMod;
-          break;
-        case 25:
-          // Description: Bountiful harvest: Hit points (applies at each level)
-          var level = parseInt(values[`${prefix}_level`])||0;
-          updates[`${prefix}_hpmax`] += augurMod * (level+1);
-          break;
-        case 26:
-          // Description: Warrior’s arm: Critical hit tables**
-          break;
-        case 27:
-          // Description: Unholy house: Corruption rolls
-          break;
-        case 28:
-          // Description: The Broken Star: Fumbles**
-          break;
-        case 29:
-          // Description: Birdsong: Number of languages
-          break;
-        case 30:
-          // Description: Wild child: Speed (each +1/-1 = +5’/-5’ speed)
-          updates[`${prefix}_movement`] = 30 + (augurMod * 5);
-          break;
-        default:
-          break;
+      // Only sheet attribute remaining that the birth augur could affect is movement.
+      if (augur == 30) {
+        updates[`${prefix}_movement`] = 30 + (augurMod * 5);
       }
 
       // And finally, we can commit the recalculations.
