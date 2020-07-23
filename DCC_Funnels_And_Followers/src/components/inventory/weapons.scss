@@ -1,0 +1,22 @@
+div.sheet-weapon-form {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-template-rows: repeat(15, auto);
+  grid-gap: 0.25em 0.5em;
+
+  input {
+    height: 28px;
+  }
+  input[type="number"],
+  select {
+    width: 66px;
+  }
+  input.sheet-damage {
+    width: 105px;
+  }
+
+  span.sheet-spacer {
+    height: 1em;
+    grid-column-end: 6;
+  }
+}

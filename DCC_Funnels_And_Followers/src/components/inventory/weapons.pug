@@ -1,0 +1,26 @@
+div.weapon-form
+  each i in [0, 1, 2]
+    span Name
+    span Damage
+    span Sneak Damage
+    span Range
+    span Value
+    input(type="text" name=`attr_weaponname${i}`)
+    input.damage(type="text" name=`attr_weapondamage${i}`)
+    input.damage(type="text" name=`attr_weaponsneakdamage${i}`)
+    input.damage(type="text" name=`attr_weaponrange${i}`)
+    input(type="number" name=`attr_weaponvalue${i}`)
+    div
+      input(type="checkbox" name=`attr_weapon2h${i}`)
+      span &nbsp;Two-Handed?
+    div
+      input(type="checkbox" name=`attr_weaponthrown${i}`)
+      span &nbsp;Thrown?
+    div
+      input(type="checkbox" name=`attr_weaponsubdual${i}`)
+      span &nbsp;Subdual?
+    div
+      input(type="checkbox" name=`attr_weaponmount${i}`)
+      span &nbsp;Mount Weapon?
+    span
+    span.spacer

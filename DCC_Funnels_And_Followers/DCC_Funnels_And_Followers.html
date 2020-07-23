@@ -135,8 +135,85 @@
             </div>
             <input class="toggle" type="hidden" name="attr_selectinventory"/>
             <div class="hero-details-content">
-              <div class="inventory">TODO: Implement inventory form
-                <textarea name="attr_inventoryplaceholder"></textarea>
+              <div class="inventory"><span class="block-label">Armor</span>
+                <div class="armor-form"><span>Name</span><span>AC</span><span>Checks</span><span>Speed</span><span>Fumble Die</span><span>Value</span>
+                  <input type="text" name="attr_armorname"/>
+                  <input type="number" name="attr_armoracbonus"/>
+                  <input type="number" name="attr_armorcheckpenalty"/>
+                  <input type="number" name="attr_armorspeedpenalty"/>
+                  <select name="attr_armorfumbledie">
+                    <option value="d4">d3</option>
+                    <option value="d4">d4</option>
+                    <option value="d4">d5</option>
+                    <option value="d4">d6</option>
+                    <option value="d4">d7</option>
+                    <option value="d4">d8</option>
+                    <option value="d4">d10</option>
+                    <option value="d4">d12</option>
+                    <option value="d4">d14</option>
+                    <option value="d4">d16</option>
+                    <option value="d4">d20</option>
+                    <option value="d4">d24</option>
+                    <option value="d4">d30</option>
+                  </select>
+                  <input type="number" name="attr_armorvalue"/><span class="spacer"></span>
+                </div><span class="block-label">Weapons</span>
+                <div class="weapon-form"><span>Name</span><span>Damage</span><span>Sneak Damage</span><span>Range</span><span>Value</span>
+                  <input type="text" name="attr_weaponname0"/>
+                  <input class="damage" type="text" name="attr_weapondamage0"/>
+                  <input class="damage" type="text" name="attr_weaponsneakdamage0"/>
+                  <input class="damage" type="text" name="attr_weaponrange0"/>
+                  <input type="number" name="attr_weaponvalue0"/>
+                  <div>
+                    <input type="checkbox" name="attr_weapon2h0"/><span>&nbsp;Two-Handed?</span>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="attr_weaponthrown0"/><span>&nbsp;Thrown?</span>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="attr_weaponsubdual0"/><span>&nbsp;Subdual?</span>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="attr_weaponmount0"/><span>&nbsp;Mount Weapon?</span>
+                  </div><span></span><span class="spacer"></span><span>Name</span><span>Damage</span><span>Sneak Damage</span><span>Range</span><span>Value</span>
+                  <input type="text" name="attr_weaponname1"/>
+                  <input class="damage" type="text" name="attr_weapondamage1"/>
+                  <input class="damage" type="text" name="attr_weaponsneakdamage1"/>
+                  <input class="damage" type="text" name="attr_weaponrange1"/>
+                  <input type="number" name="attr_weaponvalue1"/>
+                  <div>
+                    <input type="checkbox" name="attr_weapon2h1"/><span>&nbsp;Two-Handed?</span>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="attr_weaponthrown1"/><span>&nbsp;Thrown?</span>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="attr_weaponsubdual1"/><span>&nbsp;Subdual?</span>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="attr_weaponmount1"/><span>&nbsp;Mount Weapon?</span>
+                  </div><span></span><span class="spacer"></span><span>Name</span><span>Damage</span><span>Sneak Damage</span><span>Range</span><span>Value</span>
+                  <input type="text" name="attr_weaponname2"/>
+                  <input class="damage" type="text" name="attr_weapondamage2"/>
+                  <input class="damage" type="text" name="attr_weaponsneakdamage2"/>
+                  <input class="damage" type="text" name="attr_weaponrange2"/>
+                  <input type="number" name="attr_weaponvalue2"/>
+                  <div>
+                    <input type="checkbox" name="attr_weapon2h2"/><span>&nbsp;Two-Handed?</span>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="attr_weaponthrown2"/><span>&nbsp;Thrown?</span>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="attr_weaponsubdual2"/><span>&nbsp;Subdual?</span>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="attr_weaponmount2"/><span>&nbsp;Mount Weapon?</span>
+                  </div><span></span><span class="spacer"></span>
+                </div><span class="block-label">Other Possessions</span>
+                <div class="miscellaneous">
+                  <textarea name="attr_inventoryplaceholder"></textarea>
+                </div>
               </div>
             </div>
             <input class="toggle" type="hidden" name="attr_selectstatus"/>

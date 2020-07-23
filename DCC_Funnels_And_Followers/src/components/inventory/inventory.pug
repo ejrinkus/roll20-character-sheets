@@ -1,3 +1,11 @@
 div.inventory
-  | TODO: Implement inventory form
-  textarea(name="attr_inventoryplaceholder")
+
+  span.block-label Armor
+  include ./armor.pug
+
+  span.block-label Weapons
+  include ./weapons.pug
+  
+  span.block-label Other Possessions
+  div.miscellaneous
+    textarea(name="attr_inventoryplaceholder")

@@ -121,6 +121,45 @@ div.sheet-abilities textarea {
   width: 738px;
 }
 
+div.sheet-armor-form {
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  grid-template-rows: repeat(3, auto);
+  grid-gap: 0.25em 0.5em;
+}
+div.sheet-armor-form input {
+  height: 28px;
+}
+div.sheet-armor-form input[type=number],
+div.sheet-armor-form select {
+  width: 66px;
+}
+div.sheet-armor-form span.sheet-spacer {
+  height: 1em;
+  grid-column-end: 7;
+}
+
+div.sheet-weapon-form {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-template-rows: repeat(15, auto);
+  grid-gap: 0.25em 0.5em;
+}
+div.sheet-weapon-form input {
+  height: 28px;
+}
+div.sheet-weapon-form input[type=number],
+div.sheet-weapon-form select {
+  width: 66px;
+}
+div.sheet-weapon-form input.sheet-damage {
+  width: 105px;
+}
+div.sheet-weapon-form span.sheet-spacer {
+  height: 1em;
+  grid-column-end: 6;
+}
+
 div.sheet-inventory textarea {
   width: 738px;
 }
