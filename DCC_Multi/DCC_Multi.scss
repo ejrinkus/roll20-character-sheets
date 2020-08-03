@@ -1,0 +1,11 @@
+@use 'src/css/header.scss';
+
+* {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+input[type="number"].sheet-wide-number {
+  // Default width is 3.5em
+  min-width: 5em;
+}
