@@ -5,6 +5,20 @@ div.sheet-header {
   grid-template-rows: auto auto;
 }
 
+div.sheet-scores {
+  background-color: lightblue;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  grid-template-rows: auto auto auto auto auto auto auto;
+}
+
+div.sheet-combat-summary {
+  background-color: #a53737;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
+}
+
 * {
   margin-right: 10px;
   margin-bottom: 10px;
@@ -12,6 +26,16 @@ div.sheet-header {
 
 input[type=number].sheet-wide-number {
   min-width: 5em;
+}
+
+div.sheet-character {
+  background-color: lightgray;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+}
+div.sheet-character div.sheet-header {
+  grid-column: 1/span 2;
 }
 
 /*# sourceMappingURL=DCC_Multi.css.map */

@@ -1,0 +1,15 @@
+div.scores
+  span Name
+  span Rolled
+  span Bonuses
+  span Total
+  span Current
+  span Modifier
+
+  each stat in abilityScoreLabels
+    span #{stat[0]}
+    input(type="number" name=`attr_${stat[1]}Rolled`)
+    input(type="number" name=`attr_${stat[1]}Bonuses` readonly)
+    input(type="number" name=`attr_${stat[1]}Total` readonly)
+    input(type="number" name=`attr_${stat[1]}Current`)
+    input(type="number" name=`attr_${stat[1]}Mod` readonly)

@@ -1,1 +1,12 @@
-include src/html/header.pug
+-
+  var abilityScoreLabels = [["Strength", "str"],
+                            ["Stamina", "sta"],
+                            ["Agility", "agi"],
+                            ["Intelligence", "int"],
+                            ["Personality", "per"],
+                            ["Luck", "luc"]]
+
+div.character
+  include src/html/header.pug
+  include src/html/ability_scores.pug
+  include src/html/combat_summary.pug

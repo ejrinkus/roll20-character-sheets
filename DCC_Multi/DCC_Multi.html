@@ -1,37 +1,93 @@
 
-<div class="header">
-  <div>
-    <label>Player Name</label>
-    <input type="text" placeholder="Player Name" name="attr_player"/>
+<div class="character">
+  <div class="header">
+    <div>
+      <label>Player Name</label>
+      <input type="text" placeholder="Player Name" name="attr_player"/>
+    </div>
+    <div>
+      <label>Character Name</label>
+      <input type="text" placeholder="Character Name" name="attr_name"/>
+    </div>
+    <div>
+      <label>Occupation</label>
+      <input type="text" placeholder="Occupation" name="attr_occupation"/>
+    </div>
+    <div>
+      <label>Class</label>
+      <select name="attr_class">
+        <option value="Peasant" selected="selected">Peasant</option>
+        <option value="Cleric">Cleric</option>
+        <option value="Thief">Thief</option>
+        <option value="Warrior">Warrior</option>
+        <option value="Wizard">Wizard</option>
+        <option value="Dwarf">Dwarf</option>
+        <option value="Elf">Elf</option>
+        <option value="Halfling">Halfling</option>
+      </select>
+    </div>
+    <div>
+      <label>Title</label>
+      <input type="text" placeholder="Title" name="attr_title"/>
+    </div>
+    <div>
+      <label>Level &amp; XP</label>
+      <input class="wide-number" type="number" placeholder="Level" name="attr_level"/>
+      <input class="wide-number" type="number" placeholder="XP" name="attr_xp"/>
+    </div>
   </div>
-  <div>
-    <label>Character Name</label>
-    <input type="text" placeholder="Character Name" name="attr_name"/>
+  <div class="scores"><span>Name</span><span>Rolled</span><span>Bonuses</span><span>Total</span><span>Current</span><span>Modifier</span><span>Strength</span>
+    <input type="number" name="attr_strRolled"/>
+    <input type="number" name="attr_strBonuses" readonly="readonly"/>
+    <input type="number" name="attr_strTotal" readonly="readonly"/>
+    <input type="number" name="attr_strCurrent"/>
+    <input type="number" name="attr_strMod" readonly="readonly"/><span>Stamina</span>
+    <input type="number" name="attr_staRolled"/>
+    <input type="number" name="attr_staBonuses" readonly="readonly"/>
+    <input type="number" name="attr_staTotal" readonly="readonly"/>
+    <input type="number" name="attr_staCurrent"/>
+    <input type="number" name="attr_staMod" readonly="readonly"/><span>Agility</span>
+    <input type="number" name="attr_agiRolled"/>
+    <input type="number" name="attr_agiBonuses" readonly="readonly"/>
+    <input type="number" name="attr_agiTotal" readonly="readonly"/>
+    <input type="number" name="attr_agiCurrent"/>
+    <input type="number" name="attr_agiMod" readonly="readonly"/><span>Intelligence</span>
+    <input type="number" name="attr_intRolled"/>
+    <input type="number" name="attr_intBonuses" readonly="readonly"/>
+    <input type="number" name="attr_intTotal" readonly="readonly"/>
+    <input type="number" name="attr_intCurrent"/>
+    <input type="number" name="attr_intMod" readonly="readonly"/><span>Personality</span>
+    <input type="number" name="attr_perRolled"/>
+    <input type="number" name="attr_perBonuses" readonly="readonly"/>
+    <input type="number" name="attr_perTotal" readonly="readonly"/>
+    <input type="number" name="attr_perCurrent"/>
+    <input type="number" name="attr_perMod" readonly="readonly"/><span>Luck</span>
+    <input type="number" name="attr_lucRolled"/>
+    <input type="number" name="attr_lucBonuses" readonly="readonly"/>
+    <input type="number" name="attr_lucTotal" readonly="readonly"/>
+    <input type="number" name="attr_lucCurrent"/>
+    <input type="number" name="attr_lucMod" readonly="readonly"/>
   </div>
-  <div>
-    <label>Occupation</label>
-    <input type="text" placeholder="Occupation" name="attr_occupation"/>
-  </div>
-  <div>
-    <label>Class</label>
-    <select name="attr_class">
-      <option value="Peasant" selected="selected">Peasant</option>
-      <option value="Cleric">Cleric</option>
-      <option value="Thief">Thief</option>
-      <option value="Warrior">Warrior</option>
-      <option value="Wizard">Wizard</option>
-      <option value="Dwarf">Dwarf</option>
-      <option value="Elf">Elf</option>
-      <option value="Halfling">Halfling</option>
-    </select>
-  </div>
-  <div>
-    <label>Title</label>
-    <input type="text" placeholder="Title" name="attr_title"/>
-  </div>
-  <div>
-    <label>Level &amp; XP</label>
-    <input class="wide-number" type="number" placeholder="Level" name="attr_level"/>
-    <input class="wide-number" type="number" placeholder="XP" name="attr_xp"/>
+  <div class="combat-summary">
+    <div>
+      <label>Current HP</label>
+      <input type="number" name="attr_hpCurr"/>
+    </div>
+    <div>
+      <label>Max HP</label>
+      <input type="number" name="attr_hpMax"/>
+    </div>
+    <div>
+      <label>AC</label>
+      <input type="number" name="attr_ac"/>
+    </div>
+    <div>
+      <label>Movement</label>
+      <input type="number" name="attr_movement"/>
+    </div>
+    <div>
+      <label>Initiative</label>
+      <input type="number" name="attr_initiative"/>
+    </div>
   </div>
 </div>

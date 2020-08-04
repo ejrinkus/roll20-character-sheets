@@ -1,4 +1,6 @@
 @use 'src/css/header.scss';
+@use 'src/css/ability_scores.scss';
+@use 'src/css/combat_summary.scss';
 
 * {
   margin-right: 10px;
@@ -8,4 +10,14 @@
 input[type="number"].sheet-wide-number {
   // Default width is 3.5em
   min-width: 5em;
+}
+
+div.sheet-character {
+  background-color: lightgray;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  div.sheet-header {
+    grid-column: 1 / span 2;
+  }
 }
