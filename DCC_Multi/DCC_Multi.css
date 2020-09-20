@@ -34,7 +34,8 @@ div.sheet-character {
   grid-template-columns: auto auto;
   grid-template-rows: auto auto;
 }
-div.sheet-character div.sheet-header {
+div.sheet-character div.sheet-header,
+div.sheet-character div.sheet-weapons {
   grid-column: 1/span 2;
 }
 
